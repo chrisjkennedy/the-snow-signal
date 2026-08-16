@@ -69,9 +69,9 @@
         <span class="scenario-panel-title">Explore a different scenario</span>
         <span class="scenario-status" id="scenario-status">Currently showing live data</span>
       </div>
-      <p class="scenario-panel-sub">Override the live signal to see how the rankings and narratives below would change. This never edits the live reading above — it's a hypothetical, clearly marked, and one click from resetting.</p>
+      <p class="scenario-panel-sub">Override the live signal to see how the rankings and narratives below would change. This never edits the live reading above — it's a hypothetical, clearly marked, and one click from resetting. ENSO and NAO are set independently below, so each one shows its own status — check both if something looks stuck.</p>
       <div class="scenario-controls">
-        <label>ENSO phase
+        <label>ENSO phase <span class="override-tag" id="phase-override-tag" hidden>overriding</span>
           <select id="scenario-phase">
             <option value="live">Use live phase</option>
             <option value="el_nino">El Niño</option>
@@ -87,7 +87,7 @@
             <option value="very_strong">Very strong</option>
           </select>
         </label>
-        <label>NAO
+        <label>NAO <span class="override-tag" id="nao-override-tag" hidden>overriding</span>
           <select id="scenario-nao">
             <option value="live">Use live NAO</option>
             <option value="strong_negative">Strong negative</option>
@@ -98,8 +98,9 @@
           </select>
         </label>
         <button type="button" id="scenario-apply">Apply scenario</button>
-        <button type="button" id="scenario-reset" hidden>Reset to live</button>
+        <button type="button" id="scenario-reset" hidden>Reset everything to live</button>
       </div>
+      <p class="scenario-live-readout" id="scenario-live-readout"></p>
     </div>
 
     <div class="scenario-banner" id="scenario-banner" hidden>

@@ -347,7 +347,7 @@
         "positive": {
           "signal": "bear", "signal_label": "Bearish", "meter_pct": 24, "meter_display": "~70–80% of avg",
           "narrative": "Positive NAO is the Northeast's most reliable bearish signal. It keeps the storm track and cold air locked north over Canada, producing a milder, more rain-prone pattern that compresses the season from both ends.",
-          "caveat": "A positive NAO can still flip mid-winter — this is a monthly reading, not a season-long lock. Watch for it turning negative in Dec–Feb."
+          "caveat": "A positive NAO doesn't rule out a single extreme storm — some of the region's biggest Nor'easters on record happened outside a clean negative-NAO winter, so don't read this as 'no snow is possible.' The correlation is also weaker in northern Maine and northern Vermont (Sugarloaf, Jay Peak), where research shows NAO's signal gets blurred by lake-effect and terrain influences that work regardless of phase — this bearish call applies most cleanly to central/southern New England (Killington, Stowe, Sugarbush, Sunday River, Cannon)."
         }
       },
       "resorts": [

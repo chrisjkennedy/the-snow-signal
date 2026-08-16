@@ -4,11 +4,12 @@
   "enso_summary": "A weak La Niña: ONI bottomed around -0.61 in Oct–Dec 2025, then faded through neutral by February–March 2026 (ONI -0.21 by JFM). This site's phase-selection logic would have shown \"La Niña\" content through roughly January, then flipped toward \"Neutral\" for the back half of the season — a real example of the mid-season phase shifts this site is built to track.",
   "headline_wildcard": {
     "title": "The March 2026 ridge overrode ENSO across the Interior West",
-    "text": "An exceptional, prolonged ridge centered on Utah and the Great Basin drove the warmest March on record for Colorado (3–4°F above the previous record) and record-high March temperatures across CO/UT/WY. It melted an already-thin snowpack up to 65 days early. April 1, 2026 SWE hit record lows: Colorado 24% of median, Utah 22%, Wyoming 47% — the worst readings since SNOTEL monitoring began in the 1980s. This is exactly the kind of non-ENSO wildcard flagged in the Key Wildcards section below, and it's the single biggest reason this season's actual outcomes diverged from the ENSO-only predictions in the Interior West.",
+    "text": "An exceptional, prolonged ridge centered on Utah and the Great Basin drove the warmest March on record for Colorado (3–4°F above the previous record) and record-high March temperatures across CO/UT/WY. It melted an already-thin snowpack up to 65 days early. April 1, 2026 SWE hit record lows: Colorado 22% of the 30-year median (the previous SNOTEL-era low was 2012 at 9.1in; 2026's 3.3in was barely a third of even that), Utah 19% of normal (statewide records back to 1930, beating the prior low from 2015 by roughly a factor of five). Utah's case in particular was more a warm-winter story than a dry one — mountain precipitation ran close to 87% of normal, but persistent warmth converted much of it to rain and pulled peak snowpack forward by three-plus weeks. This is exactly the kind of non-ENSO wildcard flagged in the Key Wildcards section below, and it's the single biggest reason this season's actual outcomes diverged from the ENSO-only predictions in the Interior West.",
     "sources": [
       { "label": "Weather West: Extraordinary March heatwave to decimate mountain snowpack", "url": "https://weatherwest.com/archives/43745" },
-      { "label": "Aspen Journalism: March heat wave fueled worst end-of-winter snowpack on record", "url": "https://aspenjournalism.org/march-heat-wave-fueled-worst-end-of-winter-snowpack-on-record/" },
-      { "label": "NRCS Colorado: Record Low April 1 Snowpack across Western U.S.", "url": "https://www.nrcs.usda.gov/state-offices/colorado/news/record-low-april-1-snowpack-across-western-us-means-impending-water" }
+      { "label": "Colorado Sun: Colorado snowpack at shocking, historic lows", "url": "https://coloradosun.com/2026/04/03/colorado-snowpack-drought-record-lows/" },
+      { "label": "NRCS Colorado: Record Low April 1 Snowpack across Western U.S.", "url": "https://www.nrcs.usda.gov/state-offices/colorado/news/record-low-april-1-snowpack-across-western-us-means-impending-water" },
+      { "label": "TownLift: Utah snowpack at just 19% of normal, lowest ever recorded", "url": "https://townlift.com/2026/04/utah-snowpack-at-just-19-of-normal-lowest-ever-recorded/" }
     ]
   },
   "regions": [
@@ -50,7 +51,7 @@
     {
       "region_id": "utah-central-colorado",
       "predicted": "Mixed / near average — this site explicitly flags ENSO as having no real predictive power here in any phase",
-      "actual": "The worst season on record. Salt Lake City had its least snowy winter on record; Colorado's April 1 SWE was 24% of median (less than a third of the prior record low, dating to the 1938-39 Dust Bowl era); Utah came in at 22%.",
+      "actual": "The worst season on record. Salt Lake City had its least snowy winter on record; Colorado's April 1 SWE was 22% of the 30-year median (the prior SNOTEL-era low was 2012, and 2026 came in at roughly a third of even that); Utah's statewide April 1 SWE was 19% of normal, the lowest since records began in 1930 — and notably a warm-winter story (precipitation near 87% of normal) more than a purely dry one.",
       "verdict": "correct-for-the-right-reason",
       "note": "This is the most interesting result of the season: the model correctly refused to credit or blame ENSO for this region, and the actual driver was exactly what an ENSO model can't see — a record-breaking blocking ridge. A historic anomaly happened, and no ENSO-only model, including this one, would have caught it. That's a real limitation worth stating plainly rather than papering over."
     },

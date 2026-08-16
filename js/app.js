@@ -679,12 +679,38 @@ function currentPhaseKeyFor(oni) {
   return oni?.phase && state.phaseCopy[oni.phase] ? oni.phase : 'neutral';
 }
 
-function setScenarioUiState(active, label) {
+/**
+ * Always renders BOTH axes explicitly (never just "the overridden one") —
+ * the confusing case was a user resetting only the ENSO dropdown back to
+ * "live," clicking Apply, and the page correctly staying in scenario mode
+ * because NAO was still overridden, with nothing on screen making that
+ * obvious. Now both axes' status are always spelled out, plus a small
+ * "overriding" tag sits directly on whichever dropdown(s) are engaged.
+ */
+function setScenarioUiState(phaseChoice, naoChoice, oniForRender, signalsForRender) {
+  const active = phaseChoice !== 'live' || naoChoice !== 'live';
   state.scenarioActive = active;
+
   const status = document.getElementById('scenario-status');
   const banner = document.getElementById('scenario-banner');
   const bannerText = document.getElementById('scenario-banner-text');
   const resetBtn = document.getElementById('scenario-reset');
+  const readout = document.getElementById('scenario-live-readout');
+  document.getElementById('phase-override-tag').hidden = phaseChoice === 'live';
+  document.getElementById('nao-override-tag').hidden = naoChoice === 'live';
+
+  const ensoText = phaseChoice === 'live'
+    ? `live (${state.oni ? state.oni.phase_label : 'unavailable'})`
+    : `<strong>scenario override</strong> — ${oniForRender.phase_label}`;
+  const naoText = naoChoice === 'live'
+    ? `live (${state.signals?.nao ? state.signals.nao.phase : 'unavailable'})`
+    : `<strong>scenario override</strong> — ${SCENARIO_NAO_LABEL[naoChoice]}`;
+  readout.innerHTML = `ENSO: ${ensoText} &nbsp;·&nbsp; NAO: ${naoText}`;
+
+  const labelParts = [];
+  if (phaseChoice !== 'live') labelParts.push(oniForRender.phase_label);
+  if (naoChoice !== 'live') labelParts.push(`NAO ${SCENARIO_NAO_LABEL[naoChoice]}`);
+  const label = labelParts.join(' + ');
 
   status.textContent = active ? `Viewing scenario: ${label}` : 'Currently showing live data';
   status.classList.toggle('active', active);
@@ -708,11 +734,7 @@ function applyScenario() {
   const signalsForRender = buildScenarioSignals(naoChoice, state.signals);
   const scenarioIntensity = phaseChoice !== 'live' && phaseChoice !== 'neutral' ? intensity : null;
 
-  const labelParts = [];
-  if (phaseChoice !== 'live') labelParts.push(oniForRender.phase_label);
-  if (naoChoice !== 'live') labelParts.push(`NAO ${SCENARIO_NAO_LABEL[naoChoice]}`);
-  setScenarioUiState(true, labelParts.join(' + ') || 'custom scenario');
-
+  setScenarioUiState(phaseChoice, naoChoice, oniForRender, signalsForRender);
   renderPhaseView(oniForRender, signalsForRender, phaseKey, scenarioIntensity);
 }
 
@@ -721,7 +743,7 @@ function resetScenario() {
   document.getElementById('scenario-intensity').value = 'moderate';
   document.getElementById('scenario-intensity').disabled = true;
   document.getElementById('scenario-nao').value = 'live';
-  setScenarioUiState(false, '');
+  setScenarioUiState('live', 'live', state.oni, state.signals);
   renderPhaseView(state.oni, state.signals, currentPhaseKeyFor(state.oni), null);
 }
 
@@ -735,6 +757,9 @@ function wireScenarioControls() {
   document.getElementById('scenario-apply').addEventListener('click', applyScenario);
   document.getElementById('scenario-reset').addEventListener('click', resetScenario);
   document.getElementById('scenario-banner-reset').addEventListener('click', resetScenario);
+
+  // Initialize the readout on first load, before any Apply click.
+  setScenarioUiState('live', 'live', state.oni, state.signals);
 }
 
 async function main() {
