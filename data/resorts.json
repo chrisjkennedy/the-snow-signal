@@ -1,0 +1,538 @@
+{
+  "_note": "Elevations are approximate published reference figures. Pass affiliations reflect well-known 2025-26 rosters for major North American anchors; entries marked pass_confidence:'verify' change season to season and should be checked at the official pass site before a user buys anything. snotel_triplet is null where no NRCS station exists within a representative distance (most of the eastern US, most of BC/coastal Canada) — those resorts rely on the Open-Meteo forecast panel only. Each region's enso_signals has three variants (el_nino/la_nina/neutral) — app.js picks the one matching data/oni.json's current 'phase' so the site tracks whatever ENSO is actually doing rather than one fixed season.",
+  "regions": [
+    {
+      "id": "sierra-california",
+      "name": "Sierra Nevada / California",
+      "continent": "North America",
+      "season": { "display": "Nov–Apr", "start_month": 11, "end_month": 4 },
+      "enso_signals": {
+        "el_nino": {
+          "signal": "bull", "signal_label": "Bullish", "meter_pct": 80, "meter_display": "+15–25%",
+          "narrative": "El Niño's subtropical jet targets California's coast with unusual persistence. High-elevation resorts consistently outperform — they sit above the rain-snow phase-change zone, a critical distinction when the airmass is warmer than normal.",
+          "caveat": "Snow level is the key variable. A storm delivering 2 ft of water may produce rain at 7,000 ft and powder above 9,000 ft. Always check the forecast freezing level."
+        },
+        "la_nina": {
+          "signal": "bear", "signal_label": "Bearish", "meter_pct": 28, "meter_display": "−10–20%",
+          "narrative": "La Niña shifts the storm track north, leaving California's subtropical jet largely dry. The Sierra still catches occasional atmospheric rivers when a system dips far enough south, but the reliable pattern favors the Pacific Northwest instead.",
+          "caveat": "La Niña seasons are more boom-or-bust here than El Niño seasons — a handful of big atmospheric-river events can still produce an above-average year. Don't write off California entirely; just expect more variance."
+        },
+        "neutral": {
+          "signal": "mixed", "signal_label": "Mixed", "meter_pct": 50, "meter_display": "Near average",
+          "narrative": "With no strong ENSO signal pulling the jet stream one way or the other, California's season is driven more by individual storm luck than by a seasonal pattern. Historical range is wide in neutral years.",
+          "caveat": "Watch atmospheric river forecasts week to week rather than leaning on a seasonal thesis."
+        }
+      },
+      "resorts": [
+        {
+          "id": "mammoth", "name": "Mammoth Mountain", "state": "CA",
+          "lat": 37.6509, "lon": -119.0326,
+          "base_elev_ft": 7953, "summit_elev_ft": 11053,
+          "passes": ["Ikon"], "pass_confidence": "high",
+          "snotel_triplet": null,
+          "snow_course_triplet": "MN2:CA:SNOW", "snow_course_name": "Minarets #2 (1.2 mi)"
+        },
+        {
+          "id": "palisades-tahoe", "name": "Palisades Tahoe", "state": "CA",
+          "lat": 39.1969, "lon": -120.2356,
+          "base_elev_ft": 6200, "summit_elev_ft": 9050,
+          "passes": ["Ikon"], "pass_confidence": "high",
+          "snotel_triplet": "784:CA:SNTL", "snotel_name": "Palisades Tahoe (1.7 mi)"
+        },
+        {
+          "id": "big-bear", "name": "Big Bear (Bear Mountain)", "state": "CA",
+          "lat": 34.2439, "lon": -116.8608,
+          "base_elev_ft": 6750, "summit_elev_ft": 8805,
+          "passes": ["Indy Pass"], "pass_confidence": "verify",
+          "snotel_triplet": null
+        }
+      ]
+    },
+    {
+      "id": "southwest-rockies",
+      "name": "Southwest / Southern Rockies",
+      "continent": "North America",
+      "season": { "display": "Nov–Apr", "start_month": 11, "end_month": 4 },
+      "enso_signals": {
+        "el_nino": {
+          "signal": "bull", "signal_label": "Bullish", "meter_pct": 72, "meter_display": "+10–20%",
+          "narrative": "The southern jet corridor rewards this region most consistently in El Niño years. High base elevations mean the warmer airmass still falls as snow. Taos is one of the very few major destinations where El Niño is a documented, reliable positive signal.",
+          "caveat": "A Super El Niño amplifies this signal materially — Wolf Creek and the San Juans could see exceptional seasons."
+        },
+        "la_nina": {
+          "signal": "bear", "signal_label": "Bearish", "meter_pct": 20, "meter_display": "−15–30%",
+          "narrative": "The mirror image of the El Niño case. The southern jet corridor that fuels this region shuts off in La Niña — this is the classic 'Southwest drought' pattern, well documented across recent multi-year La Niña stretches.",
+          "caveat": "This is one of the more reliable bearish ENSO signals in North American skiing. Treat La Niña as a real headwind for the San Juans, not noise."
+        },
+        "neutral": {
+          "signal": "mixed", "signal_label": "Mixed", "meter_pct": 50, "meter_display": "Near average",
+          "narrative": "Without El Niño's southern jet boost, this region reverts to its normal high-variance pattern — high base elevations still help catch whatever does fall.",
+          "caveat": "Track individual storm systems rather than a seasonal thesis."
+        }
+      },
+      "resorts": [
+        {
+          "id": "taos", "name": "Taos Ski Valley", "state": "NM",
+          "lat": 36.5946, "lon": -105.4522,
+          "base_elev_ft": 9200, "summit_elev_ft": 12481,
+          "passes": ["Ikon"], "pass_confidence": "high",
+          "snotel_triplet": "1168:NM:SNTL", "snotel_name": "Taos Powderhorn (0.9 mi)"
+        },
+        {
+          "id": "wolf-creek", "name": "Wolf Creek", "state": "CO",
+          "lat": 37.4722, "lon": -106.7930,
+          "base_elev_ft": 10300, "summit_elev_ft": 11904,
+          "passes": ["Indy Pass"], "pass_confidence": "verify",
+          "snotel_triplet": "874:CO:SNTL", "snotel_name": "Wolf Creek Summit (0.7 mi)"
+        },
+        {
+          "id": "telluride", "name": "Telluride", "state": "CO",
+          "lat": 37.9375, "lon": -107.8123,
+          "base_elev_ft": 8750, "summit_elev_ft": 13150,
+          "passes": ["Ikon"], "pass_confidence": "high",
+          "snotel_triplet": "1344:CO:SNTL", "snotel_name": "Alta Lakes, CO (3.8 mi)"
+        }
+      ]
+    },
+    {
+      "id": "utah-central-colorado",
+      "name": "Utah / Central Colorado",
+      "continent": "North America",
+      "season": { "display": "Nov–Apr", "start_month": 11, "end_month": 4 },
+      "enso_signals": {
+        "el_nino": {
+          "signal": "mixed", "signal_label": "Mixed", "meter_pct": 50, "meter_display": "Near average",
+          "narrative": "ENSO has minimal predictive power here in any phase — the correlation is statistically negligible across 50+ seasons. Don't credit or blame El Niño for however this season turns out.",
+          "caveat": "The popular narrative that El Niño reliably helps the Rockies is largely the 1982-83 halo effect. The data does not support it for Alta or the I-70 corridor."
+        },
+        "la_nina": {
+          "signal": "mixed", "signal_label": "Mixed", "meter_pct": 50, "meter_display": "Near average",
+          "narrative": "Same story as El Niño years: this region sits in the seam between the northern and southern storm tracks, and the ENSO correlation is negligible in either direction across 50+ seasons.",
+          "caveat": "Prior-season base snowpack and individual storm timing matter far more here than ENSO phase."
+        },
+        "neutral": {
+          "signal": "mixed", "signal_label": "Mixed", "meter_pct": 50, "meter_display": "Near average",
+          "narrative": "This is close to what Utah/Central Colorado looks like in every ENSO phase — the region just isn't a strong ENSO responder.",
+          "caveat": "Look at the live snowpack numbers below rather than the ENSO thesis for this region."
+        }
+      },
+      "resorts": [
+        {
+          "id": "alta", "name": "Alta", "state": "UT",
+          "lat": 40.5883, "lon": -111.6373,
+          "base_elev_ft": 8530, "summit_elev_ft": 10550,
+          "passes": ["Ikon (limited days)"], "pass_confidence": "verify",
+          "snotel_triplet": "1308:UT:SNTL", "snotel_name": "Atwater (0.2 mi)"
+        },
+        {
+          "id": "snowbird", "name": "Snowbird", "state": "UT",
+          "lat": 40.5830, "lon": -111.6556,
+          "base_elev_ft": 7760, "summit_elev_ft": 11000,
+          "passes": ["Ikon"], "pass_confidence": "high",
+          "snotel_triplet": "766:UT:SNTL", "snotel_name": "Snowbird (1.0 mi)"
+        },
+        {
+          "id": "park-city", "name": "Park City", "state": "UT",
+          "lat": 40.6461, "lon": -111.4980,
+          "base_elev_ft": 6900, "summit_elev_ft": 10000,
+          "passes": ["Epic"], "pass_confidence": "high",
+          "snotel_triplet": "814:UT:SNTL", "snotel_name": "Thaynes Canyon (2.4 mi)"
+        },
+        {
+          "id": "breckenridge", "name": "Breckenridge", "state": "CO",
+          "lat": 39.4817, "lon": -106.0384,
+          "base_elev_ft": 9600, "summit_elev_ft": 12998,
+          "passes": ["Epic"], "pass_confidence": "high",
+          "snotel_triplet": "415:CO:SNTL", "snotel_name": "Copper Mountain (7.1 mi)"
+        },
+        {
+          "id": "vail", "name": "Vail", "state": "CO",
+          "lat": 39.6403, "lon": -106.3742,
+          "base_elev_ft": 8120, "summit_elev_ft": 11570,
+          "passes": ["Epic"], "pass_confidence": "high",
+          "snotel_triplet": "842:CO:SNTL", "snotel_name": "Vail Mountain (1.6 mi)"
+        }
+      ]
+    },
+    {
+      "id": "pnw-northern-rockies",
+      "name": "Pacific Northwest / Northern Rockies",
+      "continent": "North America",
+      "season": { "display": "Nov–Apr", "start_month": 11, "end_month": 4 },
+      "enso_signals": {
+        "el_nino": {
+          "signal": "bear", "signal_label": "Bearish", "meter_pct": 28, "meter_display": "~85% of avg",
+          "narrative": "The most consistently disfavored North American region in El Niño years. El Niño deflects Pacific systems south, cutting off the storm parade that defines these mountains in La Niña years.",
+          "caveat": "Grand Targhee and Big Sky show less ENSO sensitivity due to microclimatic factors. High-elevation terrain can still deliver good individual cycles."
+        },
+        "la_nina": {
+          "signal": "bull", "signal_label": "Bullish", "meter_pct": 85, "meter_display": "+15–25%",
+          "narrative": "The Pacific Northwest and Northern Rockies are La Niña's single most reliable domestic beneficiary. The storm track locks on, and this region has produced some of its deepest seasons on record in La Niña years.",
+          "caveat": "This is one of the highest-conviction bullish ENSO signals in North American skiing. A strong La Niña can push totals well above the +15–25% base case."
+        },
+        "neutral": {
+          "signal": "mixed", "signal_label": "Mixed", "meter_pct": 50, "meter_display": "Near average",
+          "narrative": "Without La Niña's storm-track lock-in, the Pacific Northwest reverts to a fairly typical season — still one of the snowiest regions in North America on baseline climatology alone.",
+          "caveat": "This region's normal average is high enough that 'neutral' still usually means a good season by national standards."
+        }
+      },
+      "resorts": [
+        {
+          "id": "jackson-hole", "name": "Jackson Hole", "state": "WY",
+          "lat": 43.5875, "lon": -110.8280,
+          "base_elev_ft": 6311, "summit_elev_ft": 10450,
+          "passes": ["Ikon"], "pass_confidence": "high",
+          "snotel_triplet": "689:WY:SNTL", "snotel_name": "Phillips Bench (6.5 mi)"
+        },
+        {
+          "id": "big-sky", "name": "Big Sky", "state": "MT",
+          "lat": 45.2854, "lon": -111.4013,
+          "base_elev_ft": 7500, "summit_elev_ft": 11166,
+          "passes": ["Ikon"], "pass_confidence": "high",
+          "snotel_triplet": "590:MT:SNTL", "snotel_name": "Lone Mountain (1.5 mi)"
+        },
+        {
+          "id": "mt-bachelor", "name": "Mt. Bachelor", "state": "OR",
+          "lat": 43.9792, "lon": -121.6885,
+          "base_elev_ft": 6300, "summit_elev_ft": 9065,
+          "passes": ["Independent"], "pass_confidence": "verify",
+          "snotel_triplet": "815:OR:SNTL", "snotel_name": "Three Creeks Meadow (11.6 mi)"
+        },
+        {
+          "id": "stevens-pass", "name": "Stevens Pass", "state": "WA",
+          "lat": 47.7448, "lon": -121.0890,
+          "base_elev_ft": 4061, "summit_elev_ft": 5845,
+          "passes": ["Epic"], "pass_confidence": "high",
+          "snotel_triplet": "791:WA:SNTL", "snotel_name": "Stevens Pass (0.2 mi)"
+        }
+      ]
+    },
+    {
+      "id": "northeast-us",
+      "name": "Northeast United States",
+      "continent": "North America",
+      "season": { "display": "Nov–Apr", "start_month": 11, "end_month": 4 },
+      "enso_signals": {
+        "el_nino": {
+          "signal": "bear", "signal_label": "Bearish", "meter_pct": 30, "meter_display": "~70–75% of avg",
+          "narrative": "El Niño suppresses Arctic cold intrusions, compressing both the front and back of the snow window. The 2015-16 Super El Niño drove snowfall 30–40% below average at major New England resorts.",
+          "caveat": "Negative NAO events can still produce intense Nor'easters. Book deposits, not airfare. Watch the CPC NAO index in December–January."
+        },
+        "la_nina": {
+          "signal": "mixed", "signal_label": "Mixed — slightly favorable", "meter_pct": 58, "meter_display": "Near to slightly above avg",
+          "narrative": "La Niña doesn't suppress Arctic outbreaks the way El Niño does, so the Northeast's snow window tends to run closer to normal. It's a secondary effect, though — the NAO and AO do most of the real work in this region regardless of ENSO phase.",
+          "caveat": "Don't treat La Niña as a strong green light here — it mainly just removes El Niño's headwind rather than creating a tailwind of its own."
+        },
+        "neutral": {
+          "signal": "mixed", "signal_label": "Mixed", "meter_pct": 50, "meter_display": "Near average",
+          "narrative": "The Northeast is dominated by the NAO/AO regardless of ENSO phase, so a neutral ENSO year looks much like an average year here.",
+          "caveat": "Watch the NAO index week to week during the season — it matters more than ENSO for this region."
+        }
+      },
+      "resorts": [
+        {
+          "id": "killington", "name": "Killington", "state": "VT",
+          "lat": 43.6045, "lon": -72.8201,
+          "base_elev_ft": 1165, "summit_elev_ft": 4241,
+          "passes": ["Ikon"], "pass_confidence": "high",
+          "snotel_triplet": null
+        },
+        {
+          "id": "stowe", "name": "Stowe", "state": "VT",
+          "lat": 44.5303, "lon": -72.7818,
+          "base_elev_ft": 1280, "summit_elev_ft": 4395,
+          "passes": ["Epic"], "pass_confidence": "high",
+          "snotel_triplet": null
+        },
+        {
+          "id": "jay-peak", "name": "Jay Peak", "state": "VT",
+          "lat": 44.9280, "lon": -72.5273,
+          "base_elev_ft": 1815, "summit_elev_ft": 3968,
+          "passes": ["Indy Pass"], "pass_confidence": "verify",
+          "snotel_triplet": null
+        },
+        {
+          "id": "cannon", "name": "Cannon Mountain", "state": "NH",
+          "lat": 44.1776, "lon": -71.6986,
+          "base_elev_ft": 1955, "summit_elev_ft": 4080,
+          "passes": ["Indy Pass"], "pass_confidence": "verify",
+          "snotel_triplet": null
+        }
+      ]
+    },
+    {
+      "id": "canadian-rockies-bc",
+      "name": "Canadian Rockies / BC",
+      "continent": "North America",
+      "season": { "display": "Nov–Apr", "start_month": 11, "end_month": 4 },
+      "enso_signals": {
+        "el_nino": {
+          "signal": "bear", "signal_label": "Bearish", "meter_pct": 25, "meter_display": "~80–85% of avg",
+          "narrative": "La Niña's top beneficiary becomes El Niño's clearest loser in North America. BC interior is almost entirely Pacific storm-track dependent, and El Niño cuts that track off.",
+          "caveat": "A Super El Niño amplifies this signal materially. If the tail scenario confirms, avoid non-refundable BC interior bookings."
+        },
+        "la_nina": {
+          "signal": "bull", "signal_label": "Bullish", "meter_pct": 85, "meter_display": "+15–25%",
+          "narrative": "BC interior — Revelstoke, Big White — is La Niña's top North American beneficiary, almost entirely because of how directly it sits in the enhanced Pacific storm track. Coastal Whistler benefits too, though slightly less dramatically thanks to its own orographic lift baseline.",
+          "caveat": "This is a high-conviction bullish signal — among the strongest ENSO-ski correlations anywhere in North America."
+        },
+        "neutral": {
+          "signal": "mixed", "signal_label": "Mixed", "meter_pct": 50, "meter_display": "Near average",
+          "narrative": "Without La Niña's storm-track lock-in, expect something closer to this region's long-run average — still generally snowy given the baseline climatology.",
+          "caveat": "Local orographic effects (coastal vs. interior) matter more than ENSO in a neutral year."
+        }
+      },
+      "resorts": [
+        {
+          "id": "whistler", "name": "Whistler Blackcomb", "state": "BC",
+          "lat": 50.1163, "lon": -122.9574,
+          "base_elev_ft": 2140, "summit_elev_ft": 7494,
+          "passes": ["Epic"], "pass_confidence": "high",
+          "snotel_triplet": null
+        },
+        {
+          "id": "revelstoke", "name": "Revelstoke", "state": "BC",
+          "lat": 50.9581, "lon": -118.1957,
+          "base_elev_ft": 1680, "summit_elev_ft": 7300,
+          "passes": ["Ikon"], "pass_confidence": "high",
+          "snotel_triplet": null
+        },
+        {
+          "id": "banff-lake-louise", "name": "Banff / Lake Louise", "state": "AB",
+          "lat": 51.4419, "lon": -116.1620,
+          "base_elev_ft": 5400, "summit_elev_ft": 8650,
+          "passes": ["Ikon (SkiBig3)"], "pass_confidence": "high",
+          "snotel_triplet": null,
+          "snow_course_triplet": "16X02:AB:SNOW", "snow_course_name": "Pipestone Upper (0.6 mi)"
+        },
+        {
+          "id": "big-white", "name": "Big White", "state": "BC",
+          "lat": 49.7314, "lon": -118.9339,
+          "base_elev_ft": 5040, "summit_elev_ft": 7606,
+          "passes": ["Indy Pass"], "pass_confidence": "verify",
+          "snotel_triplet": null,
+          "snow_course_triplet": "2E03:BC:SNOW", "snow_course_name": "Big White Mountain (2.2 mi)"
+        }
+      ]
+    },
+    {
+      "id": "european-alps",
+      "name": "European Alps",
+      "continent": "Europe",
+      "season": { "display": "Dec–Apr", "start_month": 12, "end_month": 4 },
+      "enso_signals": {
+        "el_nino": {
+          "signal": "mixed", "signal_label": "Mixed — elevation dependent", "meter_pct": 35, "meter_display": "Weak / noisy",
+          "narrative": "Historical data shows little consistent ENSO-snowfall correlation in the Alps — the NAO is the dominant driver. El Niño's main risk is indirect: warmer background conditions raising the rain-snow line at lower resorts. Above 2,500m the signal is negligible.",
+          "caveat": "Book high. A Sudden Stratospheric Warming event mid-winter can override El Niño for 4–6 weeks — SSW probability rises with low Arctic sea ice extent."
+        },
+        "la_nina": {
+          "signal": "mixed", "signal_label": "Mixed — elevation dependent", "meter_pct": 38, "meter_display": "Weak / noisy",
+          "narrative": "ENSO's influence on European winters is faint in either phase — the NAO and polar vortex configuration matter far more. La Niña winters show a marginal lean toward a more meridional (blocky) jet pattern, which can help or hurt the Alps depending on where the blocking sets up.",
+          "caveat": "Book high regardless of ENSO phase — elevation is the dominant variable here, not the Pacific."
+        },
+        "neutral": {
+          "signal": "mixed", "signal_label": "Mixed — elevation dependent", "meter_pct": 40, "meter_display": "Weak / noisy",
+          "narrative": "The Alps are an NAO-driven region in essentially every ENSO phase, so a neutral year looks much like any other year here.",
+          "caveat": "Watch the NAO/polar vortex state through the season — it's the signal that actually matters for the Alps."
+        }
+      },
+      "resorts": [
+        {
+          "id": "zermatt", "name": "Zermatt", "state": "Switzerland",
+          "lat": 46.0207, "lon": 7.7491,
+          "base_elev_ft": 5310, "summit_elev_ft": 12740,
+          "passes": ["Independent"], "pass_confidence": "verify",
+          "snotel_triplet": null
+        },
+        {
+          "id": "val-disere", "name": "Val d'Isère", "state": "France",
+          "lat": 45.4489, "lon": 6.9797,
+          "base_elev_ft": 6070, "summit_elev_ft": 10930,
+          "passes": ["Independent"], "pass_confidence": "verify",
+          "snotel_triplet": null
+        },
+        {
+          "id": "st-anton", "name": "St. Anton", "state": "Austria",
+          "lat": 47.1333, "lon": 10.2667,
+          "base_elev_ft": 4220, "summit_elev_ft": 9222,
+          "passes": ["Independent"], "pass_confidence": "verify",
+          "snotel_triplet": null
+        },
+        {
+          "id": "chamonix", "name": "Chamonix", "state": "France",
+          "lat": 45.9237, "lon": 6.8694,
+          "base_elev_ft": 3395, "summit_elev_ft": 12605,
+          "passes": ["Independent"], "pass_confidence": "verify",
+          "snotel_triplet": null
+        },
+        {
+          "id": "verbier", "name": "Verbier", "state": "Switzerland",
+          "lat": 46.0967, "lon": 7.2286,
+          "base_elev_ft": 4920, "summit_elev_ft": 10925,
+          "passes": ["Ikon"], "pass_confidence": "verify",
+          "snotel_triplet": null
+        }
+      ]
+    },
+    {
+      "id": "japan",
+      "name": "Japan — Hokkaido / Tohoku",
+      "continent": "Asia",
+      "season": { "display": "Dec–Apr", "start_month": 12, "end_month": 4 },
+      "enso_signals": {
+        "el_nino": {
+          "signal": "mixed", "signal_label": "Mixed — counterintuitive", "meter_pct": 50, "meter_display": "Nuanced",
+          "narrative": "Japan defies the North American intuition. Niseko showed above-average snowfall in 7 of 12 El Niño cycles since 1954. Japan's powder is driven by Siberian cold air crossing the Sea of Japan — a mechanism only weakly coupled to ENSO. Hakuba is the notable exception: below average in ~83% of El Niño years.",
+          "caveat": "For Japan-focused skiers: Niseko holds up historically. Hakuba is a meaningful risk in this ENSO regime."
+        },
+        "la_nina": {
+          "signal": "bull", "signal_label": "Bullish", "meter_pct": 68, "meter_display": "Generally favorable",
+          "narrative": "La Niña strengthens the Siberian High and the East Asian winter monsoon, generally increasing cold-air outbreaks across the Sea of Japan — the exact mechanism behind Japan's famous powder. This is historically the more reliable phase for Japan overall, including at Hakuba.",
+          "caveat": "Still a continental cold-air mechanism, not a Pacific one — expect a good baseline rather than a dramatic swing."
+        },
+        "neutral": {
+          "signal": "mixed", "signal_label": "Mixed", "meter_pct": 55, "meter_display": "Typical monsoon baseline",
+          "narrative": "Japan's snow machine runs mostly on the East Asian winter monsoon rather than ENSO, so a neutral year tracks close to the long-run baseline — which is already very good by global standards.",
+          "caveat": "Local sea-surface temperature in the Sea of Japan matters more than ENSO phase for a given week's dump."
+        }
+      },
+      "resorts": [
+        {
+          "id": "niseko", "name": "Niseko United", "state": "Japan",
+          "lat": 42.8048, "lon": 140.6874,
+          "base_elev_ft": 1000, "summit_elev_ft": 3395,
+          "passes": ["Ikon"], "pass_confidence": "verify",
+          "snotel_triplet": null
+        },
+        {
+          "id": "furano", "name": "Furano", "state": "Japan",
+          "lat": 43.3267, "lon": 142.3822,
+          "base_elev_ft": 790, "summit_elev_ft": 3540,
+          "passes": ["Independent"], "pass_confidence": "verify",
+          "snotel_triplet": null
+        },
+        {
+          "id": "myoko", "name": "Myoko", "state": "Japan",
+          "lat": 36.8944, "lon": 138.1975,
+          "base_elev_ft": 1150, "summit_elev_ft": 6300,
+          "passes": ["Independent"], "pass_confidence": "verify",
+          "snotel_triplet": null
+        },
+        {
+          "id": "nozawa-onsen", "name": "Nozawa Onsen", "state": "Japan",
+          "lat": 36.9219, "lon": 138.4419,
+          "base_elev_ft": 2000, "summit_elev_ft": 5800,
+          "passes": ["Independent"], "pass_confidence": "verify",
+          "snotel_triplet": null
+        },
+        {
+          "id": "hakuba", "name": "Hakuba (Happo-One)", "state": "Japan",
+          "lat": 36.6989, "lon": 137.8608,
+          "base_elev_ft": 2400, "summit_elev_ft": 5900,
+          "passes": ["Independent"], "pass_confidence": "verify",
+          "snotel_triplet": null
+        }
+      ]
+    },
+    {
+      "id": "andes",
+      "name": "Andes — Chile / Argentina",
+      "continent": "South America",
+      "season": { "display": "Jun–Sep", "start_month": 6, "end_month": 9 },
+      "enso_signals": {
+        "el_nino": {
+          "signal": "bull", "signal_label": "Strongly Bullish", "meter_pct": 90, "meter_display": "Strong positive",
+          "narrative": "The clearest El Niño beneficiary globally. The high central Andes respond to El Niño more directly than almost any other ski region on earth. Portillo is the highest-conviction destination in a strong El Niño cycle. Season: June–September; peak window July–mid-August.",
+          "caveat": "A Super El Niño is essentially a structural long for Portillo. Book early — El Niño years generate unusual Northern Hemisphere interest in Andean destinations."
+        },
+        "la_nina": {
+          "signal": "bear", "signal_label": "Strongly Bearish", "meter_pct": 15, "meter_display": "Historically dry",
+          "narrative": "The mirror image of the El Niño case. La Niña years bring below-average precipitation to the central Andes, sometimes severely so — central Chile's ongoing multi-year drought has coincided with a persistent La Niña-leaning Pacific.",
+          "caveat": "Highest-conviction avoid in the Southern Hemisphere during a La Niña cycle. If you're set on the Andes this phase, look at whichever resort has the highest base elevation and the healthiest snowmaking."
+        },
+        "neutral": {
+          "signal": "mixed", "signal_label": "Mixed", "meter_pct": 50, "meter_display": "Near average",
+          "narrative": "Without El Niño's boost or La Niña's drought pattern, the central Andes track closer to their long-run average — still a high-elevation desert climate that depends on individual frontal systems.",
+          "caveat": "Check current-season snowpack directly rather than leaning on ENSO in a neutral year."
+        }
+      },
+      "resorts": [
+        {
+          "id": "portillo", "name": "Portillo", "state": "Chile",
+          "lat": -32.8386, "lon": -70.1281,
+          "base_elev_ft": 9450, "summit_elev_ft": 10860,
+          "passes": ["Independent"], "pass_confidence": "verify",
+          "snotel_triplet": null
+        },
+        {
+          "id": "valle-nevado", "name": "Valle Nevado", "state": "Chile",
+          "lat": -33.3547, "lon": -70.2503,
+          "base_elev_ft": 9800, "summit_elev_ft": 12080,
+          "passes": ["Ikon"], "pass_confidence": "verify",
+          "snotel_triplet": null
+        },
+        {
+          "id": "bariloche", "name": "Bariloche (Cerro Catedral)", "state": "Argentina",
+          "lat": -41.1660, "lon": -71.4491,
+          "base_elev_ft": 3300, "summit_elev_ft": 6987,
+          "passes": ["Independent"], "pass_confidence": "verify",
+          "snotel_triplet": null
+        },
+        {
+          "id": "las-lenas", "name": "Las Leñas", "state": "Argentina",
+          "lat": -35.1500, "lon": -70.0833,
+          "base_elev_ft": 7545, "summit_elev_ft": 11253,
+          "passes": ["Independent"], "pass_confidence": "verify",
+          "snotel_triplet": null
+        }
+      ]
+    },
+    {
+      "id": "australia",
+      "name": "Australia",
+      "continent": "Oceania",
+      "season": { "display": "Jun–Oct", "start_month": 6, "end_month": 10 },
+      "enso_signals": {
+        "el_nino": {
+          "signal": "bear", "signal_label": "Bearish", "meter_pct": 18, "meter_display": "Historically poor",
+          "narrative": "El Niño's clearest victim globally. Warmer temperatures, reduced precipitation, early closures, and compressed seasons characterize strong El Niño winters in Australia. Marginal base elevations offer no buffer against warm-air intrusions.",
+          "caveat": "Highest-conviction avoid of any strong El Niño cycle. Season runs June–September — full overlap with the strongest Southern Hemisphere El Niño signal."
+        },
+        "la_nina": {
+          "signal": "bull", "signal_label": "Bullish", "meter_pct": 75, "meter_display": "Favorable",
+          "narrative": "The mirror image of the El Niño case. La Niña's wetter, cooler pattern over southeastern Australia is the best-case scenario for the Australian Alps — more consistent snowfall and later closures than an average season.",
+          "caveat": "Even a favorable La Niña doesn't fully offset Australia's low, marginal base elevations — book flexible dates rather than assuming a guaranteed deep season."
+        },
+        "neutral": {
+          "signal": "mixed", "signal_label": "Mixed", "meter_pct": 50, "meter_display": "Near average",
+          "narrative": "Without El Niño's warm-and-dry push or La Niña's wet-and-cool boost, Australia tracks closer to its (already marginal) long-run average.",
+          "caveat": "Given how thin the margin for error already is at these elevations, check snow depth reports directly during the season."
+        }
+      },
+      "resorts": [
+        {
+          "id": "perisher", "name": "Perisher", "state": "Australia",
+          "lat": -36.4058, "lon": 148.4108,
+          "base_elev_ft": 5577, "summit_elev_ft": 6994,
+          "passes": ["Epic"], "pass_confidence": "high",
+          "snotel_triplet": null
+        },
+        {
+          "id": "falls-creek", "name": "Falls Creek", "state": "Australia",
+          "lat": -36.8676, "lon": 147.2786,
+          "base_elev_ft": 5262, "summit_elev_ft": 6031,
+          "passes": ["Indy Pass"], "pass_confidence": "verify",
+          "snotel_triplet": null
+        },
+        {
+          "id": "thredbo", "name": "Thredbo", "state": "Australia",
+          "lat": -36.5039, "lon": 148.3000,
+          "base_elev_ft": 4462, "summit_elev_ft": 6676,
+          "passes": ["Ikon"], "pass_confidence": "verify",
+          "snotel_triplet": null
+        }
+      ]
+    }
+  ]
+}

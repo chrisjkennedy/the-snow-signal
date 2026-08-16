@@ -1,0 +1,21 @@
+{
+  "_readme": "Fill in your real affiliate/partner IDs here once you've signed up for these programs. Nothing in this file is a live affiliate link yet — the placeholders below just get you the correct destination URL per resort; swap in your tracking params after you're approved. See README.md 'Monetization' section for where to apply.",
+  "lift_tickets": {
+    "provider": "Liftopia",
+    "search_url": "https://www.liftopia.com/search?q={resort}",
+    "affiliate_param": "",
+    "notes": "Liftopia runs an affiliate program (via Impact or similar network). Apply, then set affiliate_param to whatever query param they give you, e.g. '&aff_id=XXXXX'."
+  },
+  "gear_rental": {
+    "provider": "evo",
+    "search_url": "https://www.evo.com/rentals",
+    "affiliate_param": "",
+    "notes": "evo, Christy Sports, and Ski Butlers all run affiliate programs (commonly via Impact / ShareASale / Awin). Apply and drop your tracking code into affiliate_param."
+  },
+  "lodging": {
+    "provider": "Booking.com",
+    "search_url": "https://www.booking.com/searchresults.html?ss={resort}",
+    "affiliate_param": "",
+    "notes": "Booking.com Affiliate Partner Program (via their own portal) or Expedia's (via Impact/CJ) both work here. Add your aid= param once approved."
+  }
+}

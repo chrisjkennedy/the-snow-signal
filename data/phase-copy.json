@@ -1,0 +1,15 @@
+{
+  "_readme": "Live-status and mechanism copy keyed by current ENSO phase (data/oni.json's 'phase' field selects which block app.js uses). The site's brand identity (name, tagline) is fixed in index.html and never changes — only this smaller 'current conditions' copy is phase-dependent, so the page reads as a stable tool with a live status line rather than three different seasonal articles wearing the same layout.",
+  "el_nino": {
+    "live_status": "Storms are currently tilting toward California and the Southwest, and away from the Pacific Northwest and western Canada.",
+    "mechanism": "A southward-shifted subtropical jet routes Pacific storms toward California and the Southwest, while the Pacific Northwest and western Canada see a quieter storm track."
+  },
+  "la_nina": {
+    "live_status": "Storms are currently locked onto the Pacific Northwest and western Canada, and pulling away from California and the Southwest.",
+    "mechanism": "A retreating, more northerly jet stream funnels Pacific storms into the Pacific Northwest and western Canada, while California and the Southwest see a drier, more blocked pattern."
+  },
+  "neutral": {
+    "live_status": "No dominant Pacific storm-track pattern right now — regional outcomes are closer to their long-run average than usual.",
+    "mechanism": "Without a strong warm or cold anomaly in the equatorial Pacific, the jet stream isn't being pushed consistently north or south — regional snow patterns follow closer to their long-run climatological average."
+  }
+}
