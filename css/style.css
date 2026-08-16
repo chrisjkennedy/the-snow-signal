@@ -248,9 +248,13 @@ body {
 .accum-legend { font-size: 10px; color: var(--muted); display: flex; align-items: center; gap: 4px; }
 .leg-actual { width: 8px; height: 2px; display: inline-block; border-radius: 1px; }
 .leg-median { width: 8px; height: 0; display: inline-block; border-top: 1.5px dashed #B7C4D1; margin-left: 6px; }
-.resort-links-row { margin-bottom: 6px; }
-.snow-report-link { font-size: 11px; color: var(--blue-mid); text-decoration: none; }
-.snow-report-link:hover { text-decoration: underline; }
+.resort-links-row { margin-bottom: 6px; display: flex; gap: 12px; flex-wrap: wrap; }
+.snow-report-link, .resort-site-link { font-size: 11px; color: var(--blue-mid); text-decoration: none; }
+.snow-report-link:hover, .resort-site-link:hover { text-decoration: underline; }
+.microclimate-note {
+  font-size: 11.5px; font-style: italic; color: var(--muted); line-height: 1.5;
+  margin-bottom: 8px; padding-left: 8px; border-left: 2px solid var(--border);
+}
 
 .affiliate-row { display: flex; gap: 6px; flex-wrap: wrap; }
 .affiliate-btn {

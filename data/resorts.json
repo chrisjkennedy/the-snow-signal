@@ -1,69 +1,156 @@
 {
-  "_note": "Elevations are approximate published reference figures. Pass affiliations reflect well-known 2025-26 rosters for major North American anchors; entries marked pass_confidence:'verify' change season to season and should be checked at the official pass site before a user buys anything. snotel_triplet is null where no NRCS station exists within a representative distance (most of the eastern US, most of BC/coastal Canada) — those resorts rely on the Open-Meteo forecast panel only. Each region's enso_signals has three variants (el_nino/la_nina/neutral) — app.js picks the one matching data/oni.json's current 'phase' so the site tracks whatever ENSO is actually doing rather than one fixed season.",
+  "_note": "Elevations are approximate published reference figures. Pass affiliations verified against Epic/Ikon 2025-26 rosters (see README for sources) for major North American and European anchors; entries marked pass_confidence:'verify' change season to season and should be checked at the official pass site before a user buys anything. resort_url is each resort's official site (bulk-verified via HTTP check); snow_report_url is a third-party live snow report, also verified. snotel_triplet is null where no NRCS station exists within a representative distance (most of the eastern US, most of BC/coastal Canada, everywhere outside North America) — those resorts rely on the Open-Meteo forecast panel only. microclimate_note is a resort-specific climate/geography detail (elevation, aspect, storm-track position) distinct from the region-level ENSO/NAO narrative — grounded in real research for the flagship resorts, sound orographic reasoning for the rest. Each region's enso_signals has three variants (el_nino/la_nina/neutral) — app.js picks the one matching data/oni.json's current phase. Two regions (Northeast US/Eastern Canada, European Alps) are NAO-primary — see nao_signals and primary_driver.",
   "regions": [
     {
       "id": "sierra-california",
       "name": "Sierra Nevada / California",
       "continent": "North America",
-      "season": { "display": "Nov–Apr", "start_month": 11, "end_month": 4 },
+      "season": {
+        "display": "Nov–Apr",
+        "start_month": 11,
+        "end_month": 4
+      },
       "enso_signals": {
         "el_nino": {
-          "signal": "bull", "signal_label": "Bullish", "meter_pct": 80, "meter_display": "+15–25%",
+          "signal": "bull",
+          "signal_label": "Bullish",
+          "meter_pct": 80,
+          "meter_display": "+15–25%",
           "narrative": "El Niño's subtropical jet targets California's coast with unusual persistence. High-elevation resorts consistently outperform — they sit above the rain-snow phase-change zone, a critical distinction when the airmass is warmer than normal.",
           "caveat": "Snow level is the key variable. A storm delivering 2 ft of water may produce rain at 7,000 ft and powder above 9,000 ft. Always check the forecast freezing level."
         },
         "la_nina": {
-          "signal": "bear", "signal_label": "Bearish", "meter_pct": 28, "meter_display": "−10–20%",
+          "signal": "bear",
+          "signal_label": "Bearish",
+          "meter_pct": 28,
+          "meter_display": "−10–20%",
           "narrative": "La Niña shifts the storm track north, leaving California's subtropical jet largely dry. The Sierra still catches occasional atmospheric rivers when a system dips far enough south, but the reliable pattern favors the Pacific Northwest instead.",
           "caveat": "La Niña seasons are more boom-or-bust here than El Niño seasons — a handful of big atmospheric-river events can still produce an above-average year. Don't write off California entirely; just expect more variance."
         },
         "neutral": {
-          "signal": "mixed", "signal_label": "Mixed", "meter_pct": 50, "meter_display": "Near average",
+          "signal": "mixed",
+          "signal_label": "Mixed",
+          "meter_pct": 50,
+          "meter_display": "Near average",
           "narrative": "With no strong ENSO signal pulling the jet stream one way or the other, California's season is driven more by individual storm luck than by a seasonal pattern. Historical range is wide in neutral years.",
           "caveat": "Watch atmospheric river forecasts week to week rather than leaning on a seasonal thesis."
         }
       },
       "resorts": [
         {
-          "id": "mammoth", "name": "Mammoth Mountain", "state": "CA",
-          "lat": 37.6509, "lon": -119.0326,
-          "base_elev_ft": 7953, "summit_elev_ft": 11053,
-          "passes": ["Ikon"], "pass_confidence": "high",
+          "id": "mammoth",
+          "name": "Mammoth Mountain",
+          "state": "CA",
+          "lat": 37.6509,
+          "lon": -119.0326,
+          "base_elev_ft": 7953,
+          "summit_elev_ft": 11053,
+          "passes": [
+            "Ikon"
+          ],
+          "pass_confidence": "high",
           "snotel_triplet": null,
-          "snow_course_triplet": "MN2:CA:SNOW", "snow_course_name": "Minarets #2 (1.2 mi)",
-          "snow_report_url": "https://www.onthesnow.com/california/mammoth-mountain-ski-area/skireport", "snow_report_source": "OnTheSnow"
+          "snow_course_triplet": "MN2:CA:SNOW",
+          "snow_course_name": "Minarets #2 (1.2 mi)",
+          "snow_report_url": "https://www.onthesnow.com/california/mammoth-mountain-ski-area/skireport",
+          "snow_report_source": "OnTheSnow",
+          "resort_url": "https://www.mammothmountain.com",
+          "microclimate_note": "Sits where the Sierra crest juts furthest east, catching more direct Pacific moisture than resorts to the north; its very high base (7,953ft) keeps most storms snow rather than rain even when the freezing level runs warm."
         },
         {
-          "id": "palisades-tahoe", "name": "Palisades Tahoe", "state": "CA",
-          "lat": 39.1969, "lon": -120.2356,
-          "base_elev_ft": 6200, "summit_elev_ft": 9050,
-          "passes": ["Ikon"], "pass_confidence": "high",
-          "snotel_triplet": "784:CA:SNTL", "snotel_name": "Palisades Tahoe (1.7 mi)",
-          "snow_report_url": "https://www.onthesnow.com/california/palisades-tahoe/skireport", "snow_report_source": "OnTheSnow"
+          "id": "palisades-tahoe",
+          "name": "Palisades Tahoe",
+          "state": "CA",
+          "lat": 39.1969,
+          "lon": -120.2356,
+          "base_elev_ft": 6200,
+          "summit_elev_ft": 9050,
+          "passes": [
+            "Ikon"
+          ],
+          "pass_confidence": "high",
+          "snotel_triplet": "784:CA:SNTL",
+          "snotel_name": "Palisades Tahoe (1.7 mi)",
+          "snow_report_url": "https://www.onthesnow.com/california/palisades-tahoe/skireport",
+          "snow_report_source": "OnTheSnow",
+          "resort_url": "https://www.palisadestahoe.com",
+          "microclimate_note": "Lake Tahoe's own basin effect adds a lake-enhancement layer on top of standard Sierra orographic lift, and its north-facing bowls hold powder longer than Tahoe's south-shore resorts."
         },
         {
-          "id": "big-bear", "name": "Big Bear (Bear Mountain)", "state": "CA",
-          "lat": 34.2439, "lon": -116.8608,
-          "base_elev_ft": 6750, "summit_elev_ft": 8805,
-          "passes": ["Indy Pass"], "pass_confidence": "verify",
+          "id": "big-bear",
+          "name": "Big Bear (Bear Mountain)",
+          "state": "CA",
+          "lat": 34.2439,
+          "lon": -116.8608,
+          "base_elev_ft": 6750,
+          "summit_elev_ft": 8805,
+          "passes": [
+            "Indy Pass"
+          ],
+          "pass_confidence": "verify",
           "snotel_triplet": null,
-          "snow_report_url": "https://www.snow-forecast.com/resorts/Bear-Mountain/snow-report", "snow_report_source": "Snow-Forecast"
+          "snow_report_url": "https://www.snow-forecast.com/resorts/Bear-Mountain/snow-report",
+          "snow_report_source": "Snow-Forecast",
+          "resort_url": "https://www.bigbearmountainresort.com",
+          "microclimate_note": "The southernmost, lowest-elevation (6,750ft base) major Sierra resort — depends on colder-than-typical storm tracks reaching Southern California, making it the most rain-line-vulnerable resort in the region."
         },
         {
-          "id": "northstar", "name": "Northstar California", "state": "CA",
-          "lat": 39.2746, "lon": -120.1211,
-          "base_elev_ft": 6330, "summit_elev_ft": 8610,
-          "passes": ["Epic"], "pass_confidence": "high",
-          "snotel_triplet": "834:CA:SNTL", "snotel_name": "Truckee #2 (3.8 mi)",
-          "snow_report_url": "https://www.onthesnow.com/california/northstar-california/skireport", "snow_report_source": "OnTheSnow"
+          "id": "northstar",
+          "name": "Northstar California",
+          "state": "CA",
+          "lat": 39.2746,
+          "lon": -120.1211,
+          "base_elev_ft": 6330,
+          "summit_elev_ft": 8610,
+          "passes": [
+            "Epic"
+          ],
+          "pass_confidence": "high",
+          "snotel_triplet": "834:CA:SNTL",
+          "snotel_name": "Truckee #2 (3.8 mi)",
+          "snow_report_url": "https://www.onthesnow.com/california/northstar-california/skireport",
+          "snow_report_source": "OnTheSnow",
+          "resort_url": "https://www.northstarcalifornia.com",
+          "microclimate_note": "Tucked on Tahoe's lee side, sheltered from the worst wind but also from some of the heaviest west-facing Sierra cement — smaller totals than Kirkwood, but better-preserved snow."
         },
         {
-          "id": "kirkwood", "name": "Kirkwood", "state": "CA",
-          "lat": 38.6849, "lon": -120.0652,
-          "base_elev_ft": 7800, "summit_elev_ft": 9800,
-          "passes": ["Epic"], "pass_confidence": "high",
-          "snotel_triplet": "1067:CA:SNTL", "snotel_name": "Carson Pass (3.4 mi)",
-          "snow_report_url": "https://www.onthesnow.com/california/kirkwood/skireport", "snow_report_source": "OnTheSnow"
+          "id": "kirkwood",
+          "name": "Kirkwood",
+          "state": "CA",
+          "lat": 38.6849,
+          "lon": -120.0652,
+          "base_elev_ft": 7800,
+          "summit_elev_ft": 9800,
+          "passes": [
+            "Epic"
+          ],
+          "pass_confidence": "high",
+          "snotel_triplet": "1067:CA:SNTL",
+          "snotel_name": "Carson Pass (3.4 mi)",
+          "snow_report_url": "https://www.onthesnow.com/california/kirkwood/skireport",
+          "snow_report_source": "OnTheSnow",
+          "resort_url": "https://www.kirkwood.com",
+          "microclimate_note": "The highest and most storm-exposed of the Tahoe-area resorts, sitting in its own bowl south of the lake that consistently outperforms Tahoe's north shore for snowfall totals."
+        },
+        {
+          "id": "june-mountain",
+          "name": "June Mountain",
+          "state": "CA",
+          "lat": 37.7649,
+          "lon": -119.08,
+          "base_elev_ft": 7545,
+          "summit_elev_ft": 10090,
+          "passes": [
+            "Ikon"
+          ],
+          "pass_confidence": "high",
+          "snotel_triplet": null,
+          "snow_course_triplet": "AGP:CA:SNOW",
+          "snow_course_name": "Agnew Pass (4.3 mi)",
+          "resort_url": "https://www.junemountain.com",
+          "snow_report_url": "https://www.onthesnow.com/california/june-mountain/skireport",
+          "snow_report_source": "OnTheSnow",
+          "microclimate_note": "Mammoth's quieter neighbor a few miles north, sharing the same high-elevation southern-Sierra exposure with far less skier traffic."
         }
       ]
     },
@@ -71,64 +158,151 @@
       "id": "southwest-rockies",
       "name": "Southwest / Southern Rockies",
       "continent": "North America",
-      "season": { "display": "Nov–Apr", "start_month": 11, "end_month": 4 },
+      "season": {
+        "display": "Nov–Apr",
+        "start_month": 11,
+        "end_month": 4
+      },
       "enso_signals": {
         "el_nino": {
-          "signal": "bull", "signal_label": "Bullish", "meter_pct": 72, "meter_display": "+10–20%",
+          "signal": "bull",
+          "signal_label": "Bullish",
+          "meter_pct": 72,
+          "meter_display": "+10–20%",
           "narrative": "The southern jet corridor rewards this region most consistently in El Niño years. High base elevations mean the warmer airmass still falls as snow. Taos is one of the very few major destinations where El Niño is a documented, reliable positive signal.",
           "caveat": "A Super El Niño amplifies this signal materially — Wolf Creek and the San Juans could see exceptional seasons."
         },
         "la_nina": {
-          "signal": "bear", "signal_label": "Bearish", "meter_pct": 20, "meter_display": "−15–30%",
+          "signal": "bear",
+          "signal_label": "Bearish",
+          "meter_pct": 20,
+          "meter_display": "−15–30%",
           "narrative": "The mirror image of the El Niño case. The southern jet corridor that fuels this region shuts off in La Niña — this is the classic 'Southwest drought' pattern, well documented across recent multi-year La Niña stretches.",
           "caveat": "This is one of the more reliable bearish ENSO signals in North American skiing. Treat La Niña as a real headwind for the San Juans, not noise."
         },
         "neutral": {
-          "signal": "mixed", "signal_label": "Mixed", "meter_pct": 50, "meter_display": "Near average",
+          "signal": "mixed",
+          "signal_label": "Mixed",
+          "meter_pct": 50,
+          "meter_display": "Near average",
           "narrative": "Without El Niño's southern jet boost, this region reverts to its normal high-variance pattern — high base elevations still help catch whatever does fall.",
           "caveat": "Track individual storm systems rather than a seasonal thesis."
         }
       },
       "resorts": [
         {
-          "id": "taos", "name": "Taos Ski Valley", "state": "NM",
-          "lat": 36.5946, "lon": -105.4522,
-          "base_elev_ft": 9200, "summit_elev_ft": 12481,
-          "passes": ["Ikon"], "pass_confidence": "high",
-          "snotel_triplet": "1168:NM:SNTL", "snotel_name": "Taos Powderhorn (0.9 mi)",
-          "snow_report_url": "https://www.snow-forecast.com/resorts/Taos/snow-report", "snow_report_source": "Snow-Forecast"
+          "id": "taos",
+          "name": "Taos Ski Valley",
+          "state": "NM",
+          "lat": 36.5946,
+          "lon": -105.4522,
+          "base_elev_ft": 9200,
+          "summit_elev_ft": 12481,
+          "passes": [
+            "Ikon"
+          ],
+          "pass_confidence": "high",
+          "snotel_triplet": "1168:NM:SNTL",
+          "snotel_name": "Taos Powderhorn (0.9 mi)",
+          "snow_report_url": "https://www.snow-forecast.com/resorts/Taos/snow-report",
+          "snow_report_source": "Snow-Forecast",
+          "resort_url": "https://www.skitaos.com",
+          "microclimate_note": "Sits in a gap in the Sangre de Cristo range that still catches southern-jet moisture — a genuinely unusual microclimate for northern New Mexico, and the reason it's one of the few reliable El Niño winners."
         },
         {
-          "id": "wolf-creek", "name": "Wolf Creek", "state": "CO",
-          "lat": 37.4722, "lon": -106.7930,
-          "base_elev_ft": 10300, "summit_elev_ft": 11904,
-          "passes": ["Indy Pass"], "pass_confidence": "verify",
-          "snotel_triplet": "874:CO:SNTL", "snotel_name": "Wolf Creek Summit (0.7 mi)",
-          "snow_report_url": "https://www.snow-forecast.com/resorts/Wolf-Creek/snow-report", "snow_report_source": "Snow-Forecast"
+          "id": "wolf-creek",
+          "name": "Wolf Creek",
+          "state": "CO",
+          "lat": 37.4722,
+          "lon": -106.793,
+          "base_elev_ft": 10300,
+          "summit_elev_ft": 11904,
+          "passes": [
+            "Indy Pass"
+          ],
+          "pass_confidence": "verify",
+          "snotel_triplet": "874:CO:SNTL",
+          "snotel_name": "Wolf Creek Summit (0.7 mi)",
+          "snow_report_url": "https://www.onthesnow.com/colorado/wolf-creek/skireport",
+          "snow_report_source": "Snow-Forecast",
+          "resort_url": "https://wolfcreekski.com",
+          "microclimate_note": "Colorado's snowiest resort on average, sitting directly in the path of southwest-flow moisture funneling up the San Juans before any other range intercepts it — first in line for whatever the southern jet delivers."
         },
         {
-          "id": "telluride", "name": "Telluride", "state": "CO",
-          "lat": 37.9375, "lon": -107.8123,
-          "base_elev_ft": 8750, "summit_elev_ft": 13150,
-          "passes": ["Ikon"], "pass_confidence": "high",
-          "snotel_triplet": "1344:CO:SNTL", "snotel_name": "Alta Lakes, CO (3.8 mi)",
-          "snow_report_url": "https://www.onthesnow.com/colorado/telluride/skireport", "snow_report_source": "OnTheSnow"
+          "id": "telluride",
+          "name": "Telluride",
+          "state": "CO",
+          "lat": 37.9375,
+          "lon": -107.8123,
+          "base_elev_ft": 8750,
+          "summit_elev_ft": 13150,
+          "passes": [
+            "Ikon"
+          ],
+          "pass_confidence": "high",
+          "snotel_triplet": "1344:CO:SNTL",
+          "snotel_name": "Alta Lakes, CO (3.8 mi)",
+          "snow_report_url": "https://www.onthesnow.com/colorado/telluride/skireport",
+          "snow_report_source": "OnTheSnow",
+          "resort_url": "https://www.tellurideskiresort.com",
+          "microclimate_note": "A deep box-canyon setting plus a very high summit (13,150ft) gives it some of the best snow preservation in Colorado, even though the historic town itself sits comparatively low."
         },
         {
-          "id": "purgatory", "name": "Purgatory", "state": "CO",
-          "lat": 37.6167, "lon": -107.8000,
-          "base_elev_ft": 8793, "summit_elev_ft": 10822,
-          "passes": ["Indy Pass"], "pass_confidence": "verify",
-          "snotel_triplet": "387:CO:SNTL", "snotel_name": "Cascade #2 (2.8 mi)",
-          "snow_report_url": "https://www.onthesnow.com/colorado/durango-mountain-resort/skireport", "snow_report_source": "OnTheSnow"
+          "id": "purgatory",
+          "name": "Purgatory",
+          "state": "CO",
+          "lat": 37.6167,
+          "lon": -107.8,
+          "base_elev_ft": 8793,
+          "summit_elev_ft": 10822,
+          "passes": [
+            "Indy Pass"
+          ],
+          "pass_confidence": "verify",
+          "snotel_triplet": "387:CO:SNTL",
+          "snotel_name": "Cascade #2 (2.8 mi)",
+          "snow_report_url": "https://www.onthesnow.com/colorado/durango-mountain-resort/skireport",
+          "snow_report_source": "OnTheSnow",
+          "resort_url": "https://www.purgatoryresort.com",
+          "microclimate_note": "Northern San Juans — gets a blend of southern-jet moisture and the same northern storm track that feeds Wolf Creek, without Wolf Creek's extreme single-point exposure."
         },
         {
-          "id": "santa-fe", "name": "Ski Santa Fe", "state": "NM",
-          "lat": 35.8036, "lon": -105.8000,
-          "base_elev_ft": 10350, "summit_elev_ft": 12075,
-          "passes": ["Independent"], "pass_confidence": "verify",
-          "snotel_triplet": "922:NM:SNTL", "snotel_name": "Santa Fe (2.4 mi)",
-          "snow_report_url": "https://www.onthesnow.com/new-mexico/ski-santa-fe/skireport", "snow_report_source": "OnTheSnow"
+          "id": "santa-fe",
+          "name": "Ski Santa Fe",
+          "state": "NM",
+          "lat": 35.8036,
+          "lon": -105.8,
+          "base_elev_ft": 10350,
+          "summit_elev_ft": 12075,
+          "passes": [
+            "Independent"
+          ],
+          "pass_confidence": "verify",
+          "snotel_triplet": "922:NM:SNTL",
+          "snotel_name": "Santa Fe (2.4 mi)",
+          "snow_report_url": "https://www.onthesnow.com/new-mexico/ski-santa-fe/skireport",
+          "snow_report_source": "OnTheSnow",
+          "resort_url": "https://www.skisantafe.com",
+          "microclimate_note": "One of the southernmost lift-served resorts on the continent; only works at all because of its high base (10,350ft) — margin for error is thin regardless of ENSO phase."
+        },
+        {
+          "id": "arizona-snowbowl",
+          "name": "Arizona Snowbowl",
+          "state": "AZ",
+          "lat": 35.3297,
+          "lon": -111.7108,
+          "base_elev_ft": 9200,
+          "summit_elev_ft": 11500,
+          "passes": [
+            "Independent"
+          ],
+          "pass_confidence": "verify",
+          "snotel_triplet": "927:AZ:SNTL",
+          "snotel_name": "Snowslide Canyon (3.5 mi)",
+          "resort_url": "https://www.snowbowl.ski",
+          "snow_report_url": "https://www.onthesnow.com/arizona/arizona-snowbowl/skireport",
+          "snow_report_source": "OnTheSnow",
+          "microclimate_note": "At 35°N, one of the southernmost lift-served resorts on the continent — only works because the San Francisco Peaks punch up to 12,600ft. A genuinely marginal, high-variance climate in any ENSO phase."
         }
       ]
     },
@@ -136,96 +310,322 @@
       "id": "utah-central-colorado",
       "name": "Utah / Central Colorado",
       "continent": "North America",
-      "season": { "display": "Nov–Apr", "start_month": 11, "end_month": 4 },
+      "season": {
+        "display": "Nov–Apr",
+        "start_month": 11,
+        "end_month": 4
+      },
       "enso_signals": {
         "el_nino": {
-          "signal": "mixed", "signal_label": "Mixed", "meter_pct": 50, "meter_display": "Near average",
+          "signal": "mixed",
+          "signal_label": "Mixed",
+          "meter_pct": 50,
+          "meter_display": "Near average",
           "narrative": "ENSO has minimal predictive power here in any phase — the correlation is statistically negligible across 50+ seasons. Don't credit or blame El Niño for however this season turns out.",
           "caveat": "The popular narrative that El Niño reliably helps the Rockies is largely the 1982-83 halo effect. The data does not support it for Alta or the I-70 corridor."
         },
         "la_nina": {
-          "signal": "mixed", "signal_label": "Mixed", "meter_pct": 50, "meter_display": "Near average",
+          "signal": "mixed",
+          "signal_label": "Mixed",
+          "meter_pct": 50,
+          "meter_display": "Near average",
           "narrative": "Same story as El Niño years: this region sits in the seam between the northern and southern storm tracks, and the ENSO correlation is negligible in either direction across 50+ seasons.",
           "caveat": "Prior-season base snowpack and individual storm timing matter far more here than ENSO phase."
         },
         "neutral": {
-          "signal": "mixed", "signal_label": "Mixed", "meter_pct": 50, "meter_display": "Near average",
+          "signal": "mixed",
+          "signal_label": "Mixed",
+          "meter_pct": 50,
+          "meter_display": "Near average",
           "narrative": "This is close to what Utah/Central Colorado looks like in every ENSO phase — the region just isn't a strong ENSO responder.",
           "caveat": "Look at the live snowpack numbers below rather than the ENSO thesis for this region."
         }
       },
       "resorts": [
         {
-          "id": "alta", "name": "Alta", "state": "UT",
-          "lat": 40.5883, "lon": -111.6373,
-          "base_elev_ft": 8530, "summit_elev_ft": 10550,
-          "passes": ["Ikon (limited days)"], "pass_confidence": "verify",
-          "snotel_triplet": "1308:UT:SNTL", "snotel_name": "Atwater (0.2 mi)",
-          "snow_report_url": "https://www.onthesnow.com/utah/alta-ski-area/skireport", "snow_report_source": "OnTheSnow"
+          "id": "alta",
+          "name": "Alta",
+          "state": "UT",
+          "lat": 40.5883,
+          "lon": -111.6373,
+          "base_elev_ft": 8530,
+          "summit_elev_ft": 10550,
+          "passes": [
+            "Ikon (limited days)"
+          ],
+          "pass_confidence": "verify",
+          "snotel_triplet": "1308:UT:SNTL",
+          "snotel_name": "Atwater (0.2 mi)",
+          "snow_report_url": "https://www.onthesnow.com/utah/alta-ski-area/skireport",
+          "snow_report_source": "OnTheSnow",
+          "resort_url": "https://www.alta.com",
+          "microclimate_note": "Little Cottonwood Canyon's uniquely funnel-shaped orientation is the textbook explanation for the Wasatch's famously light, frequent snow, with lake-effect enhancement off the Great Salt Lake layered on top."
         },
         {
-          "id": "snowbird", "name": "Snowbird", "state": "UT",
-          "lat": 40.5830, "lon": -111.6556,
-          "base_elev_ft": 7760, "summit_elev_ft": 11000,
-          "passes": ["Ikon"], "pass_confidence": "high",
-          "snotel_triplet": "766:UT:SNTL", "snotel_name": "Snowbird (1.0 mi)",
-          "snow_report_url": "https://www.onthesnow.com/utah/snowbird/skireport", "snow_report_source": "OnTheSnow"
+          "id": "snowbird",
+          "name": "Snowbird",
+          "state": "UT",
+          "lat": 40.583,
+          "lon": -111.6556,
+          "base_elev_ft": 7760,
+          "summit_elev_ft": 11000,
+          "passes": [
+            "Ikon"
+          ],
+          "pass_confidence": "high",
+          "snotel_triplet": "766:UT:SNTL",
+          "snotel_name": "Snowbird (1.0 mi)",
+          "snow_report_url": "https://www.onthesnow.com/utah/snowbird/skireport",
+          "snow_report_source": "OnTheSnow",
+          "resort_url": "https://www.snowbird.com",
+          "microclimate_note": "Shares Little Cottonwood Canyon with Alta and the same lake-effect mechanism, but sits slightly lower and more wind-exposed on the canyon's south side."
         },
         {
-          "id": "park-city", "name": "Park City", "state": "UT",
-          "lat": 40.6461, "lon": -111.4980,
-          "base_elev_ft": 6900, "summit_elev_ft": 10000,
-          "passes": ["Epic"], "pass_confidence": "high",
-          "snotel_triplet": "814:UT:SNTL", "snotel_name": "Thaynes Canyon (2.4 mi)",
-          "snow_report_url": "https://www.snow-forecast.com/resorts/Park-City/snow-report", "snow_report_source": "Snow-Forecast"
+          "id": "park-city",
+          "name": "Park City",
+          "state": "UT",
+          "lat": 40.6461,
+          "lon": -111.498,
+          "base_elev_ft": 6900,
+          "summit_elev_ft": 10000,
+          "passes": [
+            "Epic"
+          ],
+          "pass_confidence": "high",
+          "snotel_triplet": "814:UT:SNTL",
+          "snotel_name": "Thaynes Canyon (2.4 mi)",
+          "snow_report_url": "https://www.snow-forecast.com/resorts/Park-City/snow-report",
+          "snow_report_source": "Snow-Forecast",
+          "resort_url": "https://www.parkcitymountain.com",
+          "microclimate_note": "Sits in a side canyon east of the main Wasatch crest, meaning it catches meaningfully less of the Cottonwood Canyons' lake-effect enhancement than Alta or Snowbird."
         },
         {
-          "id": "deer-valley", "name": "Deer Valley", "state": "UT",
-          "lat": 40.6374, "lon": -111.4783,
-          "base_elev_ft": 6570, "summit_elev_ft": 9570,
-          "passes": ["Independent"], "pass_confidence": "verify",
-          "snotel_triplet": "814:UT:SNTL", "snotel_name": "Thaynes Canyon (3.0 mi)",
-          "snow_report_url": "https://www.onthesnow.com/utah/deer-valley-resort/skireport", "snow_report_source": "OnTheSnow"
+          "id": "deer-valley",
+          "name": "Deer Valley",
+          "state": "UT",
+          "lat": 40.6374,
+          "lon": -111.4783,
+          "base_elev_ft": 6570,
+          "summit_elev_ft": 9570,
+          "passes": [
+            "Ikon"
+          ],
+          "pass_confidence": "high",
+          "snotel_triplet": "814:UT:SNTL",
+          "snotel_name": "Thaynes Canyon (3.0 mi)",
+          "snow_report_url": "https://www.onthesnow.com/utah/deer-valley-resort/skireport",
+          "snow_report_source": "OnTheSnow",
+          "resort_url": "https://www.deervalley.com",
+          "microclimate_note": "Adjacent to Park City with a similar exposure profile; historically built around grooming and consistency rather than the deepest powder days."
         },
         {
-          "id": "breckenridge", "name": "Breckenridge", "state": "CO",
-          "lat": 39.4817, "lon": -106.0384,
-          "base_elev_ft": 9600, "summit_elev_ft": 12998,
-          "passes": ["Epic"], "pass_confidence": "high",
-          "snotel_triplet": "415:CO:SNTL", "snotel_name": "Copper Mountain (7.1 mi)",
-          "snow_report_url": "https://www.onthesnow.com/colorado/breckenridge/skireport", "snow_report_source": "OnTheSnow"
+          "id": "breckenridge",
+          "name": "Breckenridge",
+          "state": "CO",
+          "lat": 39.4817,
+          "lon": -106.0384,
+          "base_elev_ft": 9600,
+          "summit_elev_ft": 12998,
+          "passes": [
+            "Epic"
+          ],
+          "pass_confidence": "high",
+          "snotel_triplet": "415:CO:SNTL",
+          "snotel_name": "Copper Mountain (7.1 mi)",
+          "snow_report_url": "https://www.onthesnow.com/colorado/breckenridge/skireport",
+          "snow_report_source": "OnTheSnow",
+          "resort_url": "https://www.breckenridge.com",
+          "microclimate_note": "High base (9,600ft) on the Tenmile Range's east side — the leeward side of the Continental Divide for Pacific storms, so it leans more on upslope/continental systems than Colorado's wetter west-slope resorts."
         },
         {
-          "id": "vail", "name": "Vail", "state": "CO",
-          "lat": 39.6403, "lon": -106.3742,
-          "base_elev_ft": 8120, "summit_elev_ft": 11570,
-          "passes": ["Epic"], "pass_confidence": "high",
-          "snotel_triplet": "842:CO:SNTL", "snotel_name": "Vail Mountain (1.6 mi)",
-          "snow_report_url": "https://www.onthesnow.com/colorado/vail/skireport", "snow_report_source": "OnTheSnow"
+          "id": "vail",
+          "name": "Vail",
+          "state": "CO",
+          "lat": 39.6403,
+          "lon": -106.3742,
+          "base_elev_ft": 8120,
+          "summit_elev_ft": 11570,
+          "passes": [
+            "Epic"
+          ],
+          "pass_confidence": "high",
+          "snotel_triplet": "842:CO:SNTL",
+          "snotel_name": "Vail Mountain (1.6 mi)",
+          "snow_report_url": "https://www.onthesnow.com/colorado/vail/skireport",
+          "snow_report_source": "OnTheSnow",
+          "resort_url": "https://www.vail.com",
+          "microclimate_note": "A long east-west ridge with enormous sidecountry catchment, sitting close enough to the Divide to catch decent Pacific-influenced snow before Colorado's typical continental dry-out sets in further east."
         },
         {
-          "id": "steamboat", "name": "Steamboat", "state": "CO",
-          "lat": 40.4572, "lon": -106.8045,
-          "base_elev_ft": 6900, "summit_elev_ft": 10568,
-          "passes": ["Ikon"], "pass_confidence": "high",
-          "snotel_triplet": "457:CO:SNTL", "snotel_name": "Dry Lake (5.4 mi)",
-          "snow_report_url": "https://www.onthesnow.com/colorado/steamboat/skireport", "snow_report_source": "OnTheSnow"
+          "id": "steamboat",
+          "name": "Steamboat",
+          "state": "CO",
+          "lat": 40.4572,
+          "lon": -106.8045,
+          "base_elev_ft": 6900,
+          "summit_elev_ft": 10568,
+          "passes": [
+            "Ikon"
+          ],
+          "pass_confidence": "high",
+          "snotel_triplet": "457:CO:SNTL",
+          "snotel_name": "Dry Lake (5.4 mi)",
+          "snow_report_url": "https://www.onthesnow.com/colorado/steamboat/skireport",
+          "snow_report_source": "OnTheSnow",
+          "resort_url": "https://www.steamboat.com",
+          "microclimate_note": "The Park Range's orientation wrings moisture from Pacific storms unusually efficiently — the documented mechanism behind trademarked 'Champagne Powder,' with snow averaging roughly 6% water content versus ~15% typical elsewhere in Colorado."
         },
         {
-          "id": "aspen-snowmass", "name": "Aspen Snowmass", "state": "CO",
-          "lat": 39.2110, "lon": -106.9497,
-          "base_elev_ft": 8104, "summit_elev_ft": 12510,
-          "passes": ["Ikon"], "pass_confidence": "high",
-          "snotel_triplet": "669:CO:SNTL", "snotel_name": "North Lost Trail (13.9 mi)",
-          "snow_report_url": "https://www.onthesnow.com/colorado/aspen-snowmass/skireport", "snow_report_source": "OnTheSnow"
+          "id": "aspen-snowmass",
+          "name": "Aspen Snowmass",
+          "state": "CO",
+          "lat": 39.211,
+          "lon": -106.9497,
+          "base_elev_ft": 8104,
+          "summit_elev_ft": 12510,
+          "passes": [
+            "Ikon"
+          ],
+          "pass_confidence": "high",
+          "snotel_triplet": "669:CO:SNTL",
+          "snotel_name": "North Lost Trail (13.9 mi)",
+          "snow_report_url": "https://www.onthesnow.com/colorado/aspen-snowmass/skireport",
+          "snow_report_source": "OnTheSnow",
+          "resort_url": "https://www.aspensnowmass.com",
+          "microclimate_note": "Central Elk Mountains with a high summit (12,510ft) but lower base; storm-track geometry here is more favorable than Crested Butte's despite similar latitude, and average snowfall (~300in) runs well above it."
         },
         {
-          "id": "winter-park", "name": "Winter Park", "state": "CO",
-          "lat": 39.8868, "lon": -105.7625,
-          "base_elev_ft": 9000, "summit_elev_ft": 12060,
-          "passes": ["Ikon"], "pass_confidence": "high",
-          "snotel_triplet": "1186:CO:SNTL", "snotel_name": "Fool Creek (5.7 mi)",
-          "snow_report_url": "https://www.onthesnow.com/colorado/winter-park-resort/skireport", "snow_report_source": "OnTheSnow"
+          "id": "winter-park",
+          "name": "Winter Park",
+          "state": "CO",
+          "lat": 39.8868,
+          "lon": -105.7625,
+          "base_elev_ft": 9000,
+          "summit_elev_ft": 12060,
+          "passes": [
+            "Ikon"
+          ],
+          "pass_confidence": "high",
+          "snotel_triplet": "1186:CO:SNTL",
+          "snotel_name": "Fool Creek (5.7 mi)",
+          "snow_report_url": "https://www.onthesnow.com/colorado/winter-park-resort/skireport",
+          "snow_report_source": "OnTheSnow",
+          "resort_url": "https://www.winterparkresort.com",
+          "microclimate_note": "Sits directly on the Continental Divide via the Moffat Tunnel corridor — one of the closest resorts to Denver that still catches genuinely west-slope-style snow because the ridge itself sits on the divide."
+        },
+        {
+          "id": "copper-mountain",
+          "name": "Copper Mountain",
+          "state": "CO",
+          "lat": 39.5022,
+          "lon": -106.1497,
+          "base_elev_ft": 9712,
+          "summit_elev_ft": 12441,
+          "passes": [
+            "Epic"
+          ],
+          "pass_confidence": "high",
+          "snotel_triplet": "415:CO:SNTL",
+          "snotel_name": "Copper Mountain (1.5 mi)",
+          "resort_url": "https://www.coppercolorado.com",
+          "snow_report_url": "https://www.snow-forecast.com/resorts/Copper-Mountain/snow-report",
+          "snow_report_source": "Snow-Forecast",
+          "microclimate_note": "Adjacent to Vail Pass on the west side of the Continental Divide, with similar storm exposure to Vail/Breckenridge and a naturally divided front/back-side layout that spreads snow preservation across aspects."
+        },
+        {
+          "id": "eldora",
+          "name": "Eldora",
+          "state": "CO",
+          "lat": 39.9375,
+          "lon": -105.5828,
+          "base_elev_ft": 9200,
+          "summit_elev_ft": 10600,
+          "passes": [
+            "Ikon"
+          ],
+          "pass_confidence": "high",
+          "snotel_triplet": "564:CO:SNTL",
+          "snotel_name": "Lake Eldora (0.4 mi)",
+          "resort_url": "https://www.eldora.com",
+          "snow_report_url": "https://www.onthesnow.com/colorado/eldora-mountain-resort/skireport",
+          "snow_report_source": "OnTheSnow",
+          "microclimate_note": "The closest major resort to Denver, on the Front Range side of the Divide — snow totals typically lag the West Slope resorts because Front Range terrain sits in a partial rain shadow."
+        },
+        {
+          "id": "arapahoe-basin",
+          "name": "Arapahoe Basin",
+          "state": "CO",
+          "lat": 39.6425,
+          "lon": -105.8719,
+          "base_elev_ft": 10520,
+          "summit_elev_ft": 13050,
+          "passes": [
+            "Ikon"
+          ],
+          "pass_confidence": "high",
+          "snotel_triplet": "505:CO:SNTL",
+          "snotel_name": "Grizzly Peak (0.3 mi)",
+          "resort_url": "https://www.arapahoebasin.com",
+          "snow_report_url": "https://www.snow-forecast.com/resorts/Arapahoe-Basin/snow-report",
+          "snow_report_source": "Snow-Forecast",
+          "microclimate_note": "The highest base elevation of any US lift-served resort (10,520ft) — this alone makes it one of the most temperature-buffered resorts in the country, often extending the season into June."
+        },
+        {
+          "id": "crested-butte",
+          "name": "Crested Butte",
+          "state": "CO",
+          "lat": 38.8697,
+          "lon": -106.9878,
+          "base_elev_ft": 9375,
+          "summit_elev_ft": 12162,
+          "passes": [
+            "Epic"
+          ],
+          "pass_confidence": "high",
+          "snotel_triplet": "380:CO:SNTL",
+          "snotel_name": "Butte (2.5 mi)",
+          "resort_url": "https://www.skicb.com",
+          "snow_report_url": "https://www.onthesnow.com/colorado/crested-butte-mountain-resort/skireport",
+          "snow_report_source": "OnTheSnow",
+          "microclimate_note": "A genuinely continental snow climate — cold, clear, infrequent but heavy storms, and a shallower, weaker-layered snowpack than the Wasatch's more variable climate. Average annual snowfall (~208in) trails Aspen's (~300in) despite comparable elevation."
+        },
+        {
+          "id": "solitude",
+          "name": "Solitude",
+          "state": "UT",
+          "lat": 40.6199,
+          "lon": -111.5925,
+          "base_elev_ft": 7988,
+          "summit_elev_ft": 10035,
+          "passes": [
+            "Ikon"
+          ],
+          "pass_confidence": "high",
+          "snotel_triplet": "366:UT:SNTL",
+          "snotel_name": "Brighton (1.5 mi)",
+          "resort_url": "https://www.solitudemountain.com",
+          "snow_report_url": "https://www.onthesnow.com/utah/solitude-mountain-resort/skireport",
+          "snow_report_source": "OnTheSnow",
+          "microclimate_note": "Sits one canyon over from Alta/Snowbird (Big Cottonwood vs. Little Cottonwood) — the same Great Salt Lake-effect mechanism applies, with a slightly less extreme funnel orientation."
+        },
+        {
+          "id": "snowbasin",
+          "name": "Snowbasin",
+          "state": "UT",
+          "lat": 41.216,
+          "lon": -111.857,
+          "base_elev_ft": 6400,
+          "summit_elev_ft": 9350,
+          "passes": [
+            "Ikon"
+          ],
+          "pass_confidence": "high",
+          "snotel_triplet": "1300:UT:SNTL",
+          "snotel_name": "Powder Mountain (11.9 mi)",
+          "resort_url": "https://www.snowbasin.com",
+          "snow_report_url": "https://www.onthesnow.com/utah/snowbasin/skireport",
+          "snow_report_source": "OnTheSnow",
+          "microclimate_note": "The northernmost Wasatch resort in this list, catching more direct Pacific storm tracks before they reach the more sheltered central Wasatch canyons."
         }
       ]
     },
@@ -233,101 +633,261 @@
       "id": "pnw-northern-rockies",
       "name": "Pacific Northwest / Northern Rockies",
       "continent": "North America",
-      "season": { "display": "Nov–Apr", "start_month": 11, "end_month": 4 },
+      "season": {
+        "display": "Nov–Apr",
+        "start_month": 11,
+        "end_month": 4
+      },
       "enso_signals": {
         "el_nino": {
-          "signal": "bear", "signal_label": "Bearish", "meter_pct": 28, "meter_display": "~85% of avg",
+          "signal": "bear",
+          "signal_label": "Bearish",
+          "meter_pct": 28,
+          "meter_display": "~85% of avg",
           "narrative": "The most consistently disfavored North American region in El Niño years. El Niño deflects Pacific systems south, cutting off the storm parade that defines these mountains in La Niña years.",
           "caveat": "Grand Targhee and Big Sky show less ENSO sensitivity due to microclimatic factors. High-elevation terrain can still deliver good individual cycles."
         },
         "la_nina": {
-          "signal": "bull", "signal_label": "Bullish", "meter_pct": 85, "meter_display": "+15–25%",
+          "signal": "bull",
+          "signal_label": "Bullish",
+          "meter_pct": 85,
+          "meter_display": "+15–25%",
           "narrative": "The Pacific Northwest and Northern Rockies are La Niña's single most reliable domestic beneficiary. The storm track locks on, and this region has produced some of its deepest seasons on record in La Niña years.",
           "caveat": "This is one of the highest-conviction bullish ENSO signals in North American skiing. A strong La Niña can push totals well above the +15–25% base case."
         },
         "neutral": {
-          "signal": "mixed", "signal_label": "Mixed", "meter_pct": 50, "meter_display": "Near average",
+          "signal": "mixed",
+          "signal_label": "Mixed",
+          "meter_pct": 50,
+          "meter_display": "Near average",
           "narrative": "Without La Niña's storm-track lock-in, the Pacific Northwest reverts to a fairly typical season — still one of the snowiest regions in North America on baseline climatology alone.",
           "caveat": "This region's normal average is high enough that 'neutral' still usually means a good season by national standards."
         }
       },
       "resorts": [
         {
-          "id": "jackson-hole", "name": "Jackson Hole", "state": "WY",
-          "lat": 43.5875, "lon": -110.8280,
-          "base_elev_ft": 6311, "summit_elev_ft": 10450,
-          "passes": ["Ikon"], "pass_confidence": "high",
-          "snotel_triplet": "689:WY:SNTL", "snotel_name": "Phillips Bench (6.5 mi)",
-          "snow_report_url": "https://www.onthesnow.com/wyoming/jackson-hole/skireport", "snow_report_source": "OnTheSnow"
+          "id": "jackson-hole",
+          "name": "Jackson Hole",
+          "state": "WY",
+          "lat": 43.5875,
+          "lon": -110.828,
+          "base_elev_ft": 6311,
+          "summit_elev_ft": 10450,
+          "passes": [
+            "Ikon"
+          ],
+          "pass_confidence": "high",
+          "snotel_triplet": "689:WY:SNTL",
+          "snotel_name": "Phillips Bench (6.5 mi)",
+          "snow_report_url": "https://www.onthesnow.com/wyoming/jackson-hole/skireport",
+          "snow_report_source": "OnTheSnow",
+          "resort_url": "https://www.jacksonhole.com",
+          "microclimate_note": "The Teton Range's sheer vertical relief creates its own orographic enhancement largely independent of the broader ENSO pattern — part of why it holds up better than the regional average in unfavorable ENSO years."
         },
         {
-          "id": "big-sky", "name": "Big Sky", "state": "MT",
-          "lat": 45.2854, "lon": -111.4013,
-          "base_elev_ft": 7500, "summit_elev_ft": 11166,
-          "passes": ["Ikon"], "pass_confidence": "high",
-          "snotel_triplet": "590:MT:SNTL", "snotel_name": "Lone Mountain (1.5 mi)",
-          "snow_report_url": "https://www.onthesnow.com/montana/big-sky-resort/skireport", "snow_report_source": "OnTheSnow"
+          "id": "big-sky",
+          "name": "Big Sky",
+          "state": "MT",
+          "lat": 45.2854,
+          "lon": -111.4013,
+          "base_elev_ft": 7500,
+          "summit_elev_ft": 11166,
+          "passes": [
+            "Ikon"
+          ],
+          "pass_confidence": "high",
+          "snotel_triplet": "590:MT:SNTL",
+          "snotel_name": "Lone Mountain (1.5 mi)",
+          "snow_report_url": "https://www.onthesnow.com/montana/big-sky-resort/skireport",
+          "snow_report_source": "OnTheSnow",
+          "resort_url": "https://bigskyresort.com",
+          "microclimate_note": "Montana's more continental position means lighter, drier snow than the coastal Cascades resorts, with a very high, wind-exposed summit (11,166ft)."
         },
         {
-          "id": "mt-bachelor", "name": "Mt. Bachelor", "state": "OR",
-          "lat": 43.9792, "lon": -121.6885,
-          "base_elev_ft": 6300, "summit_elev_ft": 9065,
-          "passes": ["Independent"], "pass_confidence": "verify",
-          "snotel_triplet": "815:OR:SNTL", "snotel_name": "Three Creeks Meadow (11.6 mi)",
-          "snow_report_url": "https://www.onthesnow.com/oregon/mt-bachelor/skireport", "snow_report_source": "OnTheSnow"
+          "id": "mt-bachelor",
+          "name": "Mt. Bachelor",
+          "state": "OR",
+          "lat": 43.9792,
+          "lon": -121.6885,
+          "base_elev_ft": 6300,
+          "summit_elev_ft": 9065,
+          "passes": [
+            "Independent"
+          ],
+          "pass_confidence": "verify",
+          "snotel_triplet": "815:OR:SNTL",
+          "snotel_name": "Three Creeks Meadow (11.6 mi)",
+          "snow_report_url": "https://www.onthesnow.com/oregon/mt-bachelor/skireport",
+          "snow_report_source": "OnTheSnow",
+          "resort_url": "https://www.mtbachelor.com",
+          "microclimate_note": "A near-perfectly conical, isolated volcano with no upwind terrain to steal moisture first — it takes the full, unfiltered brunt of any Pacific storm reaching central Oregon, for better or worse."
         },
         {
-          "id": "stevens-pass", "name": "Stevens Pass", "state": "WA",
-          "lat": 47.7448, "lon": -121.0890,
-          "base_elev_ft": 4061, "summit_elev_ft": 5845,
-          "passes": ["Epic"], "pass_confidence": "high",
-          "snotel_triplet": "791:WA:SNTL", "snotel_name": "Stevens Pass (0.2 mi)",
-          "snow_report_url": "https://www.snow-forecast.com/resorts/Stevens-Pass/snow-report", "snow_report_source": "Snow-Forecast"
+          "id": "stevens-pass",
+          "name": "Stevens Pass",
+          "state": "WA",
+          "lat": 47.7448,
+          "lon": -121.089,
+          "base_elev_ft": 4061,
+          "summit_elev_ft": 5845,
+          "passes": [
+            "Epic"
+          ],
+          "pass_confidence": "high",
+          "snotel_triplet": "791:WA:SNTL",
+          "snotel_name": "Stevens Pass (0.2 mi)",
+          "snow_report_url": "https://www.snow-forecast.com/resorts/Stevens-Pass/snow-report",
+          "snow_report_source": "Snow-Forecast",
+          "resort_url": "https://www.stevenspass.com",
+          "microclimate_note": "Sits almost exactly on the Washington Cascades crest, making it one of the most directly storm-exposed resorts in the entire Pacific Northwest."
         },
         {
-          "id": "crystal-mountain", "name": "Crystal Mountain", "state": "WA",
-          "lat": 46.9358, "lon": -121.4744,
-          "base_elev_ft": 4400, "summit_elev_ft": 7012,
-          "passes": ["Ikon"], "pass_confidence": "high",
-          "snotel_triplet": "642:WA:SNTL", "snotel_name": "Morse Lake (2.1 mi)",
-          "snow_report_url": "https://www.onthesnow.com/washington/crystal-mountain-wa/skireport", "snow_report_source": "OnTheSnow"
+          "id": "crystal-mountain",
+          "name": "Crystal Mountain",
+          "state": "WA",
+          "lat": 46.9358,
+          "lon": -121.4744,
+          "base_elev_ft": 4400,
+          "summit_elev_ft": 7012,
+          "passes": [
+            "Ikon"
+          ],
+          "pass_confidence": "high",
+          "snotel_triplet": "642:WA:SNTL",
+          "snotel_name": "Morse Lake (2.1 mi)",
+          "snow_report_url": "https://www.onthesnow.com/washington/crystal-mountain-wa/skireport",
+          "snow_report_source": "OnTheSnow",
+          "resort_url": "https://www.crystalmountainresort.com",
+          "microclimate_note": "Just east of Mt. Rainier, which can shadow or enhance incoming storms depending on wind direction — a notably variable microclimate even by Cascades standards."
         },
         {
-          "id": "sun-valley", "name": "Sun Valley", "state": "ID",
-          "lat": 43.6975, "lon": -114.3517,
-          "base_elev_ft": 5750, "summit_elev_ft": 9150,
-          "passes": ["Independent"], "pass_confidence": "verify",
-          "snotel_triplet": "895:ID:SNTL", "snotel_name": "Chocolate Gulch (5.9 mi)",
-          "snow_report_url": "https://www.onthesnow.com/idaho/sun-valley/skireport", "snow_report_source": "OnTheSnow"
+          "id": "sun-valley",
+          "name": "Sun Valley",
+          "state": "ID",
+          "lat": 43.6975,
+          "lon": -114.3517,
+          "base_elev_ft": 5750,
+          "summit_elev_ft": 9150,
+          "passes": [
+            "Independent"
+          ],
+          "pass_confidence": "verify",
+          "snotel_triplet": "895:ID:SNTL",
+          "snotel_name": "Chocolate Gulch (5.9 mi)",
+          "snow_report_url": "https://www.onthesnow.com/idaho/sun-valley/skireport",
+          "snow_report_source": "OnTheSnow",
+          "resort_url": "https://www.sunvalley.com",
+          "microclimate_note": "Idaho's more continental, drier climate than the coastal Cascades — known for consistent sunny-day powder rather than the heaviest raw totals."
         },
         {
-          "id": "schweitzer", "name": "Schweitzer", "state": "ID",
-          "lat": 48.3667, "lon": -116.6228,
-          "base_elev_ft": 4100, "summit_elev_ft": 6400,
-          "passes": ["Ikon"], "pass_confidence": "verify",
-          "snotel_triplet": "738:ID:SNTL", "snotel_name": "Schweitzer Basin (0.9 mi)",
-          "snow_report_url": "https://www.onthesnow.com/idaho/schweitzer/skireport", "snow_report_source": "OnTheSnow"
+          "id": "schweitzer",
+          "name": "Schweitzer",
+          "state": "ID",
+          "lat": 48.3667,
+          "lon": -116.6228,
+          "base_elev_ft": 4100,
+          "summit_elev_ft": 6400,
+          "passes": [
+            "Ikon"
+          ],
+          "pass_confidence": "verify",
+          "snotel_triplet": "738:ID:SNTL",
+          "snotel_name": "Schweitzer Basin (0.9 mi)",
+          "snow_report_url": "https://www.onthesnow.com/idaho/schweitzer/skireport",
+          "snow_report_source": "OnTheSnow",
+          "resort_url": "https://www.schweitzer.com",
+          "microclimate_note": "Far northern Idaho panhandle, close enough to the Pacific moisture corridor to catch meaningfully more snow than Sun Valley despite being in the same state."
+        },
+        {
+          "id": "alyeska",
+          "name": "Alyeska",
+          "state": "AK",
+          "lat": 60.9573,
+          "lon": -149.0854,
+          "base_elev_ft": 250,
+          "summit_elev_ft": 3939,
+          "passes": [
+            "Ikon"
+          ],
+          "pass_confidence": "high",
+          "snotel_triplet": "1103:AK:SNTL",
+          "snotel_name": "Mt. Alyeska (0.1 mi)",
+          "resort_url": "https://www.alyeskaresort.com",
+          "snow_report_url": "https://www.onthesnow.com/alaska/alyeska-resort/skireport",
+          "snow_report_source": "OnTheSnow",
+          "microclimate_note": "A coastal Alaska maritime climate entirely its own — extremely heavy, wet, reliable snowfall driven by the Gulf of Alaska rather than the Pacific Northwest storm track that governs the rest of this region's ENSO signal."
+        },
+        {
+          "id": "summit-snoqualmie",
+          "name": "Summit at Snoqualmie",
+          "state": "WA",
+          "lat": 47.4232,
+          "lon": -121.4136,
+          "base_elev_ft": 3000,
+          "summit_elev_ft": 5420,
+          "passes": [
+            "Ikon"
+          ],
+          "pass_confidence": "high",
+          "snotel_triplet": "672:WA:SNTL",
+          "snotel_name": "Olallie Meadows (3.6 mi)",
+          "resort_url": "https://www.summitatsnoqualmie.com",
+          "snow_report_url": "https://www.snow-forecast.com/resorts/The-Summit-at-Snoqualmie/snow-report",
+          "snow_report_source": "Snow-Forecast",
+          "microclimate_note": "Lower elevation and closer to Seattle than Stevens Pass, making it the most rain-line-vulnerable resort in the Washington Cascades."
+        },
+        {
+          "id": "grand-targhee",
+          "name": "Grand Targhee",
+          "state": "WY",
+          "lat": 43.7904,
+          "lon": -110.9578,
+          "base_elev_ft": 8000,
+          "summit_elev_ft": 10230,
+          "passes": [
+            "Independent"
+          ],
+          "pass_confidence": "verify",
+          "snotel_triplet": "1082:WY:SNTL",
+          "snotel_name": "Grand Targhee (1.7 mi)",
+          "resort_url": "https://www.grandtarghee.com",
+          "snow_report_url": "https://www.onthesnow.com/wyoming/grand-targhee-resort/skireport",
+          "snow_report_source": "OnTheSnow",
+          "microclimate_note": "Sits on the windward (west) side of the Tetons, opposite Jackson Hole — why it consistently catches more total snowfall than Jackson despite sitting right next door."
         }
       ]
     },
     {
       "id": "northeast-us",
-      "name": "Northeast United States",
+      "name": "Northeast US / Eastern Canada",
       "continent": "North America",
-      "season": { "display": "Nov–Apr", "start_month": 11, "end_month": 4 },
+      "season": {
+        "display": "Nov–Apr",
+        "start_month": 11,
+        "end_month": 4
+      },
       "enso_signals": {
         "el_nino": {
-          "signal": "bear", "signal_label": "Bearish", "meter_pct": 30, "meter_display": "~70–75% of avg",
+          "signal": "bear",
+          "signal_label": "Bearish",
+          "meter_pct": 30,
+          "meter_display": "~70–75% of avg",
           "narrative": "El Niño suppresses Arctic cold intrusions, compressing both the front and back of the snow window. The 2015-16 Super El Niño drove snowfall 30–40% below average at major New England resorts.",
           "caveat": "Negative NAO events can still produce intense Nor'easters. Book deposits, not airfare. Watch the CPC NAO index in December–January."
         },
         "la_nina": {
-          "signal": "mixed", "signal_label": "Mixed — slightly favorable", "meter_pct": 58, "meter_display": "Near to slightly above avg",
+          "signal": "mixed",
+          "signal_label": "Mixed — slightly favorable",
+          "meter_pct": 58,
+          "meter_display": "Near to slightly above avg",
           "narrative": "La Niña doesn't suppress Arctic outbreaks the way El Niño does, so the Northeast's snow window tends to run closer to normal. It's a secondary effect, though — the NAO and AO do most of the real work in this region regardless of ENSO phase.",
           "caveat": "Don't treat La Niña as a strong green light here — it mainly just removes El Niño's headwind rather than creating a tailwind of its own."
         },
         "neutral": {
-          "signal": "mixed", "signal_label": "Mixed", "meter_pct": 50, "meter_display": "Near average",
+          "signal": "mixed",
+          "signal_label": "Mixed",
+          "meter_pct": 50,
+          "meter_display": "Near average",
           "narrative": "The Northeast is dominated by the NAO/AO regardless of ENSO phase, so a neutral ENSO year looks much like an average year here.",
           "caveat": "Watch the NAO index week to week during the season — it matters more than ENSO for this region."
         }
@@ -335,77 +895,336 @@
       "primary_driver": "nao",
       "nao_signals": {
         "negative": {
-          "signal": "bull", "signal_label": "Bullish", "meter_pct": 78, "meter_display": "+15–25%",
+          "signal": "bull",
+          "signal_label": "Bullish",
+          "meter_pct": 78,
+          "meter_display": "+15–25%",
           "narrative": "Negative NAO is the single best predictor of a good Northeast ski season. It favors cold-air intrusions and raises the odds of Nor'easters tracking up the coast — the storm type that actually makes New England's season, far more reliably than any ENSO phase.",
           "caveat": "Even a negative NAO doesn't guarantee it — Nor'easter tracks are still highly storm-by-storm. But the backdrop is genuinely favorable, more so than anything ENSO tells you about this region."
         },
         "neutral": {
-          "signal": "mixed", "signal_label": "Mixed", "meter_pct": 50, "meter_display": "Near average",
+          "signal": "mixed",
+          "signal_label": "Mixed",
+          "meter_pct": 50,
+          "meter_display": "Near average",
           "narrative": "Without a strong NAO signal in either direction, expect a fairly typical Northeast season. ENSO's own influence here is minor regardless of which phase it's in.",
           "caveat": "Keep watching the NAO through the season — it can swing sharply week to week even when the monthly average looks neutral."
         },
         "positive": {
-          "signal": "bear", "signal_label": "Bearish", "meter_pct": 24, "meter_display": "~70–80% of avg",
+          "signal": "bear",
+          "signal_label": "Bearish",
+          "meter_pct": 24,
+          "meter_display": "~70–80% of avg",
           "narrative": "Positive NAO is the Northeast's most reliable bearish signal. It keeps the storm track and cold air locked north over Canada, producing a milder, more rain-prone pattern that compresses the season from both ends.",
           "caveat": "A positive NAO doesn't rule out a single extreme storm — some of the region's biggest Nor'easters on record happened outside a clean negative-NAO winter, so don't read this as 'no snow is possible.' The correlation is also weaker in northern Maine and northern Vermont (Sugarloaf, Jay Peak), where research shows NAO's signal gets blurred by lake-effect and terrain influences that work regardless of phase — this bearish call applies most cleanly to central/southern New England (Killington, Stowe, Sugarbush, Sunday River, Cannon)."
         }
       },
       "resorts": [
         {
-          "id": "killington", "name": "Killington", "state": "VT",
-          "lat": 43.6045, "lon": -72.8201,
-          "base_elev_ft": 1165, "summit_elev_ft": 4241,
-          "passes": ["Ikon"], "pass_confidence": "high",
+          "id": "killington",
+          "name": "Killington",
+          "state": "VT",
+          "lat": 43.6045,
+          "lon": -72.8201,
+          "base_elev_ft": 1165,
+          "summit_elev_ft": 4241,
+          "passes": [
+            "Ikon"
+          ],
+          "pass_confidence": "high",
           "snotel_triplet": null,
-          "snow_report_url": "https://www.snow-forecast.com/resorts/Killington/snow-report", "snow_report_source": "Snow-Forecast"
+          "snow_report_url": "https://www.snow-forecast.com/resorts/Killington/snow-report",
+          "snow_report_source": "Snow-Forecast",
+          "resort_url": "https://www.killington.com",
+          "microclimate_note": "Vermont's highest lift-served terrain and the largest snowmaking system in the East — built specifically to buffer against the region's inherent NAO-driven storm-to-storm variability."
         },
         {
-          "id": "stowe", "name": "Stowe", "state": "VT",
-          "lat": 44.5303, "lon": -72.7818,
-          "base_elev_ft": 1280, "summit_elev_ft": 4395,
-          "passes": ["Epic"], "pass_confidence": "high",
+          "id": "stowe",
+          "name": "Stowe",
+          "state": "VT",
+          "lat": 44.5303,
+          "lon": -72.7818,
+          "base_elev_ft": 1280,
+          "summit_elev_ft": 4395,
+          "passes": [
+            "Epic"
+          ],
+          "pass_confidence": "high",
           "snotel_triplet": null,
-          "snow_report_url": "https://www.onthesnow.com/vermont/stowe-mountain-resort/skireport", "snow_report_source": "OnTheSnow"
+          "snow_report_url": "https://www.onthesnow.com/vermont/stowe-mountain-resort/skireport",
+          "snow_report_source": "OnTheSnow",
+          "resort_url": "https://www.stowe.com",
+          "microclimate_note": "Northern Vermont, closer to the Canadian border, tends to run colder than southern Vermont resorts during the same storm system."
         },
         {
-          "id": "jay-peak", "name": "Jay Peak", "state": "VT",
-          "lat": 44.9280, "lon": -72.5273,
-          "base_elev_ft": 1815, "summit_elev_ft": 3968,
-          "passes": ["Indy Pass"], "pass_confidence": "verify",
+          "id": "jay-peak",
+          "name": "Jay Peak",
+          "state": "VT",
+          "lat": 44.928,
+          "lon": -72.5273,
+          "base_elev_ft": 1815,
+          "summit_elev_ft": 3968,
+          "passes": [
+            "Indy Pass"
+          ],
+          "pass_confidence": "verify",
           "snotel_triplet": null,
-          "snow_report_url": "https://www.snow-forecast.com/resorts/Jay-Peak/snow-report", "snow_report_source": "Snow-Forecast"
+          "snow_report_url": "https://www.snow-forecast.com/resorts/Jay-Peak/snow-report",
+          "snow_report_source": "Snow-Forecast",
+          "resort_url": "https://jaypeakresort.com",
+          "microclimate_note": "The northernmost major Vermont resort, right on the Canadian border, catching genuine northwest-flow upslope snow that resorts further south miss — one of the snowiest resorts in the East on average."
         },
         {
-          "id": "cannon", "name": "Cannon Mountain", "state": "NH",
-          "lat": 44.1776, "lon": -71.6986,
-          "base_elev_ft": 1955, "summit_elev_ft": 4080,
-          "passes": ["Indy Pass"], "pass_confidence": "verify",
+          "id": "cannon",
+          "name": "Cannon Mountain",
+          "state": "NH",
+          "lat": 44.1776,
+          "lon": -71.6986,
+          "base_elev_ft": 1955,
+          "summit_elev_ft": 4080,
+          "passes": [
+            "Indy Pass"
+          ],
+          "pass_confidence": "verify",
           "snotel_triplet": null,
-          "snow_report_url": "https://www.snow-forecast.com/resorts/Cannon-Mountain/snow-report", "snow_report_source": "Snow-Forecast"
+          "snow_report_url": "https://www.snow-forecast.com/resorts/Cannon-Mountain/snow-report",
+          "snow_report_source": "Snow-Forecast",
+          "resort_url": "https://www.cannonmt.com",
+          "microclimate_note": "An exposed, high-elevation White Mountains site with less snowmaking reliance historically than most Northeast resorts — more weather-dependent than the regional norm."
         },
         {
-          "id": "sugarbush", "name": "Sugarbush", "state": "VT",
-          "lat": 44.1359, "lon": -72.9028,
-          "base_elev_ft": 1443, "summit_elev_ft": 4083,
-          "passes": ["Ikon"], "pass_confidence": "high",
+          "id": "sugarbush",
+          "name": "Sugarbush",
+          "state": "VT",
+          "lat": 44.1359,
+          "lon": -72.9028,
+          "base_elev_ft": 1443,
+          "summit_elev_ft": 4083,
+          "passes": [
+            "Ikon"
+          ],
+          "pass_confidence": "high",
           "snotel_triplet": null,
-          "snow_report_url": "https://www.onthesnow.com/vermont/sugarbush/skireport", "snow_report_source": "OnTheSnow"
+          "snow_report_url": "https://www.onthesnow.com/vermont/sugarbush/skireport",
+          "snow_report_source": "OnTheSnow",
+          "resort_url": "https://www.sugarbush.com",
+          "microclimate_note": "Central Vermont, a similar exposure profile to Stowe and Killington, historically less snowmaking-dependent thanks to favorable natural terrain."
         },
         {
-          "id": "sunday-river", "name": "Sunday River", "state": "ME",
-          "lat": 44.4750, "lon": -70.8578,
-          "base_elev_ft": 800, "summit_elev_ft": 3140,
-          "passes": ["Ikon"], "pass_confidence": "high",
+          "id": "sunday-river",
+          "name": "Sunday River",
+          "state": "ME",
+          "lat": 44.475,
+          "lon": -70.8578,
+          "base_elev_ft": 800,
+          "summit_elev_ft": 3140,
+          "passes": [
+            "Ikon"
+          ],
+          "pass_confidence": "high",
           "snotel_triplet": null,
-          "snow_report_url": "https://www.snow-forecast.com/resorts/Sunday-River/snow-report", "snow_report_source": "Snow-Forecast"
+          "snow_report_url": "https://www.snow-forecast.com/resorts/Sunday-River/snow-report",
+          "snow_report_source": "Snow-Forecast",
+          "resort_url": "https://www.sundayriver.com",
+          "microclimate_note": "Maine's eight interconnected peaks spread storm exposure across a wide east-west footprint, buffering against any single storm's track missing part of the resort."
         },
         {
-          "id": "sugarloaf", "name": "Sugarloaf", "state": "ME",
-          "lat": 45.0314, "lon": -70.3131,
-          "base_elev_ft": 1417, "summit_elev_ft": 4237,
-          "passes": ["Ikon"], "pass_confidence": "high",
+          "id": "sugarloaf",
+          "name": "Sugarloaf",
+          "state": "ME",
+          "lat": 45.0314,
+          "lon": -70.3131,
+          "base_elev_ft": 1417,
+          "summit_elev_ft": 4237,
+          "passes": [
+            "Ikon"
+          ],
+          "pass_confidence": "high",
           "snotel_triplet": null,
-          "snow_report_url": "https://www.onthesnow.com/new-england/sugarloaf/skireport", "snow_report_source": "OnTheSnow"
+          "snow_report_url": "https://www.onthesnow.com/new-england/sugarloaf/skireport",
+          "snow_report_source": "OnTheSnow",
+          "resort_url": "https://www.sugarloaf.com",
+          "microclimate_note": "Maine's highest lift-served peak, exposed enough for above-treeline skiing — the most alpine, wind-affected terrain profile in the Northeast."
+        },
+        {
+          "id": "okemo",
+          "name": "Okemo",
+          "state": "VT",
+          "lat": 43.4009,
+          "lon": -72.7157,
+          "base_elev_ft": 1144,
+          "summit_elev_ft": 3344,
+          "passes": [
+            "Epic"
+          ],
+          "pass_confidence": "high",
+          "snotel_triplet": null,
+          "resort_url": "https://www.okemo.com",
+          "snow_report_url": "https://www.onthesnow.com/vermont/okemo-mountain-resort/skireport",
+          "snow_report_source": "OnTheSnow",
+          "microclimate_note": "Southern Vermont — historically the most snowmaking-dependent of the state's major resorts given its lower elevation and more southerly exposure."
+        },
+        {
+          "id": "mount-snow",
+          "name": "Mount Snow",
+          "state": "VT",
+          "lat": 42.9601,
+          "lon": -72.9204,
+          "base_elev_ft": 1900,
+          "summit_elev_ft": 3600,
+          "passes": [
+            "Epic"
+          ],
+          "pass_confidence": "high",
+          "snotel_triplet": null,
+          "resort_url": "https://www.mountsnow.com",
+          "snow_report_url": "https://www.onthesnow.com/vermont/mount-snow/skireport",
+          "snow_report_source": "OnTheSnow",
+          "microclimate_note": "The southernmost major Vermont resort — the most exposed of the state's resorts to the region's rain-line risk in marginal storms."
+        },
+        {
+          "id": "mount-sunapee",
+          "name": "Mount Sunapee",
+          "state": "NH",
+          "lat": 43.3212,
+          "lon": -72.0834,
+          "base_elev_ft": 1233,
+          "summit_elev_ft": 2743,
+          "passes": [
+            "Epic"
+          ],
+          "pass_confidence": "high",
+          "snotel_triplet": null,
+          "resort_url": "https://www.mountsunapee.com",
+          "snow_report_url": "https://www.onthesnow.com/new-hampshire/mount-sunapee/skireport",
+          "snow_report_source": "OnTheSnow",
+          "microclimate_note": "South-central New Hampshire, lower elevation — generally the most temperature-marginal resort among this NH cluster."
+        },
+        {
+          "id": "attitash",
+          "name": "Attitash",
+          "state": "NH",
+          "lat": 44.0798,
+          "lon": -71.2295,
+          "base_elev_ft": 600,
+          "summit_elev_ft": 2350,
+          "passes": [
+            "Epic"
+          ],
+          "pass_confidence": "high",
+          "snotel_triplet": null,
+          "resort_url": "https://www.attitash.com",
+          "snow_report_url": "https://www.onthesnow.com/new-hampshire/attitash/skireport",
+          "snow_report_source": "OnTheSnow",
+          "microclimate_note": "White Mountains, moderate elevation, sitting in a valley that can trap cold air during Arctic outbreaks."
+        },
+        {
+          "id": "wildcat",
+          "name": "Wildcat",
+          "state": "NH",
+          "lat": 44.2634,
+          "lon": -71.2394,
+          "base_elev_ft": 1950,
+          "summit_elev_ft": 4062,
+          "passes": [
+            "Epic"
+          ],
+          "pass_confidence": "high",
+          "snotel_triplet": null,
+          "resort_url": "https://www.skiwildcat.com",
+          "snow_report_url": "https://www.onthesnow.com/new-hampshire/wildcat-mountain/skireport",
+          "snow_report_source": "OnTheSnow",
+          "microclimate_note": "Sits directly across the valley from Mt. Washington — one of the most wind-exposed, coldest resorts in the East, benefiting from proximity to the most extreme weather station in the region."
+        },
+        {
+          "id": "hunter-mountain",
+          "name": "Hunter Mountain",
+          "state": "NY",
+          "lat": 42.2026,
+          "lon": -74.2296,
+          "base_elev_ft": 1600,
+          "summit_elev_ft": 3200,
+          "passes": [
+            "Epic"
+          ],
+          "pass_confidence": "high",
+          "snotel_triplet": null,
+          "resort_url": "https://www.huntermtn.com",
+          "snow_report_url": "https://www.onthesnow.com/new-york/hunter-mountain/skireport",
+          "snow_report_source": "OnTheSnow",
+          "microclimate_note": "Catskills, New York — the southernmost, lowest-elevation major resort in this list, and correspondingly the most snowmaking-dependent."
+        },
+        {
+          "id": "stratton",
+          "name": "Stratton",
+          "state": "VT",
+          "lat": 43.1134,
+          "lon": -72.9081,
+          "base_elev_ft": 1872,
+          "summit_elev_ft": 3875,
+          "passes": [
+            "Ikon"
+          ],
+          "pass_confidence": "high",
+          "snotel_triplet": null,
+          "resort_url": "https://www.stratton.com",
+          "snow_report_url": "https://opensnow.com/location/stratton/snow-report",
+          "snow_report_source": "OpenSnow",
+          "microclimate_note": "Southern Vermont, a similar exposure profile to Okemo and Mount Snow — lower elevation makes it more rain-line-sensitive than northern Vermont resorts."
+        },
+        {
+          "id": "loon-mountain",
+          "name": "Loon Mountain",
+          "state": "NH",
+          "lat": 44.0359,
+          "lon": -71.6209,
+          "base_elev_ft": 950,
+          "summit_elev_ft": 3050,
+          "passes": [
+            "Ikon"
+          ],
+          "pass_confidence": "high",
+          "snotel_triplet": null,
+          "resort_url": "https://www.loonmtn.com",
+          "snow_report_url": "https://www.onthesnow.com/new-hampshire/loon-mountain/skireport",
+          "snow_report_source": "OnTheSnow",
+          "microclimate_note": "White Mountains, New Hampshire — moderate elevation with heavy snowmaking investment to smooth out natural variability."
+        },
+        {
+          "id": "snowshoe",
+          "name": "Snowshoe",
+          "state": "WV",
+          "lat": 38.4093,
+          "lon": -79.9962,
+          "base_elev_ft": 3370,
+          "summit_elev_ft": 4848,
+          "passes": [
+            "Ikon"
+          ],
+          "pass_confidence": "high",
+          "snotel_triplet": null,
+          "resort_url": "https://www.snowshoemtn.com",
+          "snow_report_url": "https://opensnow.com/location/snowshoe/snow-report",
+          "snow_report_source": "OpenSnow",
+          "microclimate_note": "The southernmost resort in this region by a wide margin — its unusually high base for the Appalachians (3,370ft) is the only reason it functions as a ski area at all."
+        },
+        {
+          "id": "tremblant",
+          "name": "Tremblant",
+          "state": "QC",
+          "lat": 46.2093,
+          "lon": -74.5843,
+          "base_elev_ft": 870,
+          "summit_elev_ft": 2871,
+          "passes": [
+            "Ikon"
+          ],
+          "pass_confidence": "high",
+          "snotel_triplet": null,
+          "resort_url": "https://www.tremblant.ca",
+          "snow_report_url": "https://www.onthesnow.com/quebec/tremblant/skireport",
+          "snow_report_source": "OnTheSnow",
+          "microclimate_note": "Quebec's Laurentians sit further from the immediate Atlantic coastal storm track than New England, catching more Great Lakes and continental Arctic influence instead — a genuinely distinct microclimate from the rest of this NAO-driven region, generally colder and more temperature-consistent."
         }
       ]
     },
@@ -413,83 +1232,245 @@
       "id": "canadian-rockies-bc",
       "name": "Canadian Rockies / BC",
       "continent": "North America",
-      "season": { "display": "Nov–Apr", "start_month": 11, "end_month": 4 },
+      "season": {
+        "display": "Nov–Apr",
+        "start_month": 11,
+        "end_month": 4
+      },
       "enso_signals": {
         "el_nino": {
-          "signal": "bear", "signal_label": "Bearish", "meter_pct": 25, "meter_display": "~80–85% of avg",
+          "signal": "bear",
+          "signal_label": "Bearish",
+          "meter_pct": 25,
+          "meter_display": "~80–85% of avg",
           "narrative": "La Niña's top beneficiary becomes El Niño's clearest loser in North America. BC interior is almost entirely Pacific storm-track dependent, and El Niño cuts that track off.",
           "caveat": "A Super El Niño amplifies this signal materially. If the tail scenario confirms, avoid non-refundable BC interior bookings."
         },
         "la_nina": {
-          "signal": "bull", "signal_label": "Bullish", "meter_pct": 85, "meter_display": "+15–25%",
+          "signal": "bull",
+          "signal_label": "Bullish",
+          "meter_pct": 85,
+          "meter_display": "+15–25%",
           "narrative": "BC interior — Revelstoke, Big White — is La Niña's top North American beneficiary, almost entirely because of how directly it sits in the enhanced Pacific storm track. Coastal Whistler benefits too, though slightly less dramatically thanks to its own orographic lift baseline.",
           "caveat": "This is a high-conviction bullish signal — among the strongest ENSO-ski correlations anywhere in North America."
         },
         "neutral": {
-          "signal": "mixed", "signal_label": "Mixed", "meter_pct": 50, "meter_display": "Near average",
+          "signal": "mixed",
+          "signal_label": "Mixed",
+          "meter_pct": 50,
+          "meter_display": "Near average",
           "narrative": "Without La Niña's storm-track lock-in, expect something closer to this region's long-run average — still generally snowy given the baseline climatology.",
           "caveat": "Local orographic effects (coastal vs. interior) matter more than ENSO in a neutral year."
         }
       },
       "resorts": [
         {
-          "id": "whistler", "name": "Whistler Blackcomb", "state": "BC",
-          "lat": 50.1163, "lon": -122.9574,
-          "base_elev_ft": 2140, "summit_elev_ft": 7494,
-          "passes": ["Epic"], "pass_confidence": "high",
+          "id": "whistler",
+          "name": "Whistler Blackcomb",
+          "state": "BC",
+          "lat": 50.1163,
+          "lon": -122.9574,
+          "base_elev_ft": 2140,
+          "summit_elev_ft": 7494,
+          "passes": [
+            "Epic"
+          ],
+          "pass_confidence": "high",
           "snotel_triplet": null,
-          "snow_report_url": "https://www.onthesnow.com/british-columbia/whistler-blackcomb/skireport", "snow_report_source": "OnTheSnow"
+          "snow_report_url": "https://www.onthesnow.com/british-columbia/whistler-blackcomb/skireport",
+          "snow_report_source": "OnTheSnow",
+          "resort_url": "https://www.whistlerblackcomb.com",
+          "microclimate_note": "A coastal maritime climate with huge vertical (5,000+ft) spanning multiple microclimates in a single mountain, from rainforest base to alpine bowl — a famously wide temperature and precipitation range."
         },
         {
-          "id": "revelstoke", "name": "Revelstoke", "state": "BC",
-          "lat": 50.9581, "lon": -118.1957,
-          "base_elev_ft": 1680, "summit_elev_ft": 7300,
-          "passes": ["Ikon"], "pass_confidence": "high",
+          "id": "revelstoke",
+          "name": "Revelstoke",
+          "state": "BC",
+          "lat": 50.9581,
+          "lon": -118.1957,
+          "base_elev_ft": 1680,
+          "summit_elev_ft": 7300,
+          "passes": [
+            "Ikon"
+          ],
+          "pass_confidence": "high",
           "snotel_triplet": null,
-          "snow_report_url": "https://www.onthesnow.com/british-columbia/revelstoke-mountain/skireport", "snow_report_source": "OnTheSnow"
+          "snow_report_url": "https://www.onthesnow.com/british-columbia/revelstoke-mountain/skireport",
+          "snow_report_source": "OnTheSnow",
+          "resort_url": "https://www.revelstokemountainresort.com",
+          "microclimate_note": "Deep interior BC with some of the highest average snowfall totals in North America, driven by moist Pacific flow funneled through the Columbia Mountains with no coastal range to intercept it first."
         },
         {
-          "id": "banff-lake-louise", "name": "Banff / Lake Louise", "state": "AB",
-          "lat": 51.4419, "lon": -116.1620,
-          "base_elev_ft": 5400, "summit_elev_ft": 8650,
-          "passes": ["Ikon (SkiBig3)"], "pass_confidence": "high",
+          "id": "banff-lake-louise",
+          "name": "Banff / Lake Louise",
+          "state": "AB",
+          "lat": 51.4419,
+          "lon": -116.162,
+          "base_elev_ft": 5400,
+          "summit_elev_ft": 8650,
+          "passes": [
+            "Ikon (SkiBig3)"
+          ],
+          "pass_confidence": "high",
           "snotel_triplet": null,
-          "snow_course_triplet": "16X02:AB:SNOW", "snow_course_name": "Pipestone Upper (0.6 mi)",
-          "snow_report_url": "https://www.onthesnow.com/alberta/lake-louise/skireport", "snow_report_source": "OnTheSnow"
+          "snow_course_triplet": "16X02:AB:SNOW",
+          "snow_course_name": "Pipestone Upper (0.6 mi)",
+          "snow_report_url": "https://www.onthesnow.com/alberta/lake-louise/skireport",
+          "snow_report_source": "OnTheSnow",
+          "resort_url": "https://www.skilouise.com",
+          "microclimate_note": "East of the Continental Divide in the true Canadian Rockies — drier and colder than the BC interior resorts, a genuinely different, more continental climate than Revelstoke or Whistler despite the shared region label."
         },
         {
-          "id": "big-white", "name": "Big White", "state": "BC",
-          "lat": 49.7314, "lon": -118.9339,
-          "base_elev_ft": 5040, "summit_elev_ft": 7606,
-          "passes": ["Indy Pass"], "pass_confidence": "verify",
+          "id": "big-white",
+          "name": "Big White",
+          "state": "BC",
+          "lat": 49.7314,
+          "lon": -118.9339,
+          "base_elev_ft": 5040,
+          "summit_elev_ft": 7606,
+          "passes": [
+            "Indy Pass"
+          ],
+          "pass_confidence": "verify",
           "snotel_triplet": null,
-          "snow_course_triplet": "2E03:BC:SNOW", "snow_course_name": "Big White Mountain (2.2 mi)",
-          "snow_report_url": "https://www.snow-forecast.com/resorts/Big-White/snow-report", "snow_report_source": "Snow-Forecast"
+          "snow_course_triplet": "2E03:BC:SNOW",
+          "snow_course_name": "Big White Mountain (2.2 mi)",
+          "snow_report_url": "https://www.snow-forecast.com/resorts/Big-White/snow-report",
+          "snow_report_source": "Snow-Forecast",
+          "resort_url": "https://www.bigwhite.com",
+          "microclimate_note": "High base elevation for BC-interior standards, known for exceptionally light snow and thick rime 'snow ghost' formations built up by persistent cloud inversions."
         },
         {
-          "id": "sun-peaks", "name": "Sun Peaks", "state": "BC",
-          "lat": 50.8836, "lon": -119.8794,
-          "base_elev_ft": 4133, "summit_elev_ft": 6824,
-          "passes": ["Ikon"], "pass_confidence": "verify",
+          "id": "sun-peaks",
+          "name": "Sun Peaks",
+          "state": "BC",
+          "lat": 50.8836,
+          "lon": -119.8794,
+          "base_elev_ft": 4133,
+          "summit_elev_ft": 6824,
+          "passes": [
+            "Ikon"
+          ],
+          "pass_confidence": "verify",
           "snotel_triplet": null,
-          "snow_report_url": "https://www.onthesnow.com/british-columbia/sun-peaks/skireport", "snow_report_source": "OnTheSnow"
+          "snow_report_url": "https://www.onthesnow.com/british-columbia/sun-peaks/skireport",
+          "snow_report_source": "OnTheSnow",
+          "resort_url": "https://www.sunpeaksresort.com",
+          "microclimate_note": "Rain-shadowed by the Coast and Columbia Mountains, giving it a notably drier, sunnier climate than Whistler or Revelstoke despite similar latitude."
         },
         {
-          "id": "kicking-horse", "name": "Kicking Horse", "state": "BC",
-          "lat": 51.2978, "lon": -117.0567,
-          "base_elev_ft": 4265, "summit_elev_ft": 8033,
-          "passes": ["Ikon"], "pass_confidence": "verify",
+          "id": "kicking-horse",
+          "name": "Kicking Horse",
+          "state": "BC",
+          "lat": 51.2978,
+          "lon": -117.0567,
+          "base_elev_ft": 4265,
+          "summit_elev_ft": 8033,
+          "passes": [
+            "Ikon"
+          ],
+          "pass_confidence": "verify",
           "snotel_triplet": null,
-          "snow_course_triplet": "2A11:BC:SNOW", "snow_course_name": "Beaverfoot (7.1 mi)",
-          "snow_report_url": "https://www.onthesnow.com/british-columbia/kicking-horse/skireport", "snow_report_source": "OnTheSnow"
+          "snow_course_triplet": "2A11:BC:SNOW",
+          "snow_course_name": "Beaverfoot (7.1 mi)",
+          "snow_report_url": "https://www.onthesnow.com/british-columbia/kicking-horse/skireport",
+          "snow_report_source": "OnTheSnow",
+          "resort_url": "https://www.kickinghorseresort.com",
+          "microclimate_note": "Continental-Divide-adjacent in the Purcell Mountains, with very high vertical and alpine bowls that hold snow exceptionally well once it falls."
         },
         {
-          "id": "fernie", "name": "Fernie", "state": "BC",
-          "lat": 49.4631, "lon": -115.0879,
-          "base_elev_ft": 3450, "summit_elev_ft": 6316,
-          "passes": ["Ikon"], "pass_confidence": "verify",
+          "id": "fernie",
+          "name": "Fernie",
+          "state": "BC",
+          "lat": 49.4631,
+          "lon": -115.0879,
+          "base_elev_ft": 3450,
+          "summit_elev_ft": 6316,
+          "passes": [
+            "Ikon"
+          ],
+          "pass_confidence": "verify",
           "snotel_triplet": null,
-          "snow_report_url": "https://www.onthesnow.com/british-columbia/fernie-alpine/skireport", "snow_report_source": "OnTheSnow"
+          "snow_report_url": "https://www.onthesnow.com/british-columbia/fernie-alpine/skireport",
+          "snow_report_source": "OnTheSnow",
+          "resort_url": "https://www.skifernie.com",
+          "microclimate_note": "Southeastern BC, sitting in its own snow-catching bowl (locally 'the Fernie Alps') known for localized storm enhancement distinct from the broader regional pattern."
+        },
+        {
+          "id": "panorama",
+          "name": "Panorama",
+          "state": "BC",
+          "lat": 50.4569,
+          "lon": -116.2375,
+          "base_elev_ft": 3800,
+          "summit_elev_ft": 8038,
+          "passes": [
+            "Ikon"
+          ],
+          "pass_confidence": "high",
+          "snotel_triplet": null,
+          "resort_url": "https://www.panoramaresort.com",
+          "snow_report_url": "https://www.snow-forecast.com/resorts/Panorama/snow-report",
+          "snow_report_source": "Snow-Forecast",
+          "microclimate_note": "Purcell Mountains, further from the primary Pacific storm track than Revelstoke or Whistler — a drier interior climate known for excellent grooming reliability."
+        },
+        {
+          "id": "silverstar",
+          "name": "SilverStar",
+          "state": "BC",
+          "lat": 50.3572,
+          "lon": -119.0567,
+          "base_elev_ft": 5280,
+          "summit_elev_ft": 6280,
+          "passes": [
+            "Ikon"
+          ],
+          "pass_confidence": "high",
+          "snotel_triplet": null,
+          "snow_course_triplet": "2F10:BC:SNOW",
+          "snow_course_name": "Silver Star Mountain (1.1 mi)",
+          "resort_url": "https://www.skisilverstar.com",
+          "snow_report_url": "https://www.onthesnow.com/british-columbia/silver-star/skireport",
+          "snow_report_source": "OnTheSnow",
+          "microclimate_note": "Sits on a rain-shadow ridge above Vernon — genuinely famous for extremely light, dry snow despite its BC-interior geography."
+        },
+        {
+          "id": "red-mountain",
+          "name": "RED Mountain",
+          "state": "BC",
+          "lat": 49.1004,
+          "lon": -117.8161,
+          "base_elev_ft": 3894,
+          "summit_elev_ft": 6807,
+          "passes": [
+            "Ikon"
+          ],
+          "pass_confidence": "high",
+          "snotel_triplet": null,
+          "snow_course_triplet": "2B09:BC:SNOW",
+          "snow_course_name": "Record Mountain (2.9 mi)",
+          "resort_url": "https://www.redresort.com",
+          "snow_report_url": "https://www.snow-forecast.com/resorts/Red-Mountain/snow-report",
+          "snow_report_source": "Snow-Forecast",
+          "microclimate_note": "Southern BC near the US border, in the same general moisture corridor as Schweitzer and Whitefish across the border — deep, consistent interior snowfall."
+        },
+        {
+          "id": "cypress",
+          "name": "Cypress",
+          "state": "BC",
+          "lat": 49.4045,
+          "lon": -123.2035,
+          "base_elev_ft": 2600,
+          "summit_elev_ft": 4720,
+          "passes": [
+            "Ikon"
+          ],
+          "pass_confidence": "high",
+          "snotel_triplet": null,
+          "resort_url": "https://www.cypressmountain.com",
+          "snow_report_url": "https://www.onthesnow.com/british-columbia/cypress-mountain/skireport",
+          "snow_report_source": "OnTheSnow",
+          "microclimate_note": "The most coastal, lowest-elevation, most maritime of the BC resorts here — closest in character to Whistler's base but smaller and more rain-line-vulnerable given its 2,600ft base."
         }
       ]
     },
@@ -497,20 +1478,33 @@
       "id": "european-alps",
       "name": "European Alps",
       "continent": "Europe",
-      "season": { "display": "Dec–Apr", "start_month": 12, "end_month": 4 },
+      "season": {
+        "display": "Dec–Apr",
+        "start_month": 12,
+        "end_month": 4
+      },
       "enso_signals": {
         "el_nino": {
-          "signal": "mixed", "signal_label": "Mixed — elevation dependent", "meter_pct": 35, "meter_display": "Weak / noisy",
+          "signal": "mixed",
+          "signal_label": "Mixed — elevation dependent",
+          "meter_pct": 35,
+          "meter_display": "Weak / noisy",
           "narrative": "Historical data shows little consistent ENSO-snowfall correlation in the Alps — the NAO is the dominant driver. El Niño's main risk is indirect: warmer background conditions raising the rain-snow line at lower resorts. Above 2,500m the signal is negligible.",
           "caveat": "Book high. A Sudden Stratospheric Warming event mid-winter can override El Niño for 4–6 weeks — SSW probability rises with low Arctic sea ice extent."
         },
         "la_nina": {
-          "signal": "mixed", "signal_label": "Mixed — elevation dependent", "meter_pct": 38, "meter_display": "Weak / noisy",
+          "signal": "mixed",
+          "signal_label": "Mixed — elevation dependent",
+          "meter_pct": 38,
+          "meter_display": "Weak / noisy",
           "narrative": "ENSO's influence on European winters is faint in either phase — the NAO and polar vortex configuration matter far more. La Niña winters show a marginal lean toward a more meridional (blocky) jet pattern, which can help or hurt the Alps depending on where the blocking sets up.",
           "caveat": "Book high regardless of ENSO phase — elevation is the dominant variable here, not the Pacific."
         },
         "neutral": {
-          "signal": "mixed", "signal_label": "Mixed — elevation dependent", "meter_pct": 40, "meter_display": "Weak / noisy",
+          "signal": "mixed",
+          "signal_label": "Mixed — elevation dependent",
+          "meter_pct": 40,
+          "meter_display": "Weak / noisy",
           "narrative": "The Alps are an NAO-driven region in essentially every ENSO phase, so a neutral year looks much like any other year here.",
           "caveat": "Watch the NAO/polar vortex state through the season — it's the signal that actually matters for the Alps."
         }
@@ -518,85 +1512,336 @@
       "primary_driver": "nao",
       "nao_signals": {
         "negative": {
-          "signal": "bull", "signal_label": "Bullish — colder pattern", "meter_pct": 72, "meter_display": "+10–20%",
+          "signal": "bull",
+          "signal_label": "Bullish — colder pattern",
+          "meter_pct": 72,
+          "meter_display": "+10–20%",
           "narrative": "Negative NAO weakens the usual west-to-east Atlantic storm track and lets cold air push further south into central Europe — the pattern most associated with good, reliable Alpine snow, including at lower and southern-facing resorts.",
           "caveat": "Negative NAO winters are also more prone to blocking-driven dry spells between cold outbreaks — snow tends to arrive in bursts rather than a steady parade of storms. Still worth booking high as insurance."
         },
         "neutral": {
-          "signal": "mixed", "signal_label": "Mixed — elevation dependent", "meter_pct": 45, "meter_display": "Weak / noisy",
+          "signal": "mixed",
+          "signal_label": "Mixed — elevation dependent",
+          "meter_pct": 45,
+          "meter_display": "Weak / noisy",
           "narrative": "Without a strong NAO signal, the Alps default to elevation-dependent noise — no consistent tilt toward more or less snow. ENSO's own influence here is negligible in any phase.",
           "caveat": "Book high regardless — elevation is the dominant variable when the NAO isn't giving a clear signal."
         },
         "positive": {
-          "signal": "bear", "signal_label": "Bearish — mild pattern", "meter_pct": 28, "meter_display": "~75–85% of avg (low elevation)",
+          "signal": "bear",
+          "signal_label": "Bearish — mild pattern",
+          "meter_pct": 28,
+          "meter_display": "~75–85% of avg (low elevation)",
           "narrative": "Positive NAO drives a strong, mild westerly flow across northern Europe. For the Alps that typically means a higher freezing level and reduced snow reliability at lower resorts — the riskier pattern for anything below roughly 2,000m.",
           "caveat": "Above 2,500m the signal is much weaker — glacier and high-altitude terrain (Zermatt's upper lifts, Val d'Isère's glacier) hold up fine even in a positive-NAO winter."
         }
       },
       "resorts": [
         {
-          "id": "zermatt", "name": "Zermatt", "state": "Switzerland",
-          "lat": 46.0207, "lon": 7.7491,
-          "base_elev_ft": 5310, "summit_elev_ft": 12740,
-          "passes": ["Independent"], "pass_confidence": "verify",
+          "id": "zermatt",
+          "name": "Zermatt",
+          "state": "Switzerland",
+          "lat": 46.0207,
+          "lon": 7.7491,
+          "base_elev_ft": 5310,
+          "summit_elev_ft": 12740,
+          "passes": [
+            "Ikon"
+          ],
+          "pass_confidence": "high",
           "snotel_triplet": null,
-          "snow_report_url": "https://www.onthesnow.co.uk/valais/zermatt/skireport", "snow_report_source": "OnTheSnow"
+          "snow_report_url": "https://www.onthesnow.co.uk/valais/zermatt/skireport",
+          "snow_report_source": "OnTheSnow",
+          "resort_url": "https://www.zermatt.ch",
+          "microclimate_note": "Extremely high, glaciated terrain (base 5,310ft, summit 12,740ft at Matterhorn Glacier Paradise) makes it one of the least NAO-sensitive resorts in the Alps at altitude — skiable year-round on the glacier regardless of the winter's overall pattern."
         },
         {
-          "id": "val-disere", "name": "Val d'Isère", "state": "France",
-          "lat": 45.4489, "lon": 6.9797,
-          "base_elev_ft": 6070, "summit_elev_ft": 10930,
-          "passes": ["Independent"], "pass_confidence": "verify",
+          "id": "val-disere",
+          "name": "Val d'Isère",
+          "state": "France",
+          "lat": 45.4489,
+          "lon": 6.9797,
+          "base_elev_ft": 6070,
+          "summit_elev_ft": 10930,
+          "passes": [
+            "Independent"
+          ],
+          "pass_confidence": "verify",
           "snotel_triplet": null,
-          "snow_report_url": "https://www.onthesnow.co.uk/northern-alps/val-disere/skireport", "snow_report_source": "OnTheSnow"
+          "snow_report_url": "https://www.onthesnow.co.uk/northern-alps/val-disere/skireport",
+          "snow_report_source": "OnTheSnow",
+          "resort_url": "https://www.valdisere.com",
+          "microclimate_note": "Part of the Espace Killy with Tignes, high-altitude (6,070ft base) with a north-facing orientation that holds snow well; historically runs its own local pass rather than joining Epic or Ikon."
         },
         {
-          "id": "st-anton", "name": "St. Anton", "state": "Austria",
-          "lat": 47.1333, "lon": 10.2667,
-          "base_elev_ft": 4220, "summit_elev_ft": 9222,
-          "passes": ["Independent"], "pass_confidence": "verify",
+          "id": "st-anton",
+          "name": "St. Anton",
+          "state": "Austria",
+          "lat": 47.1333,
+          "lon": 10.2667,
+          "base_elev_ft": 4220,
+          "summit_elev_ft": 9222,
+          "passes": [
+            "Epic (Ski Arlberg)"
+          ],
+          "pass_confidence": "high",
           "snotel_triplet": null,
-          "snow_report_url": "https://www.onthesnow.co.uk/tyrol/st-anton-am-arlberg/skireport", "snow_report_source": "OnTheSnow"
+          "snow_report_url": "https://www.skiarlberg.at/en/st-anton/winter/ski-region",
+          "snow_report_source": "Ski Arlberg",
+          "resort_url": "https://www.skiarlberg.at/en/st-anton/winter/ski-region",
+          "microclimate_note": "The Arlberg region catches an outsized share of Atlantic moisture crossing directly into western Austria before it's wrung out further east — genuinely one of the snowiest low-to-mid elevation zones in the Alps."
         },
         {
-          "id": "chamonix", "name": "Chamonix", "state": "France",
-          "lat": 45.9237, "lon": 6.8694,
-          "base_elev_ft": 3395, "summit_elev_ft": 12605,
-          "passes": ["Independent"], "pass_confidence": "verify",
+          "id": "chamonix",
+          "name": "Chamonix",
+          "state": "France",
+          "lat": 45.9237,
+          "lon": 6.8694,
+          "base_elev_ft": 3395,
+          "summit_elev_ft": 12605,
+          "passes": [
+            "Ikon"
+          ],
+          "pass_confidence": "high",
           "snotel_triplet": null,
-          "snow_report_url": "https://www.snow-forecast.com/resorts/Chamonix/snow-report", "snow_report_source": "Snow-Forecast"
+          "snow_report_url": "https://www.snow-forecast.com/resorts/Chamonix/snow-report",
+          "snow_report_source": "Snow-Forecast",
+          "resort_url": "https://www.chamonix.com",
+          "microclimate_note": "Sits directly beneath Mont Blanc's massive relief, creating intense localized orographic lift — famous for advanced/off-piste terrain rather than groomed-piste snow reliability."
         },
         {
-          "id": "verbier", "name": "Verbier", "state": "Switzerland",
-          "lat": 46.0967, "lon": 7.2286,
-          "base_elev_ft": 4920, "summit_elev_ft": 10925,
-          "passes": ["Ikon"], "pass_confidence": "verify",
+          "id": "verbier",
+          "name": "Verbier",
+          "state": "Switzerland",
+          "lat": 46.0967,
+          "lon": 7.2286,
+          "base_elev_ft": 4920,
+          "summit_elev_ft": 10925,
+          "passes": [
+            "Epic (4 Vallées)"
+          ],
+          "pass_confidence": "high",
           "snotel_triplet": null,
-          "snow_report_url": "https://www.onthesnow.co.uk/valais/verbier/skireport", "snow_report_source": "OnTheSnow"
+          "snow_report_url": "https://www.onthesnow.co.uk/valais/verbier/skireport",
+          "snow_report_source": "OnTheSnow",
+          "resort_url": "https://www.verbier.ch",
+          "microclimate_note": "Part of the large interconnected 4 Vallées system, with highly varied aspect and elevation across its four valleys that buffers against any single slope's bad exposure in a given storm."
         },
         {
-          "id": "courchevel", "name": "Courchevel", "state": "France",
-          "lat": 45.4149, "lon": 6.6350,
-          "base_elev_ft": 5250, "summit_elev_ft": 9840,
-          "passes": ["Independent"], "pass_confidence": "verify",
+          "id": "courchevel",
+          "name": "Les Trois Vallées (Courchevel / Méribel / Val Thorens)",
+          "state": "France",
+          "lat": 45.4149,
+          "lon": 6.635,
+          "base_elev_ft": 5250,
+          "summit_elev_ft": 9840,
+          "passes": [
+            "Epic (Les 3 Vallées)"
+          ],
+          "pass_confidence": "high",
           "snotel_triplet": null,
-          "snow_report_url": "https://www.onthesnow.co.uk/northern-alps/courchevel/skireport", "snow_report_source": "OnTheSnow"
+          "snow_report_url": "https://www.onthesnow.co.uk/northern-alps/courchevel/skireport",
+          "snow_report_source": "OnTheSnow",
+          "resort_url": "https://www.les3vallees.com",
+          "microclimate_note": "The world's largest lift-connected ski area; Val Thorens alone sits above 3,200m, giving the system's upper reaches strong snow reliability even when Courchevel's lower village-level slopes run marginal."
         },
         {
-          "id": "kitzbuhel", "name": "Kitzbühel", "state": "Austria",
-          "lat": 47.4467, "lon": 12.3925,
-          "base_elev_ft": 2500, "summit_elev_ft": 6562,
-          "passes": ["Independent"], "pass_confidence": "verify",
+          "id": "kitzbuhel",
+          "name": "Kitzbühel",
+          "state": "Austria",
+          "lat": 47.4467,
+          "lon": 12.3925,
+          "base_elev_ft": 2500,
+          "summit_elev_ft": 6562,
+          "passes": [
+            "Ikon"
+          ],
+          "pass_confidence": "high",
           "snotel_triplet": null,
-          "snow_report_url": "https://www.onthesnow.co.uk/tyrol/kitzbuehel/skireport", "snow_report_source": "OnTheSnow"
+          "snow_report_url": "https://www.onthesnow.co.uk/tyrol/kitzbuehel/skireport",
+          "snow_report_source": "OnTheSnow",
+          "resort_url": "https://www.kitzbuehel.com",
+          "microclimate_note": "Relatively low elevation for the Alps (2,500ft base) and known for snowmaking dependence on the lower Hahnenkamm slopes — one of the more temperature-vulnerable major Austrian resorts."
         },
         {
-          "id": "st-moritz", "name": "St. Moritz", "state": "Switzerland",
-          "lat": 46.4908, "lon": 9.8355,
-          "base_elev_ft": 5910, "summit_elev_ft": 10837,
-          "passes": ["Independent"], "pass_confidence": "verify",
+          "id": "st-moritz",
+          "name": "St. Moritz",
+          "state": "Switzerland",
+          "lat": 46.4908,
+          "lon": 9.8355,
+          "base_elev_ft": 5910,
+          "summit_elev_ft": 10837,
+          "passes": [
+            "Ikon"
+          ],
+          "pass_confidence": "high",
           "snotel_triplet": null,
-          "snow_report_url": "https://www.snow-forecast.com/resorts/St-Moritz/snow-report", "snow_report_source": "Snow-Forecast"
+          "snow_report_url": "https://www.snow-forecast.com/resorts/St-Moritz/snow-report",
+          "snow_report_source": "Snow-Forecast",
+          "resort_url": "https://www.stmoritz.com",
+          "microclimate_note": "High-altitude Engadin valley in eastern Switzerland — drier and sunnier than the western Alps due to its more continental position, reliably cold but historically lighter on total snowfall than Zermatt or Verbier."
+        },
+        {
+          "id": "solden",
+          "name": "Sölden",
+          "state": "Austria",
+          "lat": 46.9664,
+          "lon": 10.9339,
+          "base_elev_ft": 4460,
+          "summit_elev_ft": 10670,
+          "passes": [
+            "Epic"
+          ],
+          "pass_confidence": "high",
+          "snotel_triplet": null,
+          "resort_url": "https://www.soelden.com/en",
+          "snow_report_url": "https://www.onthesnow.co.uk/tyrol/soelden/skireport",
+          "snow_report_source": "OnTheSnow",
+          "microclimate_note": "A glacier resort (Rettenbach/Tiefenbach) with reliable autumn and high-elevation snow independent of the main winter pattern, extending its effective season well beyond the NAO-driven core months."
+        },
+        {
+          "id": "saalbach",
+          "name": "Saalbach",
+          "state": "Austria",
+          "lat": 47.3897,
+          "lon": 12.6389,
+          "base_elev_ft": 3280,
+          "summit_elev_ft": 6791,
+          "passes": [
+            "Epic"
+          ],
+          "pass_confidence": "high",
+          "snotel_triplet": null,
+          "resort_url": "https://www.saalbach.com/en",
+          "snow_report_url": "https://www.snow-forecast.com/resorts/Saalbach/snow-report",
+          "snow_report_source": "Snow-Forecast",
+          "microclimate_note": "Salzburg region, moderate elevation, heavily snowmaking-supported, sitting in a similar moisture path to Kitzbühel."
+        },
+        {
+          "id": "zell-am-see",
+          "name": "Zell am See-Kaprun",
+          "state": "Austria",
+          "lat": 47.3267,
+          "lon": 12.7944,
+          "base_elev_ft": 2470,
+          "summit_elev_ft": 9928,
+          "passes": [
+            "Epic"
+          ],
+          "pass_confidence": "high",
+          "snotel_triplet": null,
+          "resort_url": "https://www.zellamsee-kaprun.com/en",
+          "snow_report_url": "https://www.snow-forecast.com/resorts/Zell-am-See/snow-report",
+          "snow_report_source": "Snow-Forecast",
+          "microclimate_note": "Combines a lower valley resort with the high-altitude Kitzsteinhorn glacier (9,928ft) — the glacier portion is largely NAO-independent, similar to Sölden's setup."
+        },
+        {
+          "id": "mayrhofen",
+          "name": "Mayrhofen",
+          "state": "Austria",
+          "lat": 47.1591,
+          "lon": 11.8656,
+          "base_elev_ft": 2130,
+          "summit_elev_ft": 8202,
+          "passes": [
+            "Epic"
+          ],
+          "pass_confidence": "high",
+          "snotel_triplet": null,
+          "resort_url": "https://www.mayrhofen.at/en",
+          "snow_report_url": "https://www.onthesnow.co.uk/tyrol/mayrhofen/skireport",
+          "snow_report_source": "OnTheSnow",
+          "microclimate_note": "Zillertal valley, Tyrol — moderate elevation with a high-altitude glacier extension nearby (Hintertux) providing a similar buffer to Zell am See's setup."
+        },
+        {
+          "id": "andermatt",
+          "name": "Andermatt",
+          "state": "Switzerland",
+          "lat": 46.6333,
+          "lon": 8.5941,
+          "base_elev_ft": 4738,
+          "summit_elev_ft": 9636,
+          "passes": [
+            "Epic"
+          ],
+          "pass_confidence": "high",
+          "snotel_triplet": null,
+          "resort_url": "https://www.andermatt.ch/en",
+          "snow_report_url": "https://www.snow-forecast.com/resorts/Andermatt/snow-report",
+          "snow_report_source": "Snow-Forecast",
+          "microclimate_note": "Central Swiss Alps, historically one of the snowiest towns in Switzerland due to its position where several Alpine passes converge and funnel moisture."
+        },
+        {
+          "id": "ischgl",
+          "name": "Ischgl",
+          "state": "Austria",
+          "lat": 46.9897,
+          "lon": 10.2933,
+          "base_elev_ft": 4610,
+          "summit_elev_ft": 9295,
+          "passes": [
+            "Ikon"
+          ],
+          "pass_confidence": "high",
+          "snotel_triplet": null,
+          "resort_url": "https://www.ischgl.com/en",
+          "snow_report_url": "https://www.onthesnow.co.uk/tyrol/ischgl/skireport",
+          "snow_report_source": "OnTheSnow",
+          "microclimate_note": "Paznaun valley, a high base for Austria (4,610ft) with strong snow reliability and famously extensive snowmaking as backup."
+        },
+        {
+          "id": "grandvalira",
+          "name": "Grandvalira",
+          "state": "Andorra",
+          "lat": 42.57,
+          "lon": 1.67,
+          "base_elev_ft": 5250,
+          "summit_elev_ft": 8465,
+          "passes": [
+            "Ikon"
+          ],
+          "pass_confidence": "high",
+          "snotel_triplet": null,
+          "resort_url": "https://www.grandvalira.com/en",
+          "snow_report_url": "https://www.onthesnow.co.uk/andorra/grandvalira/skireport",
+          "snow_report_source": "OnTheSnow",
+          "microclimate_note": "Andorra's Pyrenees location is a genuinely different mountain range from the Alps — more Atlantic/Mediterranean-influenced, generally less snow-reliable than the high Alps, but the largest ski area in the Pyrenees."
+        },
+        {
+          "id": "cortina",
+          "name": "Cortina d'Ampezzo",
+          "state": "Italy",
+          "lat": 46.5405,
+          "lon": 12.1357,
+          "base_elev_ft": 4020,
+          "summit_elev_ft": 7749,
+          "passes": [
+            "Ikon (Dolomiti Superski)"
+          ],
+          "pass_confidence": "high",
+          "snotel_triplet": null,
+          "resort_url": "https://www.dolomiti.org/en/cortina-d-ampezzo",
+          "snow_report_url": "https://www.onthesnow.co.uk/veneto/cortina-dampezzo/skireport",
+          "snow_report_source": "OnTheSnow",
+          "microclimate_note": "The Dolomites' more continental-Mediterranean position makes them drier and notably sunnier than the western Alps (sun roughly 8 days out of 10) — reliable high-altitude accumulation but historically thinner cover at lower village elevations, offset by heavy snowmaking."
+        },
+        {
+          "id": "madonna-campiglio",
+          "name": "Madonna di Campiglio",
+          "state": "Italy",
+          "lat": 46.2306,
+          "lon": 10.8253,
+          "base_elev_ft": 4970,
+          "summit_elev_ft": 8244,
+          "passes": [
+            "Epic (Skirama Dolomiti)"
+          ],
+          "pass_confidence": "high",
+          "snotel_triplet": null,
+          "resort_url": "https://www.campigliodolomiti.it/en",
+          "snow_report_url": "https://www.onthesnow.co.uk/trentino/madonna-di-campiglio/skireport",
+          "snow_report_source": "OnTheSnow",
+          "microclimate_note": "Western Dolomites, sharing Cortina's continental-Mediterranean character but in a slightly more sheltered, lower-profile setting."
         }
       ]
     },
@@ -604,80 +1849,181 @@
       "id": "japan",
       "name": "Japan — Hokkaido / Tohoku",
       "continent": "Asia",
-      "season": { "display": "Dec–Apr", "start_month": 12, "end_month": 4 },
+      "season": {
+        "display": "Dec–Apr",
+        "start_month": 12,
+        "end_month": 4
+      },
       "enso_signals": {
         "el_nino": {
-          "signal": "mixed", "signal_label": "Mixed — counterintuitive", "meter_pct": 50, "meter_display": "Nuanced",
+          "signal": "mixed",
+          "signal_label": "Mixed — counterintuitive",
+          "meter_pct": 50,
+          "meter_display": "Nuanced",
           "narrative": "Japan defies the North American intuition. Niseko showed above-average snowfall in 7 of 12 El Niño cycles since 1954. Japan's powder is driven by Siberian cold air crossing the Sea of Japan — a mechanism only weakly coupled to ENSO. Hakuba is the notable exception: below average in ~83% of El Niño years.",
           "caveat": "For Japan-focused skiers: Niseko holds up historically. Hakuba is a meaningful risk in this ENSO regime."
         },
         "la_nina": {
-          "signal": "bull", "signal_label": "Bullish", "meter_pct": 68, "meter_display": "Generally favorable",
+          "signal": "bull",
+          "signal_label": "Bullish",
+          "meter_pct": 68,
+          "meter_display": "Generally favorable",
           "narrative": "La Niña strengthens the Siberian High and the East Asian winter monsoon, generally increasing cold-air outbreaks across the Sea of Japan — the exact mechanism behind Japan's famous powder. This is historically the more reliable phase for Japan overall, including at Hakuba.",
           "caveat": "Still a continental cold-air mechanism, not a Pacific one — expect a good baseline rather than a dramatic swing."
         },
         "neutral": {
-          "signal": "mixed", "signal_label": "Mixed", "meter_pct": 55, "meter_display": "Typical monsoon baseline",
+          "signal": "mixed",
+          "signal_label": "Mixed",
+          "meter_pct": 55,
+          "meter_display": "Typical monsoon baseline",
           "narrative": "Japan's snow machine runs mostly on the East Asian winter monsoon rather than ENSO, so a neutral year tracks close to the long-run baseline — which is already very good by global standards.",
           "caveat": "Local sea-surface temperature in the Sea of Japan matters more than ENSO phase for a given week's dump."
         }
       },
       "resorts": [
         {
-          "id": "niseko", "name": "Niseko United", "state": "Japan",
-          "lat": 42.8048, "lon": 140.6874,
-          "base_elev_ft": 1000, "summit_elev_ft": 3395,
-          "passes": ["Ikon"], "pass_confidence": "verify",
+          "id": "niseko",
+          "name": "Niseko United",
+          "state": "Japan",
+          "lat": 42.8048,
+          "lon": 140.6874,
+          "base_elev_ft": 1000,
+          "summit_elev_ft": 3395,
+          "passes": [
+            "Ikon"
+          ],
+          "pass_confidence": "verify",
           "snotel_triplet": null,
-          "snow_report_url": "https://www.onthesnow.com/hokkaido/niseko-united/skireport", "snow_report_source": "OnTheSnow"
+          "snow_report_url": "https://www.onthesnow.com/hokkaido/niseko-united/skireport",
+          "snow_report_source": "OnTheSnow",
+          "resort_url": "https://www.niseko.ne.jp/en",
+          "microclimate_note": "Directly downwind of the Sea of Japan with essentially no upwind terrain to intercept Siberian moisture first — about as ENSO-independent a snow machine as exists anywhere, driven almost entirely by the Siberian High and East Asian winter monsoon."
         },
         {
-          "id": "furano", "name": "Furano", "state": "Japan",
-          "lat": 43.3267, "lon": 142.3822,
-          "base_elev_ft": 790, "summit_elev_ft": 3540,
-          "passes": ["Independent"], "pass_confidence": "verify",
+          "id": "furano",
+          "name": "Furano",
+          "state": "Japan",
+          "lat": 43.3267,
+          "lon": 142.3822,
+          "base_elev_ft": 790,
+          "summit_elev_ft": 3540,
+          "passes": [
+            "Ikon"
+          ],
+          "pass_confidence": "high",
           "snotel_triplet": null,
-          "snow_report_url": "https://www.snow-forecast.com/resorts/Furano/snow-report", "snow_report_source": "Snow-Forecast"
+          "snow_report_url": "https://www.snow-forecast.com/resorts/Furano/snow-report",
+          "snow_report_source": "Snow-Forecast",
+          "resort_url": "https://www.furanotourism.com/en",
+          "microclimate_note": "Interior Hokkaido, slightly more continental and sheltered than coastal Niseko, producing a drier, lighter snow than its more famous neighbor."
         },
         {
-          "id": "myoko", "name": "Myoko", "state": "Japan",
-          "lat": 36.8944, "lon": 138.1975,
-          "base_elev_ft": 1150, "summit_elev_ft": 6300,
-          "passes": ["Independent"], "pass_confidence": "verify",
+          "id": "myoko",
+          "name": "Myoko",
+          "state": "Japan",
+          "lat": 36.8944,
+          "lon": 138.1975,
+          "base_elev_ft": 1150,
+          "summit_elev_ft": 6300,
+          "passes": [
+            "Ikon"
+          ],
+          "pass_confidence": "high",
           "snotel_triplet": null,
-          "snow_report_url": "https://opensnow.com/location/jpmyokoski/snow-report", "snow_report_source": "OpenSnow"
+          "snow_report_url": "https://opensnow.com/location/jpmyokoski/snow-report",
+          "snow_report_source": "OpenSnow",
+          "resort_url": "https://www.princehotels.com/en/ski/myoko_kogen/",
+          "microclimate_note": "Niigata Prefecture — one of the snowiest inhabited regions on Earth by raw totals, sitting directly in the path of Sea-of-Japan moisture hitting the first major mountains it encounters."
         },
         {
-          "id": "nozawa-onsen", "name": "Nozawa Onsen", "state": "Japan",
-          "lat": 36.9219, "lon": 138.4419,
-          "base_elev_ft": 2000, "summit_elev_ft": 5800,
-          "passes": ["Independent"], "pass_confidence": "verify",
+          "id": "nozawa-onsen",
+          "name": "Nozawa Onsen",
+          "state": "Japan",
+          "lat": 36.9219,
+          "lon": 138.4419,
+          "base_elev_ft": 2000,
+          "summit_elev_ft": 5800,
+          "passes": [
+            "Independent"
+          ],
+          "pass_confidence": "verify",
           "snotel_triplet": null,
-          "snow_report_url": "https://www.snow-forecast.com/resorts/Nozawa-Onsen/snow-report", "snow_report_source": "Snow-Forecast"
+          "snow_report_url": "https://www.snow-forecast.com/resorts/Nozawa-Onsen/snow-report",
+          "snow_report_source": "Snow-Forecast",
+          "resort_url": "https://www.nozawaski.com",
+          "microclimate_note": "Nagano, slightly further inland than the Niigata resorts — historically reliable but with somewhat lower totals than Myoko."
         },
         {
-          "id": "hakuba", "name": "Hakuba (Happo-One)", "state": "Japan",
-          "lat": 36.6989, "lon": 137.8608,
-          "base_elev_ft": 2400, "summit_elev_ft": 5900,
-          "passes": ["Independent"], "pass_confidence": "verify",
+          "id": "hakuba",
+          "name": "Hakuba Valley (Happo-One)",
+          "state": "Japan",
+          "lat": 36.6989,
+          "lon": 137.8608,
+          "base_elev_ft": 2400,
+          "summit_elev_ft": 5900,
+          "passes": [
+            "Epic (Hakuba Valley)"
+          ],
+          "pass_confidence": "high",
           "snotel_triplet": null,
-          "snow_report_url": "https://www.onthesnow.com/nagano/hakuba-valley/skireport", "snow_report_source": "OnTheSnow"
+          "snow_report_url": "https://www.onthesnow.com/nagano/hakuba-valley/skireport",
+          "snow_report_source": "OnTheSnow",
+          "resort_url": "https://www.hakubavalley.com/en",
+          "microclimate_note": "Nagano's Northern Alps, where high relief creates strong orographic enhancement — though its position further from the coast than the Niigata resorts is part of why it's the documented exception to Japan's usual El Niño resilience."
         },
         {
-          "id": "rusutsu", "name": "Rusutsu", "state": "Japan",
-          "lat": 42.7550, "lon": 140.9008,
-          "base_elev_ft": 1148, "summit_elev_ft": 3117,
-          "passes": ["Ikon"], "pass_confidence": "verify",
+          "id": "rusutsu",
+          "name": "Rusutsu",
+          "state": "Japan",
+          "lat": 42.755,
+          "lon": 140.9008,
+          "base_elev_ft": 1148,
+          "summit_elev_ft": 3117,
+          "passes": [
+            "Ikon"
+          ],
+          "pass_confidence": "verify",
           "snotel_triplet": null,
-          "snow_report_url": "https://www.onthesnow.com/hokkaido/rusutsu/skireport", "snow_report_source": "OnTheSnow"
+          "snow_report_url": "https://www.onthesnow.com/hokkaido/rusutsu/skireport",
+          "snow_report_source": "OnTheSnow",
+          "resort_url": "https://rusutsu.com/en/",
+          "microclimate_note": "Near Niseko on Hokkaido, with similar Sea-of-Japan exposure but more sheltered, tree-lined terrain."
         },
         {
-          "id": "appi-kogen", "name": "Appi Kogen", "state": "Japan",
-          "lat": 39.9333, "lon": 140.9333,
-          "base_elev_ft": 2130, "summit_elev_ft": 4560,
-          "passes": ["Independent"], "pass_confidence": "verify",
+          "id": "appi-kogen",
+          "name": "Appi Kogen",
+          "state": "Japan",
+          "lat": 39.9333,
+          "lon": 140.9333,
+          "base_elev_ft": 2130,
+          "summit_elev_ft": 4560,
+          "passes": [
+            "Ikon"
+          ],
+          "pass_confidence": "high",
           "snotel_triplet": null,
-          "snow_report_url": "https://www.snow-forecast.com/resorts/Appi-Kogen/snow-report", "snow_report_source": "Snow-Forecast"
+          "snow_report_url": "https://www.snow-forecast.com/resorts/Appi-Kogen/snow-report",
+          "snow_report_source": "Snow-Forecast",
+          "resort_url": "https://www.appi.co.jp/en",
+          "microclimate_note": "Northern Honshu (Iwate), further from the Sea of Japan coast than the Niigata/Hokkaido resorts — a somewhat drier, more continental snow character as a result."
+        },
+        {
+          "id": "shiga-kogen",
+          "name": "Shiga Kogen",
+          "state": "Japan",
+          "lat": 36.7,
+          "lon": 138.5167,
+          "base_elev_ft": 4790,
+          "summit_elev_ft": 6903,
+          "passes": [
+            "Ikon"
+          ],
+          "pass_confidence": "high",
+          "snotel_triplet": null,
+          "resort_url": "https://www.shigakogen-ski.or.jp/en",
+          "snow_report_url": "https://www.snow-forecast.com/resorts/Shiga-Kogen-Yakebitaiyama/snow-report",
+          "snow_report_source": "Snow-Forecast",
+          "microclimate_note": "Nagano — one of Japan's largest ski areas by skiable terrain, with a high base elevation for Honshu standards that helps snow reliability."
         }
       ]
     },
@@ -685,64 +2031,145 @@
       "id": "andes",
       "name": "Andes — Chile / Argentina",
       "continent": "South America",
-      "season": { "display": "Jun–Sep", "start_month": 6, "end_month": 9 },
+      "season": {
+        "display": "Jun–Sep",
+        "start_month": 6,
+        "end_month": 9
+      },
       "enso_signals": {
         "el_nino": {
-          "signal": "bull", "signal_label": "Strongly Bullish", "meter_pct": 90, "meter_display": "Strong positive",
+          "signal": "bull",
+          "signal_label": "Strongly Bullish",
+          "meter_pct": 90,
+          "meter_display": "Strong positive",
           "narrative": "The clearest El Niño beneficiary globally. The high central Andes respond to El Niño more directly than almost any other ski region on earth. Portillo is the highest-conviction destination in a strong El Niño cycle. Season: June–September; peak window July–mid-August.",
           "caveat": "A Super El Niño is essentially a structural long for Portillo. Book early — El Niño years generate unusual Northern Hemisphere interest in Andean destinations."
         },
         "la_nina": {
-          "signal": "bear", "signal_label": "Strongly Bearish", "meter_pct": 15, "meter_display": "Historically dry",
+          "signal": "bear",
+          "signal_label": "Strongly Bearish",
+          "meter_pct": 15,
+          "meter_display": "Historically dry",
           "narrative": "The mirror image of the El Niño case. La Niña years bring below-average precipitation to the central Andes, sometimes severely so — central Chile's ongoing multi-year drought has coincided with a persistent La Niña-leaning Pacific.",
           "caveat": "Highest-conviction avoid in the Southern Hemisphere during a La Niña cycle. If you're set on the Andes this phase, look at whichever resort has the highest base elevation and the healthiest snowmaking."
         },
         "neutral": {
-          "signal": "mixed", "signal_label": "Mixed", "meter_pct": 50, "meter_display": "Near average",
+          "signal": "mixed",
+          "signal_label": "Mixed",
+          "meter_pct": 50,
+          "meter_display": "Near average",
           "narrative": "Without El Niño's boost or La Niña's drought pattern, the central Andes track closer to their long-run average — still a high-elevation desert climate that depends on individual frontal systems.",
           "caveat": "Check current-season snowpack directly rather than leaning on ENSO in a neutral year."
         }
       },
       "resorts": [
         {
-          "id": "portillo", "name": "Portillo", "state": "Chile",
-          "lat": -32.8386, "lon": -70.1281,
-          "base_elev_ft": 9450, "summit_elev_ft": 10860,
-          "passes": ["Independent"], "pass_confidence": "verify",
+          "id": "portillo",
+          "name": "Portillo",
+          "state": "Chile",
+          "lat": -32.8386,
+          "lon": -70.1281,
+          "base_elev_ft": 9450,
+          "summit_elev_ft": 10860,
+          "passes": [
+            "Independent"
+          ],
+          "pass_confidence": "verify",
           "snotel_triplet": null,
-          "snow_report_url": "https://www.onthesnow.com/chile/ski-portillo/skireport", "snow_report_source": "OnTheSnow"
+          "snow_report_url": "https://www.onthesnow.com/chile/ski-portillo/skireport",
+          "snow_report_source": "OnTheSnow",
+          "resort_url": "https://www.skiportillo.com",
+          "microclimate_note": "Sits at a natural high-Andes pass near the Argentina border, directly in the path of the frontal systems that define El Niño's Southern Hemisphere signal — the highest-conviction ENSO-responsive resort on this entire site."
         },
         {
-          "id": "valle-nevado", "name": "Valle Nevado", "state": "Chile",
-          "lat": -33.3547, "lon": -70.2503,
-          "base_elev_ft": 9800, "summit_elev_ft": 12080,
-          "passes": ["Ikon"], "pass_confidence": "verify",
+          "id": "valle-nevado",
+          "name": "Valle Nevado",
+          "state": "Chile",
+          "lat": -33.3547,
+          "lon": -70.2503,
+          "base_elev_ft": 9800,
+          "summit_elev_ft": 12080,
+          "passes": [
+            "Ikon"
+          ],
+          "pass_confidence": "verify",
           "snotel_triplet": null,
-          "snow_report_url": "https://www.onthesnow.com/chile/valle-nevado/skireport", "snow_report_source": "OnTheSnow"
+          "snow_report_url": "https://www.onthesnow.com/chile/valle-nevado/skireport",
+          "snow_report_source": "OnTheSnow",
+          "resort_url": "https://www.vallenevado.com",
+          "microclimate_note": "Slightly lower and closer to Santiago than Portillo, with similar frontal-system exposure but somewhat more affected by the urban/coastal transition zone."
         },
         {
-          "id": "bariloche", "name": "Bariloche (Cerro Catedral)", "state": "Argentina",
-          "lat": -41.1660, "lon": -71.4491,
-          "base_elev_ft": 3300, "summit_elev_ft": 6987,
-          "passes": ["Independent"], "pass_confidence": "verify",
+          "id": "bariloche",
+          "name": "Bariloche (Cerro Catedral)",
+          "state": "Argentina",
+          "lat": -41.166,
+          "lon": -71.4491,
+          "base_elev_ft": 3300,
+          "summit_elev_ft": 6987,
+          "passes": [
+            "Independent"
+          ],
+          "pass_confidence": "verify",
           "snotel_triplet": null,
-          "snow_report_url": "https://www.onthesnow.com/argentina/cerro-catedral-alta-patagonia/skireport", "snow_report_source": "OnTheSnow"
+          "snow_report_url": "https://www.onthesnow.com/argentina/cerro-catedral-alta-patagonia/skireport",
+          "snow_report_source": "OnTheSnow",
+          "resort_url": "https://www.catedralaltapatagonia.com",
+          "microclimate_note": "Northern Argentine Patagonia — a genuinely different climate regime from the desert-adjacent central Andes, more consistently humid and less dependent on any single frontal system."
         },
         {
-          "id": "las-lenas", "name": "Las Leñas", "state": "Argentina",
-          "lat": -35.1500, "lon": -70.0833,
-          "base_elev_ft": 7545, "summit_elev_ft": 11253,
-          "passes": ["Independent"], "pass_confidence": "verify",
+          "id": "las-lenas",
+          "name": "Las Leñas",
+          "state": "Argentina",
+          "lat": -35.15,
+          "lon": -70.0833,
+          "base_elev_ft": 7545,
+          "summit_elev_ft": 11253,
+          "passes": [
+            "Independent"
+          ],
+          "pass_confidence": "verify",
           "snotel_triplet": null,
-          "snow_report_url": "https://www.onthesnow.com/argentina/las-lenas/skireport", "snow_report_source": "OnTheSnow"
+          "snow_report_url": "https://www.onthesnow.com/argentina/las-lenas/skireport",
+          "snow_report_source": "OnTheSnow",
+          "resort_url": "https://laslenas.com/",
+          "microclimate_note": "Mendoza province, extremely high and exposed — known for high-wind days that can close lifts even when snow conditions themselves are excellent."
         },
         {
-          "id": "nevados-de-chillan", "name": "Nevados de Chillán", "state": "Chile",
-          "lat": -36.8975, "lon": -71.3822,
-          "base_elev_ft": 5577, "summit_elev_ft": 9186,
-          "passes": ["Independent"], "pass_confidence": "verify",
+          "id": "nevados-de-chillan",
+          "name": "Nevados de Chillán",
+          "state": "Chile",
+          "lat": -36.8975,
+          "lon": -71.3822,
+          "base_elev_ft": 5577,
+          "summit_elev_ft": 9186,
+          "passes": [
+            "Independent"
+          ],
+          "pass_confidence": "verify",
           "snotel_triplet": null,
-          "snow_report_url": "https://www.onthesnow.com/chile/nevados-de-chillan/skireport", "snow_report_source": "OnTheSnow"
+          "snow_report_url": "https://www.onthesnow.com/chile/nevados-de-chillan/skireport",
+          "snow_report_source": "OnTheSnow",
+          "resort_url": "https://www.nevadosdechillan.com",
+          "microclimate_note": "Southern-central Chile, volcanic terrain, generally sitting in a wetter baseline climate than the more desert-adjacent resorts further north."
+        },
+        {
+          "id": "cerro-castor",
+          "name": "Cerro Castor",
+          "state": "Argentina",
+          "lat": -54.6497,
+          "lon": -68.1936,
+          "base_elev_ft": 650,
+          "summit_elev_ft": 3609,
+          "passes": [
+            "Independent"
+          ],
+          "pass_confidence": "verify",
+          "snotel_triplet": null,
+          "resort_url": "https://www.cerrocastor.com",
+          "snow_report_url": "https://www.onthesnow.com/argentina/cerro-castor/skireport",
+          "snow_report_source": "OnTheSnow",
+          "microclimate_note": "The world's southernmost ski resort, near Ushuaia at 54.6°S — a sub-Antarctic maritime climate with a very different mechanism (Southern Ocean storm tracks) than the desert-adjacent central Andes resorts further north."
         }
       ]
     },
@@ -750,64 +2177,127 @@
       "id": "australia",
       "name": "Australia",
       "continent": "Oceania",
-      "season": { "display": "Jun–Oct", "start_month": 6, "end_month": 10 },
+      "season": {
+        "display": "Jun–Oct",
+        "start_month": 6,
+        "end_month": 10
+      },
       "enso_signals": {
         "el_nino": {
-          "signal": "bear", "signal_label": "Bearish", "meter_pct": 18, "meter_display": "Historically poor",
+          "signal": "bear",
+          "signal_label": "Bearish",
+          "meter_pct": 18,
+          "meter_display": "Historically poor",
           "narrative": "El Niño's clearest victim globally. Warmer temperatures, reduced precipitation, early closures, and compressed seasons characterize strong El Niño winters in Australia. Marginal base elevations offer no buffer against warm-air intrusions.",
           "caveat": "Highest-conviction avoid of any strong El Niño cycle. Season runs June–September — full overlap with the strongest Southern Hemisphere El Niño signal."
         },
         "la_nina": {
-          "signal": "bull", "signal_label": "Bullish", "meter_pct": 75, "meter_display": "Favorable",
+          "signal": "bull",
+          "signal_label": "Bullish",
+          "meter_pct": 75,
+          "meter_display": "Favorable",
           "narrative": "The mirror image of the El Niño case. La Niña's wetter, cooler pattern over southeastern Australia is the best-case scenario for the Australian Alps — more consistent snowfall and later closures than an average season.",
           "caveat": "Even a favorable La Niña doesn't fully offset Australia's low, marginal base elevations — book flexible dates rather than assuming a guaranteed deep season."
         },
         "neutral": {
-          "signal": "mixed", "signal_label": "Mixed", "meter_pct": 50, "meter_display": "Near average",
+          "signal": "mixed",
+          "signal_label": "Mixed",
+          "meter_pct": 50,
+          "meter_display": "Near average",
           "narrative": "Without El Niño's warm-and-dry push or La Niña's wet-and-cool boost, Australia tracks closer to its (already marginal) long-run average.",
           "caveat": "Given how thin the margin for error already is at these elevations, check snow depth reports directly during the season."
         }
       },
       "resorts": [
         {
-          "id": "perisher", "name": "Perisher", "state": "Australia",
-          "lat": -36.4058, "lon": 148.4108,
-          "base_elev_ft": 5577, "summit_elev_ft": 6994,
-          "passes": ["Epic"], "pass_confidence": "high",
+          "id": "perisher",
+          "name": "Perisher",
+          "state": "Australia",
+          "lat": -36.4058,
+          "lon": 148.4108,
+          "base_elev_ft": 5577,
+          "summit_elev_ft": 6994,
+          "passes": [
+            "Epic"
+          ],
+          "pass_confidence": "high",
           "snotel_triplet": null,
-          "snow_report_url": "https://www.onthesnow.com/australia/perisher/skireport", "snow_report_source": "OnTheSnow"
+          "snow_report_url": "https://www.onthesnow.com/australia/perisher/skireport",
+          "snow_report_source": "OnTheSnow",
+          "resort_url": "https://www.perisher.com.au",
+          "microclimate_note": "New South Wales' largest ski area by terrain, but still constrained by Australia's overall marginal base elevations for snow reliability."
         },
         {
-          "id": "falls-creek", "name": "Falls Creek", "state": "Australia",
-          "lat": -36.8676, "lon": 147.2786,
-          "base_elev_ft": 5262, "summit_elev_ft": 6031,
-          "passes": ["Indy Pass"], "pass_confidence": "verify",
+          "id": "falls-creek",
+          "name": "Falls Creek",
+          "state": "Australia",
+          "lat": -36.8676,
+          "lon": 147.2786,
+          "base_elev_ft": 5262,
+          "summit_elev_ft": 6031,
+          "passes": [
+            "Epic"
+          ],
+          "pass_confidence": "high",
           "snotel_triplet": null,
-          "snow_report_url": "https://www.onthesnow.com/australia/falls-creek-alpine-resort/skireport", "snow_report_source": "OnTheSnow"
+          "snow_report_url": "https://www.onthesnow.com/australia/falls-creek-alpine-resort/skireport",
+          "snow_report_source": "OnTheSnow",
+          "resort_url": "https://www.fallscreek.com.au",
+          "microclimate_note": "Victoria — known for reliable grooming and one of the more consistent snow records among the Victorian resorts."
         },
         {
-          "id": "thredbo", "name": "Thredbo", "state": "Australia",
-          "lat": -36.5039, "lon": 148.3000,
-          "base_elev_ft": 4462, "summit_elev_ft": 6676,
-          "passes": ["Ikon"], "pass_confidence": "verify",
+          "id": "thredbo",
+          "name": "Thredbo",
+          "state": "Australia",
+          "lat": -36.5039,
+          "lon": 148.3,
+          "base_elev_ft": 4462,
+          "summit_elev_ft": 6676,
+          "passes": [
+            "Ikon"
+          ],
+          "pass_confidence": "verify",
           "snotel_triplet": null,
-          "snow_report_url": "https://www.onthesnow.com/australia/thredbo-alpine-resort/skireport", "snow_report_source": "OnTheSnow"
+          "snow_report_url": "https://www.onthesnow.com/australia/thredbo-alpine-resort/skireport",
+          "snow_report_source": "OnTheSnow",
+          "resort_url": "https://www.thredbo.com.au",
+          "microclimate_note": "NSW's highest vertical drop gives it slightly better snow retention than the lower Victorian resorts in a marginal season."
         },
         {
-          "id": "mt-buller", "name": "Mt. Buller", "state": "Australia",
-          "lat": -37.1459, "lon": 146.4423,
-          "base_elev_ft": 4823, "summit_elev_ft": 5919,
-          "passes": ["Independent"], "pass_confidence": "verify",
+          "id": "mt-buller",
+          "name": "Mt. Buller",
+          "state": "Australia",
+          "lat": -37.1459,
+          "lon": 146.4423,
+          "base_elev_ft": 4823,
+          "summit_elev_ft": 5919,
+          "passes": [
+            "Independent"
+          ],
+          "pass_confidence": "verify",
           "snotel_triplet": null,
-          "snow_report_url": "https://www.onthesnow.com/australia/mt-buller/skireport", "snow_report_source": "OnTheSnow"
+          "snow_report_url": "https://www.onthesnow.com/australia/mt-buller/skireport",
+          "snow_report_source": "OnTheSnow",
+          "resort_url": "https://www.mtbuller.com.au",
+          "microclimate_note": "Victoria's resort closest to Melbourne, and historically more exposed to warm intrusions given its lower average elevation."
         },
         {
-          "id": "mt-hotham", "name": "Mt. Hotham", "state": "Australia",
-          "lat": -36.9781, "lon": 147.1367,
-          "base_elev_ft": 4670, "summit_elev_ft": 6100,
-          "passes": ["Epic"], "pass_confidence": "verify",
+          "id": "mt-hotham",
+          "name": "Mt. Hotham",
+          "state": "Australia",
+          "lat": -36.9781,
+          "lon": 147.1367,
+          "base_elev_ft": 4670,
+          "summit_elev_ft": 6100,
+          "passes": [
+            "Epic"
+          ],
+          "pass_confidence": "verify",
           "snotel_triplet": null,
-          "snow_report_url": "https://www.onthesnow.com/australia/mt-hotham/skireport", "snow_report_source": "OnTheSnow"
+          "snow_report_url": "https://www.onthesnow.com/australia/mt-hotham/skireport",
+          "snow_report_source": "OnTheSnow",
+          "resort_url": "https://www.hotham.com.au",
+          "microclimate_note": "Victoria's highest resort village, generally the most snow-reliable of the Victorian options in a typical season."
         }
       ]
     }

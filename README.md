@@ -11,7 +11,7 @@ ahead each signal is genuinely predictive vs. just describing current
 state, and has a scenario explorer for imposing a hypothetical ENSO/NAO
 reading to see how the rankings would change.
 
-Currently covers **65 resorts across 10 regions**, live in production at
+Currently covers **101 resorts across 10 regions**, live in production at
 https://chrisjkennedy.github.io/the-snow-signal/.
 
 ## Why it's structured this way
@@ -68,7 +68,7 @@ css/style.css                  all styling
 js/app.js                      picks the current ENSO phase, sorts/renders regions,
                                 resort rows, map, backtest table, and the scenario explorer
 js/data-sources.js             the live data fetchers (see below)
-data/resorts.json              65 resorts: coords, elevations, passes, station IDs,
+data/resorts.json              101 resorts: coords, elevations, passes, station IDs,
                                 verified snow-report links, phase-aware region narratives
 data/phase-copy.json           the live-status line + mechanism text per ENSO phase
 data/oni.json                  ENSO/ONI snapshot — regenerate with scripts/update_oni.py
@@ -98,7 +98,7 @@ western US and parts of BC/Alberta. NRCS has essentially no coverage in the
 Northeast US, Europe, Japan, Andes, Australia, or most of coastal BC, so
 those resorts show "no nearby station" and rely on the Open-Meteo forecast
 panel and the live snow-report link instead. That's a real data-coverage
-gap, not a bug — with ~65 resorts hitting the SNOTEL API on every load,
+gap, not a bug — with ~101 resorts hitting the SNOTEL API on every load,
 `js/app.js` also throttles requests to 6 concurrent (`runWithConcurrency`)
 to avoid tripping the API's rate limit.
 

@@ -374,6 +374,12 @@ function resortRowSkeleton(resort, affiliates) {
   const snowReportLink = resort.snow_report_url
     ? `<a class="snow-report-link" target="_blank" rel="noopener" href="${resort.snow_report_url}">Live snow report (${resort.snow_report_source}) ↗</a>`
     : '';
+  const resortSiteLink = resort.resort_url
+    ? `<a class="resort-site-link" target="_blank" rel="noopener" href="${resort.resort_url}">Resort site ↗</a>`
+    : '';
+  const microclimateHtml = resort.microclimate_note
+    ? `<p class="microclimate-note">${resort.microclimate_note}</p>`
+    : '';
 
   return `
     <div class="resort-row" id="resort-${resort.id}" data-resort="${resort.id}">
@@ -384,12 +390,14 @@ function resortRowSkeleton(resort, affiliates) {
         </div>
         <div>${passesHtml}</div>
       </div>
+      ${microclimateHtml}
       <div class="live-data-row" data-live="${resort.id}">
         <span class="live-stat loading"><span class="live-dot"></span><span class="stat-label">snowpack</span><span class="stat-val">loading…</span></span>
         <span class="live-stat loading"><span class="stat-label">7-day forecast</span><span class="stat-val">loading…</span></span>
       </div>
       <div class="accum-row" data-chart="${resort.id}"></div>
       <div class="resort-links-row">
+        ${resortSiteLink}
         ${snowReportLink}
       </div>
       ${affiliateLinks}
