@@ -72,6 +72,55 @@ function naoBucket(phaseLabel) {
   return 'neutral';
 }
 
+/** Normalizes a PDO phase label ("Warm", "Cool", ...) to a 3-way bucket. */
+function pdoBucket(phaseLabel) {
+  const p = (phaseLabel || '').toLowerCase();
+  if (p.includes('warm')) return 'warm';
+  if (p.includes('cool')) return 'cool';
+  return 'neutral';
+}
+
+/**
+ * Per data/climate-signals.json's pdo.relevance: Warm PDO amplifies El
+ * Niño's West Coast effects, Cool PDO amplifies La Niña's — and the
+ * opposite pairing works against the current ENSO phase instead of with
+ * it. ENSO-neutral or PDO-neutral readings have no defined relationship.
+ */
+function pdoAgreement(phaseKey, pdoPhaseBucket) {
+  if (phaseKey === 'el_nino' && pdoPhaseBucket === 'warm') return 'agree';
+  if (phaseKey === 'la_nina' && pdoPhaseBucket === 'cool') return 'agree';
+  if (phaseKey === 'el_nino' && pdoPhaseBucket === 'cool') return 'oppose';
+  if (phaseKey === 'la_nina' && pdoPhaseBucket === 'warm') return 'oppose';
+  return 'neutral';
+}
+
+/** How strongly PDO's magnitude pushes on the meter — 0 means "too weak to matter." */
+function pdoMagnitudeFactor(absValue) {
+  if (absValue < 0.5) return 0;
+  if (absValue < 1.0) return 0.15;
+  if (absValue < 1.75) return 0.3;
+  return 0.45;
+}
+
+/**
+ * PDO amplifies or dampens (never replaces) an ENSO-driven region's
+ * meter_pct, for the regions listed in REGION_SECONDARY_SIGNAL — mirrors
+ * how scenario ENSO intensity scales meter_pct via scaleMeterPct(), but
+ * keyed off live PDO/ENSO phase agreement rather than a chosen intensity
+ * tier. Live-only by design: PDO has no scenario picker (see applyScenario
+ * / renderPhaseView's isLiveEnso), so callers must gate this to real,
+ * non-scenario ONI renders.
+ */
+function pdoModulatedMeterPct(region, phaseKey, basePct, pdoSignal) {
+  if (REGION_SECONDARY_SIGNAL[region.id] !== 'pdo' || !pdoSignal) return basePct;
+  const agreement = pdoAgreement(phaseKey, pdoBucket(pdoSignal.phase));
+  if (agreement === 'neutral') return basePct;
+  const factor = pdoMagnitudeFactor(Math.abs(pdoSignal.latest_value));
+  if (!factor) return basePct;
+  const mult = agreement === 'agree' ? 1 + factor : 1 - factor;
+  return Math.round(Math.min(95, Math.max(5, 50 + (basePct - 50) * mult)));
+}
+
 /**
  * Single source of truth for "what signal is actually driving this
  * region's headline call right now." Most regions are ENSO-driven. A
@@ -108,13 +157,15 @@ const BACKTEST_VERDICT = {
   'not-a-clean-test': { cls: 'bv-other', label: 'N/A — not an ENSO test' },
 };
 
-// Regions where PDO modulates (not replaces) the ENSO-driven call — surfaced
-// as a footnote via liveSignalNote(). NAO-primary regions (Northeast US,
-// European Alps) are NOT listed here: for those, NAO fully replaces ENSO as
-// the headline signal (see getDisplaySignal / region.nao_signals in
-// resorts.json) because that's what the site's own research says actually
-// drives outcomes there — a footnote alone was misleading, since changing
-// NAO in the scenario explorer had no visible effect on the headline call.
+// Regions where PDO modulates (not replaces) the ENSO-driven call: it
+// scales the region's live meter_pct up or down via pdoModulatedMeterPct()
+// depending on whether the live PDO phase agrees with or opposes the
+// current ENSO phase's usual West Coast effect, and the footnote from
+// liveSignalNote() explains which of those it's doing. NAO-primary regions
+// (Northeast US, European Alps) are NOT listed here: for those, NAO fully
+// replaces ENSO as the headline signal (see getDisplaySignal /
+// region.nao_signals in resorts.json) because that's what the site's own
+// research says actually drives outcomes there.
 const REGION_SECONDARY_SIGNAL = {
   'sierra-california': 'pdo',
   'pnw-northern-rockies': 'pdo',
@@ -235,7 +286,22 @@ function renderOtherSignalsLine(signals) {
     `PDO: <strong>${signals.pdo.phase}</strong> (${fmt(signals.pdo)})`;
 }
 
-function liveSignalNote(region, signals) {
+/** Describes what pdoModulatedMeterPct() actually did to the meter above, so the footnote never contradicts the bar. */
+function pdoEffectText(phaseKey, pdoSignal, isLiveEnso) {
+  if (!isLiveEnso) {
+    return ' PDO modulation only applies to the live ENSO reading, so it has no effect on the hypothetical scenario meter shown above.';
+  }
+  const agreement = pdoAgreement(phaseKey, pdoBucket(pdoSignal.phase));
+  const factor = pdoMagnitudeFactor(Math.abs(pdoSignal.latest_value));
+  if (agreement === 'neutral' || !factor) {
+    return ' Currently a minor influence here — too weak or too near-neutral to move the meter above off its base ENSO level.';
+  }
+  return agreement === 'agree'
+    ? ' Currently reinforcing the live ENSO signal here, so the meter above is scaled up accordingly.'
+    : ' Currently working against the live ENSO signal here, so the meter above is dampened toward neutral accordingly.';
+}
+
+function liveSignalNote(region, signals, phaseKey, isLiveEnso) {
   const key = REGION_SECONDARY_SIGNAL[region.id];
   if (!key || !signals?.[key]) return '';
   const s = signals[key];
@@ -243,7 +309,8 @@ function liveSignalNote(region, signals) {
   const val = `${s.latest_value > 0 ? '+' : ''}${s.latest_value.toFixed(2)}`;
   const lead = s.is_scenario ? 'Scenario check' : 'Live check';
   const when = s.is_scenario ? 'hypothetical' : s.latest_label;
-  return `<div class="live-signal-note">${lead}: ${label} set to <strong>${s.phase}</strong> (${val}, ${when}) — ${s.relevance}</div>`;
+  const effect = key === 'pdo' ? pdoEffectText(phaseKey, s, isLiveEnso) : '';
+  return `<div class="live-signal-note">${lead}: ${label} set to <strong>${s.phase}</strong> (${val}, ${when}) — ${s.relevance}${effect}</div>`;
 }
 
 function renderSignalInfo(metadata) {
@@ -330,9 +397,10 @@ function resortRowSkeleton(resort, affiliates) {
   `;
 }
 
-function renderRegionCard(region, rank, phaseKey, affiliates, signals, scenarioIntensity) {
+function renderRegionCard(region, rank, phaseKey, affiliates, signals, scenarioIntensity, isLiveEnso) {
   const s = getDisplaySignal(region, phaseKey, signals);
-  const meterPct = (scenarioIntensity && s.driver === 'enso') ? scaleMeterPct(s.meter_pct, scenarioIntensity) : s.meter_pct;
+  let meterPct = (scenarioIntensity && s.driver === 'enso') ? scaleMeterPct(s.meter_pct, scenarioIntensity) : s.meter_pct;
+  if (isLiveEnso && s.driver === 'enso') meterPct = pdoModulatedMeterPct(region, phaseKey, meterPct, signals?.pdo);
   const intensityNote = (scenarioIntensity && scenarioIntensity !== 'moderate' && s.driver === 'enso')
     ? `<div class="live-signal-note">Scenario check: shown at <strong>${INTENSITY_LABEL[scenarioIntensity]}</strong> intensity — the bar above is scaled accordingly, but the written call below still describes the typical/moderate case.</div>`
     : '';
@@ -363,7 +431,7 @@ function renderRegionCard(region, rank, phaseKey, affiliates, signals, scenarioI
         <div class="r-caveat"><span class="r-caveat-icon">⚠</span>${s.caveat}</div>
         ${intensityNote}
         ${driverNote}
-        ${liveSignalNote(region, signals)}
+        ${liveSignalNote(region, signals, phaseKey, isLiveEnso)}
         <div class="resort-list">${resortRows}</div>
       </div>
     </div>
@@ -641,6 +709,9 @@ function renderBacktest(backtest, resortsData) {
  */
 function renderPhaseView(oni, signals, phaseKey, scenarioIntensity) {
   const { resortsData, affiliates, phaseCopy } = state;
+  // PDO modulation (pdoModulatedMeterPct) is live-only — it never runs
+  // against a scenario oni, since PDO has no scenario picker of its own.
+  const isLiveEnso = !oni?.is_scenario;
 
   renderHero(oni, phaseCopy, phaseKey);
   renderSignalBar(oni, phaseKey);
@@ -648,13 +719,15 @@ function renderPhaseView(oni, signals, phaseKey, scenarioIntensity) {
 
   const sortPct = (region) => {
     const s = getDisplaySignal(region, phaseKey, signals);
-    return (scenarioIntensity && s.driver === 'enso') ? scaleMeterPct(s.meter_pct, scenarioIntensity) : s.meter_pct;
+    let pct = (scenarioIntensity && s.driver === 'enso') ? scaleMeterPct(s.meter_pct, scenarioIntensity) : s.meter_pct;
+    if (isLiveEnso && s.driver === 'enso') pct = pdoModulatedMeterPct(region, phaseKey, pct, signals?.pdo);
+    return pct;
   };
   const sortedRegions = [...resortsData.regions].sort((a, b) => sortPct(b) - sortPct(a));
 
   const grid = document.getElementById('regions-grid');
   grid.innerHTML = sortedRegions.map((region, i) =>
-    renderRegionCard(region, i + 1, phaseKey, affiliates, signals, scenarioIntensity)
+    renderRegionCard(region, i + 1, phaseKey, affiliates, signals, scenarioIntensity, isLiveEnso)
   ).join('');
 
   const select = document.getElementById('region-select');
