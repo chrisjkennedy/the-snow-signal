@@ -14,7 +14,7 @@
 
 <div class="hero">
   <div class="hero-inner">
-    <p class="hero-kicker">Live ENSO Ski Planner</p>
+    <p class="hero-kicker" id="hero-kicker">Live ENSO Ski Planner</p>
     <h1 class="hero-title">The Snow Signal</h1>
     <p class="hero-tagline">Plan your ski season around the climate pattern, not the headline.</p>
     <p class="hero-live" id="hero-live"><span class="live-dot"></span>Loading current signal…</p>
@@ -58,6 +58,54 @@
     </div>
 
     <div class="other-signals-line" id="other-signals-line">Loading other climate signals…</div>
+
+    <details class="signal-info-box" id="signal-info-box">
+      <summary class="signal-info-summary">How often is this updated, and how far ahead does it actually mean anything? →</summary>
+      <div class="signal-info-body" id="signal-info-body">Loading…</div>
+    </details>
+
+    <div class="scenario-panel" id="scenario-panel">
+      <div class="scenario-panel-head">
+        <span class="scenario-panel-title">Explore a different scenario</span>
+        <span class="scenario-status" id="scenario-status">Currently showing live data</span>
+      </div>
+      <p class="scenario-panel-sub">Override the live signal to see how the rankings and narratives below would change. This never edits the live reading above — it's a hypothetical, clearly marked, and one click from resetting.</p>
+      <div class="scenario-controls">
+        <label>ENSO phase
+          <select id="scenario-phase">
+            <option value="live">Use live phase</option>
+            <option value="el_nino">El Niño</option>
+            <option value="la_nina">La Niña</option>
+            <option value="neutral">Neutral</option>
+          </select>
+        </label>
+        <label>ENSO intensity
+          <select id="scenario-intensity" disabled>
+            <option value="moderate">Moderate</option>
+            <option value="weak">Weak</option>
+            <option value="strong">Strong</option>
+            <option value="very_strong">Very strong</option>
+          </select>
+        </label>
+        <label>NAO
+          <select id="scenario-nao">
+            <option value="live">Use live NAO</option>
+            <option value="strong_negative">Strong negative</option>
+            <option value="negative">Negative</option>
+            <option value="neutral">Neutral</option>
+            <option value="positive">Positive</option>
+            <option value="strong_positive">Strong positive</option>
+          </select>
+        </label>
+        <button type="button" id="scenario-apply">Apply scenario</button>
+        <button type="button" id="scenario-reset" hidden>Reset to live</button>
+      </div>
+    </div>
+
+    <div class="scenario-banner" id="scenario-banner" hidden>
+      <span class="scenario-banner-text" id="scenario-banner-text"></span>
+      <button type="button" id="scenario-banner-reset">Reset to live data ↺</button>
+    </div>
 
     <div class="controls-row">
       <label for="region-select">Jump to a region</label>

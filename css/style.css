@@ -40,6 +40,7 @@ body {
   font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 500;
   letter-spacing: 0.14em; text-transform: uppercase; color: #6DAEDD; margin-bottom: 16px;
 }
+.hero-kicker.scenario-active { color: #FCD34D; }
 .hero-title {
   font-family: 'DM Serif Display', serif; font-size: clamp(36px, 5vw, 60px);
   line-height: 1.08; color: #fff; margin-bottom: 10px; max-width: 680px;
@@ -108,6 +109,54 @@ body {
   display: flex; gap: 6px; align-items: flex-start; font-size: 11px; color: var(--blue-mid);
   background: var(--ice); border-radius: 6px; padding: 6px 10px; margin-bottom: 10px; line-height: 1.5;
 }
+
+/* SIGNAL INFO */
+.signal-info-box { margin-bottom: 20px; }
+.signal-info-summary {
+  cursor: pointer; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--blue-mid);
+  list-style: none; padding: 2px 0;
+}
+.signal-info-summary::-webkit-details-marker { display: none; }
+.signal-info-body { margin-top: 14px; overflow-x: auto; }
+.sig-table { width: 100%; border-collapse: collapse; font-size: 12px; background: #fff; border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+.sig-table th { text-align: left; font-size: 10px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); padding: 9px 12px; border-bottom: 1px solid var(--border); background: var(--snow); white-space: nowrap; }
+.sig-table td { padding: 10px 12px; border-bottom: 1px solid var(--border); vertical-align: top; line-height: 1.6; }
+.sig-table tr:last-child td { border-bottom: none; }
+.sig-name { font-weight: 500; color: var(--navy); white-space: nowrap; }
+.sig-horizon-tag { font-family: 'JetBrains Mono', monospace; font-size: 10.5px; color: var(--blue-mid); white-space: nowrap; }
+
+/* SCENARIO EXPLORER */
+.scenario-panel { background: var(--snow); border: 1px solid var(--border); border-radius: 12px; padding: 18px 20px; margin-bottom: 18px; }
+.scenario-panel-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 6px; }
+.scenario-panel-title { font-size: 14px; font-weight: 500; color: var(--navy); }
+.scenario-status { font-family: 'JetBrains Mono', monospace; font-size: 10.5px; color: var(--green); text-transform: uppercase; letter-spacing: 0.04em; }
+.scenario-status.active { color: var(--amber); }
+.scenario-panel-sub { font-size: 12px; color: var(--muted); line-height: 1.55; margin-bottom: 14px; max-width: 640px; }
+.scenario-controls { display: flex; gap: 14px; align-items: flex-end; flex-wrap: wrap; }
+.scenario-controls label { display: flex; flex-direction: column; gap: 5px; font-size: 11px; font-weight: 500; color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; }
+.scenario-controls select {
+  font-family: 'DM Sans', sans-serif; font-size: 13px; color: var(--navy); font-weight: 500; text-transform: none; letter-spacing: normal;
+  padding: 7px 12px; border-radius: 8px; border: 1px solid var(--border); background: #fff; cursor: pointer; min-width: 150px;
+}
+.scenario-controls select:disabled { color: var(--muted); background: #F2F5F8; cursor: not-allowed; }
+.scenario-controls button {
+  font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 500; padding: 8px 16px; border-radius: 8px; border: none; cursor: pointer;
+}
+#scenario-apply { background: var(--navy); color: #fff; }
+#scenario-apply:hover { background: var(--blue); }
+#scenario-reset { background: #fff; color: var(--navy); border: 1px solid var(--border) !important; }
+
+.scenario-banner {
+  position: sticky; top: 0; z-index: 40; display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  background: var(--gold-light); border: 1px solid var(--gold); border-radius: 10px; padding: 12px 18px; margin-bottom: 18px;
+  flex-wrap: wrap; box-shadow: 0 4px 16px rgba(196,136,10,0.18);
+}
+.scenario-banner-text { font-size: 13px; font-weight: 500; color: var(--amber); }
+.scenario-banner button {
+  font-family: 'DM Sans', sans-serif; font-size: 12.5px; font-weight: 500; padding: 6px 14px; border-radius: 20px;
+  background: var(--amber); color: #fff; border: none; cursor: pointer; white-space: nowrap;
+}
+.scenario-banner button:hover { background: #5c3600; }
 
 /* CONTROLS + MAP */
 .controls-row { display: flex; align-items: center; gap: 10px; margin-bottom: 18px; flex-wrap: wrap; }

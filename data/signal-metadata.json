@@ -1,0 +1,31 @@
+{
+  "_readme": "Static reference content (not fetched live) explaining what each signal actually is, how often it updates, and — critically — how far ahead it's genuinely predictive vs. just describing the recent/current state. This distinction matters: ONI is a real forward-looking forecast signal once a phase is established; NAO and AO are mostly nowcasts of what's already happening, with only 1-4 weeks of real predictive skill; PDO is a slow multi-year backdrop, not a forecast of any specific period at all.",
+  "oni": {
+    "name": "ONI — Oceanic Niño Index (ENSO)",
+    "update_frequency": "Monthly",
+    "latency": "NOAA CPC publishes each update ~2 weeks after the month ends. Each value is itself a 3-month running average of equatorial Pacific sea-surface temperature anomalies (e.g. \"MJJ\" = May-June-July averaged together), so it's a smoothed, lagging read — not a same-day number.",
+    "horizon_short": "3-9 months, once a phase is established",
+    "horizon_detail": "ENSO is the most predictable ocean-atmosphere pattern at seasonal timescales, which is why it's the primary driver of this site's regional calls. Once a phase locks in — typically by early-to-mid summer for the following winter — forecasts carry real skill 3 to 9 months out. The exception is forecasts made in Northern Hemisphere spring (roughly February-May): ENSO predictions issued during this window are historically much less reliable, a well-documented effect called the \"spring predictability barrier.\" Read a spring ONI reading as a weaker signal than the same number would be in October."
+  },
+  "nao": {
+    "name": "NAO — North Atlantic Oscillation",
+    "update_frequency": "Monthly (a noisier daily index also exists; this site uses the monthly value)",
+    "latency": "Finalizes shortly after each month ends.",
+    "horizon_short": "1-4 weeks — mostly describes what already happened",
+    "horizon_detail": "NAO is a fast-moving, largely chaotic atmospheric pattern, not a slow ocean signal like ENSO. Deterministic skill runs out after roughly 1-2 weeks, and even the best seasonal forecast systems have only weak-to-moderate skill predicting it months in advance — seasonal NAO prediction is still an active, unsolved research problem. Treat the NAO value shown on this site as a description of the pattern that just occurred (useful for explaining why a region's season is running hot or cold), not a forecast of what's coming next."
+  },
+  "ao": {
+    "name": "AO — Arctic Oscillation",
+    "update_frequency": "Monthly (daily index also available)",
+    "latency": "Finalizes shortly after each month ends.",
+    "horizon_short": "2-6 weeks, longer during a stratospheric warming event",
+    "horizon_detail": "Closely related to NAO and similarly hard to predict for the same chaotic-atmosphere reasons. The one exception: AO gets a real predictability boost when a Sudden Stratospheric Warming (SSW) is detected in the polar vortex — those events can presage a negative AO / cold outbreak at the surface 2-6 weeks later. Absent an active SSW signal, treat AO the same way as NAO: it's telling you what's happening now, not what's coming this winter."
+  },
+  "pdo": {
+    "name": "PDO — Pacific Decadal Oscillation",
+    "update_frequency": "Monthly",
+    "latency": "Finalizes shortly after each month ends.",
+    "horizon_short": "Persists for months to years — a backdrop, not a forecast",
+    "horizon_detail": "PDO is fundamentally different from the other three: it's a slow-moving ocean temperature pattern that typically holds its phase for months to years, sometimes over a decade. It doesn't predict any specific storm, week, or month by itself. What it does is modulate how strongly a given ENSO event actually shows up on the West Coast — a warm PDO tends to amplify El Niño's effects there, a cool PDO tends to amplify La Niña's. Read the current PDO phase as season-long context, not a forecast input on its own."
+  }
+}

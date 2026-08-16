@@ -5,8 +5,11 @@ ski season: the brand ("The Snow Signal") and layout never change, but the
 climate framing and every region's bull/bear call are keyed off whatever
 ENSO is actually doing right now, and each resort row pulls live snowpack
 and forecast data straight from public APIs in the visitor's browser. It
-also tracks NAO/AO/PDO as secondary signals and keeps a backtest of how the
-model's calls actually performed last season.
+also tracks NAO/AO/PDO as secondary signals, keeps a backtest of how the
+model's calls actually performed last season, is explicit about how far
+ahead each signal is genuinely predictive vs. just describing current
+state, and has a scenario explorer for imposing a hypothetical ENSO/NAO
+reading to see how the rankings would change.
 
 Currently covers **65 resorts across 10 regions**, live in production at
 https://chrisjkennedy.github.io/the-snow-signal/.
@@ -44,6 +47,18 @@ at the wrong resorts once conditions changed. Design choices that fix that:
    entirely across the Interior West. It's collapsed behind a `<details>`
    element near the bottom of the page so it doesn't compete with the live
    content, but it's real, not decorative.
+5. **Live truth never gets overwritten.** The ONI banner and the
+   NAO/AO/PDO line under the context strip always show the real, current
+   reading — full stop, no exceptions. The scenario explorer (see below)
+   only ever changes the hero, region rankings, and map; those two strips
+   are the permanent ground truth a user can check against.
+6. **Predictive horizon is stated, not implied.** `data/signal-metadata.json`
+   is honest that these four signals aren't equally forward-looking: ENSO
+   has real skill 3-9 months out once a phase locks in (with a big caveat
+   for forecasts made in the spring predictability barrier); NAO and AO are
+   mostly nowcasts with 1-6 weeks of real skill; PDO is a multi-year
+   backdrop, not a forecast of any specific period. This shows as an
+   expandable table under the "How often is this updated…" toggle.
 
 ## How it's built
 
@@ -51,13 +66,14 @@ at the wrong resorts once conditions changed. Design choices that fix that:
 index.html                     page shell + fixed brand/hero + wildcard/footer copy
 css/style.css                  all styling
 js/app.js                      picks the current ENSO phase, sorts/renders regions,
-                                resort rows, map, backtest table
+                                resort rows, map, backtest table, and the scenario explorer
 js/data-sources.js             the live data fetchers (see below)
 data/resorts.json              65 resorts: coords, elevations, passes, station IDs,
                                 verified snow-report links, phase-aware region narratives
 data/phase-copy.json           the live-status line + mechanism text per ENSO phase
 data/oni.json                  ENSO/ONI snapshot — regenerate with scripts/update_oni.py
 data/climate-signals.json      NAO/AO/PDO snapshot — regenerate with scripts/update_signals.py
+data/signal-metadata.json      static: update cadence + real predictive horizon per signal
 data/backtest-2025-26.json     hand-researched season backtest (see below)
 data/affiliates.json           your affiliate link config (empty placeholders for now)
 scripts/update_oni.py          pulls NOAA's ONI table server-side, classifies the phase

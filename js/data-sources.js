@@ -64,6 +64,10 @@ export async function loadBacktest() {
   }
 }
 
+export async function loadSignalMetadata() {
+  return fetchJson("./data/signal-metadata.json");
+}
+
 export async function loadClimateSignals() {
   try {
     const res = await fetch("./data/climate-signals.json", { cache: "no-store" });
