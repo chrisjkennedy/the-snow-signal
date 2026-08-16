@@ -23,20 +23,22 @@ function waterYearStart() {
   return `${year}-10-01`;
 }
 
+// no-store on every ./data/*.json fetch: all of it can change on any push
+// (region narratives, signal thresholds, the ONI/NAO snapshots themselves),
+// and a stale cached copy served to a returning visitor would silently
+// undermine the entire "this is live and current" premise of the site. The
+// external API calls (AWDB, Open-Meteo) go through this too, which is
+// harmless — no-store just means "don't reuse a cached response," and we
+// want a fresh read from those every time anyway.
 async function fetchJson(url) {
-  const res = await fetch(url);
+  const res = await fetch(url, { cache: "no-store" });
   if (!res.ok) throw new Error(`${url} -> HTTP ${res.status}`);
   return res.json();
 }
 
 export async function loadOni() {
-  // no-store: this file changes monthly and is the whole basis for which
-  // phase's content the page shows, so a stale cached copy would mean
-  // showing the wrong season's guidance.
   try {
-    const res = await fetch("./data/oni.json", { cache: "no-store" });
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    return res.json();
+    return await fetchJson("./data/oni.json");
   } catch (e) {
     console.warn("ONI data unavailable", e);
     return null;
@@ -70,9 +72,7 @@ export async function loadSignalMetadata() {
 
 export async function loadClimateSignals() {
   try {
-    const res = await fetch("./data/climate-signals.json", { cache: "no-store" });
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    return res.json();
+    return await fetchJson("./data/climate-signals.json");
   } catch (e) {
     console.warn("Climate signals (NAO/AO/PDO) unavailable", e);
     return null;

@@ -64,6 +64,40 @@ function scaleMeterPct(basePct, intensity) {
   return Math.round(Math.min(95, Math.max(5, 50 + (basePct - 50) * mult)));
 }
 
+/** Normalizes any NAO phase label ("Negative", "Strong Negative", scenario or live) to a 3-way bucket. */
+function naoBucket(phaseLabel) {
+  const p = (phaseLabel || '').toLowerCase();
+  if (p.includes('negative')) return 'negative';
+  if (p.includes('positive')) return 'positive';
+  return 'neutral';
+}
+
+/**
+ * Single source of truth for "what signal is actually driving this
+ * region's headline call right now." Most regions are ENSO-driven. A
+ * couple (Northeast US, European Alps) are NAO-driven — the site's own
+ * research says NAO matters more than ENSO there, so when live/scenario
+ * NAO data is available, it fully replaces the ENSO call rather than
+ * riding along as an easy-to-miss footnote. ENSO becomes the secondary
+ * note in that case. Used consistently by the card renderer, the sort,
+ * and the map so all three always agree.
+ */
+function getDisplaySignal(region, phaseKey, signals) {
+  const ensoSignal = region.enso_signals[phaseKey];
+  if (region.primary_driver === 'nao' && region.nao_signals && signals?.nao) {
+    const bucket = naoBucket(signals.nao.phase);
+    const naoSignal = region.nao_signals[bucket];
+    const naoValLabel = `${signals.nao.latest_value > 0 ? '+' : ''}${signals.nao.latest_value.toFixed(2)}`;
+    const when = signals.nao.is_scenario ? 'hypothetical' : signals.nao.latest_label;
+    return {
+      ...naoSignal,
+      driver: 'nao',
+      secondaryNote: `ENSO check: currently ${ensoSignal.signal_label} (${PHASE_NAME[phaseKey]}) — a minor influence here at best. NAO (${signals.nao.phase}, ${naoValLabel}, ${when}) is what actually drives this region's outcomes, and is what the call above reflects.`,
+    };
+  }
+  return { ...ensoSignal, driver: 'enso', secondaryNote: null };
+}
+
 const BACKTEST_VERDICT = {
   'hit': { cls: 'bv-hit', label: 'Hit' },
   'miss': { cls: 'bv-miss', label: 'Miss' },
@@ -74,13 +108,14 @@ const BACKTEST_VERDICT = {
   'not-a-clean-test': { cls: 'bv-other', label: 'N/A — not an ENSO test' },
 };
 
-// Regions where a secondary signal is well-established enough (per real
-// research, not just ENSO) to surface inline: NAO dominates winter outcomes
-// in the Northeast US and the Alps more than ENSO does; PDO modulates how
-// strongly a given ENSO phase actually shows up on the West Coast.
+// Regions where PDO modulates (not replaces) the ENSO-driven call — surfaced
+// as a footnote via liveSignalNote(). NAO-primary regions (Northeast US,
+// European Alps) are NOT listed here: for those, NAO fully replaces ENSO as
+// the headline signal (see getDisplaySignal / region.nao_signals in
+// resorts.json) because that's what the site's own research says actually
+// drives outcomes there — a footnote alone was misleading, since changing
+// NAO in the scenario explorer had no visible effect on the headline call.
 const REGION_SECONDARY_SIGNAL = {
-  'northeast-us': 'nao',
-  'european-alps': 'nao',
   'sierra-california': 'pdo',
   'pnw-northern-rockies': 'pdo',
 };
@@ -296,11 +331,12 @@ function resortRowSkeleton(resort, affiliates) {
 }
 
 function renderRegionCard(region, rank, phaseKey, affiliates, signals, scenarioIntensity) {
-  const s = region.enso_signals[phaseKey];
-  const meterPct = scenarioIntensity ? scaleMeterPct(s.meter_pct, scenarioIntensity) : s.meter_pct;
-  const intensityNote = scenarioIntensity && scenarioIntensity !== 'moderate'
+  const s = getDisplaySignal(region, phaseKey, signals);
+  const meterPct = (scenarioIntensity && s.driver === 'enso') ? scaleMeterPct(s.meter_pct, scenarioIntensity) : s.meter_pct;
+  const intensityNote = (scenarioIntensity && scenarioIntensity !== 'moderate' && s.driver === 'enso')
     ? `<div class="live-signal-note">Scenario check: shown at <strong>${INTENSITY_LABEL[scenarioIntensity]}</strong> intensity — the bar above is scaled accordingly, but the written call below still describes the typical/moderate case.</div>`
     : '';
+  const driverNote = s.secondaryNote ? `<div class="live-signal-note">${s.secondaryNote}</div>` : '';
   const now = new Date();
   const inSeason = isInSeason(region.season.start_month, region.season.end_month, now.getMonth() + 1);
   const resortRows = region.resorts.map(r => resortRowSkeleton(r, affiliates)).join('');
@@ -326,6 +362,7 @@ function renderRegionCard(region, rank, phaseKey, affiliates, signals, scenarioI
         <p class="r-detail">${s.narrative}</p>
         <div class="r-caveat"><span class="r-caveat-icon">⚠</span>${s.caveat}</div>
         ${intensityNote}
+        ${driverNote}
         ${liveSignalNote(region, signals)}
         <div class="resort-list">${resortRows}</div>
       </div>
@@ -429,7 +466,7 @@ async function ensureResortLiveData(resort) {
  * live/scenario phase via updateMapSignals() — the map itself is never
  * torn down and rebuilt (that would lose the user's pan/zoom position).
  */
-function initMap(resortsData, phaseKey) {
+function initMap(resortsData, phaseKey, signals) {
   if (typeof L === 'undefined') {
     document.getElementById('resort-map').innerHTML =
       '<p style="padding:16px;color:var(--muted);">Map library failed to load (offline?).</p>';
@@ -445,7 +482,8 @@ function initMap(resortsData, phaseKey) {
   const allBounds = [];
 
   for (const region of resortsData.regions) {
-    const color = SIGNAL_HEX[region.enso_signals[phaseKey].signal];
+    const s = getDisplaySignal(region, phaseKey, signals);
+    const color = SIGNAL_HEX[s.signal];
     const markers = [];
     for (const resort of region.resorts) {
       const marker = L.circleMarker([resort.lat, resort.lon], {
@@ -454,7 +492,7 @@ function initMap(resortsData, phaseKey) {
       marker.bindPopup(`
         <div class="map-popup">
           <div class="mp-name">${resort.name}</div>
-          <div class="mp-region">${region.name} · ${region.enso_signals[phaseKey].signal_label}</div>
+          <div class="mp-region">${region.name} · ${s.signal_label}</div>
           <a class="mp-link" href="#resort-${resort.id}">Jump to resort details ↓</a>
         </div>
       `);
@@ -476,13 +514,24 @@ function initMap(resortsData, phaseKey) {
 }
 
 /** Recolors existing markers/popups in place when the phase (live or scenario) changes. */
-function updateMapSignals(mapState, resortsData, phaseKey) {
+function updateMapSignals(mapState, resortsData, phaseKey, signals) {
   for (const region of resortsData.regions) {
-    const s = region.enso_signals[phaseKey];
+    const s = getDisplaySignal(region, phaseKey, signals);
     const markers = mapState.regionMarkers[region.id] || [];
-    for (const marker of markers) {
+    // markers[] was built in the same order as region.resorts[], so index
+    // lines them up directly.
+    region.resorts.forEach((resort, i) => {
+      const marker = markers[i];
+      if (!marker) return;
       marker.setStyle({ fillColor: SIGNAL_HEX[s.signal] });
-    }
+      marker.setPopupContent(`
+        <div class="map-popup">
+          <div class="mp-name">${resort.name}</div>
+          <div class="mp-region">${region.name} · ${s.signal_label}</div>
+          <a class="mp-link" href="#resort-${resort.id}">Jump to resort details ↓</a>
+        </div>
+      `);
+    });
   }
 }
 
@@ -597,10 +646,11 @@ function renderPhaseView(oni, signals, phaseKey, scenarioIntensity) {
   renderSignalBar(oni, phaseKey);
   renderContextStrip(oni, phaseCopy, phaseKey);
 
-  const scaledPct = (region) => scenarioIntensity
-    ? scaleMeterPct(region.enso_signals[phaseKey].meter_pct, scenarioIntensity)
-    : region.enso_signals[phaseKey].meter_pct;
-  const sortedRegions = [...resortsData.regions].sort((a, b) => scaledPct(b) - scaledPct(a));
+  const sortPct = (region) => {
+    const s = getDisplaySignal(region, phaseKey, signals);
+    return (scenarioIntensity && s.driver === 'enso') ? scaleMeterPct(s.meter_pct, scenarioIntensity) : s.meter_pct;
+  };
+  const sortedRegions = [...resortsData.regions].sort((a, b) => sortPct(b) - sortPct(a));
 
   const grid = document.getElementById('regions-grid');
   grid.innerHTML = sortedRegions.map((region, i) =>
@@ -610,11 +660,11 @@ function renderPhaseView(oni, signals, phaseKey, scenarioIntensity) {
   const select = document.getElementById('region-select');
   const prevSelection = select.value || 'all';
   select.innerHTML = `<option value="all">All regions — ranked most to least bullish</option>` +
-    sortedRegions.map((r, i) => `<option value="${r.id}">#${i + 1} ${r.name} — ${r.enso_signals[phaseKey].signal_label}</option>`).join('');
+    sortedRegions.map((r, i) => `<option value="${r.id}">#${i + 1} ${r.name} — ${getDisplaySignal(r, phaseKey, signals).signal_label}</option>`).join('');
   select.value = prevSelection && [...select.options].some(o => o.value === prevSelection) ? prevSelection : 'all';
 
   if (state.mapState?.map) {
-    updateMapSignals(state.mapState, resortsData, phaseKey);
+    updateMapSignals(state.mapState, resortsData, phaseKey, signals);
     applyFilter(select.value, state.mapState);
   }
 
@@ -700,7 +750,7 @@ async function main() {
   renderSignalInfo(signalMetadata);
   renderBacktest(backtest, resortsData);
 
-  state.mapState = initMap(resortsData, currentPhaseKeyFor(oni));
+  state.mapState = initMap(resortsData, currentPhaseKeyFor(oni), signals);
   document.getElementById('region-select').addEventListener('change', (e) => applyFilter(e.target.value, state.mapState));
 
   wireScenarioControls();

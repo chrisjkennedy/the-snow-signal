@@ -332,6 +332,24 @@
           "caveat": "Watch the NAO index week to week during the season — it matters more than ENSO for this region."
         }
       },
+      "primary_driver": "nao",
+      "nao_signals": {
+        "negative": {
+          "signal": "bull", "signal_label": "Bullish", "meter_pct": 78, "meter_display": "+15–25%",
+          "narrative": "Negative NAO is the single best predictor of a good Northeast ski season. It favors cold-air intrusions and raises the odds of Nor'easters tracking up the coast — the storm type that actually makes New England's season, far more reliably than any ENSO phase.",
+          "caveat": "Even a negative NAO doesn't guarantee it — Nor'easter tracks are still highly storm-by-storm. But the backdrop is genuinely favorable, more so than anything ENSO tells you about this region."
+        },
+        "neutral": {
+          "signal": "mixed", "signal_label": "Mixed", "meter_pct": 50, "meter_display": "Near average",
+          "narrative": "Without a strong NAO signal in either direction, expect a fairly typical Northeast season. ENSO's own influence here is minor regardless of which phase it's in.",
+          "caveat": "Keep watching the NAO through the season — it can swing sharply week to week even when the monthly average looks neutral."
+        },
+        "positive": {
+          "signal": "bear", "signal_label": "Bearish", "meter_pct": 24, "meter_display": "~70–80% of avg",
+          "narrative": "Positive NAO is the Northeast's most reliable bearish signal. It keeps the storm track and cold air locked north over Canada, producing a milder, more rain-prone pattern that compresses the season from both ends.",
+          "caveat": "A positive NAO can still flip mid-winter — this is a monthly reading, not a season-long lock. Watch for it turning negative in Dec–Feb."
+        }
+      },
       "resorts": [
         {
           "id": "killington", "name": "Killington", "state": "VT",
@@ -495,6 +513,24 @@
           "signal": "mixed", "signal_label": "Mixed — elevation dependent", "meter_pct": 40, "meter_display": "Weak / noisy",
           "narrative": "The Alps are an NAO-driven region in essentially every ENSO phase, so a neutral year looks much like any other year here.",
           "caveat": "Watch the NAO/polar vortex state through the season — it's the signal that actually matters for the Alps."
+        }
+      },
+      "primary_driver": "nao",
+      "nao_signals": {
+        "negative": {
+          "signal": "bull", "signal_label": "Bullish — colder pattern", "meter_pct": 72, "meter_display": "+10–20%",
+          "narrative": "Negative NAO weakens the usual west-to-east Atlantic storm track and lets cold air push further south into central Europe — the pattern most associated with good, reliable Alpine snow, including at lower and southern-facing resorts.",
+          "caveat": "Negative NAO winters are also more prone to blocking-driven dry spells between cold outbreaks — snow tends to arrive in bursts rather than a steady parade of storms. Still worth booking high as insurance."
+        },
+        "neutral": {
+          "signal": "mixed", "signal_label": "Mixed — elevation dependent", "meter_pct": 45, "meter_display": "Weak / noisy",
+          "narrative": "Without a strong NAO signal, the Alps default to elevation-dependent noise — no consistent tilt toward more or less snow. ENSO's own influence here is negligible in any phase.",
+          "caveat": "Book high regardless — elevation is the dominant variable when the NAO isn't giving a clear signal."
+        },
+        "positive": {
+          "signal": "bear", "signal_label": "Bearish — mild pattern", "meter_pct": 28, "meter_display": "~75–85% of avg (low elevation)",
+          "narrative": "Positive NAO drives a strong, mild westerly flow across northern Europe. For the Alps that typically means a higher freezing level and reduced snow reliability at lower resorts — the riskier pattern for anything below roughly 2,000m.",
+          "caveat": "Above 2,500m the signal is much weaker — glacier and high-altitude terrain (Zermatt's upper lifts, Val d'Isère's glacier) hold up fine even in a positive-NAO winter."
         }
       },
       "resorts": [
