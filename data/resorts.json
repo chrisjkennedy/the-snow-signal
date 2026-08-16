@@ -30,21 +30,40 @@
           "base_elev_ft": 7953, "summit_elev_ft": 11053,
           "passes": ["Ikon"], "pass_confidence": "high",
           "snotel_triplet": null,
-          "snow_course_triplet": "MN2:CA:SNOW", "snow_course_name": "Minarets #2 (1.2 mi)"
+          "snow_course_triplet": "MN2:CA:SNOW", "snow_course_name": "Minarets #2 (1.2 mi)",
+          "snow_report_url": "https://www.onthesnow.com/california/mammoth-mountain-ski-area/skireport", "snow_report_source": "OnTheSnow"
         },
         {
           "id": "palisades-tahoe", "name": "Palisades Tahoe", "state": "CA",
           "lat": 39.1969, "lon": -120.2356,
           "base_elev_ft": 6200, "summit_elev_ft": 9050,
           "passes": ["Ikon"], "pass_confidence": "high",
-          "snotel_triplet": "784:CA:SNTL", "snotel_name": "Palisades Tahoe (1.7 mi)"
+          "snotel_triplet": "784:CA:SNTL", "snotel_name": "Palisades Tahoe (1.7 mi)",
+          "snow_report_url": "https://www.onthesnow.com/california/palisades-tahoe/skireport", "snow_report_source": "OnTheSnow"
         },
         {
           "id": "big-bear", "name": "Big Bear (Bear Mountain)", "state": "CA",
           "lat": 34.2439, "lon": -116.8608,
           "base_elev_ft": 6750, "summit_elev_ft": 8805,
           "passes": ["Indy Pass"], "pass_confidence": "verify",
-          "snotel_triplet": null
+          "snotel_triplet": null,
+          "snow_report_url": "https://www.snow-forecast.com/resorts/Bear-Mountain/snow-report", "snow_report_source": "Snow-Forecast"
+        },
+        {
+          "id": "northstar", "name": "Northstar California", "state": "CA",
+          "lat": 39.2746, "lon": -120.1211,
+          "base_elev_ft": 6330, "summit_elev_ft": 8610,
+          "passes": ["Epic"], "pass_confidence": "high",
+          "snotel_triplet": "834:CA:SNTL", "snotel_name": "Truckee #2 (3.8 mi)",
+          "snow_report_url": "https://www.onthesnow.com/california/northstar-california/skireport", "snow_report_source": "OnTheSnow"
+        },
+        {
+          "id": "kirkwood", "name": "Kirkwood", "state": "CA",
+          "lat": 38.6849, "lon": -120.0652,
+          "base_elev_ft": 7800, "summit_elev_ft": 9800,
+          "passes": ["Epic"], "pass_confidence": "high",
+          "snotel_triplet": "1067:CA:SNTL", "snotel_name": "Carson Pass (3.4 mi)",
+          "snow_report_url": "https://www.onthesnow.com/california/kirkwood/skireport", "snow_report_source": "OnTheSnow"
         }
       ]
     },
@@ -76,21 +95,40 @@
           "lat": 36.5946, "lon": -105.4522,
           "base_elev_ft": 9200, "summit_elev_ft": 12481,
           "passes": ["Ikon"], "pass_confidence": "high",
-          "snotel_triplet": "1168:NM:SNTL", "snotel_name": "Taos Powderhorn (0.9 mi)"
+          "snotel_triplet": "1168:NM:SNTL", "snotel_name": "Taos Powderhorn (0.9 mi)",
+          "snow_report_url": "https://www.snow-forecast.com/resorts/Taos/snow-report", "snow_report_source": "Snow-Forecast"
         },
         {
           "id": "wolf-creek", "name": "Wolf Creek", "state": "CO",
           "lat": 37.4722, "lon": -106.7930,
           "base_elev_ft": 10300, "summit_elev_ft": 11904,
           "passes": ["Indy Pass"], "pass_confidence": "verify",
-          "snotel_triplet": "874:CO:SNTL", "snotel_name": "Wolf Creek Summit (0.7 mi)"
+          "snotel_triplet": "874:CO:SNTL", "snotel_name": "Wolf Creek Summit (0.7 mi)",
+          "snow_report_url": "https://www.snow-forecast.com/resorts/Wolf-Creek/snow-report", "snow_report_source": "Snow-Forecast"
         },
         {
           "id": "telluride", "name": "Telluride", "state": "CO",
           "lat": 37.9375, "lon": -107.8123,
           "base_elev_ft": 8750, "summit_elev_ft": 13150,
           "passes": ["Ikon"], "pass_confidence": "high",
-          "snotel_triplet": "1344:CO:SNTL", "snotel_name": "Alta Lakes, CO (3.8 mi)"
+          "snotel_triplet": "1344:CO:SNTL", "snotel_name": "Alta Lakes, CO (3.8 mi)",
+          "snow_report_url": "https://www.onthesnow.com/colorado/telluride/skireport", "snow_report_source": "OnTheSnow"
+        },
+        {
+          "id": "purgatory", "name": "Purgatory", "state": "CO",
+          "lat": 37.6167, "lon": -107.8000,
+          "base_elev_ft": 8793, "summit_elev_ft": 10822,
+          "passes": ["Indy Pass"], "pass_confidence": "verify",
+          "snotel_triplet": "387:CO:SNTL", "snotel_name": "Cascade #2 (2.8 mi)",
+          "snow_report_url": "https://www.onthesnow.com/colorado/durango-mountain-resort/skireport", "snow_report_source": "OnTheSnow"
+        },
+        {
+          "id": "santa-fe", "name": "Ski Santa Fe", "state": "NM",
+          "lat": 35.8036, "lon": -105.8000,
+          "base_elev_ft": 10350, "summit_elev_ft": 12075,
+          "passes": ["Independent"], "pass_confidence": "verify",
+          "snotel_triplet": "922:NM:SNTL", "snotel_name": "Santa Fe (2.4 mi)",
+          "snow_report_url": "https://www.onthesnow.com/new-mexico/ski-santa-fe/skireport", "snow_report_source": "OnTheSnow"
         }
       ]
     },
@@ -122,35 +160,72 @@
           "lat": 40.5883, "lon": -111.6373,
           "base_elev_ft": 8530, "summit_elev_ft": 10550,
           "passes": ["Ikon (limited days)"], "pass_confidence": "verify",
-          "snotel_triplet": "1308:UT:SNTL", "snotel_name": "Atwater (0.2 mi)"
+          "snotel_triplet": "1308:UT:SNTL", "snotel_name": "Atwater (0.2 mi)",
+          "snow_report_url": "https://www.onthesnow.com/utah/alta-ski-area/skireport", "snow_report_source": "OnTheSnow"
         },
         {
           "id": "snowbird", "name": "Snowbird", "state": "UT",
           "lat": 40.5830, "lon": -111.6556,
           "base_elev_ft": 7760, "summit_elev_ft": 11000,
           "passes": ["Ikon"], "pass_confidence": "high",
-          "snotel_triplet": "766:UT:SNTL", "snotel_name": "Snowbird (1.0 mi)"
+          "snotel_triplet": "766:UT:SNTL", "snotel_name": "Snowbird (1.0 mi)",
+          "snow_report_url": "https://www.onthesnow.com/utah/snowbird/skireport", "snow_report_source": "OnTheSnow"
         },
         {
           "id": "park-city", "name": "Park City", "state": "UT",
           "lat": 40.6461, "lon": -111.4980,
           "base_elev_ft": 6900, "summit_elev_ft": 10000,
           "passes": ["Epic"], "pass_confidence": "high",
-          "snotel_triplet": "814:UT:SNTL", "snotel_name": "Thaynes Canyon (2.4 mi)"
+          "snotel_triplet": "814:UT:SNTL", "snotel_name": "Thaynes Canyon (2.4 mi)",
+          "snow_report_url": "https://www.snow-forecast.com/resorts/Park-City/snow-report", "snow_report_source": "Snow-Forecast"
+        },
+        {
+          "id": "deer-valley", "name": "Deer Valley", "state": "UT",
+          "lat": 40.6374, "lon": -111.4783,
+          "base_elev_ft": 6570, "summit_elev_ft": 9570,
+          "passes": ["Independent"], "pass_confidence": "verify",
+          "snotel_triplet": "814:UT:SNTL", "snotel_name": "Thaynes Canyon (3.0 mi)",
+          "snow_report_url": "https://www.onthesnow.com/utah/deer-valley-resort/skireport", "snow_report_source": "OnTheSnow"
         },
         {
           "id": "breckenridge", "name": "Breckenridge", "state": "CO",
           "lat": 39.4817, "lon": -106.0384,
           "base_elev_ft": 9600, "summit_elev_ft": 12998,
           "passes": ["Epic"], "pass_confidence": "high",
-          "snotel_triplet": "415:CO:SNTL", "snotel_name": "Copper Mountain (7.1 mi)"
+          "snotel_triplet": "415:CO:SNTL", "snotel_name": "Copper Mountain (7.1 mi)",
+          "snow_report_url": "https://www.onthesnow.com/colorado/breckenridge/skireport", "snow_report_source": "OnTheSnow"
         },
         {
           "id": "vail", "name": "Vail", "state": "CO",
           "lat": 39.6403, "lon": -106.3742,
           "base_elev_ft": 8120, "summit_elev_ft": 11570,
           "passes": ["Epic"], "pass_confidence": "high",
-          "snotel_triplet": "842:CO:SNTL", "snotel_name": "Vail Mountain (1.6 mi)"
+          "snotel_triplet": "842:CO:SNTL", "snotel_name": "Vail Mountain (1.6 mi)",
+          "snow_report_url": "https://www.onthesnow.com/colorado/vail/skireport", "snow_report_source": "OnTheSnow"
+        },
+        {
+          "id": "steamboat", "name": "Steamboat", "state": "CO",
+          "lat": 40.4572, "lon": -106.8045,
+          "base_elev_ft": 6900, "summit_elev_ft": 10568,
+          "passes": ["Ikon"], "pass_confidence": "high",
+          "snotel_triplet": "457:CO:SNTL", "snotel_name": "Dry Lake (5.4 mi)",
+          "snow_report_url": "https://www.onthesnow.com/colorado/steamboat/skireport", "snow_report_source": "OnTheSnow"
+        },
+        {
+          "id": "aspen-snowmass", "name": "Aspen Snowmass", "state": "CO",
+          "lat": 39.2110, "lon": -106.9497,
+          "base_elev_ft": 8104, "summit_elev_ft": 12510,
+          "passes": ["Ikon"], "pass_confidence": "high",
+          "snotel_triplet": "669:CO:SNTL", "snotel_name": "North Lost Trail (13.9 mi)",
+          "snow_report_url": "https://www.onthesnow.com/colorado/aspen-snowmass/skireport", "snow_report_source": "OnTheSnow"
+        },
+        {
+          "id": "winter-park", "name": "Winter Park", "state": "CO",
+          "lat": 39.8868, "lon": -105.7625,
+          "base_elev_ft": 9000, "summit_elev_ft": 12060,
+          "passes": ["Ikon"], "pass_confidence": "high",
+          "snotel_triplet": "1186:CO:SNTL", "snotel_name": "Fool Creek (5.7 mi)",
+          "snow_report_url": "https://www.onthesnow.com/colorado/winter-park-resort/skireport", "snow_report_source": "OnTheSnow"
         }
       ]
     },
@@ -182,28 +257,56 @@
           "lat": 43.5875, "lon": -110.8280,
           "base_elev_ft": 6311, "summit_elev_ft": 10450,
           "passes": ["Ikon"], "pass_confidence": "high",
-          "snotel_triplet": "689:WY:SNTL", "snotel_name": "Phillips Bench (6.5 mi)"
+          "snotel_triplet": "689:WY:SNTL", "snotel_name": "Phillips Bench (6.5 mi)",
+          "snow_report_url": "https://www.onthesnow.com/wyoming/jackson-hole/skireport", "snow_report_source": "OnTheSnow"
         },
         {
           "id": "big-sky", "name": "Big Sky", "state": "MT",
           "lat": 45.2854, "lon": -111.4013,
           "base_elev_ft": 7500, "summit_elev_ft": 11166,
           "passes": ["Ikon"], "pass_confidence": "high",
-          "snotel_triplet": "590:MT:SNTL", "snotel_name": "Lone Mountain (1.5 mi)"
+          "snotel_triplet": "590:MT:SNTL", "snotel_name": "Lone Mountain (1.5 mi)",
+          "snow_report_url": "https://www.onthesnow.com/montana/big-sky-resort/skireport", "snow_report_source": "OnTheSnow"
         },
         {
           "id": "mt-bachelor", "name": "Mt. Bachelor", "state": "OR",
           "lat": 43.9792, "lon": -121.6885,
           "base_elev_ft": 6300, "summit_elev_ft": 9065,
           "passes": ["Independent"], "pass_confidence": "verify",
-          "snotel_triplet": "815:OR:SNTL", "snotel_name": "Three Creeks Meadow (11.6 mi)"
+          "snotel_triplet": "815:OR:SNTL", "snotel_name": "Three Creeks Meadow (11.6 mi)",
+          "snow_report_url": "https://www.onthesnow.com/oregon/mt-bachelor/skireport", "snow_report_source": "OnTheSnow"
         },
         {
           "id": "stevens-pass", "name": "Stevens Pass", "state": "WA",
           "lat": 47.7448, "lon": -121.0890,
           "base_elev_ft": 4061, "summit_elev_ft": 5845,
           "passes": ["Epic"], "pass_confidence": "high",
-          "snotel_triplet": "791:WA:SNTL", "snotel_name": "Stevens Pass (0.2 mi)"
+          "snotel_triplet": "791:WA:SNTL", "snotel_name": "Stevens Pass (0.2 mi)",
+          "snow_report_url": "https://www.snow-forecast.com/resorts/Stevens-Pass/snow-report", "snow_report_source": "Snow-Forecast"
+        },
+        {
+          "id": "crystal-mountain", "name": "Crystal Mountain", "state": "WA",
+          "lat": 46.9358, "lon": -121.4744,
+          "base_elev_ft": 4400, "summit_elev_ft": 7012,
+          "passes": ["Ikon"], "pass_confidence": "high",
+          "snotel_triplet": "642:WA:SNTL", "snotel_name": "Morse Lake (2.1 mi)",
+          "snow_report_url": "https://www.onthesnow.com/washington/crystal-mountain-wa/skireport", "snow_report_source": "OnTheSnow"
+        },
+        {
+          "id": "sun-valley", "name": "Sun Valley", "state": "ID",
+          "lat": 43.6975, "lon": -114.3517,
+          "base_elev_ft": 5750, "summit_elev_ft": 9150,
+          "passes": ["Independent"], "pass_confidence": "verify",
+          "snotel_triplet": "895:ID:SNTL", "snotel_name": "Chocolate Gulch (5.9 mi)",
+          "snow_report_url": "https://www.onthesnow.com/idaho/sun-valley/skireport", "snow_report_source": "OnTheSnow"
+        },
+        {
+          "id": "schweitzer", "name": "Schweitzer", "state": "ID",
+          "lat": 48.3667, "lon": -116.6228,
+          "base_elev_ft": 4100, "summit_elev_ft": 6400,
+          "passes": ["Ikon"], "pass_confidence": "verify",
+          "snotel_triplet": "738:ID:SNTL", "snotel_name": "Schweitzer Basin (0.9 mi)",
+          "snow_report_url": "https://www.onthesnow.com/idaho/schweitzer/skireport", "snow_report_source": "OnTheSnow"
         }
       ]
     },
@@ -235,28 +338,56 @@
           "lat": 43.6045, "lon": -72.8201,
           "base_elev_ft": 1165, "summit_elev_ft": 4241,
           "passes": ["Ikon"], "pass_confidence": "high",
-          "snotel_triplet": null
+          "snotel_triplet": null,
+          "snow_report_url": "https://www.snow-forecast.com/resorts/Killington/snow-report", "snow_report_source": "Snow-Forecast"
         },
         {
           "id": "stowe", "name": "Stowe", "state": "VT",
           "lat": 44.5303, "lon": -72.7818,
           "base_elev_ft": 1280, "summit_elev_ft": 4395,
           "passes": ["Epic"], "pass_confidence": "high",
-          "snotel_triplet": null
+          "snotel_triplet": null,
+          "snow_report_url": "https://www.onthesnow.com/vermont/stowe-mountain-resort/skireport", "snow_report_source": "OnTheSnow"
         },
         {
           "id": "jay-peak", "name": "Jay Peak", "state": "VT",
           "lat": 44.9280, "lon": -72.5273,
           "base_elev_ft": 1815, "summit_elev_ft": 3968,
           "passes": ["Indy Pass"], "pass_confidence": "verify",
-          "snotel_triplet": null
+          "snotel_triplet": null,
+          "snow_report_url": "https://www.snow-forecast.com/resorts/Jay-Peak/snow-report", "snow_report_source": "Snow-Forecast"
         },
         {
           "id": "cannon", "name": "Cannon Mountain", "state": "NH",
           "lat": 44.1776, "lon": -71.6986,
           "base_elev_ft": 1955, "summit_elev_ft": 4080,
           "passes": ["Indy Pass"], "pass_confidence": "verify",
-          "snotel_triplet": null
+          "snotel_triplet": null,
+          "snow_report_url": "https://www.snow-forecast.com/resorts/Cannon-Mountain/snow-report", "snow_report_source": "Snow-Forecast"
+        },
+        {
+          "id": "sugarbush", "name": "Sugarbush", "state": "VT",
+          "lat": 44.1359, "lon": -72.9028,
+          "base_elev_ft": 1443, "summit_elev_ft": 4083,
+          "passes": ["Ikon"], "pass_confidence": "high",
+          "snotel_triplet": null,
+          "snow_report_url": "https://www.onthesnow.com/vermont/sugarbush/skireport", "snow_report_source": "OnTheSnow"
+        },
+        {
+          "id": "sunday-river", "name": "Sunday River", "state": "ME",
+          "lat": 44.4750, "lon": -70.8578,
+          "base_elev_ft": 800, "summit_elev_ft": 3140,
+          "passes": ["Ikon"], "pass_confidence": "high",
+          "snotel_triplet": null,
+          "snow_report_url": "https://www.snow-forecast.com/resorts/Sunday-River/snow-report", "snow_report_source": "Snow-Forecast"
+        },
+        {
+          "id": "sugarloaf", "name": "Sugarloaf", "state": "ME",
+          "lat": 45.0314, "lon": -70.3131,
+          "base_elev_ft": 1417, "summit_elev_ft": 4237,
+          "passes": ["Ikon"], "pass_confidence": "high",
+          "snotel_triplet": null,
+          "snow_report_url": "https://www.onthesnow.com/new-england/sugarloaf/skireport", "snow_report_source": "OnTheSnow"
         }
       ]
     },
@@ -288,14 +419,16 @@
           "lat": 50.1163, "lon": -122.9574,
           "base_elev_ft": 2140, "summit_elev_ft": 7494,
           "passes": ["Epic"], "pass_confidence": "high",
-          "snotel_triplet": null
+          "snotel_triplet": null,
+          "snow_report_url": "https://www.onthesnow.com/british-columbia/whistler-blackcomb/skireport", "snow_report_source": "OnTheSnow"
         },
         {
           "id": "revelstoke", "name": "Revelstoke", "state": "BC",
           "lat": 50.9581, "lon": -118.1957,
           "base_elev_ft": 1680, "summit_elev_ft": 7300,
           "passes": ["Ikon"], "pass_confidence": "high",
-          "snotel_triplet": null
+          "snotel_triplet": null,
+          "snow_report_url": "https://www.onthesnow.com/british-columbia/revelstoke-mountain/skireport", "snow_report_source": "OnTheSnow"
         },
         {
           "id": "banff-lake-louise", "name": "Banff / Lake Louise", "state": "AB",
@@ -303,7 +436,8 @@
           "base_elev_ft": 5400, "summit_elev_ft": 8650,
           "passes": ["Ikon (SkiBig3)"], "pass_confidence": "high",
           "snotel_triplet": null,
-          "snow_course_triplet": "16X02:AB:SNOW", "snow_course_name": "Pipestone Upper (0.6 mi)"
+          "snow_course_triplet": "16X02:AB:SNOW", "snow_course_name": "Pipestone Upper (0.6 mi)",
+          "snow_report_url": "https://www.onthesnow.com/alberta/lake-louise/skireport", "snow_report_source": "OnTheSnow"
         },
         {
           "id": "big-white", "name": "Big White", "state": "BC",
@@ -311,7 +445,33 @@
           "base_elev_ft": 5040, "summit_elev_ft": 7606,
           "passes": ["Indy Pass"], "pass_confidence": "verify",
           "snotel_triplet": null,
-          "snow_course_triplet": "2E03:BC:SNOW", "snow_course_name": "Big White Mountain (2.2 mi)"
+          "snow_course_triplet": "2E03:BC:SNOW", "snow_course_name": "Big White Mountain (2.2 mi)",
+          "snow_report_url": "https://www.snow-forecast.com/resorts/Big-White/snow-report", "snow_report_source": "Snow-Forecast"
+        },
+        {
+          "id": "sun-peaks", "name": "Sun Peaks", "state": "BC",
+          "lat": 50.8836, "lon": -119.8794,
+          "base_elev_ft": 4133, "summit_elev_ft": 6824,
+          "passes": ["Ikon"], "pass_confidence": "verify",
+          "snotel_triplet": null,
+          "snow_report_url": "https://www.onthesnow.com/british-columbia/sun-peaks/skireport", "snow_report_source": "OnTheSnow"
+        },
+        {
+          "id": "kicking-horse", "name": "Kicking Horse", "state": "BC",
+          "lat": 51.2978, "lon": -117.0567,
+          "base_elev_ft": 4265, "summit_elev_ft": 8033,
+          "passes": ["Ikon"], "pass_confidence": "verify",
+          "snotel_triplet": null,
+          "snow_course_triplet": "2A11:BC:SNOW", "snow_course_name": "Beaverfoot (7.1 mi)",
+          "snow_report_url": "https://www.onthesnow.com/british-columbia/kicking-horse/skireport", "snow_report_source": "OnTheSnow"
+        },
+        {
+          "id": "fernie", "name": "Fernie", "state": "BC",
+          "lat": 49.4631, "lon": -115.0879,
+          "base_elev_ft": 3450, "summit_elev_ft": 6316,
+          "passes": ["Ikon"], "pass_confidence": "verify",
+          "snotel_triplet": null,
+          "snow_report_url": "https://www.onthesnow.com/british-columbia/fernie-alpine/skireport", "snow_report_source": "OnTheSnow"
         }
       ]
     },
@@ -343,35 +503,64 @@
           "lat": 46.0207, "lon": 7.7491,
           "base_elev_ft": 5310, "summit_elev_ft": 12740,
           "passes": ["Independent"], "pass_confidence": "verify",
-          "snotel_triplet": null
+          "snotel_triplet": null,
+          "snow_report_url": "https://www.onthesnow.co.uk/valais/zermatt/skireport", "snow_report_source": "OnTheSnow"
         },
         {
           "id": "val-disere", "name": "Val d'Isère", "state": "France",
           "lat": 45.4489, "lon": 6.9797,
           "base_elev_ft": 6070, "summit_elev_ft": 10930,
           "passes": ["Independent"], "pass_confidence": "verify",
-          "snotel_triplet": null
+          "snotel_triplet": null,
+          "snow_report_url": "https://www.onthesnow.co.uk/northern-alps/val-disere/skireport", "snow_report_source": "OnTheSnow"
         },
         {
           "id": "st-anton", "name": "St. Anton", "state": "Austria",
           "lat": 47.1333, "lon": 10.2667,
           "base_elev_ft": 4220, "summit_elev_ft": 9222,
           "passes": ["Independent"], "pass_confidence": "verify",
-          "snotel_triplet": null
+          "snotel_triplet": null,
+          "snow_report_url": "https://www.onthesnow.co.uk/tyrol/st-anton-am-arlberg/skireport", "snow_report_source": "OnTheSnow"
         },
         {
           "id": "chamonix", "name": "Chamonix", "state": "France",
           "lat": 45.9237, "lon": 6.8694,
           "base_elev_ft": 3395, "summit_elev_ft": 12605,
           "passes": ["Independent"], "pass_confidence": "verify",
-          "snotel_triplet": null
+          "snotel_triplet": null,
+          "snow_report_url": "https://www.snow-forecast.com/resorts/Chamonix/snow-report", "snow_report_source": "Snow-Forecast"
         },
         {
           "id": "verbier", "name": "Verbier", "state": "Switzerland",
           "lat": 46.0967, "lon": 7.2286,
           "base_elev_ft": 4920, "summit_elev_ft": 10925,
           "passes": ["Ikon"], "pass_confidence": "verify",
-          "snotel_triplet": null
+          "snotel_triplet": null,
+          "snow_report_url": "https://www.onthesnow.co.uk/valais/verbier/skireport", "snow_report_source": "OnTheSnow"
+        },
+        {
+          "id": "courchevel", "name": "Courchevel", "state": "France",
+          "lat": 45.4149, "lon": 6.6350,
+          "base_elev_ft": 5250, "summit_elev_ft": 9840,
+          "passes": ["Independent"], "pass_confidence": "verify",
+          "snotel_triplet": null,
+          "snow_report_url": "https://www.onthesnow.co.uk/northern-alps/courchevel/skireport", "snow_report_source": "OnTheSnow"
+        },
+        {
+          "id": "kitzbuhel", "name": "Kitzbühel", "state": "Austria",
+          "lat": 47.4467, "lon": 12.3925,
+          "base_elev_ft": 2500, "summit_elev_ft": 6562,
+          "passes": ["Independent"], "pass_confidence": "verify",
+          "snotel_triplet": null,
+          "snow_report_url": "https://www.onthesnow.co.uk/tyrol/kitzbuehel/skireport", "snow_report_source": "OnTheSnow"
+        },
+        {
+          "id": "st-moritz", "name": "St. Moritz", "state": "Switzerland",
+          "lat": 46.4908, "lon": 9.8355,
+          "base_elev_ft": 5910, "summit_elev_ft": 10837,
+          "passes": ["Independent"], "pass_confidence": "verify",
+          "snotel_triplet": null,
+          "snow_report_url": "https://www.snow-forecast.com/resorts/St-Moritz/snow-report", "snow_report_source": "Snow-Forecast"
         }
       ]
     },
@@ -403,35 +592,56 @@
           "lat": 42.8048, "lon": 140.6874,
           "base_elev_ft": 1000, "summit_elev_ft": 3395,
           "passes": ["Ikon"], "pass_confidence": "verify",
-          "snotel_triplet": null
+          "snotel_triplet": null,
+          "snow_report_url": "https://www.onthesnow.com/hokkaido/niseko-united/skireport", "snow_report_source": "OnTheSnow"
         },
         {
           "id": "furano", "name": "Furano", "state": "Japan",
           "lat": 43.3267, "lon": 142.3822,
           "base_elev_ft": 790, "summit_elev_ft": 3540,
           "passes": ["Independent"], "pass_confidence": "verify",
-          "snotel_triplet": null
+          "snotel_triplet": null,
+          "snow_report_url": "https://www.snow-forecast.com/resorts/Furano/snow-report", "snow_report_source": "Snow-Forecast"
         },
         {
           "id": "myoko", "name": "Myoko", "state": "Japan",
           "lat": 36.8944, "lon": 138.1975,
           "base_elev_ft": 1150, "summit_elev_ft": 6300,
           "passes": ["Independent"], "pass_confidence": "verify",
-          "snotel_triplet": null
+          "snotel_triplet": null,
+          "snow_report_url": "https://opensnow.com/location/jpmyokoski/snow-report", "snow_report_source": "OpenSnow"
         },
         {
           "id": "nozawa-onsen", "name": "Nozawa Onsen", "state": "Japan",
           "lat": 36.9219, "lon": 138.4419,
           "base_elev_ft": 2000, "summit_elev_ft": 5800,
           "passes": ["Independent"], "pass_confidence": "verify",
-          "snotel_triplet": null
+          "snotel_triplet": null,
+          "snow_report_url": "https://www.snow-forecast.com/resorts/Nozawa-Onsen/snow-report", "snow_report_source": "Snow-Forecast"
         },
         {
           "id": "hakuba", "name": "Hakuba (Happo-One)", "state": "Japan",
           "lat": 36.6989, "lon": 137.8608,
           "base_elev_ft": 2400, "summit_elev_ft": 5900,
           "passes": ["Independent"], "pass_confidence": "verify",
-          "snotel_triplet": null
+          "snotel_triplet": null,
+          "snow_report_url": "https://www.onthesnow.com/nagano/hakuba-valley/skireport", "snow_report_source": "OnTheSnow"
+        },
+        {
+          "id": "rusutsu", "name": "Rusutsu", "state": "Japan",
+          "lat": 42.7550, "lon": 140.9008,
+          "base_elev_ft": 1148, "summit_elev_ft": 3117,
+          "passes": ["Ikon"], "pass_confidence": "verify",
+          "snotel_triplet": null,
+          "snow_report_url": "https://www.onthesnow.com/hokkaido/rusutsu/skireport", "snow_report_source": "OnTheSnow"
+        },
+        {
+          "id": "appi-kogen", "name": "Appi Kogen", "state": "Japan",
+          "lat": 39.9333, "lon": 140.9333,
+          "base_elev_ft": 2130, "summit_elev_ft": 4560,
+          "passes": ["Independent"], "pass_confidence": "verify",
+          "snotel_triplet": null,
+          "snow_report_url": "https://www.snow-forecast.com/resorts/Appi-Kogen/snow-report", "snow_report_source": "Snow-Forecast"
         }
       ]
     },
@@ -463,28 +673,40 @@
           "lat": -32.8386, "lon": -70.1281,
           "base_elev_ft": 9450, "summit_elev_ft": 10860,
           "passes": ["Independent"], "pass_confidence": "verify",
-          "snotel_triplet": null
+          "snotel_triplet": null,
+          "snow_report_url": "https://www.onthesnow.com/chile/ski-portillo/skireport", "snow_report_source": "OnTheSnow"
         },
         {
           "id": "valle-nevado", "name": "Valle Nevado", "state": "Chile",
           "lat": -33.3547, "lon": -70.2503,
           "base_elev_ft": 9800, "summit_elev_ft": 12080,
           "passes": ["Ikon"], "pass_confidence": "verify",
-          "snotel_triplet": null
+          "snotel_triplet": null,
+          "snow_report_url": "https://www.onthesnow.com/chile/valle-nevado/skireport", "snow_report_source": "OnTheSnow"
         },
         {
           "id": "bariloche", "name": "Bariloche (Cerro Catedral)", "state": "Argentina",
           "lat": -41.1660, "lon": -71.4491,
           "base_elev_ft": 3300, "summit_elev_ft": 6987,
           "passes": ["Independent"], "pass_confidence": "verify",
-          "snotel_triplet": null
+          "snotel_triplet": null,
+          "snow_report_url": "https://www.onthesnow.com/argentina/cerro-catedral-alta-patagonia/skireport", "snow_report_source": "OnTheSnow"
         },
         {
           "id": "las-lenas", "name": "Las Leñas", "state": "Argentina",
           "lat": -35.1500, "lon": -70.0833,
           "base_elev_ft": 7545, "summit_elev_ft": 11253,
           "passes": ["Independent"], "pass_confidence": "verify",
-          "snotel_triplet": null
+          "snotel_triplet": null,
+          "snow_report_url": "https://www.onthesnow.com/argentina/las-lenas/skireport", "snow_report_source": "OnTheSnow"
+        },
+        {
+          "id": "nevados-de-chillan", "name": "Nevados de Chillán", "state": "Chile",
+          "lat": -36.8975, "lon": -71.3822,
+          "base_elev_ft": 5577, "summit_elev_ft": 9186,
+          "passes": ["Independent"], "pass_confidence": "verify",
+          "snotel_triplet": null,
+          "snow_report_url": "https://www.onthesnow.com/chile/nevados-de-chillan/skireport", "snow_report_source": "OnTheSnow"
         }
       ]
     },
@@ -516,21 +738,40 @@
           "lat": -36.4058, "lon": 148.4108,
           "base_elev_ft": 5577, "summit_elev_ft": 6994,
           "passes": ["Epic"], "pass_confidence": "high",
-          "snotel_triplet": null
+          "snotel_triplet": null,
+          "snow_report_url": "https://www.onthesnow.com/australia/perisher/skireport", "snow_report_source": "OnTheSnow"
         },
         {
           "id": "falls-creek", "name": "Falls Creek", "state": "Australia",
           "lat": -36.8676, "lon": 147.2786,
           "base_elev_ft": 5262, "summit_elev_ft": 6031,
           "passes": ["Indy Pass"], "pass_confidence": "verify",
-          "snotel_triplet": null
+          "snotel_triplet": null,
+          "snow_report_url": "https://www.onthesnow.com/australia/falls-creek-alpine-resort/skireport", "snow_report_source": "OnTheSnow"
         },
         {
           "id": "thredbo", "name": "Thredbo", "state": "Australia",
           "lat": -36.5039, "lon": 148.3000,
           "base_elev_ft": 4462, "summit_elev_ft": 6676,
           "passes": ["Ikon"], "pass_confidence": "verify",
-          "snotel_triplet": null
+          "snotel_triplet": null,
+          "snow_report_url": "https://www.onthesnow.com/australia/thredbo-alpine-resort/skireport", "snow_report_source": "OnTheSnow"
+        },
+        {
+          "id": "mt-buller", "name": "Mt. Buller", "state": "Australia",
+          "lat": -37.1459, "lon": 146.4423,
+          "base_elev_ft": 4823, "summit_elev_ft": 5919,
+          "passes": ["Independent"], "pass_confidence": "verify",
+          "snotel_triplet": null,
+          "snow_report_url": "https://www.onthesnow.com/australia/mt-buller/skireport", "snow_report_source": "OnTheSnow"
+        },
+        {
+          "id": "mt-hotham", "name": "Mt. Hotham", "state": "Australia",
+          "lat": -36.9781, "lon": 147.1367,
+          "base_elev_ft": 4670, "summit_elev_ft": 6100,
+          "passes": ["Epic"], "pass_confidence": "verify",
+          "snotel_triplet": null,
+          "snow_report_url": "https://www.onthesnow.com/australia/mt-hotham/skireport", "snow_report_source": "OnTheSnow"
         }
       ]
     }

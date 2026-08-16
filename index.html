@@ -57,6 +57,8 @@
       </div>
     </div>
 
+    <div class="other-signals-line" id="other-signals-line">Loading other climate signals…</div>
+
     <div class="controls-row">
       <label for="region-select">Jump to a region</label>
       <select id="region-select"><option value="all">All regions — ranked most to least bullish</option></select>
@@ -100,6 +102,14 @@
         </div>
       </div>
     </div>
+
+    <details class="backtest-box" id="backtest-box">
+      <summary class="backtest-summary">
+        <span class="backtest-kicker">Model Backtest</span>
+        <span class="backtest-title">Did last season's signal actually work? See the 2025-26 season, graded →</span>
+      </summary>
+      <div class="backtest-body" id="backtest-body">Loading…</div>
+    </details>
 
     <div class="doc-footer">
       This page is a living tool, not a one-time forecast: the live-status line, signal bar, and every region's bull/bear call are all keyed off <strong>data/oni.json</strong>'s current ENSO phase, so the page's guidance flips automatically as the climate signal moves between El Niño, La Niña, and neutral — the name and framing stay put either way. <strong>Live data:</strong> NOAA CPC Oceanic Niño Index (refreshed via <code>scripts/update_oni.py</code>, not real-time in-browser due to CORS); NRCS AWDB (SNOTEL / manual snow courses) for % of median snowpack; Open-Meteo for 7-day snowfall forecasts. <strong>Static analysis:</strong> region-level ENSO-phase correlations are drawn from NOAA CPC's historical ENSO-snowfall composites, IRI/CCSR ENSO probability research, JMA historical snowfall data (1954–2014), and Severe Weather Europe ENSO analysis. Pass affiliations (Epic/Ikon/Indy) reflect known season rosters and change year to year — badges marked <em>verify</em> should be checked at the official pass site before purchase. Links marked ↗ are partner/affiliate links. For informational purposes only, not investment or travel advice.

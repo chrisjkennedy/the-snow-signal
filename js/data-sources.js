@@ -16,6 +16,13 @@ function isoDaysAgo(n) {
   return d.toISOString().slice(0, 10);
 }
 
+/** US water year starts Oct 1 — used as the start of the season-to-date chart. */
+function waterYearStart() {
+  const d = new Date();
+  const year = d.getMonth() >= 9 ? d.getFullYear() : d.getFullYear() - 1; // month 9 = Oct
+  return `${year}-10-01`;
+}
+
 async function fetchJson(url) {
   const res = await fetch(url);
   if (!res.ok) throw new Error(`${url} -> HTTP ${res.status}`);
@@ -48,29 +55,51 @@ export async function loadPhaseCopy() {
   return fetchJson("./data/phase-copy.json");
 }
 
+export async function loadBacktest() {
+  try {
+    return await fetchJson("./data/backtest-2025-26.json");
+  } catch (e) {
+    console.warn("Backtest data unavailable", e);
+    return null;
+  }
+}
+
+export async function loadClimateSignals() {
+  try {
+    const res = await fetch("./data/climate-signals.json", { cache: "no-store" });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    return res.json();
+  } catch (e) {
+    console.warn("Climate signals (NAO/AO/PDO) unavailable", e);
+    return null;
+  }
+}
+
 /**
- * Latest SWE reading and % of long-term median for a SNOTEL/snow-course
- * station. Returns null if the station has no recent data (e.g. an
- * unstaffed manual course between visits) or it's off-season (median 0).
+ * Season-to-date SWE for a SNOTEL/snow-course station: the latest reading
+ * (walking backward for the most recent non-null value, since manual
+ * courses aren't read daily) plus the full water-year series for a
+ * historical-context sparkline. One API call covers both, rather than a
+ * separate short-window call for "latest" and a long-window call for the
+ * chart — with ~40 stations queried on every page load, halving the
+ * request count matters.
  */
 export async function fetchSnowpack(triplet) {
   const url = `${AWDB_BASE}?stationTriplets=${encodeURIComponent(triplet)}` +
     `&elements=WTEQ&duration=DAILY&periodRef=END` +
-    `&beginDate=${isoDaysAgo(45)}&endDate=${isoDaysAgo(0)}` +
+    `&beginDate=${waterYearStart()}&endDate=${isoDaysAgo(0)}` +
     `&centralTendencyType=median&returnFlags=false`;
   try {
     const data = await fetchJson(url);
-    const series = data?.[0]?.data?.[0]?.values ?? [];
-    // Walk backward for the most recent non-null reading (manual courses
-    // aren't read daily).
-    for (let i = series.length - 1; i >= 0; i--) {
-      const v = series[i];
-      if (v.value !== null && v.value !== undefined) {
-        const pct = v.median > 0 ? Math.round((v.value / v.median) * 100) : null;
-        return { date: v.date, sweIn: v.value, medianIn: v.median, pctOfMedian: pct };
-      }
-    }
-    return null;
+    const series = (data?.[0]?.data?.[0]?.values ?? [])
+      .filter(v => v.value !== null && v.value !== undefined);
+    if (!series.length) return null;
+    const latest = series[series.length - 1];
+    const pct = latest.median > 0 ? Math.round((latest.value / latest.median) * 100) : null;
+    return {
+      date: latest.date, sweIn: latest.value, medianIn: latest.median, pctOfMedian: pct,
+      series: series.map(v => ({ date: v.date, value: v.value, median: v.median })),
+    };
   } catch (e) {
     console.warn(`SNOTEL fetch failed for ${triplet}`, e);
     return null;

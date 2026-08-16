@@ -1,4 +1,25 @@
-import { loadOni, loadResorts, loadAffiliates, loadPhaseCopy, fetchSnowpack, fetchForecast } from './data-sources.js';
+import { loadOni, loadResorts, loadAffiliates, loadPhaseCopy, loadClimateSignals, loadBacktest, fetchSnowpack, fetchForecast } from './data-sources.js';
+
+const BACKTEST_VERDICT = {
+  'hit': { cls: 'bv-hit', label: 'Hit' },
+  'miss': { cls: 'bv-miss', label: 'Miss' },
+  'partial': { cls: 'bv-partial', label: 'Partial' },
+  'correct-for-the-right-reason': { cls: 'bv-hit', label: 'Hit (right reason)' },
+  'likely-hit': { cls: 'bv-other', label: 'Likely hit (unconfirmed)' },
+  'inconclusive': { cls: 'bv-other', label: 'Inconclusive' },
+  'not-a-clean-test': { cls: 'bv-other', label: 'N/A — not an ENSO test' },
+};
+
+// Regions where a secondary signal is well-established enough (per real
+// research, not just ENSO) to surface inline: NAO dominates winter outcomes
+// in the Northeast US and the Alps more than ENSO does; PDO modulates how
+// strongly a given ENSO phase actually shows up on the West Coast.
+const REGION_SECONDARY_SIGNAL = {
+  'northeast-us': 'nao',
+  'european-alps': 'nao',
+  'sierra-california': 'pdo',
+  'pnw-northern-rockies': 'pdo',
+};
 
 const SIGNAL_CLASS = { bull: 'sb-bull', bear: 'sb-bear', mixed: 'sb-mixed' };
 const METER_CLASS = { bull: 'mf-bull', bear: 'mf-bear', mixed: 'mf-mixed' };
@@ -75,6 +96,30 @@ function renderSignalBar(oni, phaseKey) {
     chips.map(c => `<span class="signal-pill ${c.cls}">${c.text}</span>`).join('');
 }
 
+function renderOtherSignalsLine(signals) {
+  const el = document.getElementById('other-signals-line');
+  if (!signals) {
+    el.textContent = 'Other climate signals (NAO/AO/PDO) unavailable right now.';
+    return;
+  }
+  const fmt = (s) => `${s.latest_value > 0 ? '+' : ''}${s.latest_value.toFixed(2)}`;
+  el.innerHTML = `Other signals → ` +
+    `NAO: <strong>${signals.nao.phase}</strong> (${fmt(signals.nao)}, ${signals.nao.latest_label})` +
+    `<span class="sig-sep">·</span>` +
+    `AO: <strong>${signals.ao.phase}</strong> (${fmt(signals.ao)})` +
+    `<span class="sig-sep">·</span>` +
+    `PDO: <strong>${signals.pdo.phase}</strong> (${fmt(signals.pdo)})`;
+}
+
+function liveSignalNote(region, signals) {
+  const key = REGION_SECONDARY_SIGNAL[region.id];
+  if (!key || !signals?.[key]) return '';
+  const s = signals[key];
+  const label = key.toUpperCase();
+  const val = `${s.latest_value > 0 ? '+' : ''}${s.latest_value.toFixed(2)}`;
+  return `<div class="live-signal-note">Live check: ${label} is currently <strong>${s.phase}</strong> (${val}, ${s.latest_label}) — ${s.relevance}</div>`;
+}
+
 function renderContextStrip(oni, phaseCopy, phaseKey) {
   document.getElementById('ctx-enso-status').innerHTML = oni
     ? `<strong>${PHASE_NAME[phaseKey]}</strong> — latest ONI ${oni.latest_oni > 0 ? '+' : ''}${oni.latest_oni.toFixed(2)} (${oni.latest_season} ${oni.latest_year}), ${oni.declared_status}.`
@@ -100,6 +145,10 @@ function resortRowSkeleton(resort, affiliates) {
       <a class="affiliate-btn" target="_blank" rel="noopener sponsored" href="${affiliateUrl(affiliates.lodging, resort.name)}">Lodging ↗</a>
     </div>` : '';
 
+  const snowReportLink = resort.snow_report_url
+    ? `<a class="snow-report-link" target="_blank" rel="noopener" href="${resort.snow_report_url}">Live snow report (${resort.snow_report_source}) ↗</a>`
+    : '';
+
   return `
     <div class="resort-row" id="resort-${resort.id}" data-resort="${resort.id}">
       <div class="resort-top">
@@ -113,12 +162,16 @@ function resortRowSkeleton(resort, affiliates) {
         <span class="live-stat loading"><span class="live-dot"></span><span class="stat-label">snowpack</span><span class="stat-val">loading…</span></span>
         <span class="live-stat loading"><span class="stat-label">7-day forecast</span><span class="stat-val">loading…</span></span>
       </div>
+      <div class="accum-row" data-chart="${resort.id}"></div>
+      <div class="resort-links-row">
+        ${snowReportLink}
+      </div>
       ${affiliateLinks}
     </div>
   `;
 }
 
-function renderRegionCard(region, rank, phaseKey, affiliates) {
+function renderRegionCard(region, rank, phaseKey, affiliates, signals) {
   const s = region.enso_signals[phaseKey];
   const now = new Date();
   const inSeason = isInSeason(region.season.start_month, region.season.end_month, now.getMonth() + 1);
@@ -144,6 +197,7 @@ function renderRegionCard(region, rank, phaseKey, affiliates) {
         </div>
         <p class="r-detail">${s.narrative}</p>
         <div class="r-caveat"><span class="r-caveat-icon">⚠</span>${s.caveat}</div>
+        ${liveSignalNote(region, signals)}
         <div class="resort-list">${resortRows}</div>
       </div>
     </div>
@@ -152,6 +206,26 @@ function renderRegionCard(region, rank, phaseKey, affiliates) {
 
 function statSpan(label, value, cls) {
   return `<span class="live-stat"><span class="stat-label">${label}</span><span class="stat-val ${cls || ''}">${value}</span></span>`;
+}
+
+/** Season-to-date SWE vs. the historical median, as a small inline sparkline. */
+function sparklineSvg(series, color) {
+  if (!series || series.length < 2) return '';
+  const w = 160, h = 34, pad = 2;
+  // The AWDB API sometimes omits `median` for individual days (e.g. right
+  // at the start of a station's period of record) — normalize both fields
+  // to finite numbers so one missing value can't poison the whole chart
+  // with NaN (which SVG silently refuses to render at all).
+  const num = (v) => (typeof v === 'number' && Number.isFinite(v)) ? v : 0;
+  const maxVal = Math.max(...series.map(d => Math.max(num(d.value), num(d.median))), 0.1);
+  const x = i => pad + (i / (series.length - 1)) * (w - pad * 2);
+  const y = v => h - pad - (Math.min(num(v), maxVal) / maxVal) * (h - pad * 2);
+  const actual = series.map((d, i) => `${x(i)},${y(d.value)}`).join(' ');
+  const median = series.map((d, i) => `${x(i)},${y(d.median)}`).join(' ');
+  return `<svg class="accum-spark" viewBox="0 0 ${w} ${h}" preserveAspectRatio="none" role="img" aria-label="Season-to-date snowpack vs. historical median">
+    <polyline points="${median}" fill="none" stroke="#B7C4D1" stroke-width="1.5" stroke-dasharray="2,2"/>
+    <polyline points="${actual}" fill="none" stroke="${color}" stroke-width="1.75"/>
+  </svg>`;
 }
 
 async function hydrateResortLiveData(resort) {
@@ -165,13 +239,14 @@ async function hydrateResortLiveData(resort) {
   ]);
 
   let snowpackHtml;
+  let chartCls = 'neutral';
   if (!triplet) {
     snowpackHtml = `<span class="live-stat"><span class="stat-label">snowpack</span><span class="no-data">no nearby station</span></span>`;
   } else if (!snowpack || snowpack.pctOfMedian === null) {
     snowpackHtml = `<span class="live-stat"><span class="stat-label">snowpack</span><span class="no-data">preseason / no data</span></span>`;
   } else {
-    const cls = snowpack.pctOfMedian >= 100 ? 'pos' : snowpack.pctOfMedian >= 80 ? 'neutral' : 'neg';
-    snowpackHtml = statSpan('snowpack', `${snowpack.pctOfMedian}% of median (${snowpack.sweIn}" SWE, ${snowpack.date})`, cls);
+    chartCls = snowpack.pctOfMedian >= 100 ? 'pos' : snowpack.pctOfMedian >= 80 ? 'neutral' : 'neg';
+    snowpackHtml = statSpan('snowpack', `${snowpack.pctOfMedian}% of median (${snowpack.sweIn}" SWE, ${snowpack.date})`, chartCls);
   }
 
   let forecastHtml;
@@ -183,6 +258,15 @@ async function hydrateResortLiveData(resort) {
   }
 
   el.innerHTML = snowpackHtml + forecastHtml;
+
+  const chartEl = document.querySelector(`[data-chart="${resort.id}"]`);
+  if (chartEl && snowpack?.series?.length > 1) {
+    const chartColor = chartCls === 'pos' ? '#22C55E' : chartCls === 'neg' ? '#EF4444' : '#F59E0B';
+    chartEl.innerHTML = `
+      ${sparklineSvg(snowpack.series, chartColor)}
+      <span class="accum-legend"><span class="leg-actual" style="background:${chartColor}"></span>this season <span class="leg-median"></span>median</span>
+    `;
+  }
 }
 
 function initMap(sortedRegions, phaseKey) {
@@ -260,9 +344,76 @@ function applyFilter(selectedId, mapState) {
   if (bounds.length) mapState.map.fitBounds(bounds, { padding: [30, 30], maxZoom: 7 });
 }
 
+/**
+ * Runs `fn` over `items` with at most `limit` in flight at once. With ~65
+ * resorts each firing a SNOTEL + Open-Meteo request on page load, doing
+ * this unthrottled reliably gets the AWDB API to start returning 429s.
+ */
+async function runWithConcurrency(items, limit, fn) {
+  let next = 0;
+  async function worker() {
+    while (next < items.length) {
+      const item = items[next++];
+      await fn(item);
+    }
+  }
+  await Promise.all(Array.from({ length: Math.min(limit, items.length) }, worker));
+}
+
+function sourceLinksHtml(sources) {
+  if (!sources?.length) return '';
+  return `<div class="bt-sources">${sources.map(s => `<a href="${s.url}" target="_blank" rel="noopener">${s.label} ↗</a>`).join('')}</div>`;
+}
+
+function renderBacktest(backtest, resortsData) {
+  const el = document.getElementById('backtest-body');
+  if (!backtest) {
+    el.innerHTML = `<p class="bt-note">Backtest data unavailable.</p>`;
+    return;
+  }
+  const regionName = (id) => resortsData.regions.find(r => r.id === id)?.name ?? id;
+
+  const rows = backtest.regions.map(r => {
+    const v = BACKTEST_VERDICT[r.verdict] ?? BACKTEST_VERDICT['inconclusive'];
+    return `
+      <tr>
+        <td class="bt-region-name">${regionName(r.region_id)}</td>
+        <td>${r.predicted}</td>
+        <td>${r.actual}<div class="bt-note">${r.note}</div></td>
+        <td><span class="bt-verdict ${v.cls}">${v.label}</span></td>
+      </tr>
+    `;
+  }).join('');
+
+  el.innerHTML = `
+    <p class="bt-summary-line"><strong>${backtest.season_label}.</strong> ${backtest.enso_summary}</p>
+
+    <div class="bt-callout">
+      <div class="bt-callout-title">${backtest.headline_wildcard.title}</div>
+      <p class="bt-callout-text">${backtest.headline_wildcard.text}</p>
+      ${sourceLinksHtml(backtest.headline_wildcard.sources)}
+    </div>
+
+    <div class="bt-table-wrap">
+      <table class="bt-table">
+        <thead><tr><th>Region</th><th>This site predicted</th><th>What actually happened</th><th>Verdict</th></tr></thead>
+        <tbody>${rows}</tbody>
+      </table>
+    </div>
+
+    <div class="bt-callout bt-live">
+      <div class="bt-callout-title">${backtest.live_validation.title}</div>
+      <p class="bt-callout-text">${backtest.live_validation.text}</p>
+      ${sourceLinksHtml(backtest.live_validation.sources)}
+    </div>
+
+    <p class="bt-methodology">${backtest.methodology_note}</p>
+  `;
+}
+
 async function main() {
-  const [oni, resortsData, affiliates, phaseCopy] = await Promise.all([
-    loadOni(), loadResorts(), loadAffiliates(), loadPhaseCopy(),
+  const [oni, resortsData, affiliates, phaseCopy, signals, backtest] = await Promise.all([
+    loadOni(), loadResorts(), loadAffiliates(), loadPhaseCopy(), loadClimateSignals(), loadBacktest(),
   ]);
 
   const phaseKey = oni?.phase && phaseCopy[oni.phase] ? oni.phase : 'neutral';
@@ -271,13 +422,15 @@ async function main() {
   renderOniBanner(oni);
   renderSignalBar(oni, phaseKey);
   renderContextStrip(oni, phaseCopy, phaseKey);
+  renderOtherSignalsLine(signals);
+  renderBacktest(backtest, resortsData);
 
   const sortedRegions = [...resortsData.regions].sort(
     (a, b) => b.enso_signals[phaseKey].meter_pct - a.enso_signals[phaseKey].meter_pct
   );
 
   const grid = document.getElementById('regions-grid');
-  grid.innerHTML = sortedRegions.map((region, i) => renderRegionCard(region, i + 1, phaseKey, affiliates)).join('');
+  grid.innerHTML = sortedRegions.map((region, i) => renderRegionCard(region, i + 1, phaseKey, affiliates, signals)).join('');
 
   const select = document.getElementById('region-select');
   select.innerHTML = `<option value="all">All regions — ranked most to least bullish</option>` +
@@ -287,11 +440,9 @@ async function main() {
   select.addEventListener('change', () => applyFilter(select.value, mapState));
 
   const allResorts = resortsData.regions.flatMap(r => r.resorts);
-  // Fire off live-data hydration for every resort row without blocking
-  // the initial render — each row resolves independently.
-  for (const resort of allResorts) {
-    hydrateResortLiveData(resort);
-  }
+  // Hydrate live data for every resort row without blocking the initial
+  // render — but throttled, not all at once (see runWithConcurrency).
+  runWithConcurrency(allResorts, 6, hydrateResortLiveData);
 }
 
 main().catch(err => {

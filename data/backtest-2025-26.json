@@ -1,0 +1,96 @@
+{
+  "_readme": "Hand-compiled from web research (see sources per section) on 2026-08-16, checking this site's La Niña regional calls against what actually happened in the 2025-26 Northern Hemisphere season. Not auto-generated — rerun this research manually each summer once a season wraps to keep it current, or ask Claude to redo it.",
+  "season_label": "2025–26 Northern Hemisphere season (Nov 2025 – Apr 2026)",
+  "enso_summary": "A weak La Niña: ONI bottomed around -0.61 in Oct–Dec 2025, then faded through neutral by February–March 2026 (ONI -0.21 by JFM). This site's phase-selection logic would have shown \"La Niña\" content through roughly January, then flipped toward \"Neutral\" for the back half of the season — a real example of the mid-season phase shifts this site is built to track.",
+  "headline_wildcard": {
+    "title": "The March 2026 ridge overrode ENSO across the Interior West",
+    "text": "An exceptional, prolonged ridge centered on Utah and the Great Basin drove the warmest March on record for Colorado (3–4°F above the previous record) and record-high March temperatures across CO/UT/WY. It melted an already-thin snowpack up to 65 days early. April 1, 2026 SWE hit record lows: Colorado 24% of median, Utah 22%, Wyoming 47% — the worst readings since SNOTEL monitoring began in the 1980s. This is exactly the kind of non-ENSO wildcard flagged in the Key Wildcards section below, and it's the single biggest reason this season's actual outcomes diverged from the ENSO-only predictions in the Interior West.",
+    "sources": [
+      { "label": "Weather West: Extraordinary March heatwave to decimate mountain snowpack", "url": "https://weatherwest.com/archives/43745" },
+      { "label": "Aspen Journalism: March heat wave fueled worst end-of-winter snowpack on record", "url": "https://aspenjournalism.org/march-heat-wave-fueled-worst-end-of-winter-snowpack-on-record/" },
+      { "label": "NRCS Colorado: Record Low April 1 Snowpack across Western U.S.", "url": "https://www.nrcs.usda.gov/state-offices/colorado/news/record-low-april-1-snowpack-across-western-us-means-impending-water" }
+    ]
+  },
+  "regions": [
+    {
+      "region_id": "canadian-rockies-bc",
+      "predicted": "Bullish (+15–25%) — La Niña's top North American beneficiary",
+      "actual": "Record December snowfall at Lake Louise, Sunshine, Kicking Horse, and Revelstoke; 80%+ terrain open at Silver Star and Sun Peaks by the holidays.",
+      "verdict": "hit",
+      "note": "Clean hit, at least for the well-documented early season. No comprehensive late-season recap found for BC specifically to confirm whether the March ridge (which hit the US Interior West hard) also cut into the Canadian Rockies."
+    },
+    {
+      "region_id": "southwest-rockies",
+      "predicted": "Bearish (−15–30%) — the classic 'Southwest drought' pattern",
+      "actual": "Record warmth and a lack of wintry precipitation across the Southwest.",
+      "verdict": "hit",
+      "note": "One of the cleaner hits this season — the Southwest drought mechanism this site flags as high-conviction played out almost exactly as described."
+    },
+    {
+      "region_id": "northeast-us",
+      "predicted": "Mixed, slightly favorable — La Niña just removes El Niño's headwind rather than creating a strong tailwind",
+      "actual": "The most impactful winter since 2020-21: a 31\" storm Jan 23–27 and a 2–3 foot blizzard Feb 21–23. Real NAO data confirms it ran negative through Dec 2025–Jan 2026 (-0.65, -0.36).",
+      "verdict": "hit",
+      "note": "Outcome ran better than the modest 'slightly favorable' call — most plausibly because NAO was genuinely negative for the core of the season, reinforcing exactly the mechanism this region's caveat already pointed to. A good example of why the NAO live-check note now appears directly on this region's card."
+    },
+    {
+      "region_id": "sierra-california",
+      "predicted": "Bearish (−10–20%), with an explicit caveat: 'a handful of big atmospheric-river events can still produce an above-average year'",
+      "actual": "A slow Nov–Dec start (only Mt. Rose/Heavenly open, Mammoth at 30% by mid-Nov), then a holiday storm cycle dumped 4–6 ft, and a Feb 15–20 storm cycle dropped up to 115\" near Dodge Ridge.",
+      "verdict": "partial",
+      "note": "The directional bearish call was too simple on its own, but the caveat written alongside it — boom-or-bust, watch for individual atmospheric rivers — described this exact season almost precisely."
+    },
+    {
+      "region_id": "pnw-northern-rockies",
+      "predicted": "Bullish (+15–25%) — La Niña's single most reliable US beneficiary",
+      "actual": "Generally active early season, but Washington's April 1 statewide snowpack came in at just 52% of normal (5th percentile) after the same record-warm March ridge that hit the Interior West.",
+      "verdict": "miss",
+      "note": "The season likely started consistent with the bullish call, but the March ridge overrode it by spring — a real example of the 'Background Warming / ridging' wildcard beating even a high-conviction ENSO signal."
+    },
+    {
+      "region_id": "utah-central-colorado",
+      "predicted": "Mixed / near average — this site explicitly flags ENSO as having no real predictive power here in any phase",
+      "actual": "The worst season on record. Salt Lake City had its least snowy winter on record; Colorado's April 1 SWE was 24% of median (less than a third of the prior record low, dating to the 1938-39 Dust Bowl era); Utah came in at 22%.",
+      "verdict": "correct-for-the-right-reason",
+      "note": "This is the most interesting result of the season: the model correctly refused to credit or blame ENSO for this region, and the actual driver was exactly what an ENSO model can't see — a record-breaking blocking ridge. A historic anomaly happened, and no ENSO-only model, including this one, would have caught it. That's a real limitation worth stating plainly rather than papering over."
+    },
+    {
+      "region_id": "european-alps",
+      "predicted": "Mixed, elevation-dependent — NAO dominates, not ENSO",
+      "actual": "No comprehensive season-end recap found; scattered reporting describes an active Atlantic storm track with a favorable negative-NAO window in late Feb–early March.",
+      "verdict": "inconclusive",
+      "note": "Consistent with the 'NAO matters more than ENSO here' thesis as far as it goes, but I couldn't find hard season-total data to confirm it properly — flagged here rather than overclaiming a hit."
+    },
+    {
+      "region_id": "japan",
+      "predicted": "Bullish — La Niña strengthens the Siberian High, generally the more reliable phase for Japan",
+      "actual": "Pre-season and mid-season reporting described the 2025-26 season as 'shaping up to be another exceptional year,' consistent with (but not a repeat of) 2024-25's 815cm at Niseko.",
+      "verdict": "likely-hit",
+      "note": "Available reporting is directionally consistent with the bullish call, but I didn't find a hard final-season snowfall tally to confirm precisely."
+    },
+    {
+      "region_id": "andes",
+      "predicted": "n/a for this backtest — La Niña thesis doesn't apply",
+      "actual": "n/a",
+      "verdict": "not-a-clean-test",
+      "note": "The Southern Hemisphere 2025 season (Jun–Sep 2025) ran under only a weak, near-neutral ENSO signal (ONI roughly -0.02 to -0.26 through that window), not a real La Niña — so it isn't a fair test of this region's La Niña thesis either way."
+    },
+    {
+      "region_id": "australia",
+      "predicted": "n/a for this backtest — La Niña thesis doesn't apply",
+      "actual": "n/a",
+      "verdict": "not-a-clean-test",
+      "note": "Same as the Andes: SH 2025 ran ENSO-neutral, not La Niña. See the live validation note below instead — this region's El Niño thesis is being tested in real time this year."
+    }
+  ],
+  "live_validation": {
+    "title": "Right now: Australia's 2026 season under El Niño",
+    "text": "This isn't a backtest — it's happening live. El Niño was officially declared by Australia's Bureau of Meteorology on June 16, 2026. Since then, Australian resorts have recorded one of the warmest mid-winter periods in recent memory: Mt. Hotham, Falls Creek, and Thredbo all logged exceptional July warmth, rain has washed away early snowfall, and the season is tracking below average — precisely the highest-conviction bearish call this site makes for any region in any ENSO phase.",
+    "sources": [
+      { "label": "SnowBrains: Australian Ski Resorts Shatter July Heat Records", "url": "https://snowbrains.com/australia-ski-resorts-july-heat-records-2026/" },
+      { "label": "Weatherzone: Will El Niño spoil the 2026 Australian snow season?", "url": "https://www.weatherzone.com.au/news/will-el-nino-spoil-the-2026-australian-snow-season/1891412" }
+    ]
+  },
+  "scoreboard": { "hit": 3, "partial": 1, "miss": 1, "correct_for_right_reason": 1, "inconclusive": 1, "likely_hit": 1, "not_a_clean_test": 2 },
+  "methodology_note": "This is a hand-compiled, one-time research pass, not a live-updating scoreboard — the underlying facts (season recaps, snowpack surveys) only exist once a season is basically over. Verdicts are graded against what this site's La Niña content actually claimed, not against a more sophisticated model with the benefit of hindsight. 'Correct for the right reason' is used once, deliberately: Utah/Central Colorado's historic anomaly proves the point this site already made about that region — that ENSO isn't the driver — even though the site's 'near average' language undersold how extreme the actual outcome was."
+}
