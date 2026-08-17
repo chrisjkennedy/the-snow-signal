@@ -183,11 +183,54 @@ body {
 .map-popup .mp-region { font-size: 11px; color: var(--muted); margin-bottom: 6px; }
 .map-popup .mp-link { font-size: 11.5px; color: var(--blue-mid); }
 
+/* COLLAPSED REGION CARDS */
+.r-card.is-collapsed:hover { border-color: var(--blue-mid); }
+.r-card-head {
+  width: 100%; display: flex; align-items: center; gap: 14px; text-align: left;
+  background: none; border: none; font-family: inherit; cursor: pointer; padding: 14px 16px;
+}
+.r-card.is-expanded .r-card-head { border-bottom: 1px solid var(--border); }
+.r-head-main { flex: 1; min-width: 0; }
+.r-head-meta { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin-top: 5px; }
+.r-resort-count, .r-driver-tag {
+  font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--muted);
+}
+.r-driver-tag { background: var(--ice); color: var(--blue); border-radius: 4px; padding: 1px 6px; }
+.r-head-right { display: flex; flex-direction: column; align-items: flex-end; gap: 6px; flex-shrink: 0; width: 190px; }
+.r-head-right .r-meter-row { margin-bottom: 0; width: 100%; }
+.r-chevron { color: var(--muted); font-size: 13px; flex-shrink: 0; width: 12px; }
+
+.resort-list-head {
+  display: flex; flex-direction: column; gap: 3px; margin: 14px 0 4px;
+  font-size: 11px; font-weight: 500; color: var(--navy); text-transform: uppercase; letter-spacing: 0.06em;
+}
+.resort-list-hint { font-size: 11px; font-weight: 400; color: var(--muted); text-transform: none; letter-spacing: normal; line-height: 1.5; }
+
+/* RESORT SCORE */
+.resort-rank { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--muted); min-width: 18px; }
+.resort-score {
+  font-family: 'JetBrains Mono', monospace; font-size: 11.5px; font-weight: 500;
+  border-radius: 5px; padding: 2px 7px; cursor: help; flex-shrink: 0;
+}
+.rs-high { background: var(--green-light); color: var(--green); }
+.rs-mid  { background: var(--amber-light); color: var(--amber); }
+.rs-low  { background: var(--red-light);   color: var(--red); }
+.rs-none { background: #EDF2F7; color: var(--muted); }
+
+.unranked-head {
+  font-size: 10px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted);
+  padding: 12px 0 6px; border-top: 1px dashed var(--border); margin-top: 8px;
+}
+.history-strip { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 7px; }
+.hist-item { font-size: 11px; color: var(--text); display: flex; gap: 5px; align-items: baseline; }
+.hist-label { font-size: 9.5px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; }
+
 /* CARDS */
-.cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 13px; margin-bottom: 36px; }
+/* One column: collapsed region rows read as a scannable ranked list. */
+.cards-grid { display: flex; flex-direction: column; gap: 9px; margin-bottom: 36px; }
 .r-card { background: #fff; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; transition: box-shadow 0.18s, transform 0.18s; }
 .r-card:hover { box-shadow: 0 4px 22px rgba(12,35,64,0.1); transform: translateY(-1px); }
-.r-card-head { padding: 13px 15px 11px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; }
+/* (.r-card-head is defined above, in the collapsed-region-card block) */
 .r-region { font-size: 14.5px; font-weight: 500; color: var(--navy); line-height: 1.3; display: flex; align-items: center; gap: 8px; }
 .r-examples { font-size: 11px; color: var(--muted); margin-top: 2px; }
 .rank-badge {

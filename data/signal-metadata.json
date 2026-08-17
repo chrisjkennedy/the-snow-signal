@@ -21,6 +21,27 @@
     "horizon_short": "2-6 weeks, longer during a stratospheric warming event",
     "horizon_detail": "Closely related to NAO and similarly hard to predict for the same chaotic-atmosphere reasons. The one exception: AO gets a real predictability boost when a Sudden Stratospheric Warming (SSW) is detected in the polar vortex — those events can presage a negative AO / cold outbreak at the surface 2-6 weeks later. Absent an active SSW signal, treat AO the same way as NAO: it's telling you what's happening now, not what's coming this winter."
   },
+  "pna": {
+    "name": "PNA — Pacific/North American Pattern",
+    "update_frequency": "Monthly (a daily index also exists; this site uses the monthly value)",
+    "latency": "Finalizes shortly after each month ends.",
+    "horizon_short": "1-2 weeks of real skill — a pattern description, not a season forecast",
+    "horizon_detail": "PNA describes where the ridge and trough sit over North America, and it flips the West and East against each other: negative PNA puts a trough over the western US (colder, wetter West; milder, drier East), positive PNA ridges over the West and drives cold into the East. It is strongly related to ENSO — El Niño tends toward positive PNA, La Niña toward negative — so on this site it mostly serves as a check on whether the atmosphere is actually delivering what the current ENSO phase implies. Like NAO and AO it is a fast atmospheric pattern, so read it as a nowcast rather than a seasonal outlook."
+  },
+  "sam": {
+    "name": "SAM / AAO — Southern Annular Mode",
+    "update_frequency": "Monthly (NOAA CPC publishes it as the Antarctic Oscillation, AAO)",
+    "latency": "Finalizes shortly after each month ends.",
+    "horizon_short": "1-3 weeks — but it is the strongest driver Australia has",
+    "horizon_detail": "SAM tracks how far north or south the Southern Ocean westerly storm belt sits. Negative SAM pushes those cold fronts north onto the Australian Alps and the southern Andes; positive SAM pulls them south toward Antarctica and away from the ski fields. Australia's Bureau of Meteorology identifies SAM as having the strongest relationship with Australian snowfall of any climate driver — stronger than ENSO — which is why this site treats the Australian region as SAM-primary rather than ENSO-primary. Its predictability is short, though, so it is far more useful for reading a season in progress than for booking a year ahead."
+  },
+  "iod": {
+    "name": "IOD — Indian Ocean Dipole",
+    "update_frequency": "Monthly (Dipole Mode Index, NOAA PSL)",
+    "latency": "Roughly 1-2 months behind, and the feed sometimes lags further; the site shows the latest month actually published.",
+    "horizon_short": "Seasonal, but concentrated in late winter/spring",
+    "horizon_detail": "IOD measures the sea-surface temperature gradient across the tropical Indian Ocean and mainly matters for Australia. A positive IOD cuts the moisture supply feeding into cold fronts crossing southeastern Australia, drying out the back half of the season; a negative IOD is associated with deeper Australian snowpack. Unlike ENSO, its effect on snow depth is concentrated in late winter and spring rather than across the whole season, so a positive IOD is more of a threat to a September trip than a July one."
+  },
   "pdo": {
     "name": "PDO — Pacific Decadal Oscillation",
     "update_frequency": "Monthly",

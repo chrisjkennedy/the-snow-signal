@@ -19,6 +19,16 @@ from pathlib import Path
 NAO_URL = "https://www.cpc.ncep.noaa.gov/products/precip/CWlink/pna/norm.nao.monthly.b5001.current.ascii"
 AO_URL = "https://www.cpc.ncep.noaa.gov/products/precip/CWlink/daily_ao_index/monthly.ao.index.b50.current.ascii"
 PDO_URL = "https://www.ncei.noaa.gov/pub/data/cmb/ersst/v5/index/ersst.v5.pdo.dat"
+PNA_URL = "https://www.cpc.ncep.noaa.gov/products/precip/CWlink/pna/norm.pna.monthly.b5001.current.ascii"
+# CPC calls the Southern Annular Mode the "Antarctic Oscillation" (AAO);
+# same index, and the name the BoM uses (SAM) is what skiers will know.
+SAM_URL = "https://www.cpc.ncep.noaa.gov/products/precip/CWlink/daily_ao_index/aao/monthly.aao.index.b79.current.ascii"
+# Dipole Mode Index = the Indian Ocean Dipole, from NOAA PSL.
+IOD_URL = "https://psl.noaa.gov/gcos_wgsp/Timeseries/Data/dmi.had.long.data"
+# Deliberately NOT included: the EPO (East Pacific Oscillation). It's a real
+# and useful cold-outbreak signal, but CPC publishes no stable monthly ASCII
+# feed for it, and its main ski-relevant effect (Arctic air into the central
+# and eastern US) is already largely captured by the AO here.
 OUT_PATH = Path(__file__).resolve().parent.parent / "data" / "climate-signals.json"
 
 MONTH_NAMES = ["", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
@@ -46,7 +56,10 @@ def parse_cpc_monthly(text):
 
 
 def parse_pdo(text):
-    """NCEI PDO format: one row per year, 12 monthly values, 99.99 = missing."""
+    """Year-per-row layout with 12 monthly values, shared by NCEI's PDO file
+    and NOAA PSL's DMI (IOD) file. Missing months use a sentinel that is
+    positive in one feed (99.99) and negative in the other (-9999), so
+    filter on magnitude rather than sign."""
     rows = []
     for line in text.splitlines():
         parts = line.split()
@@ -55,7 +68,7 @@ def parse_pdo(text):
         year = int(parts[0])
         for i, raw in enumerate(parts[1:], start=1):
             val = float(raw)
-            if val > 90:  # sentinel for not-yet-computed months
+            if abs(val) > 90:  # sentinel for not-yet-computed months
                 continue
             rows.append({"year": year, "month": i, "value": val})
     return rows
@@ -90,8 +103,13 @@ def main():
     nao_rows = parse_cpc_monthly(curl(NAO_URL))
     ao_rows = parse_cpc_monthly(curl(AO_URL))
     pdo_rows = parse_pdo(curl(PDO_URL))
+    pna_rows = parse_cpc_monthly(curl(PNA_URL))
+    sam_rows = parse_cpc_monthly(curl(SAM_URL))
+    # DMI/IOD uses the same year-per-row layout as PDO, with -9999 for
+    # months not yet computed.
+    iod_rows = parse_pdo(curl(IOD_URL))
 
-    if not nao_rows or not ao_rows or not pdo_rows:
+    if not all([nao_rows, ao_rows, pdo_rows, pna_rows, sam_rows, iod_rows]):
         raise SystemExit("One or more signal feeds returned no parseable rows — source format may have changed")
 
     out = {
@@ -105,12 +123,21 @@ def main():
         "pdo": {**latest_with_trend(pdo_rows, "Cool", "Warm", neutral_band=0.5),
                 "source": PDO_URL,
                 "relevance": "Warm PDO amplifies El Niño's effects on the West Coast (wetter CA/SW, drier PNW); cool PDO amplifies La Niña's effects (wetter PNW, drier CA/SW)."},
+        "pna": {**latest_with_trend(pna_rows, "Negative", "Positive"),
+                "source": PNA_URL,
+                "relevance": "Negative PNA puts a trough over the western US — colder and wetter for the West, milder and drier for the East. Positive PNA does the reverse, ridging over the West and driving cold into the East."},
+        "sam": {**latest_with_trend(sam_rows, "Negative", "Positive"),
+                "source": SAM_URL,
+                "relevance": "Negative SAM pushes the Southern Ocean westerly storm belt north onto the Australian Alps and southern Andes — the single strongest driver of Australian snowfall per the Bureau of Meteorology. Positive SAM pulls those fronts south toward Antarctica, away from the ski fields."},
+        "iod": {**latest_with_trend(iod_rows, "Negative", "Positive", neutral_band=0.4),
+                "source": IOD_URL,
+                "relevance": "Positive IOD cuts moisture feeding into southeastern Australia, drying out late winter and spring; negative IOD is associated with deeper Australian snowpack. Its effect concentrates later in the season than ENSO's."},
     }
     OUT_PATH.write_text(json.dumps(out, indent=2) + "\n")
     print(f"Wrote {OUT_PATH}")
-    print(f"  NAO: {out['nao']['latest_label']} = {out['nao']['latest_value']:+.2f} ({out['nao']['phase']}, {out['nao']['trend']})")
-    print(f"  AO:  {out['ao']['latest_label']} = {out['ao']['latest_value']:+.2f} ({out['ao']['phase']}, {out['ao']['trend']})")
-    print(f"  PDO: {out['pdo']['latest_label']} = {out['pdo']['latest_value']:+.2f} ({out['pdo']['phase']}, {out['pdo']['trend']})")
+    for key in ("nao", "ao", "pdo", "pna", "sam", "iod"):
+        s = out[key]
+        print(f"  {key.upper():4s} {s['latest_label']} = {s['latest_value']:+.2f} ({s['phase']}, {s['trend']})")
 
 
 if __name__ == "__main__":

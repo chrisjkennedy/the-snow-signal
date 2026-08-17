@@ -69,7 +69,7 @@
         <span class="scenario-panel-title">Explore a different scenario</span>
         <span class="scenario-status" id="scenario-status">Currently showing live data</span>
       </div>
-      <p class="scenario-panel-sub">Override the live signal to see how the rankings and narratives below would change. This never edits the live reading above — it's a hypothetical, clearly marked, and one click from resetting. ENSO and NAO are set independently below, so each one shows its own status — check both if something looks stuck.</p>
+      <p class="scenario-panel-sub">Override any live signal to see how the rankings and narratives below would change. This never edits the live readings above — it's a hypothetical, clearly marked, and one click from resetting. Each oscillation is set independently and shows its own status, so if something looks stuck, check the readout underneath. NAO drives the Northeast and the Alps; SAM drives Australia; PDO modulates the West Coast; PNA is a check on whether the atmosphere is delivering what ENSO implies.</p>
       <div class="scenario-controls">
         <label>ENSO phase <span class="override-tag" id="phase-override-tag" hidden>overriding</span>
           <select id="scenario-phase">
@@ -90,6 +90,36 @@
         <label>NAO <span class="override-tag" id="nao-override-tag" hidden>overriding</span>
           <select id="scenario-nao">
             <option value="live">Use live NAO</option>
+            <option value="strong_negative">Strong negative</option>
+            <option value="negative">Negative</option>
+            <option value="neutral">Neutral</option>
+            <option value="positive">Positive</option>
+            <option value="strong_positive">Strong positive</option>
+          </select>
+        </label>
+        <label>PDO <span class="override-tag" id="pdo-override-tag" hidden>overriding</span>
+          <select id="scenario-pdo">
+            <option value="live">Use live PDO</option>
+            <option value="strong_negative">Strong cool</option>
+            <option value="negative">Cool</option>
+            <option value="neutral">Neutral</option>
+            <option value="positive">Warm</option>
+            <option value="strong_positive">Strong warm</option>
+          </select>
+        </label>
+        <label>PNA <span class="override-tag" id="pna-override-tag" hidden>overriding</span>
+          <select id="scenario-pna">
+            <option value="live">Use live PNA</option>
+            <option value="strong_negative">Strong negative</option>
+            <option value="negative">Negative</option>
+            <option value="neutral">Neutral</option>
+            <option value="positive">Positive</option>
+            <option value="strong_positive">Strong positive</option>
+          </select>
+        </label>
+        <label>SAM <span class="override-tag" id="sam-override-tag" hidden>overriding</span>
+          <select id="scenario-sam">
+            <option value="live">Use live SAM</option>
             <option value="strong_negative">Strong negative</option>
             <option value="negative">Negative</option>
             <option value="neutral">Neutral</option>

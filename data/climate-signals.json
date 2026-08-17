@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-08-16T18:21:50+00:00",
+  "updated_utc": "2026-08-17T00:49:31+00:00",
   "nao": {
     "latest_year": 2026,
     "latest_month": 7,
@@ -155,5 +155,161 @@
     ],
     "source": "https://www.ncei.noaa.gov/pub/data/cmb/ersst/v5/index/ersst.v5.pdo.dat",
     "relevance": "Warm PDO amplifies El Ni\u00f1o's effects on the West Coast (wetter CA/SW, drier PNW); cool PDO amplifies La Ni\u00f1a's effects (wetter PNW, drier CA/SW)."
+  },
+  "pna": {
+    "latest_year": 2026,
+    "latest_month": 7,
+    "latest_label": "Jul 2026",
+    "latest_value": 0.61,
+    "phase": "Positive",
+    "trend": "rising",
+    "recent": [
+      {
+        "year": 2025,
+        "month": 12,
+        "value": -1.413
+      },
+      {
+        "year": 2026,
+        "month": 1,
+        "value": 0.7884
+      },
+      {
+        "year": 2026,
+        "month": 2,
+        "value": -0.5584
+      },
+      {
+        "year": 2026,
+        "month": 3,
+        "value": -1.7442
+      },
+      {
+        "year": 2026,
+        "month": 4,
+        "value": -1.2577
+      },
+      {
+        "year": 2026,
+        "month": 5,
+        "value": -1.2693
+      },
+      {
+        "year": 2026,
+        "month": 6,
+        "value": -0.5005
+      },
+      {
+        "year": 2026,
+        "month": 7,
+        "value": 0.6149
+      }
+    ],
+    "source": "https://www.cpc.ncep.noaa.gov/products/precip/CWlink/pna/norm.pna.monthly.b5001.current.ascii",
+    "relevance": "Negative PNA puts a trough over the western US \u2014 colder and wetter for the West, milder and drier for the East. Positive PNA does the reverse, ridging over the West and driving cold into the East."
+  },
+  "sam": {
+    "latest_year": 2026,
+    "latest_month": 7,
+    "latest_label": "Jul 2026",
+    "latest_value": 0.39,
+    "phase": "Positive",
+    "trend": "falling",
+    "recent": [
+      {
+        "year": 2025,
+        "month": 12,
+        "value": -1.1357
+      },
+      {
+        "year": 2026,
+        "month": 1,
+        "value": 0.8476
+      },
+      {
+        "year": 2026,
+        "month": 2,
+        "value": 0.4886
+      },
+      {
+        "year": 2026,
+        "month": 3,
+        "value": 0.492
+      },
+      {
+        "year": 2026,
+        "month": 4,
+        "value": -0.1252
+      },
+      {
+        "year": 2026,
+        "month": 5,
+        "value": 0.5444
+      },
+      {
+        "year": 2026,
+        "month": 6,
+        "value": 2.5064
+      },
+      {
+        "year": 2026,
+        "month": 7,
+        "value": 0.3938
+      }
+    ],
+    "source": "https://www.cpc.ncep.noaa.gov/products/precip/CWlink/daily_ao_index/aao/monthly.aao.index.b79.current.ascii",
+    "relevance": "Negative SAM pushes the Southern Ocean westerly storm belt north onto the Australian Alps and southern Andes \u2014 the single strongest driver of Australian snowfall per the Bureau of Meteorology. Positive SAM pulls those fronts south toward Antarctica, away from the ski fields."
+  },
+  "iod": {
+    "latest_year": 2026,
+    "latest_month": 5,
+    "latest_label": "May 2026",
+    "latest_value": 0.15,
+    "phase": "Neutral",
+    "trend": "steady",
+    "recent": [
+      {
+        "year": 2025,
+        "month": 10,
+        "value": -0.448
+      },
+      {
+        "year": 2025,
+        "month": 11,
+        "value": -0.256
+      },
+      {
+        "year": 2025,
+        "month": 12,
+        "value": -0.017
+      },
+      {
+        "year": 2026,
+        "month": 1,
+        "value": 0.123
+      },
+      {
+        "year": 2026,
+        "month": 2,
+        "value": 0.529
+      },
+      {
+        "year": 2026,
+        "month": 3,
+        "value": 0.285
+      },
+      {
+        "year": 2026,
+        "month": 4,
+        "value": 0.279
+      },
+      {
+        "year": 2026,
+        "month": 5,
+        "value": 0.146
+      }
+    ],
+    "source": "https://psl.noaa.gov/gcos_wgsp/Timeseries/Data/dmi.had.long.data",
+    "relevance": "Positive IOD cuts moisture feeding into southeastern Australia, drying out late winter and spring; negative IOD is associated with deeper Australian snowpack. Its effect concentrates later in the season than ENSO's."
   }
 }

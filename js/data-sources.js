@@ -70,6 +70,15 @@ export async function loadSignalMetadata() {
   return fetchJson("./data/signal-metadata.json");
 }
 
+export async function loadClimatology() {
+  try {
+    return await fetchJson("./data/resort-climatology.json");
+  } catch (e) {
+    console.warn("Resort climatology unavailable — resort scoring will fall back to elevation only", e);
+    return null;
+  }
+}
+
 export async function loadClimateSignals() {
   try {
     return await fetchJson("./data/climate-signals.json");

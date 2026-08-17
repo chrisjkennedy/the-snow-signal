@@ -5,11 +5,13 @@ ski season: the brand ("The Snow Signal") and layout never change, but the
 climate framing and every region's bull/bear call are keyed off whatever
 ENSO is actually doing right now, and each resort row pulls live snowpack
 and forecast data straight from public APIs in the visitor's browser. It
-also tracks NAO/AO/PDO as secondary signals, keeps a backtest of how the
-model's calls actually performed last season, is explicit about how far
-ahead each signal is genuinely predictive vs. just describing current
-state, and has a scenario explorer for imposing a hypothetical ENSO/NAO
-reading to see how the rankings would change.
+also tracks NAO, AO, PDO, PNA, SAM and IOD — deferring to whichever one
+actually drives each region — ranks resorts within a region on their own
+multi-decade climatology, keeps a backtest of how the model's calls actually
+performed last season, is explicit about how far ahead each signal is
+genuinely predictive vs. just describing current state, and has a scenario
+explorer for imposing hypothetical ENSO/NAO/PDO/PNA/SAM readings to see how
+the rankings would change.
 
 Currently covers **101 resorts across 10 regions**, live in production at
 https://chrisjkennedy.github.io/the-snow-signal/.
@@ -33,13 +35,13 @@ at the wrong resorts once conditions changed. Design choices that fix that:
    "live signal" line and the ONI banner update — so the site reads as a
    stable tool with a live reading, not three different seasonal articles
    reusing the same CSS.
-3. **ENSO isn't the only signal.** NAO dominates outcomes in the Northeast
-   US and the Alps more than ENSO does; PDO modulates how strongly a given
-   ENSO phase actually shows up on the West Coast. Those two regions (plus
-   Sierra/CA and the PNW) get a live "secondary signal" note pulled from
-   `data/climate-signals.json`, and a compact NAO/AO/PDO line sits under the
-   context strip for everyone else — without turning every region card into
-   a multi-signal matrix.
+3. **ENSO isn't the only signal.** Six oscillations are tracked live in
+   `data/climate-signals.json`, and regions get a "secondary signal" note
+   for the one that matters to them. A compact line under the context strip
+   shows all six at once — without turning every region card into a
+   multi-signal matrix. (EPO is deliberately excluded: it's a real
+   cold-outbreak signal, but CPC publishes no stable monthly feed for it and
+   its ski-relevant effect is largely covered by AO.)
 4. **The model grades itself.** `data/backtest-2025-26.json` is a real,
    sourced comparison of what the La Niña content predicted for the
    2025-26 season against what actually happened, region by region —
@@ -53,12 +55,65 @@ at the wrong resorts once conditions changed. Design choices that fix that:
    only ever changes the hero, region rankings, and map; those two strips
    are the permanent ground truth a user can check against.
 6. **Predictive horizon is stated, not implied.** `data/signal-metadata.json`
-   is honest that these four signals aren't equally forward-looking: ENSO
+   is honest that these signals aren't equally forward-looking: ENSO
    has real skill 3-9 months out once a phase locks in (with a big caveat
-   for forecasts made in the spring predictability barrier); NAO and AO are
-   mostly nowcasts with 1-6 weeks of real skill; PDO is a multi-year
-   backdrop, not a forecast of any specific period. This shows as an
+   for forecasts made in the spring predictability barrier); NAO, AO, PNA
+   and SAM are mostly nowcasts with 1-6 weeks of real skill; PDO is a
+   multi-year backdrop, not a forecast of any specific period; IOD is
+   seasonal but concentrated in late winter/spring. This shows as an
    expandable table under the "How often is this updated…" toggle.
+7. **Regions defer to whichever oscillation actually drives them.** Not
+   everything is ENSO. `primary_driver` on a region makes a different
+   signal the headline call and demotes ENSO to a footnote: NAO for the
+   Northeast/Eastern Canada and the European Alps, and SAM for Australia
+   (Australia's Bureau of Meteorology identifies SAM as the strongest
+   driver of Australian snowfall, ahead of ENSO). PDO doesn't replace the
+   ENSO call anywhere but does scale the West Coast meters up or down
+   depending on whether it agrees with the current ENSO phase.
+8. **Resorts are ranked on their own history, not vibes.** See below.
+
+## How resorts get ranked within a region
+
+Expanding a region ranks its resorts 0-100. The score is built from four
+components, each normalized against the *other resorts in the same region*
+so it's a like-for-like comparison, and every component is visible on hover:
+
+| Component | Weight | Source |
+|---|---|---|
+| Mean seasonal snowfall | 30% | ERA5 reanalysis, 10 seasons |
+| Share of season days at/below freezing | 30% | ERA5 reanalysis, 10 seasons |
+| Year-to-year consistency (1 − coefficient of variation) | 15% | ERA5 reanalysis, 10 seasons |
+| Elevation buffer (base elevation) | 25% | `data/resorts.json` |
+
+That blend is the "typical year" base score. The current climate driver
+then adjusts it, weighted by how much buffer each resort has: in a bearish
+signal, low and warm resorts get punished hardest because they have the
+least margin; in a bullish signal they gain the most, because they were
+the binding constraint. High, cold, consistent resorts barely move in
+either direction — which is the real-world behavior this is meant to
+capture.
+
+Two honest limitations, both stated in the UI:
+- ERA5 runs on a ~25km grid, so it smooths sharp peaks and **understates
+  absolute snowfall at altitude** (Vail reads ~132in/season vs. ~354in
+  published). It's used for *relative* reliability, consistency, and
+  temperature risk — never printed as a resort's real snowfall figure.
+- The score measures snow **reliability**, not terrain quality, vertical,
+  or powder character. Steamboat's famously light snow, for instance, is
+  a quality story the score doesn't try to capture.
+
+Where a resort also has a nearby NRCS SNOTEL/snow-course station (about 30
+of the 101, all in the western US), its long-period median peak SWE and
+typical peak date are shown too — decades of real ground truth alongside
+the reanalysis.
+
+Six resorts (Niseko, Furano, Myoko, Nozawa Onsen, Madonna di Campiglio,
+Cerro Castor) are held out of the ranking entirely and labeled as such:
+Open-Meteo's hourly request cap cut the climatology fetch short. Re-running
+`scripts/build_resort_climatology.py` fills them in — it's incremental and
+only fetches what's missing. They're shown unranked rather than scored
+zero, because an unscored Niseko sorted last would read as "worst," which
+is the opposite of what missing data means.
 
 ## How it's built
 
@@ -74,10 +129,12 @@ data/phase-copy.json           the live-status line + mechanism text per ENSO ph
 data/oni.json                  ENSO/ONI snapshot — regenerate with scripts/update_oni.py
 data/climate-signals.json      NAO/AO/PDO snapshot — regenerate with scripts/update_signals.py
 data/signal-metadata.json      static: update cadence + real predictive horizon per signal
+data/resort-climatology.json   per-resort ERA5 + NRCS station history (basis for resort ranking)
 data/backtest-2025-26.json     hand-researched season backtest (see below)
 data/affiliates.json           your affiliate link config (empty placeholders for now)
 scripts/update_oni.py          pulls NOAA's ONI table server-side, classifies the phase
-scripts/update_signals.py      pulls NOAA/NCEI NAO, AO, and PDO tables server-side
+scripts/update_signals.py      pulls NOAA/NCEI NAO, AO, PDO, PNA, SAM and IOD tables server-side
+scripts/build_resort_climatology.py  builds resort-climatology.json (incremental, re-runnable)
 ```
 
 No build step, no server, no npm install. Open `index.html` through any static
@@ -90,7 +147,8 @@ file server (not `file://` — the JSON fetches need real HTTP) and it works.
 | Snowpack (% of median + season-to-date chart) | NRCS AWDB (SNOTEL / manual snow courses) | client-side, live | CORS-enabled, free, no key |
 | 7-day snow forecast | Open-Meteo | client-side, live | CORS-enabled, free, no key, works worldwide |
 | ENSO / ONI index | NOAA CPC | server-side, via `scripts/update_oni.py` | NOAA doesn't send CORS headers |
-| NAO, AO, PDO | NOAA CPC / NCEI | server-side, via `scripts/update_signals.py` | Same CORS issue as ONI |
+| NAO, AO, PDO, PNA, SAM, IOD | NOAA CPC / NCEI / PSL | server-side, via `scripts/update_signals.py` | Same CORS issue as ONI |
+| Resort historical climatology | ERA5 via Open-Meteo archive + NRCS AWDB | server-side, via `scripts/build_resort_climatology.py` | Bulk historical pulls; cached to a data file rather than fetched per visitor |
 | Live snow report link | OnTheSnow / Snow-Forecast / OpenSnow | static link per resort, verified by search | Not all of these sites expose a public API, so this is a direct link out rather than embedded data |
 
 Snowpack only shows for resorts with a real nearby station — mostly the

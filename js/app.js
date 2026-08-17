@@ -1,12 +1,13 @@
-import { loadOni, loadResorts, loadAffiliates, loadPhaseCopy, loadClimateSignals, loadSignalMetadata, loadBacktest, fetchSnowpack, fetchForecast } from './data-sources.js';
+import { loadOni, loadResorts, loadAffiliates, loadPhaseCopy, loadClimateSignals, loadSignalMetadata, loadBacktest, loadClimatology, fetchSnowpack, fetchForecast } from './data-sources.js';
 
 // Module-level state: loaded once, then reused across live render and any
 // number of scenario re-renders (so switching scenarios never re-fetches
 // resort-level live data or rebuilds the map from scratch).
 const state = {
   oni: null, resortsData: null, affiliates: null, phaseCopy: null,
-  signals: null, signalMetadata: null, backtest: null,
+  signals: null, signalMetadata: null, backtest: null, climatology: null,
   mapState: null, liveCache: new Map(), scenarioActive: false,
+  expandedRegion: null,
 };
 
 const INTENSITY_LABEL = { weak: 'Weak', moderate: 'Moderate', strong: 'Strong', very_strong: 'Very Strong' };
@@ -22,8 +23,6 @@ const SCENARIO_ONI_VALUE = {
 // gets amplified or muted by scenario intensity. Moderate = 1.0, matching
 // how the base narratives in resorts.json were written.
 const INTENSITY_MULTIPLIER = { weak: 0.55, moderate: 1.0, strong: 1.3, very_strong: 1.6 };
-const SCENARIO_NAO_VALUE = { strong_negative: -1.8, negative: -0.8, neutral: 0, positive: 0.8, strong_positive: 1.8 };
-const SCENARIO_NAO_LABEL = { strong_negative: 'Strong Negative', negative: 'Negative', neutral: 'Neutral', positive: 'Positive', strong_positive: 'Strong Positive' };
 
 function buildScenarioOni(phase, intensity) {
   if (phase === 'neutral') {
@@ -42,20 +41,31 @@ function buildScenarioOni(phase, intensity) {
   };
 }
 
-function buildScenarioSignals(naoChoice, liveSignals) {
-  if (naoChoice === 'live') return liveSignals;
-  const val = SCENARIO_NAO_VALUE[naoChoice];
-  return {
-    ...liveSignals,
-    nao: {
-      ...liveSignals?.nao,
+// Every signed oscillation the scenario explorer can override. PDO uses
+// Cool/Warm rather than Negative/Positive, matching how NOAA labels it and
+// how pdoBucket() reads it.
+const SCENARIO_SIGNAL_LABEL = {
+  nao: { strong_negative: 'Strong Negative', negative: 'Negative', neutral: 'Neutral', positive: 'Positive', strong_positive: 'Strong Positive' },
+  pna: { strong_negative: 'Strong Negative', negative: 'Negative', neutral: 'Neutral', positive: 'Positive', strong_positive: 'Strong Positive' },
+  sam: { strong_negative: 'Strong Negative', negative: 'Negative', neutral: 'Neutral', positive: 'Positive', strong_positive: 'Strong Positive' },
+  pdo: { strong_negative: 'Strong Cool', negative: 'Cool', neutral: 'Neutral', positive: 'Warm', strong_positive: 'Strong Warm' },
+};
+const SCENARIO_SIGNAL_VALUE = { strong_negative: -1.8, negative: -0.8, neutral: 0, positive: 0.8, strong_positive: 1.8 };
+
+/** Applies any set of {signalKey: choice} overrides onto the live signals object. */
+function buildScenarioSignals(overrides, liveSignals) {
+  const out = { ...liveSignals };
+  for (const [key, choice] of Object.entries(overrides)) {
+    if (!choice || choice === 'live') continue;
+    out[key] = {
+      ...liveSignals?.[key],
       is_scenario: true,
-      latest_value: val,
-      phase: SCENARIO_NAO_LABEL[naoChoice],
+      latest_value: SCENARIO_SIGNAL_VALUE[choice],
+      phase: SCENARIO_SIGNAL_LABEL[key][choice],
       latest_label: 'scenario',
-      relevance: liveSignals?.nao?.relevance ?? 'Negative NAO favors cold, stormy patterns in the Northeast US and northern Europe; positive NAO favors mild, blocked-ridge patterns in the same regions.',
-    },
-  };
+    };
+  }
+  return out;
 }
 
 /** Scales a region's meter_pct around the 50 = "average" midpoint by scenario intensity. */
@@ -64,12 +74,128 @@ function scaleMeterPct(basePct, intensity) {
   return Math.round(Math.min(95, Math.max(5, 50 + (basePct - 50) * mult)));
 }
 
-/** Normalizes any NAO phase label ("Negative", "Strong Negative", scenario or live) to a 3-way bucket. */
+/** Normalizes any signed phase label ("Negative", "Strong Positive", scenario or live) to a 3-way bucket. */
 function naoBucket(phaseLabel) {
   const p = (phaseLabel || '').toLowerCase();
   if (p.includes('negative')) return 'negative';
   if (p.includes('positive')) return 'positive';
   return 'neutral';
+}
+
+// ---------------------------------------------------------------------------
+// Resort scoring
+//
+// Ranks resorts WITHIN a region using real historical data
+// (data/resort-climatology.json) rather than elevation alone. Four
+// components, each normalized against the other resorts in the same region
+// so the comparison is like-for-like:
+//
+//   snow    mean seasonal snowfall (ERA5, 10 seasons, identical method
+//           worldwide). ERA5 understates absolute totals at altitude, but
+//           within a region that bias is broadly shared, so the RANKING
+//           holds even though the raw number would be wrong to print.
+//   cold    share of core-season days at/below freezing — the direct
+//           read on rain-line risk, and the thing that actually killed
+//           Utah's 2025-26 season.
+//   consistency  1 - coefficient of variation across seasons. Rewards
+//           metronomes over boom-or-bust. Australia sits near 0.5, Japan
+//           near 0.2, and that difference is real trip-planning
+//           information.
+//   elevation   base elevation, the classic temperature buffer.
+//
+// The weighted blend is the "base" score — how good this resort is in a
+// typical year. The current climate driver then adjusts it: in a bearish
+// signal, low/warm resorts are punished harder (they have less margin);
+// in a bullish signal, they gain the most (they were the constraint).
+// High, cold, reliable resorts stay steady in both directions, which is
+// exactly the real-world behavior this is meant to capture.
+// ---------------------------------------------------------------------------
+const SCORE_WEIGHTS = { snow: 0.30, cold: 0.30, consistency: 0.15, elevation: 0.25 };
+
+/** Min-max normalize to 0..1 within a peer group; returns 0.5 if the group is degenerate. */
+function normalize(value, min, max) {
+  if (value === null || value === undefined || !Number.isFinite(value)) return null;
+  if (!Number.isFinite(min) || !Number.isFinite(max) || max - min < 1e-9) return 0.5;
+  return Math.min(1, Math.max(0, (value - min) / (max - min)));
+}
+
+function climatologyFor(resortId) {
+  return state.climatology?.resorts?.[resortId] || null;
+}
+
+/**
+ * Computes 0-100 outlook scores for every resort in a region.
+ * Returns a Map of resortId -> {score, base, adj, parts, hasData}.
+ */
+function scoreRegionResorts(region, displaySignal) {
+  const rows = region.resorts.map(r => {
+    const c = climatologyFor(r.id);
+    return {
+      resort: r,
+      snow: c?.era5?.mean_season_snow_cm ?? null,
+      cold: c?.era5?.cold_day_frac ?? null,
+      cv: c?.era5?.cv ?? null,
+      elev: r.base_elev_ft ?? null,
+    };
+  });
+
+  const range = (key) => {
+    const vals = rows.map(x => x[key]).filter(v => Number.isFinite(v));
+    return vals.length ? [Math.min(...vals), Math.max(...vals)] : [NaN, NaN];
+  };
+  const [snowMin, snowMax] = range('snow');
+  const [coldMin, coldMax] = range('cold');
+  const [cvMin, cvMax] = range('cv');
+  const [elevMin, elevMax] = range('elev');
+
+  // How far the region's current call sits from "average" (-1..+1), used
+  // to size the signal adjustment.
+  const meterPct = displaySignal?.meter_pct ?? 50;
+  const signalTilt = (meterPct - 50) / 50;
+
+  const out = new Map();
+  for (const row of rows) {
+    const parts = {
+      snow: normalize(row.snow, snowMin, snowMax),
+      cold: normalize(row.cold, coldMin, coldMax),
+      // Invert CV: lower variability scores higher.
+      consistency: row.cv === null ? null : 1 - (normalize(row.cv, cvMin, cvMax) ?? 0.5),
+      elevation: normalize(row.elev, elevMin, elevMax),
+    };
+    const hasData = parts.snow !== null || parts.cold !== null;
+
+    let weighted = 0, weightUsed = 0;
+    for (const [key, w] of Object.entries(SCORE_WEIGHTS)) {
+      if (parts[key] === null) continue;
+      weighted += parts[key] * w;
+      weightUsed += w;
+    }
+    const base = weightUsed > 0 ? (weighted / weightUsed) * 100 : 50;
+
+    // Resilience = how much buffer this resort has (cold + elevation).
+    // Resorts with little buffer swing hardest with the signal.
+    const resilience = [parts.cold, parts.elevation].filter(v => v !== null);
+    const resilienceAvg = resilience.length
+      ? resilience.reduce((a, b) => a + b, 0) / resilience.length
+      : 0.5;
+    const exposure = 1 - resilienceAvg;          // 0 = bulletproof, 1 = marginal
+    const adj = signalTilt * (8 + 14 * exposure); // up to roughly +/-22 points
+
+    out.set(row.resort.id, {
+      score: Math.round(Math.min(100, Math.max(0, base + adj))),
+      base: Math.round(base),
+      adj: Math.round(adj),
+      parts,
+      hasData,
+    });
+  }
+  return out;
+}
+
+function scoreBadgeClass(score) {
+  if (score >= 70) return 'rs-high';
+  if (score >= 45) return 'rs-mid';
+  return 'rs-low';
 }
 
 /** Normalizes a PDO phase label ("Warm", "Cool", ...) to a 3-way bucket. */
@@ -123,26 +249,38 @@ function pdoModulatedMeterPct(region, phaseKey, basePct, pdoSignal) {
 
 /**
  * Single source of truth for "what signal is actually driving this
- * region's headline call right now." Most regions are ENSO-driven. A
- * couple (Northeast US, European Alps) are NAO-driven — the site's own
- * research says NAO matters more than ENSO there, so when live/scenario
- * NAO data is available, it fully replaces the ENSO call rather than
- * riding along as an easy-to-miss footnote. ENSO becomes the secondary
- * note in that case. Used consistently by the card renderer, the sort,
- * and the map so all three always agree.
+ * region's headline call right now." Most regions are ENSO-driven, but
+ * some are not, and the site defers to whatever the research says
+ * actually dominates:
+ *   - Northeast US / Eastern Canada and the European Alps are NAO-primary
+ *   - Australia is SAM-primary (Australia's Bureau of Meteorology
+ *     identifies SAM as the strongest driver of Australian snowfall,
+ *     ahead of ENSO)
+ * For those regions the primary signal fully REPLACES the ENSO call
+ * rather than riding along as an easy-to-miss footnote, and ENSO becomes
+ * the secondary note instead. Used consistently by the card renderer, the
+ * sort, the resort scoring, and the map so all four always agree.
  */
+const DRIVER_SIGNAL_KEY = { nao: 'nao_signals', sam: 'sam_signals' };
+
 function getDisplaySignal(region, phaseKey, signals) {
   const ensoSignal = region.enso_signals[phaseKey];
-  if (region.primary_driver === 'nao' && region.nao_signals && signals?.nao) {
-    const bucket = naoBucket(signals.nao.phase);
-    const naoSignal = region.nao_signals[bucket];
-    const naoValLabel = `${signals.nao.latest_value > 0 ? '+' : ''}${signals.nao.latest_value.toFixed(2)}`;
-    const when = signals.nao.is_scenario ? 'hypothetical' : signals.nao.latest_label;
-    return {
-      ...naoSignal,
-      driver: 'nao',
-      secondaryNote: `ENSO check: currently ${ensoSignal.signal_label} (${PHASE_NAME[phaseKey]}) — a minor influence here at best. NAO (${signals.nao.phase}, ${naoValLabel}, ${when}) is what actually drives this region's outcomes, and is what the call above reflects.`,
-    };
+  const driver = region.primary_driver;
+  const signalsKey = DRIVER_SIGNAL_KEY[driver];
+
+  if (driver && signalsKey && region[signalsKey] && signals?.[driver]) {
+    const live = signals[driver];
+    const bucket = naoBucket(live.phase);
+    const driverSignal = region[signalsKey][bucket];
+    if (driverSignal) {
+      const valLabel = `${live.latest_value > 0 ? '+' : ''}${live.latest_value.toFixed(2)}`;
+      const when = live.is_scenario ? 'hypothetical' : live.latest_label;
+      return {
+        ...driverSignal,
+        driver,
+        secondaryNote: `ENSO check: currently ${ensoSignal.signal_label} (${PHASE_NAME[phaseKey]}) — a secondary influence here. ${driver.toUpperCase()} (${live.phase}, ${valLabel}, ${when}) is what actually drives this region's outcomes, and is what the call above reflects.`,
+      };
+    }
   }
   return { ...ensoSignal, driver: 'enso', secondaryNote: null };
 }
@@ -278,12 +416,16 @@ function renderOtherSignalsLine(signals) {
     return;
   }
   const fmt = (s) => `${s.latest_value > 0 ? '+' : ''}${s.latest_value.toFixed(2)}`;
+  const chip = (key, label) => signals[key]
+    ? `${label}: <strong>${signals[key].phase}</strong> (${fmt(signals[key])})`
+    : `${label}: unavailable`;
   el.innerHTML = `Other signals → ` +
     `NAO: <strong>${signals.nao.phase}</strong> (${fmt(signals.nao)}, ${signals.nao.latest_label})` +
-    `<span class="sig-sep">·</span>` +
-    `AO: <strong>${signals.ao.phase}</strong> (${fmt(signals.ao)})` +
-    `<span class="sig-sep">·</span>` +
-    `PDO: <strong>${signals.pdo.phase}</strong> (${fmt(signals.pdo)})`;
+    `<span class="sig-sep">·</span>${chip('ao', 'AO')}` +
+    `<span class="sig-sep">·</span>${chip('pdo', 'PDO')}` +
+    `<span class="sig-sep">·</span>${chip('pna', 'PNA')}` +
+    `<span class="sig-sep">·</span>${chip('sam', 'SAM')}` +
+    `<span class="sig-sep">·</span>${chip('iod', 'IOD')}`;
 }
 
 /** Describes what pdoModulatedMeterPct() actually did to the meter above, so the footnote never contradicts the bar. */
@@ -319,7 +461,7 @@ function renderSignalInfo(metadata) {
     el.innerHTML = `<p class="bt-note">Signal reference info unavailable.</p>`;
     return;
   }
-  const rows = ['oni', 'nao', 'ao', 'pdo'].map(key => {
+  const rows = ['oni', 'nao', 'ao', 'pna', 'pdo', 'sam', 'iod'].filter(k => metadata[k]).map(key => {
     const s = metadata[key];
     return `
       <tr>
@@ -356,7 +498,30 @@ function renderContextStrip(oni, phaseCopy, phaseKey) {
     : 'Live data unavailable — check back later.';
 }
 
-function resortRowSkeleton(resort, affiliates) {
+/** Compact strip of the real historical numbers behind this resort's score. */
+function historyStripHtml(resort) {
+  const c = climatologyFor(resort.id);
+  if (!c) return '';
+  const bits = [];
+  if (c.era5) {
+    const e = c.era5;
+    if (e.cold_day_frac !== null && e.cold_day_frac !== undefined) {
+      bits.push(`<span class="hist-item"><span class="hist-label">below freezing</span>${Math.round(e.cold_day_frac * 100)}% of season days</span>`);
+    }
+    if (e.cv !== null && e.cv !== undefined) {
+      const consistency = e.cv < 0.25 ? 'very consistent' : e.cv < 0.4 ? 'moderate swing' : 'boom-or-bust';
+      bits.push(`<span class="hist-item"><span class="hist-label">year-to-year</span>${consistency} (cv ${e.cv.toFixed(2)})</span>`);
+    }
+  }
+  if (c.station?.median_peak_swe_in) {
+    const st = c.station;
+    bits.push(`<span class="hist-item"><span class="hist-label">typical peak snowpack</span>${st.median_peak_swe_in}" SWE around ${st.median_peak_date}${st.record_begins ? `, since ${st.record_begins}` : ''}</span>`);
+  }
+  if (!bits.length) return '';
+  return `<div class="history-strip">${bits.join('')}</div>`;
+}
+
+function resortRowSkeleton(resort, affiliates, score, rank) {
   const passesHtml = resort.passes.map(p => {
     const confBadge = resort.pass_confidence === 'verify'
       ? `<a class="pass-confidence" href="https://www.epicpass.com" target="_blank" rel="noopener" title="Pass rosters change season to season — verify before booking">verify</a>`
@@ -385,12 +550,15 @@ function resortRowSkeleton(resort, affiliates) {
     <div class="resort-row" id="resort-${resort.id}" data-resort="${resort.id}">
       <div class="resort-top">
         <div class="resort-name-wrap">
+          <span class="resort-rank">${rank ? `${rank}.` : ''}</span>
+          ${scoreChipHtml(score)}
           <span class="resort-name">${resort.name}</span>
           <span class="resort-elev">${resort.base_elev_ft.toLocaleString()}–${resort.summit_elev_ft.toLocaleString()} ft</span>
         </div>
         <div>${passesHtml}</div>
       </div>
       ${microclimateHtml}
+      ${historyStripHtml(resort)}
       <div class="live-data-row" data-live="${resort.id}">
         <span class="live-stat loading"><span class="live-dot"></span><span class="stat-label">snowpack</span><span class="stat-val">loading…</span></span>
         <span class="live-stat loading"><span class="stat-label">7-day forecast</span><span class="stat-val">loading…</span></span>
@@ -405,7 +573,29 @@ function resortRowSkeleton(resort, affiliates) {
   `;
 }
 
-function renderRegionCard(region, rank, phaseKey, affiliates, signals, scenarioIntensity, isLiveEnso) {
+const DRIVER_LABEL = { enso: 'ENSO', nao: 'NAO', sam: 'SAM' };
+
+/** The score chip + its plain-language explanation, shown on each resort row. */
+function scoreChipHtml(sc) {
+  if (!sc || !sc.hasData) {
+    return `<span class="resort-score rs-none" title="Historical climatology not yet available for this resort">—</span>`;
+  }
+  const pct = (v) => v === null ? '—' : `${Math.round(v * 100)}`;
+  const tip = [
+    `Outlook ${sc.score}/100`,
+    `base (typical year) ${sc.base}`,
+    `current-signal adjustment ${sc.adj >= 0 ? '+' : ''}${sc.adj}`,
+    `— components (0-100, vs. others in this region): snowfall ${pct(sc.parts.snow)}, cold-day reliability ${pct(sc.parts.cold)}, year-to-year consistency ${pct(sc.parts.consistency)}, elevation buffer ${pct(sc.parts.elevation)}`,
+  ].join(' · ');
+  return `<span class="resort-score ${scoreBadgeClass(sc.score)}" title="${tip}">${sc.score}</span>`;
+}
+
+/**
+ * Collapsed by default: the landing page shows only the region-level call
+ * for all 10 regions, which is the level most people actually decide at.
+ * Resorts render only for the expanded region, ranked by outlook score.
+ */
+function renderRegionCard(region, rank, phaseKey, affiliates, signals, scenarioIntensity, isLiveEnso, expanded) {
   const s = getDisplaySignal(region, phaseKey, signals);
   let meterPct = (scenarioIntensity && s.driver === 'enso') ? scaleMeterPct(s.meter_pct, scenarioIntensity) : s.meter_pct;
   if (isLiveEnso && s.driver === 'enso') meterPct = pdoModulatedMeterPct(region, phaseKey, meterPct, signals?.pdo);
@@ -415,32 +605,63 @@ function renderRegionCard(region, rank, phaseKey, affiliates, signals, scenarioI
   const driverNote = s.secondaryNote ? `<div class="live-signal-note">${s.secondaryNote}</div>` : '';
   const now = new Date();
   const inSeason = isInSeason(region.season.start_month, region.season.end_month, now.getMonth() + 1);
-  const resortRows = region.resorts.map(r => resortRowSkeleton(r, affiliates)).join('');
-  return `
-    <div class="r-card" data-region-id="${region.id}">
-      <div class="r-card-head">
-        <div>
-          <div class="r-region"><span class="rank-badge">#${rank}</span>${region.name}</div>
-          <div class="r-examples">${region.resorts.map(r => r.name).join(', ')}</div>
-        </div>
-        <span class="signal-badge ${SIGNAL_CLASS[s.signal]}">${s.signal_label}</span>
+
+  let expandedBody = '';
+  if (expanded) {
+    const scores = scoreRegionResorts(region, { ...s, meter_pct: meterPct });
+    // Resorts with no historical climatology yet are held out of the
+    // ranking entirely rather than sorted to the bottom — an unscored
+    // Niseko sitting last would read as "worst," which is the opposite
+    // of what a missing data point means.
+    const scored = region.resorts.filter(r => scores.get(r.id)?.hasData)
+      .sort((a, b) => scores.get(b.id).score - scores.get(a.id).score);
+    const unscored = region.resorts.filter(r => !scores.get(r.id)?.hasData);
+
+    const rankedRows = scored
+      .map((r, i) => resortRowSkeleton(r, affiliates, scores.get(r.id), i + 1))
+      .join('');
+    const unscoredRows = unscored.length ? `
+      <div class="unranked-head">Historical climatology not yet retrieved — not ranked</div>
+      ${unscored.map(r => resortRowSkeleton(r, affiliates, scores.get(r.id), null)).join('')}
+    ` : '';
+
+    expandedBody = `
+      <p class="r-detail">${s.narrative}</p>
+      <div class="r-caveat"><span class="r-caveat-icon">⚠</span>${s.caveat}</div>
+      ${intensityNote}
+      ${driverNote}
+      ${liveSignalNote(region, signals, phaseKey, isLiveEnso)}
+      <div class="resort-list-head">
+        <span>Resorts, ranked by outlook</span>
+        <span class="resort-list-hint">Score blends this resort's own history — mean seasonal snowfall, share of season days below freezing, and year-to-year consistency, all from 10 seasons of ERA5 reanalysis — with its elevation buffer, then adjusts for the current ${DRIVER_LABEL[s.driver] || 'climate'} signal. Compared within this region only. Hover a score for the full breakdown. It measures snow <em>reliability</em>, not terrain quality or powder character.</span>
       </div>
-      <div class="r-card-body">
-        <div class="season-row">
-          <span class="season-tag">Season: ${region.season.display}</span>
-          <span class="in-season-tag ${inSeason ? 'active' : 'inactive'}">${inSeason ? 'In season now' : 'Off-season'}</span>
+      <div class="resort-list">${rankedRows}${unscoredRows}</div>
+    `;
+  }
+
+  return `
+    <div class="r-card ${expanded ? 'is-expanded' : 'is-collapsed'}" data-region-id="${region.id}">
+      <button type="button" class="r-card-head" data-toggle-region="${region.id}" aria-expanded="${expanded}">
+        <div class="r-head-main">
+          <div class="r-region"><span class="rank-badge">#${rank}</span>${region.name}</div>
+          <div class="r-head-meta">
+            <span class="season-tag">${region.season.display}</span>
+            <span class="in-season-tag ${inSeason ? 'active' : 'inactive'}">${inSeason ? 'In season' : 'Off-season'}</span>
+            <span class="r-resort-count">${region.resorts.length} resorts</span>
+            <span class="r-driver-tag">${DRIVER_LABEL[s.driver] || 'ENSO'}-driven</span>
+          </div>
         </div>
-        <div class="r-meter-row">
-          <span class="r-meter-label">Snow vs avg</span>
-          <div class="r-meter"><div class="r-meter-fill ${METER_CLASS[s.signal]}" style="width:${meterPct}%"></div></div>
-          <span class="r-meter-pct">${s.meter_display}</span>
+        <div class="r-head-right">
+          <span class="signal-badge ${SIGNAL_CLASS[s.signal]}">${s.signal_label}</span>
+          <div class="r-meter-row">
+            <div class="r-meter"><div class="r-meter-fill ${METER_CLASS[s.signal]}" style="width:${meterPct}%"></div></div>
+            <span class="r-meter-pct">${s.meter_display}</span>
+          </div>
         </div>
-        <p class="r-detail">${s.narrative}</p>
-        <div class="r-caveat"><span class="r-caveat-icon">⚠</span>${s.caveat}</div>
-        ${intensityNote}
-        ${driverNote}
-        ${liveSignalNote(region, signals, phaseKey, isLiveEnso)}
-        <div class="resort-list">${resortRows}</div>
+        <span class="r-chevron" aria-hidden="true">${expanded ? '▾' : '▸'}</span>
+      </button>
+      <div class="r-card-body" ${expanded ? '' : 'hidden'}>
+        ${expandedBody}
       </div>
     </div>
   `;
@@ -569,9 +790,15 @@ function initMap(resortsData, phaseKey, signals) {
         <div class="map-popup">
           <div class="mp-name">${resort.name}</div>
           <div class="mp-region">${region.name} · ${s.signal_label}</div>
-          <a class="mp-link" href="#resort-${resort.id}">Jump to resort details ↓</a>
+          <button type="button" class="mp-link" data-open-region="${region.id}">Open this region ↓</button>
         </div>
       `);
+      // Clicking through from a marker opens its region — same path the
+      // dropdown and card headers use, so the three can't disagree.
+      marker.on('popupopen', (e) => {
+        e.popup.getElement()?.querySelector('[data-open-region]')
+          ?.addEventListener('click', () => selectRegion(region.id));
+      });
       markers.push(marker);
       allBounds.push([resort.lat, resort.lon]);
     }
@@ -604,30 +831,52 @@ function updateMapSignals(mapState, resortsData, phaseKey, signals) {
         <div class="map-popup">
           <div class="mp-name">${resort.name}</div>
           <div class="mp-region">${region.name} · ${s.signal_label}</div>
-          <a class="mp-link" href="#resort-${resort.id}">Jump to resort details ↓</a>
+          <button type="button" class="mp-link" data-open-region="${region.id}">Open this region ↓</button>
         </div>
       `);
     });
   }
 }
 
-function applyFilter(selectedId, mapState) {
-  document.querySelectorAll('.r-card').forEach(card => {
-    card.style.display = (selectedId === 'all' || card.dataset.regionId === selectedId) ? '' : 'none';
-  });
+/**
+ * The one entry point for "user picked a region" — whether that came from
+ * the dropdown, a map marker, or clicking a region card header. Everything
+ * (which card is expanded, the dropdown value, the map framing) is driven
+ * off state.expandedRegion so the three controls can never disagree.
+ * Passing null (or the already-open region) collapses back to the overview.
+ */
+function selectRegion(regionId, opts = {}) {
+  const next = (!regionId || regionId === 'all' || regionId === state.expandedRegion) ? null : regionId;
+  state.expandedRegion = next;
+
+  const select = document.getElementById('region-select');
+  if (select) select.value = next || 'all';
+
+  rerenderRegionGrid();
 
   const heading = document.getElementById('regions-section-head');
-  if (selectedId === 'all') {
-    heading.textContent = 'Ski Regions — Ranked Most to Least Bullish';
-  } else {
-    const card = document.querySelector(`.r-card[data-region-id="${selectedId}"] .r-region`);
-    heading.textContent = card ? `Showing: ${card.textContent.replace(/^#\d+/, '').trim()}` : 'Ski Regions';
+  if (heading) {
+    const region = state.resortsData.regions.find(r => r.id === next);
+    heading.textContent = region
+      ? `${region.name} — resorts ranked by outlook`
+      : 'Ski Regions — Ranked Most to Least Bullish';
   }
 
-  if (!mapState.map) return;
+  frameMap(next);
+
+  if (next && opts.scroll !== false) {
+    document.querySelector(`.r-card[data-region-id="${next}"]`)
+      ?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+}
+
+/** Shows only the selected region's markers (all of them when collapsed) and fits the view. */
+function frameMap(regionId) {
+  const mapState = state.mapState;
+  if (!mapState?.map) return;
   const bounds = [];
-  for (const [regionId, markers] of Object.entries(mapState.regionMarkers)) {
-    const show = selectedId === 'all' || regionId === selectedId;
+  for (const [id, markers] of Object.entries(mapState.regionMarkers)) {
+    const show = !regionId || id === regionId;
     for (const marker of markers) {
       if (show) {
         if (!mapState.map.hasLayer(marker)) marker.addTo(mapState.map);
@@ -637,7 +886,7 @@ function applyFilter(selectedId, mapState) {
       }
     }
   }
-  if (bounds.length) mapState.map.fitBounds(bounds, { padding: [30, 30], maxZoom: 7 });
+  if (bounds.length) mapState.map.fitBounds(bounds, { padding: [30, 30], maxZoom: regionId ? 8 : 6 });
 }
 
 /**
@@ -716,14 +965,32 @@ function renderBacktest(backtest, resortsData) {
  * re-fetched here — see ensureResortLiveData / state.liveCache.
  */
 function renderPhaseView(oni, signals, phaseKey, scenarioIntensity) {
-  const { resortsData, affiliates, phaseCopy } = state;
-  // PDO modulation (pdoModulatedMeterPct) is live-only — it never runs
-  // against a scenario oni, since PDO has no scenario picker of its own.
-  const isLiveEnso = !oni?.is_scenario;
+  // Remember the render context so expanding/collapsing a region can
+  // rebuild the grid without re-deriving (or re-fetching) anything.
+  state.view = { oni, signals, phaseKey, scenarioIntensity };
 
+  const { phaseCopy } = state;
   renderHero(oni, phaseCopy, phaseKey);
   renderSignalBar(oni, phaseKey);
   renderContextStrip(oni, phaseCopy, phaseKey);
+
+  rerenderRegionGrid();
+
+  if (state.mapState?.map) {
+    updateMapSignals(state.mapState, state.resortsData, phaseKey, signals);
+    frameMap(state.expandedRegion);
+  }
+}
+
+/** Rebuilds the region grid + dropdown from state.view and state.expandedRegion. */
+function rerenderRegionGrid() {
+  const { resortsData, affiliates } = state;
+  const { oni, signals, phaseKey, scenarioIntensity } = state.view || {};
+  if (!phaseKey) return;
+  // PDO modulation (pdoModulatedMeterPct) is live-only — it never runs
+  // against a scenario oni, since PDO's scenario override is applied to
+  // signals directly rather than through the ENSO meter path.
+  const isLiveEnso = !oni?.is_scenario;
 
   const sortPct = (region) => {
     const s = getDisplaySignal(region, phaseKey, signals);
@@ -735,41 +1002,55 @@ function renderPhaseView(oni, signals, phaseKey, scenarioIntensity) {
 
   const grid = document.getElementById('regions-grid');
   grid.innerHTML = sortedRegions.map((region, i) =>
-    renderRegionCard(region, i + 1, phaseKey, affiliates, signals, scenarioIntensity, isLiveEnso)
+    renderRegionCard(region, i + 1, phaseKey, affiliates, signals, scenarioIntensity, isLiveEnso,
+      region.id === state.expandedRegion)
   ).join('');
 
+  grid.querySelectorAll('[data-toggle-region]').forEach(btn => {
+    btn.addEventListener('click', () => selectRegion(btn.dataset.toggleRegion, { scroll: false }));
+  });
+
   const select = document.getElementById('region-select');
-  const prevSelection = select.value || 'all';
-  select.innerHTML = `<option value="all">All regions — ranked most to least bullish</option>` +
+  select.innerHTML = `<option value="all">All regions — overview</option>` +
     sortedRegions.map((r, i) => `<option value="${r.id}">#${i + 1} ${r.name} — ${getDisplaySignal(r, phaseKey, signals).signal_label}</option>`).join('');
-  select.value = prevSelection && [...select.options].some(o => o.value === prevSelection) ? prevSelection : 'all';
+  select.value = state.expandedRegion || 'all';
 
-  if (state.mapState?.map) {
-    updateMapSignals(state.mapState, resortsData, phaseKey, signals);
-    applyFilter(select.value, state.mapState);
-  }
-
-  // Repaint resort rows from cache (instant) rather than re-fetching —
-  // ensureResortLiveData only hits the network the very first time a
-  // given resort is seen.
-  const allResorts = resortsData.regions.flatMap(r => r.resorts);
-  runWithConcurrency(allResorts, 6, ensureResortLiveData);
+  // Only the expanded region's rows exist in the DOM, so only those need
+  // live data painted — ensureResortLiveData serves from cache after the
+  // first fetch, so re-expanding a region later is instant.
+  const visible = sortedRegions.filter(r => r.id === state.expandedRegion).flatMap(r => r.resorts);
+  if (visible.length) runWithConcurrency(visible, 6, ensureResortLiveData);
 }
 
 function currentPhaseKeyFor(oni) {
   return oni?.phase && state.phaseCopy[oni.phase] ? oni.phase : 'neutral';
 }
 
+// Every oscillation the scenario explorer exposes, in display order.
+const SCENARIO_SIGNAL_KEYS = ['nao', 'pdo', 'pna', 'sam'];
+
+function readScenarioControls() {
+  const overrides = {};
+  for (const key of SCENARIO_SIGNAL_KEYS) {
+    overrides[key] = document.getElementById(`scenario-${key}`).value;
+  }
+  return {
+    phaseChoice: document.getElementById('scenario-phase').value,
+    intensity: document.getElementById('scenario-intensity').value,
+    overrides,
+  };
+}
+
 /**
- * Always renders BOTH axes explicitly (never just "the overridden one") —
- * the confusing case was a user resetting only the ENSO dropdown back to
- * "live," clicking Apply, and the page correctly staying in scenario mode
- * because NAO was still overridden, with nothing on screen making that
- * obvious. Now both axes' status are always spelled out, plus a small
- * "overriding" tag sits directly on whichever dropdown(s) are engaged.
+ * Always renders EVERY axis explicitly (never just "the overridden ones") —
+ * the confusing case was a user resetting one dropdown back to "live,"
+ * clicking Apply, and the page correctly staying in scenario mode because a
+ * different signal was still overridden, with nothing on screen making that
+ * obvious. Every axis' status is spelled out, plus a small "overriding" tag
+ * sits directly on whichever dropdowns are engaged.
  */
-function setScenarioUiState(phaseChoice, naoChoice, oniForRender, signalsForRender) {
-  const active = phaseChoice !== 'live' || naoChoice !== 'live';
+function setScenarioUiState(phaseChoice, overrides, oniForRender) {
+  const active = phaseChoice !== 'live' || SCENARIO_SIGNAL_KEYS.some(k => overrides[k] !== 'live');
   state.scenarioActive = active;
 
   const status = document.getElementById('scenario-status');
@@ -778,19 +1059,25 @@ function setScenarioUiState(phaseChoice, naoChoice, oniForRender, signalsForRend
   const resetBtn = document.getElementById('scenario-reset');
   const readout = document.getElementById('scenario-live-readout');
   document.getElementById('phase-override-tag').hidden = phaseChoice === 'live';
-  document.getElementById('nao-override-tag').hidden = naoChoice === 'live';
+  for (const key of SCENARIO_SIGNAL_KEYS) {
+    document.getElementById(`${key}-override-tag`).hidden = overrides[key] === 'live';
+  }
 
-  const ensoText = phaseChoice === 'live'
+  const parts = [`ENSO: ${phaseChoice === 'live'
     ? `live (${state.oni ? state.oni.phase_label : 'unavailable'})`
-    : `<strong>scenario override</strong> — ${oniForRender.phase_label}`;
-  const naoText = naoChoice === 'live'
-    ? `live (${state.signals?.nao ? state.signals.nao.phase : 'unavailable'})`
-    : `<strong>scenario override</strong> — ${SCENARIO_NAO_LABEL[naoChoice]}`;
-  readout.innerHTML = `ENSO: ${ensoText} &nbsp;·&nbsp; NAO: ${naoText}`;
+    : `<strong>scenario</strong> — ${oniForRender.phase_label}`}`];
+  for (const key of SCENARIO_SIGNAL_KEYS) {
+    parts.push(`${key.toUpperCase()}: ${overrides[key] === 'live'
+      ? `live (${state.signals?.[key] ? state.signals[key].phase : 'unavailable'})`
+      : `<strong>scenario</strong> — ${SCENARIO_SIGNAL_LABEL[key][overrides[key]]}`}`);
+  }
+  readout.innerHTML = parts.join(' &nbsp;·&nbsp; ');
 
   const labelParts = [];
   if (phaseChoice !== 'live') labelParts.push(oniForRender.phase_label);
-  if (naoChoice !== 'live') labelParts.push(`NAO ${SCENARIO_NAO_LABEL[naoChoice]}`);
+  for (const key of SCENARIO_SIGNAL_KEYS) {
+    if (overrides[key] !== 'live') labelParts.push(`${key.toUpperCase()} ${SCENARIO_SIGNAL_LABEL[key][overrides[key]]}`);
+  }
   const label = labelParts.join(' + ');
 
   status.textContent = active ? `Viewing scenario: ${label}` : 'Currently showing live data';
@@ -801,21 +1088,19 @@ function setScenarioUiState(phaseChoice, naoChoice, oniForRender, signalsForRend
 }
 
 function applyScenario() {
-  const phaseChoice = document.getElementById('scenario-phase').value;
-  const intensity = document.getElementById('scenario-intensity').value;
-  const naoChoice = document.getElementById('scenario-nao').value;
+  const { phaseChoice, intensity, overrides } = readScenarioControls();
 
-  if (phaseChoice === 'live' && naoChoice === 'live') {
+  if (phaseChoice === 'live' && SCENARIO_SIGNAL_KEYS.every(k => overrides[k] === 'live')) {
     resetScenario();
     return;
   }
 
   const phaseKey = phaseChoice === 'live' ? currentPhaseKeyFor(state.oni) : phaseChoice;
   const oniForRender = phaseChoice === 'live' ? state.oni : buildScenarioOni(phaseChoice, intensity);
-  const signalsForRender = buildScenarioSignals(naoChoice, state.signals);
+  const signalsForRender = buildScenarioSignals(overrides, state.signals);
   const scenarioIntensity = phaseChoice !== 'live' && phaseChoice !== 'neutral' ? intensity : null;
 
-  setScenarioUiState(phaseChoice, naoChoice, oniForRender, signalsForRender);
+  setScenarioUiState(phaseChoice, overrides, oniForRender);
   renderPhaseView(oniForRender, signalsForRender, phaseKey, scenarioIntensity);
 }
 
@@ -823,8 +1108,12 @@ function resetScenario() {
   document.getElementById('scenario-phase').value = 'live';
   document.getElementById('scenario-intensity').value = 'moderate';
   document.getElementById('scenario-intensity').disabled = true;
-  document.getElementById('scenario-nao').value = 'live';
-  setScenarioUiState('live', 'live', state.oni, state.signals);
+  const overrides = {};
+  for (const key of SCENARIO_SIGNAL_KEYS) {
+    document.getElementById(`scenario-${key}`).value = 'live';
+    overrides[key] = 'live';
+  }
+  setScenarioUiState('live', overrides, state.oni);
   renderPhaseView(state.oni, state.signals, currentPhaseKeyFor(state.oni), null);
 }
 
@@ -840,14 +1129,17 @@ function wireScenarioControls() {
   document.getElementById('scenario-banner-reset').addEventListener('click', resetScenario);
 
   // Initialize the readout on first load, before any Apply click.
-  setScenarioUiState('live', 'live', state.oni, state.signals);
+  const live = {};
+  for (const key of SCENARIO_SIGNAL_KEYS) live[key] = 'live';
+  setScenarioUiState('live', live, state.oni);
 }
 
 async function main() {
-  const [oni, resortsData, affiliates, phaseCopy, signals, signalMetadata, backtest] = await Promise.all([
-    loadOni(), loadResorts(), loadAffiliates(), loadPhaseCopy(), loadClimateSignals(), loadSignalMetadata(), loadBacktest(),
+  const [oni, resortsData, affiliates, phaseCopy, signals, signalMetadata, backtest, climatology] = await Promise.all([
+    loadOni(), loadResorts(), loadAffiliates(), loadPhaseCopy(), loadClimateSignals(),
+    loadSignalMetadata(), loadBacktest(), loadClimatology(),
   ]);
-  Object.assign(state, { oni, resortsData, affiliates, phaseCopy, signals, signalMetadata, backtest });
+  Object.assign(state, { oni, resortsData, affiliates, phaseCopy, signals, signalMetadata, backtest, climatology });
 
   // Rendered once and never touched again by scenario mode — these are
   // the permanent "ground truth" readouts.
@@ -857,7 +1149,7 @@ async function main() {
   renderBacktest(backtest, resortsData);
 
   state.mapState = initMap(resortsData, currentPhaseKeyFor(oni), signals);
-  document.getElementById('region-select').addEventListener('change', (e) => applyFilter(e.target.value, state.mapState));
+  document.getElementById('region-select').addEventListener('change', (e) => selectRegion(e.target.value));
 
   wireScenarioControls();
   renderPhaseView(oni, signals, currentPhaseKeyFor(oni), null);

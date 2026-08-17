@@ -2299,7 +2299,34 @@
           "resort_url": "https://www.hotham.com.au",
           "microclimate_note": "Victoria's highest resort village, generally the most snow-reliable of the Victorian options in a typical season."
         }
-      ]
+      ],
+      "primary_driver": "sam",
+      "sam_signals": {
+        "negative": {
+          "signal": "bull",
+          "signal_label": "Bullish — fronts pushed north",
+          "meter_pct": 80,
+          "meter_display": "+15–25%",
+          "narrative": "Negative SAM drags the Southern Ocean westerly storm belt north onto the Australian Alps — per Australia's Bureau of Meteorology this is the single strongest snowfall driver the country has, outweighing ENSO. It means more frequent cold fronts actually reaching the ski fields instead of passing south of them.",
+          "caveat": "SAM is a fast-moving pattern with only 1–3 weeks of real predictive skill, so a negative reading is a great sign for the next few weeks, not a season-long guarantee. Australia's marginal base elevations still cap the upside."
+        },
+        "neutral": {
+          "signal": "mixed",
+          "signal_label": "Mixed",
+          "meter_pct": 48,
+          "meter_display": "Near average",
+          "narrative": "With SAM near neutral, the storm belt sits in roughly its average position and Australia's season tracks its (already marginal) long-run baseline. ENSO and IOD become the tiebreakers.",
+          "caveat": "Australia has the highest year-to-year snowfall variability of any region on this site — historically a coefficient of variation around 0.50–0.56, versus roughly 0.17–0.21 in Japan. Neutral means genuinely unpredictable here, not 'safe'."
+        },
+        "positive": {
+          "signal": "bear",
+          "signal_label": "Bearish — fronts pushed south",
+          "meter_pct": 20,
+          "meter_display": "−15–30%",
+          "narrative": "Positive SAM pulls the westerly storm belt south toward Antarctica, so the cold fronts that make Australia's season track past the continent instead of over it. This is the classic setup for a thin, late-starting, early-finishing Australian winter.",
+          "caveat": "A positive SAM can still be punctuated by individual strong fronts — Australia's season is made of a handful of big events, so one good week can rescue a bad month. But the odds are genuinely against you."
+        }
+      }
     }
   ]
 }
