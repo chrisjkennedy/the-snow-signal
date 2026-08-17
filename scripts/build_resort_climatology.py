@@ -56,10 +56,27 @@ def season_bounds(region_id):
     return ((6, 9), 'south') if region_id in SOUTHERN else ((12, 3), 'north')
 
 
-def fetch_era5(region_id, lat, lon):
+def fetch_era5(region_id, lat, lon, elevation_m=None):
+    """Sampled at MID-MOUNTAIN elevation, not ERA5's native grid elevation.
+
+    This matters enormously. ERA5's ~25km grid takes the average height of
+    the cell, which for a mountain resort is close to the valley floor.
+    Sampling Chamonix at its grid elevation (1,041m) returns 2% of winter
+    days below freezing and 153cm of snow; sampling the same point
+    downscaled to 2,500m returns 71% and 366cm. The first number describes
+    the car park, the second describes the skiing.
+
+    Left uncorrected this systematically punishes exactly the resorts with
+    the most vertical — Chamonix, Zell am See, Mayrhofen, Bansko all looked
+    like warm, unreliable places purely because their valleys are low. So
+    every resort is sampled at the midpoint between its base and summit,
+    which is roughly where the bulk of the skiable terrain sits.
+    """
     (m_start, m_end), hemi = season_bounds(region_id)
     url = (f"{ARCHIVE}?latitude={lat}&longitude={lon}&start_date={START}&end_date={END}"
            f"&daily=snowfall_sum,temperature_2m_max&timezone=UTC")
+    if elevation_m is not None:
+        url += f"&elevation={int(elevation_m)}"
     data = json.loads(curl(url))
     times, snow, tmax = data['daily']['time'], data['daily']['snowfall_sum'], data['daily']['temperature_2m_max']
 
@@ -84,6 +101,7 @@ def fetch_era5(region_id, lat, lon):
         raise ValueError(f"only {len(totals)} usable seasons")
     mean = statistics.mean(totals)
     return {
+        'sampled_elevation_m': data.get('elevation'),
         'seasons_used': len(totals),
         'mean_season_snow_cm': round(mean, 1),
         'cv': round(statistics.pstdev(totals) / mean, 3) if mean > 0 else None,
@@ -151,15 +169,27 @@ def run_batch(limit):
     print(f"{len(targets)} resorts; {total_missing} need ERA5; fetching {len(todo_era5)} this batch",
           flush=True)
 
+    # Once Open-Meteo's hourly cap trips, every further call in this batch
+    # fails instantly. Burning through the rest wastes the batch and floods
+    # the log, so bail out after a few consecutive failures and let the
+    # caller sleep off the cap instead.
+    consecutive_failures = 0
     for region_id, r in todo_era5:
         entry = store.setdefault(r['id'], {'name': r['name'], 'region_id': region_id})
         try:
-            entry['era5'] = fetch_era5(region_id, r['lat'], r['lon'])
+            mid_ft = (r['base_elev_ft'] + r['summit_elev_ft']) / 2
+            mid_m = mid_ft * 0.3048
+            entry['era5'] = fetch_era5(region_id, r['lat'], r['lon'], mid_m)
             e = entry['era5']
-            print(f"  ERA5 {r['name'][:28]:28s} mean={e['mean_season_snow_cm']:7.1f}cm cv={e['cv']} cold={e['cold_day_frac']}")
+            consecutive_failures = 0
+            print(f"  ERA5 {r['name'][:26]:26s} @{int(mid_m):>4}m mean={e['mean_season_snow_cm']:7.1f}cm cv={e['cv']} cold={e['cold_day_frac']}", flush=True)
         except Exception as exc:
-            print(f"  ERA5 {r['name'][:28]:28s} SKIPPED ({exc})")
-        time.sleep(1.0)
+            consecutive_failures += 1
+            print(f"  ERA5 {r['name'][:26]:26s} failed ({type(exc).__name__})", flush=True)
+            if consecutive_failures >= 3:
+                print("  Hit the rate limit — ending this batch early.", flush=True)
+                break
+        time.sleep(1.5)
         OUT.write_text(json.dumps(out, indent=2, ensure_ascii=False) + "\n")
 
     for region_id, r in targets:

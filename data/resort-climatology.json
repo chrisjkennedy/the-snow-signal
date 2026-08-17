@@ -5,25 +5,18 @@
       "name": "Mammoth Mountain",
       "region_id": "sierra-california",
       "era5": {
+        "sampled_elevation_m": 2896.0,
         "seasons_used": 10,
         "mean_season_snow_cm": 542.6,
         "cv": 0.604,
         "worst_season_cm": 233.3,
         "best_season_cm": 1254.0,
-        "cold_day_frac": 0.431
+        "cold_day_frac": 0.502
       }
     },
     "palisades-tahoe": {
       "name": "Palisades Tahoe",
       "region_id": "sierra-california",
-      "era5": {
-        "seasons_used": 10,
-        "mean_season_snow_cm": 529.9,
-        "cv": 0.381,
-        "worst_season_cm": 303.3,
-        "best_season_cm": 881.9,
-        "cold_day_frac": 0.165
-      },
       "station": {
         "median_peak_swe_in": 50.8,
         "median_peak_date": "4/5",
@@ -31,31 +24,33 @@
         "median_meltout_date": "6/2",
         "record_begins": "1979",
         "triplet": "784:CA:SNTL"
+      },
+      "era5": {
+        "sampled_elevation_m": 2324.0,
+        "seasons_used": 10,
+        "mean_season_snow_cm": 529.9,
+        "cv": 0.381,
+        "worst_season_cm": 303.3,
+        "best_season_cm": 881.9,
+        "cold_day_frac": 0.369
       }
     },
     "big-bear": {
       "name": "Big Bear (Bear Mountain)",
       "region_id": "sierra-california",
       "era5": {
+        "sampled_elevation_m": 2370.0,
         "seasons_used": 10,
         "mean_season_snow_cm": 149.2,
         "cv": 0.596,
         "worst_season_cm": 35.5,
         "best_season_cm": 359.0,
-        "cold_day_frac": 0.072
+        "cold_day_frac": 0.129
       }
     },
     "northstar": {
       "name": "Northstar California",
       "region_id": "sierra-california",
-      "era5": {
-        "seasons_used": 10,
-        "mean_season_snow_cm": 410.0,
-        "cv": 0.406,
-        "worst_season_cm": 232.0,
-        "best_season_cm": 702.1,
-        "cold_day_frac": 0.159
-      },
       "station": {
         "median_peak_swe_in": 17.8,
         "median_peak_date": "3/14",
@@ -63,19 +58,20 @@
         "median_meltout_date": "4/29",
         "record_begins": "1979",
         "triplet": "834:CA:SNTL"
+      },
+      "era5": {
+        "sampled_elevation_m": 2276.0,
+        "seasons_used": 10,
+        "mean_season_snow_cm": 410.0,
+        "cv": 0.406,
+        "worst_season_cm": 232.0,
+        "best_season_cm": 702.1,
+        "cold_day_frac": 0.299
       }
     },
     "kirkwood": {
       "name": "Kirkwood",
       "region_id": "sierra-california",
-      "era5": {
-        "seasons_used": 10,
-        "mean_season_snow_cm": 622.3,
-        "cv": 0.437,
-        "worst_season_cm": 359.8,
-        "best_season_cm": 1155.0,
-        "cold_day_frac": 0.331
-      },
       "station": {
         "median_peak_swe_in": 30.1,
         "median_peak_date": "4/7",
@@ -83,31 +79,33 @@
         "median_meltout_date": "5/30",
         "record_begins": "2004",
         "triplet": "1067:CA:SNTL"
+      },
+      "era5": {
+        "sampled_elevation_m": 2682.0,
+        "seasons_used": 10,
+        "mean_season_snow_cm": 622.3,
+        "cv": 0.437,
+        "worst_season_cm": 359.8,
+        "best_season_cm": 1155.0,
+        "cold_day_frac": 0.491
       }
     },
     "june-mountain": {
       "name": "June Mountain",
       "region_id": "sierra-california",
       "era5": {
+        "sampled_elevation_m": 2687.0,
         "seasons_used": 10,
         "mean_season_snow_cm": 373.3,
         "cv": 0.598,
         "worst_season_cm": 136.9,
         "best_season_cm": 887.3,
-        "cold_day_frac": 0.318
+        "cold_day_frac": 0.413
       }
     },
     "taos": {
       "name": "Taos Ski Valley",
       "region_id": "southwest-rockies",
-      "era5": {
-        "seasons_used": 10,
-        "mean_season_snow_cm": 130.7,
-        "cv": 0.359,
-        "worst_season_cm": 64.2,
-        "best_season_cm": 197.9,
-        "cold_day_frac": 0.464
-      },
       "station": {
         "median_peak_swe_in": 20.0,
         "median_peak_date": "4/29",
@@ -115,19 +113,20 @@
         "median_meltout_date": "6/10",
         "record_begins": "2010",
         "triplet": "1168:NM:SNTL"
+      },
+      "era5": {
+        "sampled_elevation_m": 3304.0,
+        "seasons_used": 10,
+        "mean_season_snow_cm": 145.0,
+        "cv": 0.363,
+        "worst_season_cm": 65.7,
+        "best_season_cm": 226.9,
+        "cold_day_frac": 0.687
       }
     },
     "wolf-creek": {
       "name": "Wolf Creek",
       "region_id": "southwest-rockies",
-      "era5": {
-        "seasons_used": 10,
-        "mean_season_snow_cm": 250.2,
-        "cv": 0.397,
-        "worst_season_cm": 94.8,
-        "best_season_cm": 409.8,
-        "cold_day_frac": 0.685
-      },
       "station": {
         "median_peak_swe_in": 35.5,
         "median_peak_date": "4/29",
@@ -135,31 +134,33 @@
         "median_meltout_date": "6/21",
         "record_begins": "1985",
         "triplet": "874:CO:SNTL"
+      },
+      "era5": {
+        "sampled_elevation_m": 3383.0,
+        "seasons_used": 10,
+        "mean_season_snow_cm": 250.2,
+        "cv": 0.397,
+        "worst_season_cm": 94.8,
+        "best_season_cm": 409.8,
+        "cold_day_frac": 0.763
       }
     },
     "telluride": {
       "name": "Telluride",
       "region_id": "southwest-rockies",
       "era5": {
+        "sampled_elevation_m": 3337.0,
         "seasons_used": 10,
-        "mean_season_snow_cm": 181.3,
-        "cv": 0.293,
-        "worst_season_cm": 98.3,
-        "best_season_cm": 257.5,
-        "cold_day_frac": 0.373
+        "mean_season_snow_cm": 201.7,
+        "cv": 0.287,
+        "worst_season_cm": 123.2,
+        "best_season_cm": 284.3,
+        "cold_day_frac": 0.75
       }
     },
     "purgatory": {
       "name": "Purgatory",
       "region_id": "southwest-rockies",
-      "era5": {
-        "seasons_used": 10,
-        "mean_season_snow_cm": 209.0,
-        "cv": 0.376,
-        "worst_season_cm": 96.8,
-        "best_season_cm": 338.7,
-        "cold_day_frac": 0.373
-      },
       "station": {
         "median_peak_swe_in": 10.4,
         "median_peak_date": "3/6",
@@ -167,19 +168,20 @@
         "median_meltout_date": "4/11",
         "record_begins": "1990",
         "triplet": "387:CO:SNTL"
+      },
+      "era5": {
+        "sampled_elevation_m": 2989.0,
+        "seasons_used": 10,
+        "mean_season_snow_cm": 224.2,
+        "cv": 0.383,
+        "worst_season_cm": 108.0,
+        "best_season_cm": 347.9,
+        "cold_day_frac": 0.52
       }
     },
     "santa-fe": {
       "name": "Ski Santa Fe",
       "region_id": "southwest-rockies",
-      "era5": {
-        "seasons_used": 10,
-        "mean_season_snow_cm": 148.9,
-        "cv": 0.356,
-        "worst_season_cm": 74.3,
-        "best_season_cm": 218.8,
-        "cold_day_frac": 0.626
-      },
       "station": {
         "median_peak_swe_in": 16.0,
         "median_peak_date": "4/14",
@@ -187,19 +189,20 @@
         "median_meltout_date": "6/1",
         "record_begins": "1996",
         "triplet": "922:NM:SNTL"
+      },
+      "era5": {
+        "sampled_elevation_m": 3417.0,
+        "seasons_used": 10,
+        "mean_season_snow_cm": 148.9,
+        "cv": 0.356,
+        "worst_season_cm": 74.3,
+        "best_season_cm": 218.8,
+        "cold_day_frac": 0.67
       }
     },
     "arizona-snowbowl": {
       "name": "Arizona Snowbowl",
       "region_id": "southwest-rockies",
-      "era5": {
-        "seasons_used": 10,
-        "mean_season_snow_cm": 157.6,
-        "cv": 0.48,
-        "worst_season_cm": 78.4,
-        "best_season_cm": 341.3,
-        "cold_day_frac": 0.333
-      },
       "station": {
         "median_peak_swe_in": 16.8,
         "median_peak_date": "3/19",
@@ -207,31 +210,33 @@
         "median_meltout_date": "5/13",
         "record_begins": "1997",
         "triplet": "927:AZ:SNTL"
+      },
+      "era5": {
+        "sampled_elevation_m": 3154.0,
+        "seasons_used": 10,
+        "mean_season_snow_cm": 157.6,
+        "cv": 0.48,
+        "worst_season_cm": 78.4,
+        "best_season_cm": 341.3,
+        "cold_day_frac": 0.488
       }
     },
     "alta": {
       "name": "Alta",
       "region_id": "utah-central-colorado",
       "era5": {
+        "sampled_elevation_m": 2907.0,
         "seasons_used": 10,
         "mean_season_snow_cm": 289.9,
         "cv": 0.331,
         "worst_season_cm": 170.2,
         "best_season_cm": 494.9,
-        "cold_day_frac": 0.637
+        "cold_day_frac": 0.792
       }
     },
     "snowbird": {
       "name": "Snowbird",
       "region_id": "utah-central-colorado",
-      "era5": {
-        "seasons_used": 10,
-        "mean_season_snow_cm": 256.7,
-        "cv": 0.282,
-        "worst_season_cm": 170.2,
-        "best_season_cm": 405.2,
-        "cold_day_frac": 0.634
-      },
       "station": {
         "median_peak_swe_in": 43.8,
         "median_peak_date": "4/27",
@@ -239,19 +244,20 @@
         "median_meltout_date": "6/14",
         "record_begins": "1988",
         "triplet": "766:UT:SNTL"
+      },
+      "era5": {
+        "sampled_elevation_m": 2859.0,
+        "seasons_used": 10,
+        "mean_season_snow_cm": 289.9,
+        "cv": 0.331,
+        "worst_season_cm": 170.2,
+        "best_season_cm": 494.9,
+        "cold_day_frac": 0.735
       }
     },
     "park-city": {
       "name": "Park City",
       "region_id": "utah-central-colorado",
-      "era5": {
-        "seasons_used": 10,
-        "mean_season_snow_cm": 237.4,
-        "cv": 0.375,
-        "worst_season_cm": 131.9,
-        "best_season_cm": 437.4,
-        "cold_day_frac": 0.399
-      },
       "station": {
         "median_peak_swe_in": 24.7,
         "median_peak_date": "4/17",
@@ -259,19 +265,20 @@
         "median_meltout_date": "5/29",
         "record_begins": "1988",
         "triplet": "814:UT:SNTL"
+      },
+      "era5": {
+        "sampled_elevation_m": 2575.0,
+        "seasons_used": 10,
+        "mean_season_snow_cm": 246.0,
+        "cv": 0.319,
+        "worst_season_cm": 155.2,
+        "best_season_cm": 410.3,
+        "cold_day_frac": 0.669
       }
     },
     "deer-valley": {
       "name": "Deer Valley",
       "region_id": "utah-central-colorado",
-      "era5": {
-        "seasons_used": 10,
-        "mean_season_snow_cm": 237.4,
-        "cv": 0.375,
-        "worst_season_cm": 131.9,
-        "best_season_cm": 437.4,
-        "cold_day_frac": 0.438
-      },
       "station": {
         "median_peak_swe_in": 24.7,
         "median_peak_date": "4/17",
@@ -279,19 +286,20 @@
         "median_meltout_date": "5/29",
         "record_begins": "1988",
         "triplet": "814:UT:SNTL"
+      },
+      "era5": {
+        "sampled_elevation_m": 2459.0,
+        "seasons_used": 10,
+        "mean_season_snow_cm": 246.0,
+        "cv": 0.319,
+        "worst_season_cm": 155.2,
+        "best_season_cm": 410.3,
+        "cold_day_frac": 0.602
       }
     },
     "breckenridge": {
       "name": "Breckenridge",
       "region_id": "utah-central-colorado",
-      "era5": {
-        "seasons_used": 10,
-        "mean_season_snow_cm": 155.5,
-        "cv": 0.119,
-        "worst_season_cm": 120.5,
-        "best_season_cm": 190.8,
-        "cold_day_frac": 0.612
-      },
       "station": {
         "median_peak_swe_in": 17.4,
         "median_peak_date": "4/26",
@@ -299,19 +307,20 @@
         "median_meltout_date": "6/3",
         "record_begins": "1978",
         "triplet": "415:CO:SNTL"
+      },
+      "era5": {
+        "sampled_elevation_m": 3443.0,
+        "seasons_used": 10,
+        "mean_season_snow_cm": 153.0,
+        "cv": 0.132,
+        "worst_season_cm": 116.3,
+        "best_season_cm": 192.5,
+        "cold_day_frac": 0.819
       }
     },
     "vail": {
       "name": "Vail",
       "region_id": "utah-central-colorado",
-      "era5": {
-        "seasons_used": 10,
-        "mean_season_snow_cm": 188.1,
-        "cv": 0.143,
-        "worst_season_cm": 145.7,
-        "best_season_cm": 240.2,
-        "cold_day_frac": 0.434
-      },
       "station": {
         "median_peak_swe_in": 20.8,
         "median_peak_date": "4/27",
@@ -319,19 +328,20 @@
         "median_meltout_date": "6/1",
         "record_begins": "1978",
         "triplet": "842:CO:SNTL"
+      },
+      "era5": {
+        "sampled_elevation_m": 3000.0,
+        "seasons_used": 10,
+        "mean_season_snow_cm": 202.3,
+        "cv": 0.135,
+        "worst_season_cm": 166.7,
+        "best_season_cm": 253.5,
+        "cold_day_frac": 0.692
       }
     },
     "steamboat": {
       "name": "Steamboat",
       "region_id": "utah-central-colorado",
-      "era5": {
-        "seasons_used": 10,
-        "mean_season_snow_cm": 198.3,
-        "cv": 0.185,
-        "worst_season_cm": 143.8,
-        "best_season_cm": 266.1,
-        "cold_day_frac": 0.384
-      },
       "station": {
         "median_peak_swe_in": 22.3,
         "median_peak_date": "4/4",
@@ -339,19 +349,20 @@
         "median_meltout_date": "5/18",
         "record_begins": "1979",
         "triplet": "457:CO:SNTL"
+      },
+      "era5": {
+        "sampled_elevation_m": 2662.0,
+        "seasons_used": 10,
+        "mean_season_snow_cm": 251.6,
+        "cv": 0.183,
+        "worst_season_cm": 194.8,
+        "best_season_cm": 334.1,
+        "cold_day_frac": 0.689
       }
     },
     "aspen-snowmass": {
       "name": "Aspen Snowmass",
       "region_id": "utah-central-colorado",
-      "era5": {
-        "seasons_used": 10,
-        "mean_season_snow_cm": 178.7,
-        "cv": 0.22,
-        "worst_season_cm": 124.7,
-        "best_season_cm": 249.2,
-        "cold_day_frac": 0.444
-      },
       "station": {
         "median_peak_swe_in": 17.4,
         "median_peak_date": "4/4",
@@ -359,31 +370,33 @@
         "median_meltout_date": "5/20",
         "record_begins": "1984",
         "triplet": "669:CO:SNTL"
+      },
+      "era5": {
+        "sampled_elevation_m": 3141.0,
+        "seasons_used": 10,
+        "mean_season_snow_cm": 196.3,
+        "cv": 0.247,
+        "worst_season_cm": 135.0,
+        "best_season_cm": 274.1,
+        "cold_day_frac": 0.718
       }
     },
     "winter-park": {
       "name": "Winter Park",
       "region_id": "utah-central-colorado",
       "era5": {
+        "sampled_elevation_m": 3209.0,
         "seasons_used": 10,
-        "mean_season_snow_cm": 172.7,
-        "cv": 0.118,
+        "mean_season_snow_cm": 177.3,
+        "cv": 0.138,
         "worst_season_cm": 128.2,
-        "best_season_cm": 211.4,
-        "cold_day_frac": 0.597
+        "best_season_cm": 233.6,
+        "cold_day_frac": 0.799
       }
     },
     "copper-mountain": {
       "name": "Copper Mountain",
       "region_id": "utah-central-colorado",
-      "era5": {
-        "seasons_used": 10,
-        "mean_season_snow_cm": 166.7,
-        "cv": 0.121,
-        "worst_season_cm": 125.2,
-        "best_season_cm": 194.8,
-        "cold_day_frac": 0.627
-      },
       "station": {
         "median_peak_swe_in": 17.4,
         "median_peak_date": "4/26",
@@ -391,19 +404,20 @@
         "median_meltout_date": "6/3",
         "record_begins": "1978",
         "triplet": "415:CO:SNTL"
+      },
+      "era5": {
+        "sampled_elevation_m": 3376.0,
+        "seasons_used": 10,
+        "mean_season_snow_cm": 163.8,
+        "cv": 0.132,
+        "worst_season_cm": 124.0,
+        "best_season_cm": 204.3,
+        "cold_day_frac": 0.838
       }
     },
     "eldora": {
       "name": "Eldora",
       "region_id": "utah-central-colorado",
-      "era5": {
-        "seasons_used": 10,
-        "mean_season_snow_cm": 136.0,
-        "cv": 0.137,
-        "worst_season_cm": 104.9,
-        "best_season_cm": 178.4,
-        "cold_day_frac": 0.561
-      },
       "station": {
         "median_peak_swe_in": 14.0,
         "median_peak_date": "4/9",
@@ -411,19 +425,20 @@
         "median_meltout_date": "5/15",
         "record_begins": "1978",
         "triplet": "564:CO:SNTL"
+      },
+      "era5": {
+        "sampled_elevation_m": 3017.0,
+        "seasons_used": 10,
+        "mean_season_snow_cm": 164.0,
+        "cv": 0.142,
+        "worst_season_cm": 118.5,
+        "best_season_cm": 209.7,
+        "cold_day_frac": 0.688
       }
     },
     "arapahoe-basin": {
       "name": "Arapahoe Basin",
       "region_id": "utah-central-colorado",
-      "era5": {
-        "seasons_used": 10,
-        "mean_season_snow_cm": 167.1,
-        "cv": 0.134,
-        "worst_season_cm": 126.0,
-        "best_season_cm": 217.6,
-        "cold_day_frac": 0.843
-      },
       "station": {
         "median_peak_swe_in": 19.6,
         "median_peak_date": "4/21",
@@ -431,19 +446,20 @@
         "median_meltout_date": "6/6",
         "record_begins": "1979",
         "triplet": "505:CO:SNTL"
+      },
+      "era5": {
+        "sampled_elevation_m": 3592.0,
+        "seasons_used": 10,
+        "mean_season_snow_cm": 167.1,
+        "cv": 0.134,
+        "worst_season_cm": 126.0,
+        "best_season_cm": 217.6,
+        "cold_day_frac": 0.9
       }
     },
     "crested-butte": {
       "name": "Crested Butte",
       "region_id": "utah-central-colorado",
-      "era5": {
-        "seasons_used": 10,
-        "mean_season_snow_cm": 197.3,
-        "cv": 0.3,
-        "worst_season_cm": 115.6,
-        "best_season_cm": 299.0,
-        "cold_day_frac": 0.495
-      },
       "station": {
         "median_peak_swe_in": 13.7,
         "median_peak_date": "4/8",
@@ -451,19 +467,20 @@
         "median_meltout_date": "5/21",
         "record_begins": "1979",
         "triplet": "380:CO:SNTL"
+      },
+      "era5": {
+        "sampled_elevation_m": 3282.0,
+        "seasons_used": 10,
+        "mean_season_snow_cm": 254.7,
+        "cv": 0.306,
+        "worst_season_cm": 159.9,
+        "best_season_cm": 385.4,
+        "cold_day_frac": 0.816
       }
     },
     "solitude": {
       "name": "Solitude",
       "region_id": "utah-central-colorado",
-      "era5": {
-        "seasons_used": 10,
-        "mean_season_snow_cm": 246.0,
-        "cv": 0.321,
-        "worst_season_cm": 155.2,
-        "best_season_cm": 410.3,
-        "cold_day_frac": 0.623
-      },
       "station": {
         "median_peak_swe_in": 23.8,
         "median_peak_date": "4/13",
@@ -471,31 +488,33 @@
         "median_meltout_date": "5/25",
         "record_begins": "1986",
         "triplet": "366:UT:SNTL"
+      },
+      "era5": {
+        "sampled_elevation_m": 2746.0,
+        "seasons_used": 10,
+        "mean_season_snow_cm": 295.3,
+        "cv": 0.321,
+        "worst_season_cm": 196.9,
+        "best_season_cm": 494.9,
+        "cold_day_frac": 0.726
       }
     },
     "snowbasin": {
       "name": "Snowbasin",
       "region_id": "utah-central-colorado",
       "era5": {
+        "sampled_elevation_m": 2400.0,
         "seasons_used": 10,
         "mean_season_snow_cm": 225.8,
         "cv": 0.304,
         "worst_season_cm": 140.5,
         "best_season_cm": 359.1,
-        "cold_day_frac": 0.433
+        "cold_day_frac": 0.682
       }
     },
     "jackson-hole": {
       "name": "Jackson Hole",
       "region_id": "pnw-northern-rockies",
-      "era5": {
-        "seasons_used": 10,
-        "mean_season_snow_cm": 233.9,
-        "cv": 0.199,
-        "worst_season_cm": 165.4,
-        "best_season_cm": 319.8,
-        "cold_day_frac": 0.519
-      },
       "station": {
         "median_peak_swe_in": 28.5,
         "median_peak_date": "4/21",
@@ -503,19 +522,20 @@
         "median_meltout_date": "6/12",
         "record_begins": "1978",
         "triplet": "689:WY:SNTL"
+      },
+      "era5": {
+        "sampled_elevation_m": 2554.0,
+        "seasons_used": 10,
+        "mean_season_snow_cm": 298.5,
+        "cv": 0.22,
+        "worst_season_cm": 210.6,
+        "best_season_cm": 437.2,
+        "cold_day_frac": 0.819
       }
     },
     "big-sky": {
       "name": "Big Sky",
       "region_id": "pnw-northern-rockies",
-      "era5": {
-        "seasons_used": 10,
-        "mean_season_snow_cm": 179.0,
-        "cv": 0.169,
-        "worst_season_cm": 136.1,
-        "best_season_cm": 223.9,
-        "cold_day_frac": 0.702
-      },
       "station": {
         "median_peak_swe_in": 21.4,
         "median_peak_date": "5/2",
@@ -528,14 +548,6 @@
     "mt-bachelor": {
       "name": "Mt. Bachelor",
       "region_id": "pnw-northern-rockies",
-      "era5": {
-        "seasons_used": 10,
-        "mean_season_snow_cm": 483.0,
-        "cv": 0.174,
-        "worst_season_cm": 355.8,
-        "best_season_cm": 619.4,
-        "cold_day_frac": 0.864
-      },
       "station": {
         "median_peak_swe_in": 18.7,
         "median_peak_date": "4/3",
@@ -548,14 +560,6 @@
     "stevens-pass": {
       "name": "Stevens Pass",
       "region_id": "pnw-northern-rockies",
-      "era5": {
-        "seasons_used": 10,
-        "mean_season_snow_cm": 618.9,
-        "cv": 0.205,
-        "worst_season_cm": 454.9,
-        "best_season_cm": 851.1,
-        "cold_day_frac": 0.454
-      },
       "station": {
         "median_peak_swe_in": 38.0,
         "median_peak_date": "3/30",
@@ -568,14 +572,6 @@
     "crystal-mountain": {
       "name": "Crystal Mountain",
       "region_id": "pnw-northern-rockies",
-      "era5": {
-        "seasons_used": 10,
-        "mean_season_snow_cm": 429.7,
-        "cv": 0.133,
-        "worst_season_cm": 340.4,
-        "best_season_cm": 532.8,
-        "cold_day_frac": 0.341
-      },
       "station": {
         "median_peak_swe_in": 57.8,
         "median_peak_date": "4/21",
@@ -588,14 +584,6 @@
     "sun-valley": {
       "name": "Sun Valley",
       "region_id": "pnw-northern-rockies",
-      "era5": {
-        "seasons_used": 10,
-        "mean_season_snow_cm": 177.1,
-        "cv": 0.346,
-        "worst_season_cm": 99.9,
-        "best_season_cm": 287.0,
-        "cold_day_frac": 0.441
-      },
       "station": {
         "median_peak_swe_in": 12.5,
         "median_peak_date": "3/31",
@@ -608,14 +596,6 @@
     "schweitzer": {
       "name": "Schweitzer",
       "region_id": "pnw-northern-rockies",
-      "era5": {
-        "seasons_used": 10,
-        "mean_season_snow_cm": 298.5,
-        "cv": 0.185,
-        "worst_season_cm": 178.9,
-        "best_season_cm": 370.2,
-        "cold_day_frac": 0.665
-      },
       "station": {
         "median_peak_swe_in": 51.0,
         "median_peak_date": "4/21",
@@ -628,14 +608,6 @@
     "alyeska": {
       "name": "Alyeska",
       "region_id": "pnw-northern-rockies",
-      "era5": {
-        "seasons_used": 10,
-        "mean_season_snow_cm": 586.9,
-        "cv": 0.332,
-        "worst_season_cm": 388.4,
-        "best_season_cm": 1113.5,
-        "cold_day_frac": 0.707
-      },
       "station": {
         "median_peak_swe_in": 34.3,
         "median_peak_date": "4/25",
@@ -648,14 +620,6 @@
     "summit-snoqualmie": {
       "name": "Summit at Snoqualmie",
       "region_id": "pnw-northern-rockies",
-      "era5": {
-        "seasons_used": 10,
-        "mean_season_snow_cm": 576.8,
-        "cv": 0.188,
-        "worst_season_cm": 445.1,
-        "best_season_cm": 728.2,
-        "cold_day_frac": 0.246
-      },
       "station": {
         "median_peak_swe_in": 55.9,
         "median_peak_date": "4/17",
@@ -668,14 +632,6 @@
     "grand-targhee": {
       "name": "Grand Targhee",
       "region_id": "pnw-northern-rockies",
-      "era5": {
-        "seasons_used": 10,
-        "mean_season_snow_cm": 283.2,
-        "cv": 0.203,
-        "worst_season_cm": 215.4,
-        "best_season_cm": 410.6,
-        "cold_day_frac": 0.77
-      },
       "station": {
         "median_peak_swe_in": 48.8,
         "median_peak_date": "5/1",
@@ -687,831 +643,279 @@
     },
     "killington": {
       "name": "Killington",
-      "region_id": "northeast-us",
-      "era5": {
-        "seasons_used": 10,
-        "mean_season_snow_cm": 154.1,
-        "cv": 0.248,
-        "worst_season_cm": 56.9,
-        "best_season_cm": 205.7,
-        "cold_day_frac": 0.776
-      }
+      "region_id": "northeast-us"
     },
     "stowe": {
       "name": "Stowe",
-      "region_id": "northeast-us",
-      "era5": {
-        "seasons_used": 10,
-        "mean_season_snow_cm": 174.0,
-        "cv": 0.195,
-        "worst_season_cm": 102.5,
-        "best_season_cm": 215.8,
-        "cold_day_frac": 0.529
-      }
+      "region_id": "northeast-us"
     },
     "jay-peak": {
       "name": "Jay Peak",
-      "region_id": "northeast-us",
-      "era5": {
-        "seasons_used": 10,
-        "mean_season_snow_cm": 179.0,
-        "cv": 0.157,
-        "worst_season_cm": 121.9,
-        "best_season_cm": 218.1,
-        "cold_day_frac": 0.757
-      }
+      "region_id": "northeast-us"
     },
     "cannon": {
       "name": "Cannon Mountain",
-      "region_id": "northeast-us",
-      "era5": {
-        "seasons_used": 10,
-        "mean_season_snow_cm": 168.8,
-        "cv": 0.21,
-        "worst_season_cm": 88.6,
-        "best_season_cm": 220.2,
-        "cold_day_frac": 0.543
-      }
+      "region_id": "northeast-us"
     },
     "sugarbush": {
       "name": "Sugarbush",
-      "region_id": "northeast-us",
-      "era5": {
-        "seasons_used": 10,
-        "mean_season_snow_cm": 165.1,
-        "cv": 0.238,
-        "worst_season_cm": 64.8,
-        "best_season_cm": 220.9,
-        "cold_day_frac": 0.562
-      }
+      "region_id": "northeast-us"
     },
     "sunday-river": {
       "name": "Sunday River",
-      "region_id": "northeast-us",
-      "era5": {
-        "seasons_used": 10,
-        "mean_season_snow_cm": 166.9,
-        "cv": 0.198,
-        "worst_season_cm": 99.1,
-        "best_season_cm": 219.8,
-        "cold_day_frac": 0.516
-      }
+      "region_id": "northeast-us"
     },
     "sugarloaf": {
       "name": "Sugarloaf",
-      "region_id": "northeast-us",
-      "era5": {
-        "seasons_used": 10,
-        "mean_season_snow_cm": 187.1,
-        "cv": 0.174,
-        "worst_season_cm": 123.3,
-        "best_season_cm": 234.1,
-        "cold_day_frac": 0.873
-      }
+      "region_id": "northeast-us"
     },
     "okemo": {
       "name": "Okemo",
-      "region_id": "northeast-us",
-      "era5": {
-        "seasons_used": 10,
-        "mean_season_snow_cm": 150.0,
-        "cv": 0.26,
-        "worst_season_cm": 56.9,
-        "best_season_cm": 210.5,
-        "cold_day_frac": 0.399
-      }
+      "region_id": "northeast-us"
     },
     "mount-snow": {
       "name": "Mount Snow",
-      "region_id": "northeast-us",
-      "era5": {
-        "seasons_used": 10,
-        "mean_season_snow_cm": 173.3,
-        "cv": 0.32,
-        "worst_season_cm": 45.9,
-        "best_season_cm": 268.4,
-        "cold_day_frac": 0.657
-      }
+      "region_id": "northeast-us"
     },
     "mount-sunapee": {
       "name": "Mount Sunapee",
-      "region_id": "northeast-us",
-      "era5": {
-        "seasons_used": 10,
-        "mean_season_snow_cm": 131.5,
-        "cv": 0.274,
-        "worst_season_cm": 55.1,
-        "best_season_cm": 203.6,
-        "cold_day_frac": 0.476
-      }
+      "region_id": "northeast-us"
     },
     "attitash": {
       "name": "Attitash",
-      "region_id": "northeast-us",
-      "era5": {
-        "seasons_used": 10,
-        "mean_season_snow_cm": 176.5,
-        "cv": 0.207,
-        "worst_season_cm": 96.0,
-        "best_season_cm": 227.4,
-        "cold_day_frac": 0.396
-      }
+      "region_id": "northeast-us"
     },
     "wildcat": {
       "name": "Wildcat",
-      "region_id": "northeast-us",
-      "era5": {
-        "seasons_used": 10,
-        "mean_season_snow_cm": 200.6,
-        "cv": 0.202,
-        "worst_season_cm": 111.2,
-        "best_season_cm": 258.4,
-        "cold_day_frac": 0.549
-      }
+      "region_id": "northeast-us"
     },
     "hunter-mountain": {
       "name": "Hunter Mountain",
-      "region_id": "northeast-us",
-      "era5": {
-        "seasons_used": 10,
-        "mean_season_snow_cm": 124.9,
-        "cv": 0.36,
-        "worst_season_cm": 25.3,
-        "best_season_cm": 197.6,
-        "cold_day_frac": 0.496
-      }
+      "region_id": "northeast-us"
     },
     "stratton": {
       "name": "Stratton",
-      "region_id": "northeast-us",
-      "era5": {
-        "seasons_used": 10,
-        "mean_season_snow_cm": 159.9,
-        "cv": 0.296,
-        "worst_season_cm": 45.9,
-        "best_season_cm": 234.4,
-        "cold_day_frac": 0.476
-      }
+      "region_id": "northeast-us"
     },
     "loon-mountain": {
       "name": "Loon Mountain",
-      "region_id": "northeast-us",
-      "era5": {
-        "seasons_used": 10,
-        "mean_season_snow_cm": 177.5,
-        "cv": 0.205,
-        "worst_season_cm": 89.1,
-        "best_season_cm": 217.1,
-        "cold_day_frac": 0.713
-      }
+      "region_id": "northeast-us"
     },
     "snowshoe": {
       "name": "Snowshoe",
-      "region_id": "northeast-us",
-      "era5": {
-        "seasons_used": 10,
-        "mean_season_snow_cm": 95.3,
-        "cv": 0.236,
-        "worst_season_cm": 61.1,
-        "best_season_cm": 132.5,
-        "cold_day_frac": 0.358
-      }
+      "region_id": "northeast-us"
     },
     "tremblant": {
       "name": "Tremblant",
-      "region_id": "northeast-us",
-      "era5": {
-        "seasons_used": 10,
-        "mean_season_snow_cm": 163.3,
-        "cv": 0.184,
-        "worst_season_cm": 121.6,
-        "best_season_cm": 215.0,
-        "cold_day_frac": 0.628
-      }
+      "region_id": "northeast-us"
     },
     "whistler": {
       "name": "Whistler Blackcomb",
-      "region_id": "canadian-rockies-bc",
-      "era5": {
-        "seasons_used": 10,
-        "mean_season_snow_cm": 631.5,
-        "cv": 0.293,
-        "worst_season_cm": 438.3,
-        "best_season_cm": 1098.1,
-        "cold_day_frac": 0.214
-      }
+      "region_id": "canadian-rockies-bc"
     },
     "revelstoke": {
       "name": "Revelstoke",
-      "region_id": "canadian-rockies-bc",
-      "era5": {
-        "seasons_used": 10,
-        "mean_season_snow_cm": 277.5,
-        "cv": 0.171,
-        "worst_season_cm": 193.2,
-        "best_season_cm": 345.5,
-        "cold_day_frac": 0.242
-      }
+      "region_id": "canadian-rockies-bc"
     },
     "banff-lake-louise": {
       "name": "Banff / Lake Louise",
-      "region_id": "canadian-rockies-bc",
-      "era5": {
-        "seasons_used": 10,
-        "mean_season_snow_cm": 133.0,
-        "cv": 0.2,
-        "worst_season_cm": 92.7,
-        "best_season_cm": 181.9,
-        "cold_day_frac": 0.833
-      }
+      "region_id": "canadian-rockies-bc"
     },
     "big-white": {
       "name": "Big White",
-      "region_id": "canadian-rockies-bc",
-      "era5": {
-        "seasons_used": 10,
-        "mean_season_snow_cm": 212.5,
-        "cv": 0.188,
-        "worst_season_cm": 134.3,
-        "best_season_cm": 278.4,
-        "cold_day_frac": 0.897
-      }
+      "region_id": "canadian-rockies-bc"
     },
     "sun-peaks": {
       "name": "Sun Peaks",
-      "region_id": "canadian-rockies-bc",
-      "era5": {
-        "seasons_used": 10,
-        "mean_season_snow_cm": 157.8,
-        "cv": 0.161,
-        "worst_season_cm": 97.2,
-        "best_season_cm": 187.1,
-        "cold_day_frac": 0.662
-      }
+      "region_id": "canadian-rockies-bc"
     },
     "kicking-horse": {
       "name": "Kicking Horse",
-      "region_id": "canadian-rockies-bc",
-      "era5": {
-        "seasons_used": 10,
-        "mean_season_snow_cm": 145.0,
-        "cv": 0.169,
-        "worst_season_cm": 90.8,
-        "best_season_cm": 176.7,
-        "cold_day_frac": 0.671
-      }
+      "region_id": "canadian-rockies-bc"
     },
     "fernie": {
       "name": "Fernie",
-      "region_id": "canadian-rockies-bc",
-      "era5": {
-        "seasons_used": 10,
-        "mean_season_snow_cm": 201.7,
-        "cv": 0.185,
-        "worst_season_cm": 150.3,
-        "best_season_cm": 247.9,
-        "cold_day_frac": 0.464
-      }
+      "region_id": "canadian-rockies-bc"
     },
     "panorama": {
       "name": "Panorama",
-      "region_id": "canadian-rockies-bc",
-      "era5": {
-        "seasons_used": 10,
-        "mean_season_snow_cm": 95.9,
-        "cv": 0.165,
-        "worst_season_cm": 65.7,
-        "best_season_cm": 115.0,
-        "cold_day_frac": 0.528
-      }
+      "region_id": "canadian-rockies-bc"
     },
     "silverstar": {
       "name": "SilverStar",
-      "region_id": "canadian-rockies-bc",
-      "era5": {
-        "seasons_used": 10,
-        "mean_season_snow_cm": 134.6,
-        "cv": 0.215,
-        "worst_season_cm": 79.7,
-        "best_season_cm": 173.9,
-        "cold_day_frac": 0.753
-      }
+      "region_id": "canadian-rockies-bc"
     },
     "red-mountain": {
       "name": "RED Mountain",
-      "region_id": "canadian-rockies-bc",
-      "era5": {
-        "seasons_used": 10,
-        "mean_season_snow_cm": 208.3,
-        "cv": 0.134,
-        "worst_season_cm": 169.3,
-        "best_season_cm": 246.6,
-        "cold_day_frac": 0.475
-      }
+      "region_id": "canadian-rockies-bc"
     },
     "cypress": {
       "name": "Cypress",
-      "region_id": "canadian-rockies-bc",
-      "era5": {
-        "seasons_used": 10,
-        "mean_season_snow_cm": 345.0,
-        "cv": 0.146,
-        "worst_season_cm": 253.6,
-        "best_season_cm": 417.1,
-        "cold_day_frac": 0.483
-      }
+      "region_id": "canadian-rockies-bc"
     },
     "zermatt": {
       "name": "Zermatt",
-      "region_id": "european-alps",
-      "era5": {
-        "seasons_used": 10,
-        "mean_season_snow_cm": 282.8,
-        "cv": 0.364,
-        "worst_season_cm": 196.8,
-        "best_season_cm": 513.8,
-        "cold_day_frac": 0.378
-      }
+      "region_id": "european-alps"
     },
     "val-disere": {
       "name": "Val d'Isère",
-      "region_id": "european-alps",
-      "era5": {
-        "seasons_used": 10,
-        "mean_season_snow_cm": 445.8,
-        "cv": 0.305,
-        "worst_season_cm": 309.3,
-        "best_season_cm": 796.2,
-        "cold_day_frac": 0.418
-      }
+      "region_id": "european-alps"
     },
     "st-anton": {
       "name": "St. Anton",
-      "region_id": "european-alps",
-      "era5": {
-        "seasons_used": 10,
-        "mean_season_snow_cm": 371.2,
-        "cv": 0.258,
-        "worst_season_cm": 206.6,
-        "best_season_cm": 532.5,
-        "cold_day_frac": 0.217
-      }
+      "region_id": "european-alps"
     },
     "chamonix": {
       "name": "Chamonix",
-      "region_id": "european-alps",
-      "era5": {
-        "seasons_used": 10,
-        "mean_season_snow_cm": 340.5,
-        "cv": 0.312,
-        "worst_season_cm": 212.2,
-        "best_season_cm": 562.8,
-        "cold_day_frac": 0.083
-      }
+      "region_id": "european-alps"
     },
     "verbier": {
       "name": "Verbier",
-      "region_id": "european-alps",
-      "era5": {
-        "seasons_used": 10,
-        "mean_season_snow_cm": 330.5,
-        "cv": 0.236,
-        "worst_season_cm": 208.4,
-        "best_season_cm": 508.3,
-        "cold_day_frac": 0.234
-      }
+      "region_id": "european-alps"
     },
     "courchevel": {
       "name": "Les Trois Vallées (Courchevel / Méribel / Val Thorens)",
-      "region_id": "european-alps",
-      "era5": {
-        "seasons_used": 10,
-        "mean_season_snow_cm": 405.7,
-        "cv": 0.263,
-        "worst_season_cm": 261.4,
-        "best_season_cm": 682.8,
-        "cold_day_frac": 0.429
-      }
+      "region_id": "european-alps"
     },
     "kitzbuhel": {
       "name": "Kitzbühel",
-      "region_id": "european-alps",
-      "era5": {
-        "seasons_used": 10,
-        "mean_season_snow_cm": 255.4,
-        "cv": 0.337,
-        "worst_season_cm": 174.2,
-        "best_season_cm": 480.6,
-        "cold_day_frac": 0.105
-      }
+      "region_id": "european-alps"
     },
     "st-moritz": {
       "name": "St. Moritz",
-      "region_id": "european-alps",
-      "era5": {
-        "seasons_used": 10,
-        "mean_season_snow_cm": 218.2,
-        "cv": 0.333,
-        "worst_season_cm": 121.1,
-        "best_season_cm": 353.6,
-        "cold_day_frac": 0.472
-      }
+      "region_id": "european-alps"
     },
     "solden": {
       "name": "Sölden",
-      "region_id": "european-alps",
-      "era5": {
-        "seasons_used": 10,
-        "mean_season_snow_cm": 263.4,
-        "cv": 0.277,
-        "worst_season_cm": 174.7,
-        "best_season_cm": 390.3,
-        "cold_day_frac": 0.822
-      }
+      "region_id": "european-alps"
     },
     "saalbach": {
       "name": "Saalbach",
-      "region_id": "european-alps",
-      "era5": {
-        "seasons_used": 10,
-        "mean_season_snow_cm": 237.7,
-        "cv": 0.295,
-        "worst_season_cm": 155.9,
-        "best_season_cm": 425.5,
-        "cold_day_frac": 0.171
-      }
+      "region_id": "european-alps"
     },
     "zell-am-see": {
       "name": "Zell am See-Kaprun",
-      "region_id": "european-alps",
-      "era5": {
-        "seasons_used": 10,
-        "mean_season_snow_cm": 206.3,
-        "cv": 0.314,
-        "worst_season_cm": 123.4,
-        "best_season_cm": 363.9,
-        "cold_day_frac": 0.093
-      }
+      "region_id": "european-alps"
     },
     "mayrhofen": {
       "name": "Mayrhofen",
-      "region_id": "european-alps",
-      "era5": {
-        "seasons_used": 10,
-        "mean_season_snow_cm": 283.3,
-        "cv": 0.255,
-        "worst_season_cm": 200.2,
-        "best_season_cm": 456.0,
-        "cold_day_frac": 0.064
-      }
+      "region_id": "european-alps"
     },
     "andermatt": {
       "name": "Andermatt",
-      "region_id": "european-alps",
-      "era5": {
-        "seasons_used": 10,
-        "mean_season_snow_cm": 317.3,
-        "cv": 0.311,
-        "worst_season_cm": 203.8,
-        "best_season_cm": 499.2,
-        "cold_day_frac": 0.35
-      }
+      "region_id": "european-alps"
     },
     "ischgl": {
       "name": "Ischgl",
-      "region_id": "european-alps",
-      "era5": {
-        "seasons_used": 10,
-        "mean_season_snow_cm": 268.2,
-        "cv": 0.283,
-        "worst_season_cm": 153.2,
-        "best_season_cm": 378.8,
-        "cold_day_frac": 0.57
-      }
+      "region_id": "european-alps"
     },
     "grandvalira": {
       "name": "Grandvalira",
-      "region_id": "european-alps",
-      "era5": {
-        "seasons_used": 10,
-        "mean_season_snow_cm": 281.3,
-        "cv": 0.412,
-        "worst_season_cm": 118.0,
-        "best_season_cm": 543.5,
-        "cold_day_frac": 0.297
-      }
+      "region_id": "european-alps"
     },
     "cortina": {
       "name": "Cortina d'Ampezzo",
-      "region_id": "european-alps",
-      "era5": {
-        "seasons_used": 10,
-        "mean_season_snow_cm": 204.1,
-        "cv": 0.502,
-        "worst_season_cm": 76.5,
-        "best_season_cm": 402.4,
-        "cold_day_frac": 0.172
-      }
+      "region_id": "european-alps"
     },
     "madonna-campiglio": {
       "name": "Madonna di Campiglio",
-      "region_id": "european-alps",
-      "era5": {
-        "seasons_used": 10,
-        "mean_season_snow_cm": 185.8,
-        "cv": 0.493,
-        "worst_season_cm": 58.7,
-        "best_season_cm": 341.2,
-        "cold_day_frac": 0.288
-      }
+      "region_id": "european-alps"
     },
     "niseko": {
       "name": "Niseko United",
-      "region_id": "japan",
-      "era5": {
-        "seasons_used": 10,
-        "mean_season_snow_cm": 236.3,
-        "cv": 0.192,
-        "worst_season_cm": 165.5,
-        "best_season_cm": 315.2,
-        "cold_day_frac": 0.544
-      }
+      "region_id": "japan"
     },
     "furano": {
       "name": "Furano",
-      "region_id": "japan",
-      "era5": {
-        "seasons_used": 10,
-        "mean_season_snow_cm": 210.5,
-        "cv": 0.11,
-        "worst_season_cm": 180.7,
-        "best_season_cm": 254.7,
-        "cold_day_frac": 0.646
-      }
+      "region_id": "japan"
     },
     "myoko": {
       "name": "Myoko",
-      "region_id": "japan",
-      "era5": {
-        "seasons_used": 10,
-        "mean_season_snow_cm": 481.4,
-        "cv": 0.223,
-        "worst_season_cm": 272.9,
-        "best_season_cm": 681.7,
-        "cold_day_frac": 0.209
-      }
+      "region_id": "japan"
     },
     "nozawa-onsen": {
       "name": "Nozawa Onsen",
-      "region_id": "japan",
-      "era5": {
-        "seasons_used": 10,
-        "mean_season_snow_cm": 448.1,
-        "cv": 0.213,
-        "worst_season_cm": 301.2,
-        "best_season_cm": 634.7,
-        "cold_day_frac": 0.144
-      }
+      "region_id": "japan"
     },
     "hakuba": {
       "name": "Hakuba Valley (Happo-One)",
-      "region_id": "japan",
-      "era5": {
-        "seasons_used": 10,
-        "mean_season_snow_cm": 407.0,
-        "cv": 0.21,
-        "worst_season_cm": 301.4,
-        "best_season_cm": 608.7,
-        "cold_day_frac": 0.154
-      }
+      "region_id": "japan"
     },
     "rusutsu": {
       "name": "Rusutsu",
-      "region_id": "japan",
-      "era5": {
-        "seasons_used": 10,
-        "mean_season_snow_cm": 208.2,
-        "cv": 0.205,
-        "worst_season_cm": 154.3,
-        "best_season_cm": 291.5,
-        "cold_day_frac": 0.704
-      }
+      "region_id": "japan"
     },
     "appi-kogen": {
       "name": "Appi Kogen",
-      "region_id": "japan",
-      "era5": {
-        "seasons_used": 10,
-        "mean_season_snow_cm": 385.6,
-        "cv": 0.215,
-        "worst_season_cm": 166.5,
-        "best_season_cm": 502.8,
-        "cold_day_frac": 0.726
-      }
+      "region_id": "japan"
     },
     "shiga-kogen": {
       "name": "Shiga Kogen",
-      "region_id": "japan",
-      "era5": {
-        "seasons_used": 10,
-        "mean_season_snow_cm": 339.3,
-        "cv": 0.172,
-        "worst_season_cm": 213.4,
-        "best_season_cm": 435.5,
-        "cold_day_frac": 0.817
-      }
+      "region_id": "japan"
     },
     "portillo": {
       "name": "Portillo",
-      "region_id": "andes",
-      "era5": {
-        "seasons_used": 10,
-        "mean_season_snow_cm": 304.3,
-        "cv": 0.389,
-        "worst_season_cm": 123.1,
-        "best_season_cm": 584.4,
-        "cold_day_frac": 0.308
-      }
+      "region_id": "andes"
     },
     "valle-nevado": {
       "name": "Valle Nevado",
-      "region_id": "andes",
-      "era5": {
-        "seasons_used": 10,
-        "mean_season_snow_cm": 260.0,
-        "cv": 0.303,
-        "worst_season_cm": 110.7,
-        "best_season_cm": 396.8,
-        "cold_day_frac": 0.459
-      }
+      "region_id": "andes"
     },
     "bariloche": {
       "name": "Bariloche (Cerro Catedral)",
-      "region_id": "andes",
-      "era5": {
-        "seasons_used": 10,
-        "mean_season_snow_cm": 366.0,
-        "cv": 0.233,
-        "worst_season_cm": 210.1,
-        "best_season_cm": 509.8,
-        "cold_day_frac": 0.089
-      }
+      "region_id": "andes"
     },
     "las-lenas": {
       "name": "Las Leñas",
-      "region_id": "andes",
-      "era5": {
-        "seasons_used": 10,
-        "mean_season_snow_cm": 450.3,
-        "cv": 0.503,
-        "worst_season_cm": 195.5,
-        "best_season_cm": 1033.5,
-        "cold_day_frac": 0.293
-      }
+      "region_id": "andes"
     },
     "nevados-de-chillan": {
       "name": "Nevados de Chillán",
-      "region_id": "andes",
-      "era5": {
-        "seasons_used": 10,
-        "mean_season_snow_cm": 719.2,
-        "cv": 0.378,
-        "worst_season_cm": 186.6,
-        "best_season_cm": 1093.0,
-        "cold_day_frac": 0.445
-      }
+      "region_id": "andes"
     },
     "cerro-castor": {
       "name": "Cerro Castor",
-      "region_id": "andes",
-      "era5": {
-        "seasons_used": 10,
-        "mean_season_snow_cm": 151.9,
-        "cv": 0.175,
-        "worst_season_cm": 99.1,
-        "best_season_cm": 189.0,
-        "cold_day_frac": 0.893
-      }
+      "region_id": "andes"
     },
     "perisher": {
       "name": "Perisher",
-      "region_id": "australia",
-      "era5": {
-        "seasons_used": 10,
-        "mean_season_snow_cm": 211.2,
-        "cv": 0.501,
-        "worst_season_cm": 36.3,
-        "best_season_cm": 368.6,
-        "cold_day_frac": 0.146
-      }
+      "region_id": "australia"
     },
     "falls-creek": {
       "name": "Falls Creek",
-      "region_id": "australia",
-      "era5": {
-        "seasons_used": 10,
-        "mean_season_snow_cm": 175.6,
-        "cv": 0.556,
-        "worst_season_cm": 25.5,
-        "best_season_cm": 332.4,
-        "cold_day_frac": 0.144
-      }
+      "region_id": "australia"
     },
     "thredbo": {
       "name": "Thredbo",
-      "region_id": "australia",
-      "era5": {
-        "seasons_used": 10,
-        "mean_season_snow_cm": 231.3,
-        "cv": 0.504,
-        "worst_season_cm": 61.5,
-        "best_season_cm": 477.0,
-        "cold_day_frac": 0.06
-      }
+      "region_id": "australia"
     },
     "mt-buller": {
       "name": "Mt. Buller",
-      "region_id": "australia",
-      "era5": {
-        "seasons_used": 10,
-        "mean_season_snow_cm": 75.7,
-        "cv": 0.543,
-        "worst_season_cm": 23.5,
-        "best_season_cm": 160.0,
-        "cold_day_frac": 0.168
-      }
+      "region_id": "australia"
     },
     "mt-hotham": {
       "name": "Mt. Hotham",
-      "region_id": "australia",
-      "era5": {
-        "seasons_used": 10,
-        "mean_season_snow_cm": 171.9,
-        "cv": 0.512,
-        "worst_season_cm": 48.1,
-        "best_season_cm": 354.3,
-        "cold_day_frac": 0.288
-      }
+      "region_id": "australia"
     },
     "are": {
       "name": "Åre",
-      "region_id": "scandinavia",
-      "era5": {
-        "seasons_used": 10,
-        "mean_season_snow_cm": 169.8,
-        "cv": 0.219,
-        "worst_season_cm": 115.3,
-        "best_season_cm": 218.8,
-        "cold_day_frac": 0.585
-      }
+      "region_id": "scandinavia"
     },
     "hemsedal": {
       "name": "Hemsedal",
-      "region_id": "scandinavia",
-      "era5": {
-        "seasons_used": 10,
-        "mean_season_snow_cm": 195.6,
-        "cv": 0.177,
-        "worst_season_cm": 134.4,
-        "best_season_cm": 254.1,
-        "cold_day_frac": 0.61
-      }
+      "region_id": "scandinavia"
     },
     "trysil": {
       "name": "Trysil",
-      "region_id": "scandinavia",
-      "era5": {
-        "seasons_used": 10,
-        "mean_season_snow_cm": 138.0,
-        "cv": 0.178,
-        "worst_season_cm": 98.3,
-        "best_season_cm": 170.7,
-        "cold_day_frac": 0.564
-      }
+      "region_id": "scandinavia"
     },
     "riksgransen": {
       "name": "Riksgränsen",
-      "region_id": "scandinavia",
-      "era5": {
-        "seasons_used": 10,
-        "mean_season_snow_cm": 459.4,
-        "cv": 0.318,
-        "worst_season_cm": 225.8,
-        "best_season_cm": 664.2,
-        "cold_day_frac": 0.859
-      }
+      "region_id": "scandinavia"
     },
     "levi": {
       "name": "Levi",
-      "region_id": "scandinavia",
-      "era5": {
-        "seasons_used": 10,
-        "mean_season_snow_cm": 105.9,
-        "cv": 0.177,
-        "worst_season_cm": 82.1,
-        "best_season_cm": 144.2,
-        "cold_day_frac": 0.825
-      }
+      "region_id": "scandinavia"
     },
     "ruka": {
       "name": "Ruka",

@@ -13,8 +13,16 @@ genuinely predictive vs. just describing current state, and has a scenario
 explorer for imposing hypothetical ENSO/NAO/PDO/PNA/SAM readings to see how
 the rankings would change.
 
-Currently covers **101 resorts across 10 regions**, live in production at
+Currently covers **127 resorts across 16 regions**, live in production at
 https://chrisjkennedy.github.io/the-snow-signal/.
+
+Three pages:
+
+| Page | What it does |
+|---|---|
+| `index.html` | Season planner. Regions ranked by the live climate signal, expand one to see its resorts ranked. |
+| `plan.html` | Trip planner. Your dates, ability, pass and budget in; ranked destinations with cost estimates out. |
+| `oscillations.html` | Reference. What each climate signal is, which regions it drives, and how far ahead it means anything. |
 
 ## Why it's structured this way
 
@@ -103,43 +111,58 @@ the binding constraint. High, cold, consistent resorts barely move in
 either direction — which is the real-world behavior this is meant to
 capture.
 
-Two honest limitations, both stated in the UI:
-- ERA5 runs on a ~25km grid, so it smooths sharp peaks and **understates
-  absolute snowfall at altitude** (Vail reads ~132in/season vs. ~354in
-  published). It's used for *relative* reliability, consistency, and
-  temperature risk — never printed as a resort's real snowfall figure.
+### Sampling at mid-mountain, not the valley floor
+
+ERA5 runs on a ~25km grid and reports each cell's *average* elevation,
+which for a mountain resort is close to the valley. Sampled that way,
+Chamonix reported 2% of winter days below freezing and 153cm of snow —
+because the grid point sits at 1,041m in the valley, not on the glacier.
+Sampled at 2,500m, the same location reports 71% and 366cm.
+
+Uncorrected, this systematically punished exactly the resorts with the most
+vertical: Chamonix, Zell am See, Mayrhofen and Bansko all looked warm and
+unreliable purely because their base areas are low. Every resort is now
+sampled at the midpoint of its base and summit, which is roughly where the
+skiable terrain sits, using Open-Meteo's elevation downscaling.
+
+Two limitations remain, both stated in the UI:
+- Absolute snowfall is still understated versus published resort figures,
+  because a 25km cell cannot resolve a single peak. The numbers are used
+  for *relative* reliability, consistency and rain-line risk — never
+  printed as a resort's real snowfall total.
 - The score measures snow **reliability**, not terrain quality, vertical,
   or powder character. Steamboat's famously light snow, for instance, is
   a quality story the score doesn't try to capture.
 
 Where a resort also has a nearby NRCS SNOTEL/snow-course station (about 30
-of the 101, all in the western US), its long-period median peak SWE and
+of the 127, all in the western US), its long-period median peak SWE and
 typical peak date are shown too — decades of real ground truth alongside
 the reanalysis.
 
-Six resorts (Niseko, Furano, Myoko, Nozawa Onsen, Madonna di Campiglio,
-Cerro Castor) are held out of the ranking entirely and labeled as such:
-Open-Meteo's hourly request cap cut the climatology fetch short. Re-running
-`scripts/build_resort_climatology.py` fills them in — it's incremental and
-only fetches what's missing. They're shown unranked rather than scored
-zero, because an unscored Niseko sorted last would read as "worst," which
-is the opposite of what missing data means.
+Resorts whose climatology has not been retrieved yet are held out of the ranking entirely and labeled as such, rather than scored zero — an unscored Niseko sorted last would read as "worst," which inverts what missing data means. `scripts/build_resort_climatology.py` is incremental and stops cleanly when it hits Open-Meteo's hourly cap, so re-running it fills the gaps.
 
 ## How it's built
 
 ```
-index.html                     page shell + fixed brand/hero + wildcard/footer copy
-css/style.css                  all styling
+index.html                     season planner
+plan.html                      trip planner + cost calculator
+oscillations.html              climate signal reference
+css/style.css                  all styling (shared across the three pages)
 js/app.js                      picks the current ENSO phase, sorts/renders regions,
                                 resort rows, map, backtest table, and the scenario explorer
+js/plan.js                     trip planner: filtering, scoring, cost estimates
+js/oscillations.js             signal reference tabs
 js/data-sources.js             the live data fetchers (see below)
-data/resorts.json              101 resorts: coords, elevations, passes, station IDs,
+data/resorts.json              127 resorts: coords, elevations, passes, station IDs,
                                 verified snow-report links, phase-aware region narratives
 data/phase-copy.json           the live-status line + mechanism text per ENSO phase
 data/oni.json                  ENSO/ONI snapshot — regenerate with scripts/update_oni.py
 data/climate-signals.json      NAO/AO/PDO snapshot — regenerate with scripts/update_signals.py
 data/signal-metadata.json      static: update cadence + real predictive horizon per signal
 data/resort-climatology.json   per-resort ERA5 + NRCS station history (basis for resort ranking)
+data/lift-prices.json          day-ticket ranges: published rates where found, regional bands otherwise
+data/trip-costs.json           flight/lodging/food assumptions for the trip planner
+data/continents.geojson        country outlines tagged by continent, for the map
 data/backtest-2025-26.json     hand-researched season backtest (see below)
 data/affiliates.json           your affiliate link config (empty placeholders for now)
 scripts/update_oni.py          pulls NOAA's ONI table server-side, classifies the phase
@@ -166,7 +189,7 @@ western US and parts of BC/Alberta. NRCS has essentially no coverage in the
 Northeast US, Europe, Japan, Andes, Australia, or most of coastal BC, so
 those resorts show "no nearby station" and rely on the Open-Meteo forecast
 panel and the live snow-report link instead. That's a real data-coverage
-gap, not a bug — with ~101 resorts hitting the SNOTEL API on every load,
+gap, not a bug — with ~127 resorts hitting the SNOTEL API on every load,
 `js/app.js` also throttles requests to 6 concurrent (`runWithConcurrency`)
 to avoid tripping the API's rate limit.
 
