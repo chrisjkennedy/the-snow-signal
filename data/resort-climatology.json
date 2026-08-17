@@ -1215,23 +1215,63 @@
     },
     "madonna-campiglio": {
       "name": "Madonna di Campiglio",
-      "region_id": "european-alps"
+      "region_id": "european-alps",
+      "era5": {
+        "seasons_used": 10,
+        "mean_season_snow_cm": 185.8,
+        "cv": 0.493,
+        "worst_season_cm": 58.7,
+        "best_season_cm": 341.2,
+        "cold_day_frac": 0.288
+      }
     },
     "niseko": {
       "name": "Niseko United",
-      "region_id": "japan"
+      "region_id": "japan",
+      "era5": {
+        "seasons_used": 10,
+        "mean_season_snow_cm": 236.3,
+        "cv": 0.192,
+        "worst_season_cm": 165.5,
+        "best_season_cm": 315.2,
+        "cold_day_frac": 0.544
+      }
     },
     "furano": {
       "name": "Furano",
-      "region_id": "japan"
+      "region_id": "japan",
+      "era5": {
+        "seasons_used": 10,
+        "mean_season_snow_cm": 210.5,
+        "cv": 0.11,
+        "worst_season_cm": 180.7,
+        "best_season_cm": 254.7,
+        "cold_day_frac": 0.646
+      }
     },
     "myoko": {
       "name": "Myoko",
-      "region_id": "japan"
+      "region_id": "japan",
+      "era5": {
+        "seasons_used": 10,
+        "mean_season_snow_cm": 481.4,
+        "cv": 0.223,
+        "worst_season_cm": 272.9,
+        "best_season_cm": 681.7,
+        "cold_day_frac": 0.209
+      }
     },
     "nozawa-onsen": {
       "name": "Nozawa Onsen",
-      "region_id": "japan"
+      "region_id": "japan",
+      "era5": {
+        "seasons_used": 10,
+        "mean_season_snow_cm": 448.1,
+        "cv": 0.213,
+        "worst_season_cm": 301.2,
+        "best_season_cm": 634.7,
+        "cold_day_frac": 0.144
+      }
     },
     "hakuba": {
       "name": "Hakuba Valley (Happo-One)",
@@ -1343,7 +1383,15 @@
     },
     "cerro-castor": {
       "name": "Cerro Castor",
-      "region_id": "andes"
+      "region_id": "andes",
+      "era5": {
+        "seasons_used": 10,
+        "mean_season_snow_cm": 151.9,
+        "cv": 0.175,
+        "worst_season_cm": 99.1,
+        "best_season_cm": 189.0,
+        "cold_day_frac": 0.893
+      }
     },
     "perisher": {
       "name": "Perisher",
@@ -1404,6 +1452,150 @@
         "best_season_cm": 354.3,
         "cold_day_frac": 0.288
       }
+    },
+    "are": {
+      "name": "Åre",
+      "region_id": "scandinavia",
+      "era5": {
+        "seasons_used": 10,
+        "mean_season_snow_cm": 169.8,
+        "cv": 0.219,
+        "worst_season_cm": 115.3,
+        "best_season_cm": 218.8,
+        "cold_day_frac": 0.585
+      }
+    },
+    "hemsedal": {
+      "name": "Hemsedal",
+      "region_id": "scandinavia",
+      "era5": {
+        "seasons_used": 10,
+        "mean_season_snow_cm": 195.6,
+        "cv": 0.177,
+        "worst_season_cm": 134.4,
+        "best_season_cm": 254.1,
+        "cold_day_frac": 0.61
+      }
+    },
+    "trysil": {
+      "name": "Trysil",
+      "region_id": "scandinavia",
+      "era5": {
+        "seasons_used": 10,
+        "mean_season_snow_cm": 138.0,
+        "cv": 0.178,
+        "worst_season_cm": 98.3,
+        "best_season_cm": 170.7,
+        "cold_day_frac": 0.564
+      }
+    },
+    "riksgransen": {
+      "name": "Riksgränsen",
+      "region_id": "scandinavia",
+      "era5": {
+        "seasons_used": 10,
+        "mean_season_snow_cm": 459.4,
+        "cv": 0.318,
+        "worst_season_cm": 225.8,
+        "best_season_cm": 664.2,
+        "cold_day_frac": 0.859
+      }
+    },
+    "levi": {
+      "name": "Levi",
+      "region_id": "scandinavia",
+      "era5": {
+        "seasons_used": 10,
+        "mean_season_snow_cm": 105.9,
+        "cv": 0.177,
+        "worst_season_cm": 82.1,
+        "best_season_cm": 144.2,
+        "cold_day_frac": 0.825
+      }
+    },
+    "ruka": {
+      "name": "Ruka",
+      "region_id": "scandinavia"
+    },
+    "bansko": {
+      "name": "Bansko",
+      "region_id": "balkans"
+    },
+    "borovets": {
+      "name": "Borovets",
+      "region_id": "balkans"
+    },
+    "pamporovo": {
+      "name": "Pamporovo",
+      "region_id": "balkans"
+    },
+    "kopaonik": {
+      "name": "Kopaonik",
+      "region_id": "balkans"
+    },
+    "poiana-brasov": {
+      "name": "Poiana Brașov",
+      "region_id": "balkans"
+    },
+    "jahorina": {
+      "name": "Jahorina",
+      "region_id": "balkans"
+    },
+    "gudauri": {
+      "name": "Gudauri",
+      "region_id": "caucasus-turkiye"
+    },
+    "rosa-khutor": {
+      "name": "Rosa Khutor",
+      "region_id": "caucasus-turkiye"
+    },
+    "palandoken": {
+      "name": "Palandöken",
+      "region_id": "caucasus-turkiye"
+    },
+    "erciyes": {
+      "name": "Erciyes",
+      "region_id": "caucasus-turkiye"
+    },
+    "shymbulak": {
+      "name": "Shymbulak",
+      "region_id": "central-asia"
+    },
+    "karakol": {
+      "name": "Karakol",
+      "region_id": "central-asia"
+    },
+    "coronet-peak": {
+      "name": "Coronet Peak",
+      "region_id": "new-zealand"
+    },
+    "remarkables": {
+      "name": "The Remarkables",
+      "region_id": "new-zealand"
+    },
+    "cardrona": {
+      "name": "Cardrona",
+      "region_id": "new-zealand"
+    },
+    "treble-cone": {
+      "name": "Treble Cone",
+      "region_id": "new-zealand"
+    },
+    "mt-hutt": {
+      "name": "Mt Hutt",
+      "region_id": "new-zealand"
+    },
+    "yongpyong": {
+      "name": "Yongpyong",
+      "region_id": "korea-china"
+    },
+    "yabuli": {
+      "name": "Yabuli",
+      "region_id": "korea-china"
+    },
+    "chongli-genting": {
+      "name": "Chongli (Genting)",
+      "region_id": "korea-china"
     }
   }
 }

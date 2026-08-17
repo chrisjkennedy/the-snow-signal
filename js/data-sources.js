@@ -70,6 +70,19 @@ export async function loadSignalMetadata() {
   return fetchJson("./data/signal-metadata.json");
 }
 
+export async function loadLiftPrices() {
+  try {
+    return await fetchJson("./data/lift-prices.json");
+  } catch (e) {
+    console.warn("Lift price data unavailable", e);
+    return null;
+  }
+}
+
+export async function loadTripCosts() {
+  return fetchJson("./data/trip-costs.json");
+}
+
 export async function loadContinents() {
   try {
     return await fetchJson("./data/continents.geojson");

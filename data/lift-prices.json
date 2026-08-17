@@ -1,0 +1,277 @@
+{
+  "_readme": "Indicative adult single-day lift ticket prices in USD, for budgeting only. Two kinds of entry: 'verified' means a published 2025-26 rate was found for that resort (source noted); 'band' means no per-resort figure was found and the resort inherits a regional/tier band. Nearly every large resort now uses dynamic pricing, so the walk-up window rate on a holiday can be double the advance-purchase rate for the same day — that spread is what low/high represents. Treat these as a planning range, never a quote; the resort's own site (linked on every resort row) is the only authority. Currency conversions are approximate and were made when this file was written.",
+  "updated": "2026-08",
+  "currency": "USD",
+  "tiers": {
+    "us_premium": {
+      "low": 180,
+      "high": 330,
+      "label": "US premium destination",
+      "note": "Holiday window rates at the top US resorts now push past $300; advance online purchase is typically 25-40% less."
+    },
+    "us_major": {
+      "low": 130,
+      "high": 240,
+      "label": "US major resort"
+    },
+    "us_regional": {
+      "low": 85,
+      "high": 165,
+      "label": "US regional / independent"
+    },
+    "northeast_major": {
+      "low": 105,
+      "high": 195,
+      "label": "Northeast US major"
+    },
+    "northeast_small": {
+      "low": 75,
+      "high": 145,
+      "label": "Northeast US mid-size"
+    },
+    "canada_premium": {
+      "low": 120,
+      "high": 235,
+      "label": "Canada premium"
+    },
+    "canada_major": {
+      "low": 80,
+      "high": 160,
+      "label": "Canada major"
+    },
+    "alps_premium": {
+      "low": 75,
+      "high": 115,
+      "label": "Alps premium",
+      "note": "Even the most expensive Alpine resorts undercut mid-tier US resorts on lift tickets. This is the single biggest cost difference between a US and a European ski trip."
+    },
+    "alps_major": {
+      "low": 60,
+      "high": 90,
+      "label": "Alps major"
+    },
+    "scandinavia": {
+      "low": 50,
+      "high": 80,
+      "label": "Scandinavia"
+    },
+    "balkans": {
+      "low": 30,
+      "high": 55,
+      "label": "Balkans / Eastern Europe",
+      "note": "The cheapest lift tickets of any developed ski region, typically a third of Alpine prices and a fifth of US ones."
+    },
+    "japan_premium": {
+      "low": 70,
+      "high": 95,
+      "label": "Japan premium (Niseko tier)"
+    },
+    "japan_major": {
+      "low": 40,
+      "high": 70,
+      "label": "Japan major"
+    },
+    "korea_china": {
+      "low": 45,
+      "high": 90,
+      "label": "Korea / China"
+    },
+    "caucasus_central_asia": {
+      "low": 20,
+      "high": 50,
+      "label": "Caucasus / Türkiye / Central Asia",
+      "note": "Very low lift costs, though travel and logistics usually dominate the budget for these destinations."
+    },
+    "andes": {
+      "low": 70,
+      "high": 130,
+      "label": "Andes"
+    },
+    "australia": {
+      "low": 100,
+      "high": 155,
+      "label": "Australia",
+      "note": "Expensive relative to terrain served — Australian day tickets rival mid-tier US resorts."
+    },
+    "new_zealand": {
+      "low": 75,
+      "high": 125,
+      "label": "New Zealand"
+    }
+  },
+  "verified": {
+    "vail": {
+      "low": 130,
+      "high": 356,
+      "source": "Published 2025-26 peak holiday window rate reported at $356; advance rates substantially lower."
+    },
+    "aspen-snowmass": {
+      "low": 98,
+      "high": 264,
+      "source": "Aspen Snowmass 2025-26: $98-120 early/advance, $189-264 mid-season."
+    },
+    "jackson-hole": {
+      "low": 175,
+      "high": 255,
+      "source": "Jackson Hole 2025-26 published range, $175-225 by date; ~$255 online peak."
+    },
+    "big-sky": {
+      "low": 150,
+      "high": 242,
+      "source": "Big Sky 2025-26, $242 with online discount at peak."
+    },
+    "palisades-tahoe": {
+      "low": 145,
+      "high": 289,
+      "source": "Palisades Tahoe 2025-26 peak $289, up to ~35% off for early online booking."
+    },
+    "snowbird": {
+      "low": 165,
+      "high": 265,
+      "source": "Snowbird 2025-26 adult day from $165."
+    },
+    "sugarloaf": {
+      "low": 95,
+      "high": 129,
+      "source": "Sugarloaf 2025-26, $129 with online discount."
+    },
+    "zermatt": {
+      "low": 85,
+      "high": 115,
+      "source": "Zermatt/Matterhorn Ski Paradise 2025-26, roughly CHF 97 (~$113) peak day."
+    },
+    "st-anton": {
+      "low": 67,
+      "high": 80,
+      "source": "St. Anton / Ski Arlberg 2025-26, €62-72 (~$67-78) by date."
+    },
+    "mayrhofen": {
+      "low": 78,
+      "high": 95,
+      "source": "Zillertal area adult day ~€82 (~$89)."
+    },
+    "niseko": {
+      "low": 80,
+      "high": 95,
+      "source": "Niseko United All Mountain 2025-26, ¥12,000-13,500 (~$80-90)."
+    }
+  },
+  "resort_tier": {
+    "park-city": "us_premium",
+    "deer-valley": "us_premium",
+    "steamboat": "us_premium",
+    "telluride": "us_premium",
+    "alta": "us_major",
+    "breckenridge": "us_major",
+    "winter-park": "us_major",
+    "copper-mountain": "us_major",
+    "crested-butte": "us_major",
+    "solitude": "us_major",
+    "snowbasin": "us_major",
+    "mammoth": "us_major",
+    "northstar": "us_major",
+    "kirkwood": "us_major",
+    "crystal-mountain": "us_major",
+    "stevens-pass": "us_major",
+    "mt-bachelor": "us_major",
+    "sun-valley": "us_premium",
+    "grand-targhee": "us_major",
+    "summit-snoqualmie": "us_regional",
+    "schweitzer": "us_regional",
+    "alyeska": "us_major",
+    "arapahoe-basin": "us_regional",
+    "eldora": "us_regional",
+    "purgatory": "us_regional",
+    "santa-fe": "us_regional",
+    "wolf-creek": "us_regional",
+    "taos": "us_major",
+    "big-bear": "us_regional",
+    "june-mountain": "us_regional",
+    "arizona-snowbowl": "us_regional",
+    "killington": "northeast_major",
+    "stowe": "northeast_major",
+    "sugarbush": "northeast_major",
+    "sunday-river": "northeast_major",
+    "stratton": "northeast_major",
+    "loon-mountain": "northeast_major",
+    "okemo": "northeast_major",
+    "mount-snow": "northeast_small",
+    "jay-peak": "northeast_small",
+    "cannon": "northeast_small",
+    "wildcat": "northeast_small",
+    "attitash": "northeast_small",
+    "mount-sunapee": "northeast_small",
+    "hunter-mountain": "northeast_small",
+    "snowshoe": "northeast_major",
+    "tremblant": "canada_major",
+    "whistler": "canada_premium",
+    "revelstoke": "canada_major",
+    "banff-lake-louise": "canada_major",
+    "big-white": "canada_major",
+    "sun-peaks": "canada_major",
+    "kicking-horse": "canada_major",
+    "fernie": "canada_major",
+    "panorama": "canada_major",
+    "silverstar": "canada_major",
+    "red-mountain": "canada_major",
+    "cypress": "canada_major",
+    "val-disere": "alps_premium",
+    "chamonix": "alps_premium",
+    "verbier": "alps_premium",
+    "courchevel": "alps_premium",
+    "st-moritz": "alps_premium",
+    "kitzbuhel": "alps_major",
+    "solden": "alps_major",
+    "saalbach": "alps_major",
+    "zell-am-see": "alps_major",
+    "andermatt": "alps_major",
+    "ischgl": "alps_major",
+    "grandvalira": "alps_major",
+    "cortina": "alps_major",
+    "madonna-campiglio": "alps_major",
+    "are": "scandinavia",
+    "hemsedal": "scandinavia",
+    "trysil": "scandinavia",
+    "riksgransen": "scandinavia",
+    "levi": "scandinavia",
+    "ruka": "scandinavia",
+    "bansko": "balkans",
+    "borovets": "balkans",
+    "pamporovo": "balkans",
+    "kopaonik": "balkans",
+    "poiana-brasov": "balkans",
+    "jahorina": "balkans",
+    "gudauri": "caucasus_central_asia",
+    "rosa-khutor": "caucasus_central_asia",
+    "palandoken": "caucasus_central_asia",
+    "erciyes": "caucasus_central_asia",
+    "shymbulak": "caucasus_central_asia",
+    "karakol": "caucasus_central_asia",
+    "furano": "japan_major",
+    "myoko": "japan_major",
+    "nozawa-onsen": "japan_major",
+    "hakuba": "japan_premium",
+    "rusutsu": "japan_premium",
+    "appi-kogen": "japan_major",
+    "shiga-kogen": "japan_major",
+    "yongpyong": "korea_china",
+    "yabuli": "korea_china",
+    "chongli-genting": "korea_china",
+    "portillo": "andes",
+    "valle-nevado": "andes",
+    "bariloche": "andes",
+    "las-lenas": "andes",
+    "nevados-de-chillan": "andes",
+    "cerro-castor": "andes",
+    "perisher": "australia",
+    "falls-creek": "australia",
+    "thredbo": "australia",
+    "mt-buller": "australia",
+    "mt-hotham": "australia",
+    "coronet-peak": "new_zealand",
+    "remarkables": "new_zealand",
+    "cardrona": "new_zealand",
+    "treble-cone": "new_zealand",
+    "mt-hutt": "new_zealand"
+  }
+}

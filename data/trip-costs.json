@@ -1,0 +1,83 @@
+{
+  "_readme": "Planning-grade cost assumptions for the trip calculator, in USD per person. These are deliberately coarse ranges, not quotes: airfare in particular swings by more than the entire rest of the budget depending on dates, origin airport and how far ahead you book. Lodging and food are per person per day assuming two people sharing a room, which is the common case and roughly halves the per-head lodging figure versus solo travel. Lift ticket costs come from data/lift-prices.json and are per-resort rather than per-region. Everything here should be treated as a starting point for a budget, not a substitute for actually pricing a trip.",
+  "updated": "2026-08",
+  "currency": "USD",
+  "basis": "Per person. Lodging and food assume two people sharing a room. Airfare is round-trip economy booked a few months ahead.",
+
+  "origins": {
+    "us-west": "US West Coast",
+    "us-east": "US East Coast",
+    "us-central": "US Central",
+    "europe": "Europe",
+    "asia": "Asia-Pacific",
+    "other": "Elsewhere / not sure"
+  },
+
+  "flights": {
+    "_note": "Round-trip economy per person, typical advance-purchase range. 'drive' means the region is commonly reached by car from that origin, so the flight line is optional.",
+    "sierra-california":     { "us-west": [0, 250, "drive"], "us-east": [350, 700], "us-central": [250, 550], "europe": [700, 1300], "asia": [800, 1500], "other": [700, 1400] },
+    "pnw-northern-rockies":  { "us-west": [150, 400], "us-east": [400, 800], "us-central": [250, 550], "europe": [800, 1400], "asia": [850, 1500], "other": [800, 1500] },
+    "utah-central-colorado": { "us-west": [200, 450], "us-east": [300, 700], "us-central": [200, 500], "europe": [750, 1300], "asia": [900, 1600], "other": [800, 1500] },
+    "southwest-rockies":     { "us-west": [200, 450], "us-east": [350, 750], "us-central": [200, 500], "europe": [800, 1400], "asia": [950, 1700], "other": [850, 1600] },
+    "northeast-us":          { "us-west": [350, 750], "us-east": [0, 300, "drive"], "us-central": [250, 600], "europe": [500, 1000], "asia": [900, 1600], "other": [700, 1400] },
+    "canadian-rockies-bc":   { "us-west": [200, 500], "us-east": [400, 850], "us-central": [300, 650], "europe": [800, 1400], "asia": [800, 1500], "other": [850, 1600] },
+    "european-alps":         { "us-west": [700, 1400], "us-east": [500, 1100], "us-central": [600, 1200], "europe": [80, 350], "asia": [700, 1400], "other": [700, 1400] },
+    "scandinavia":           { "us-west": [750, 1500], "us-east": [550, 1150], "us-central": [650, 1250], "europe": [100, 400], "asia": [750, 1500], "other": [750, 1500] },
+    "balkans":               { "us-west": [800, 1500], "us-east": [600, 1200], "us-central": [700, 1300], "europe": [80, 350], "asia": [700, 1400], "other": [750, 1500] },
+    "japan":                 { "us-west": [700, 1400], "us-east": [900, 1800], "us-central": [850, 1600], "europe": [700, 1400], "asia": [200, 700], "other": [900, 1700] },
+    "korea-china":           { "us-west": [650, 1350], "us-east": [900, 1750], "us-central": [800, 1550], "europe": [650, 1350], "asia": [150, 600], "other": [850, 1650] },
+    "caucasus-turkiye":      { "us-west": [900, 1700], "us-east": [700, 1400], "us-central": [800, 1500], "europe": [150, 500], "asia": [400, 900], "other": [800, 1600] },
+    "central-asia":          { "us-west": [1000, 1900], "us-east": [900, 1700], "us-central": [950, 1800], "europe": [350, 850], "asia": [300, 800], "other": [900, 1800] },
+    "andes":                 { "us-west": [800, 1600], "us-east": [700, 1400], "us-central": [700, 1400], "europe": [900, 1700], "asia": [1400, 2400], "other": [900, 1800] },
+    "australia":             { "us-west": [1100, 2000], "us-east": [1300, 2300], "us-central": [1200, 2200], "europe": [1100, 2000], "asia": [400, 1000], "other": [1100, 2100] },
+    "new-zealand":           { "us-west": [1100, 2000], "us-east": [1400, 2400], "us-central": [1250, 2250], "europe": [1200, 2100], "asia": [500, 1200], "other": [1150, 2150] }
+  },
+
+  "lodging_per_day": {
+    "_note": "Per person per day, two sharing. Low end is a modest hotel or apartment a short drive from the lifts; high end is slopeside at a major resort in peak season.",
+    "sierra-california":     [90, 260],
+    "pnw-northern-rockies":  [85, 240],
+    "utah-central-colorado": [100, 320],
+    "southwest-rockies":     [80, 220],
+    "northeast-us":          [75, 210],
+    "canadian-rockies-bc":   [80, 240],
+    "european-alps":         [80, 250],
+    "scandinavia":           [80, 200],
+    "balkans":               [35, 100],
+    "japan":                 [70, 210],
+    "korea-china":           [55, 160],
+    "caucasus-turkiye":      [35, 110],
+    "central-asia":          [30, 95],
+    "andes":                 [90, 260],
+    "australia":             [95, 260],
+    "new-zealand":           [70, 190]
+  },
+
+  "food_per_day": {
+    "_note": "Per person per day: breakfast, an on-mountain lunch and dinner. On-mountain food is a large part of this at US and Australian resorts in particular.",
+    "sierra-california":     [55, 120],
+    "pnw-northern-rockies":  [50, 110],
+    "utah-central-colorado":  [55, 125],
+    "southwest-rockies":     [45, 100],
+    "northeast-us":          [45, 100],
+    "canadian-rockies-bc":   [45, 105],
+    "european-alps":         [45, 100],
+    "scandinavia":           [55, 115],
+    "balkans":               [20, 50],
+    "japan":                 [35, 80],
+    "korea-china":           [25, 65],
+    "caucasus-turkiye":      [20, 50],
+    "central-asia":          [18, 45],
+    "andes":                 [45, 100],
+    "australia":             [55, 120],
+    "new-zealand":           [45, 100]
+  },
+
+  "difficulty": {
+    "_note": "Used to filter and re-rank recommendations. Vertical drop is the crude proxy for how much a strong skier will get out of a mountain; base elevation and cold reliability matter more for beginners, who ski lower and slower and suffer most from thin or icy cover.",
+    "beginner":     { "label": "Beginner", "desc": "Learning, or mostly green and easy blue runs.", "min_vertical_ft": 0,    "prefers": "reliable cover and gentle terrain over raw size" },
+    "intermediate": { "label": "Intermediate", "desc": "Comfortable on most blues, some blacks.",    "min_vertical_ft": 1200, "prefers": "a good spread of groomed terrain" },
+    "advanced":     { "label": "Advanced", "desc": "Blacks, moguls, some off-piste.",               "min_vertical_ft": 2000, "prefers": "vertical and varied terrain" },
+    "expert":       { "label": "Expert", "desc": "Steeps, off-piste and backcountry access.",       "min_vertical_ft": 2800, "prefers": "big vertical, steep terrain and deep snow" }
+  }
+}

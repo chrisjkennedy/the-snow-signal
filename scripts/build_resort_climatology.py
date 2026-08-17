@@ -113,13 +113,43 @@ def fetch_station_climatology(triplet):
 
 
 def main():
+    import argparse
+    ap = argparse.ArgumentParser()
+    ap.add_argument('--limit', type=int, default=0,
+                    help="Max ERA5 fetches this run (0 = no limit). Open-Meteo enforces "
+                         "an hourly cap, so use this with --sleep-after to spread a large "
+                         "backfill over several hours.")
+    ap.add_argument('--sleep-after', type=int, default=0,
+                    help="Seconds to sleep after finishing a batch, then loop again. "
+                         "Use ~3900 (65 min) to land safely on the far side of the cap.")
+    ap.add_argument('--max-batches', type=int, default=1,
+                    help="How many batches to run before exiting.")
+    args = ap.parse_args()
+
+    for batch in range(1, args.max_batches + 1):
+        remaining = run_batch(args.limit)
+        print(f"--- batch {batch}/{args.max_batches} done; {remaining} resorts still missing ERA5 ---",
+              flush=True)
+        if remaining == 0:
+            print("All resorts have ERA5. Stopping early.")
+            break
+        if batch < args.max_batches and args.sleep_after:
+            print(f"Sleeping {args.sleep_after}s to clear the hourly cap...", flush=True)
+            time.sleep(args.sleep_after)
+
+
+def run_batch(limit):
     resorts = json.loads(RESORTS.read_text())
     out = json.loads(OUT.read_text()) if OUT.exists() else {'_readme': '', 'resorts': {}}
     store = out.setdefault('resorts', {})
 
     targets = [(reg['id'], r) for reg in resorts['regions'] for r in reg['resorts']]
     todo_era5 = [(rid, r) for rid, r in targets if 'era5' not in store.get(r['id'], {})]
-    print(f"{len(targets)} resorts; {len(todo_era5)} still need ERA5")
+    total_missing = len(todo_era5)
+    if limit:
+        todo_era5 = todo_era5[:limit]
+    print(f"{len(targets)} resorts; {total_missing} need ERA5; fetching {len(todo_era5)} this batch",
+          flush=True)
 
     for region_id, r in todo_era5:
         entry = store.setdefault(r['id'], {'name': r['name'], 'region_id': region_id})
@@ -159,7 +189,9 @@ def main():
 
     have_era5 = sum(1 for v in store.values() if 'era5' in v)
     have_stn = sum(1 for v in store.values() if 'station' in v)
-    print(f"\nWrote {OUT}\n  ERA5: {have_era5}/{len(targets)}   NRCS station: {have_stn}/{len(targets)}")
+    print(f"Wrote {OUT}  ERA5: {have_era5}/{len(targets)}   NRCS station: {have_stn}/{len(targets)}",
+          flush=True)
+    return len(targets) - have_era5
 
 
 if __name__ == '__main__':

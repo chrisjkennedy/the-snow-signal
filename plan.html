@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plan Your Trip — The Snow Signal</title>
+<meta name="description" content="Find where to ski for your dates and budget, ranked by the current climate signal and each resort's own snow record.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="hero hero-compact">
+  <div class="hero-inner">
+    <nav class="site-nav">
+      <a href="index.html">Season planner</a>
+      <a href="plan.html" class="active">Plan a trip</a>
+      <a href="oscillations.html">Climate signals</a>
+    </nav>
+    <p class="hero-kicker">Trip Planner</p>
+    <h1 class="hero-title">Plan a Trip</h1>
+    <p class="hero-tagline">Where to ski for your dates, your ability and your budget.</p>
+  </div>
+</div>
+
+<div class="page-wrap">
+  <div class="content">
+
+    <form class="planner" id="planner">
+      <div class="planner-grid">
+
+        <div class="pf">
+          <label for="pf-start">Trip dates</label>
+          <div class="pf-dates">
+            <input type="date" id="pf-start" aria-label="Start date">
+            <span class="pf-to">to</span>
+            <input type="date" id="pf-end" aria-label="End date">
+          </div>
+          <label class="pf-check"><input type="checkbox" id="pf-flexible-dates"> I'm flexible on dates</label>
+        </div>
+
+        <div class="pf">
+          <label for="pf-days">Days skiing</label>
+          <input type="number" id="pf-days" min="1" max="30" value="5">
+          <span class="pf-hint">Lift days, which may be fewer than nights away.</span>
+        </div>
+
+        <div class="pf">
+          <label for="pf-origin">Travelling from</label>
+          <select id="pf-origin"></select>
+        </div>
+
+        <div class="pf">
+          <label for="pf-ability">Ability</label>
+          <select id="pf-ability"></select>
+        </div>
+
+        <div class="pf">
+          <label for="pf-pass">Pass</label>
+          <select id="pf-pass">
+            <option value="none">No pass — buying lift tickets</option>
+            <option value="Epic">Epic Pass</option>
+            <option value="Ikon">Ikon Pass</option>
+            <option value="Indy Pass">Indy Pass</option>
+          </select>
+          <span class="pf-hint">With a pass selected, lift cost drops out for resorts it covers.</span>
+        </div>
+
+        <div class="pf">
+          <label for="pf-budget">Budget per person</label>
+          <select id="pf-budget">
+            <option value="any">No limit</option>
+            <option value="1500">Under $1,500</option>
+            <option value="2500">Under $2,500</option>
+            <option value="4000">Under $4,000</option>
+            <option value="6000">Under $6,000</option>
+          </select>
+        </div>
+
+        <div class="pf pf-wide">
+          <label>Where would you go?</label>
+          <div class="pf-regions" id="pf-regions"></div>
+          <label class="pf-check"><input type="checkbox" id="pf-flexible-where" checked> Anywhere — surprise me</label>
+        </div>
+
+      </div>
+
+      <div class="planner-actions">
+        <button type="submit" id="pf-go">Find trips</button>
+        <button type="button" id="pf-reset">Reset</button>
+        <span class="pf-note" id="pf-season-note"></span>
+      </div>
+    </form>
+
+    <div id="plan-results"></div>
+
+    <div class="doc-footer">
+      Recommendations are ranked by each resort's outlook score — its own snowfall, cold-day reliability and
+      year-to-year consistency from ERA5 reanalysis, plus elevation, adjusted for the climate signal currently
+      driving its region. Costs are planning estimates in USD per person, not quotes: airfare in particular varies
+      more than the rest of the budget combined. Lift prices come from published 2025-26 rates where available and
+      regional bands otherwise; every resort links to its own site, which is the only authority on price and
+      opening dates. See the <a href="index.html">season planner</a> for the live signals behind the rankings and
+      <a href="oscillations.html">climate signals</a> for what they mean.
+    </div>
+
+  </div>
+</div>
+
+<script type="module" src="js/plan.js"></script>
+</body>
+</html>

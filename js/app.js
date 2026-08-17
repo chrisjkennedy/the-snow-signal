@@ -1,11 +1,11 @@
-import { loadOni, loadResorts, loadAffiliates, loadPhaseCopy, loadClimateSignals, loadSignalMetadata, loadBacktest, loadClimatology, loadContinents, fetchSnowpack, fetchForecast } from './data-sources.js';
+import { loadOni, loadResorts, loadAffiliates, loadPhaseCopy, loadClimateSignals, loadSignalMetadata, loadBacktest, loadClimatology, loadContinents, loadLiftPrices, fetchSnowpack, fetchForecast } from './data-sources.js';
 
 // Module-level state: loaded once, then reused across live render and any
 // number of scenario re-renders (so switching scenarios never re-fetches
 // resort-level live data or rebuilds the map from scratch).
 const state = {
   oni: null, resortsData: null, affiliates: null, phaseCopy: null,
-  signals: null, signalMetadata: null, backtest: null, climatology: null,
+  signals: null, signalMetadata: null, backtest: null, climatology: null, liftPrices: null,
   mapState: null, liveCache: new Map(), scenarioActive: false,
   expandedRegion: null, activeContinent: null,
 };
@@ -591,6 +591,31 @@ function renderContextStrip(oni, phaseCopy, phaseKey) {
     : 'Live data unavailable — check back later.';
 }
 
+/**
+ * Indicative day-ticket range for a resort: a published rate where one was
+ * found, otherwise the regional/tier band. Always a range, because nearly
+ * every resort now prices dynamically by date.
+ */
+function liftPriceFor(resortId) {
+  const lp = state.liftPrices;
+  if (!lp) return null;
+  const v = lp.verified?.[resortId];
+  if (v) return { low: v.low, high: v.high, verified: true, basis: v.source };
+  const tierKey = lp.resort_tier?.[resortId];
+  const t = tierKey && lp.tiers?.[tierKey];
+  if (!t) return null;
+  return { low: t.low, high: t.high, verified: false, basis: `${t.label} band${t.note ? ' — ' + t.note : ''}` };
+}
+
+function liftPriceChipHtml(resortId) {
+  const p = liftPriceFor(resortId);
+  if (!p) return '';
+  const tip = (p.verified ? 'Published 2025-26 rate. ' : 'Estimated from a regional band, not a published rate for this resort. ')
+    + p.basis + ' Dynamic pricing means the actual rate depends on the date and how far ahead you buy — check the resort site.';
+  return `<span class="lift-price ${p.verified ? 'lp-verified' : 'lp-band'}" title="${tip.replace(/"/g, '&quot;')}">` +
+    `$${p.low}–${p.high}/day${p.verified ? '' : ' est'}</span>`;
+}
+
 /** Compact strip of the real historical numbers behind this resort's score. */
 function historyStripHtml(resort) {
   const c = climatologyFor(resort.id);
@@ -647,6 +672,7 @@ function resortRowSkeleton(resort, affiliates, score, rank) {
           ${scoreChipHtml(score)}
           <span class="resort-name">${resort.name}</span>
           <span class="resort-elev">${resort.base_elev_ft.toLocaleString()}–${resort.summit_elev_ft.toLocaleString()} ft</span>
+          ${liftPriceChipHtml(resort.id)}
         </div>
         <div>${passesHtml}</div>
       </div>
@@ -1376,11 +1402,11 @@ function wireScenarioControls() {
 }
 
 async function main() {
-  const [oni, resortsData, affiliates, phaseCopy, signals, signalMetadata, backtest, climatology] = await Promise.all([
+  const [oni, resortsData, affiliates, phaseCopy, signals, signalMetadata, backtest, climatology, liftPrices] = await Promise.all([
     loadOni(), loadResorts(), loadAffiliates(), loadPhaseCopy(), loadClimateSignals(),
-    loadSignalMetadata(), loadBacktest(), loadClimatology(),
+    loadSignalMetadata(), loadBacktest(), loadClimatology(), loadLiftPrices(),
   ]);
-  Object.assign(state, { oni, resortsData, affiliates, phaseCopy, signals, signalMetadata, backtest, climatology });
+  Object.assign(state, { oni, resortsData, affiliates, phaseCopy, signals, signalMetadata, backtest, climatology, liftPrices });
 
   // Rendered once and never touched again by scenario mode — these are
   // the permanent "ground truth" readouts.
