@@ -416,16 +416,26 @@ function renderOtherSignalsLine(signals) {
     return;
   }
   const fmt = (s) => `${s.latest_value > 0 ? '+' : ''}${s.latest_value.toFixed(2)}`;
-  const chip = (key, label) => signals[key]
-    ? `${label}: <strong>${signals[key].phase}</strong> (${fmt(signals[key])})`
-    : `${label}: unavailable`;
-  el.innerHTML = `Other signals → ` +
-    `NAO: <strong>${signals.nao.phase}</strong> (${fmt(signals.nao)}, ${signals.nao.latest_label})` +
-    `<span class="sig-sep">·</span>${chip('ao', 'AO')}` +
-    `<span class="sig-sep">·</span>${chip('pdo', 'PDO')}` +
-    `<span class="sig-sep">·</span>${chip('pna', 'PNA')}` +
-    `<span class="sig-sep">·</span>${chip('sam', 'SAM')}` +
-    `<span class="sig-sep">·</span>${chip('iod', 'IOD')}`;
+  const meta = state.signalMetadata || {};
+  // Each chip is a button into the reference panel, with a hover summary —
+  // so "what is PNA, and why do I care?" is answerable right where the
+  // acronym appears, not buried further down the page.
+  const chip = (key, label) => {
+    if (!signals[key]) return `<span class="sig-chip-off">${label}: unavailable</span>`;
+    const m = meta[key];
+    const tip = m
+      ? `${m.name} — ${m.what_it_is} Affects: ${m.regions_affected} Click for the full breakdown.`
+      : `${label} — click for details`;
+    return `<button type="button" class="sig-chip" data-signal="${key}" title="${tip.replace(/"/g, '&quot;')}">` +
+      `${label}: <strong>${signals[key].phase}</strong> (${fmt(signals[key])})</button>`;
+  };
+  el.innerHTML = `<span class="sig-line-label">Other signals →</span>` +
+    ['nao', 'ao', 'pdo', 'pna', 'sam', 'iod'].map(k => chip(k, k.toUpperCase())).join('') +
+    `<span class="sig-line-hint">click any signal to see what it means</span>`;
+
+  el.querySelectorAll('.sig-chip').forEach(btn => {
+    btn.addEventListener('click', () => openSignalDetail(btn.dataset.signal));
+  });
 }
 
 /** Describes what pdoModulatedMeterPct() actually did to the meter above, so the footnote never contradicts the bar. */
@@ -455,29 +465,101 @@ function liveSignalNote(region, signals, phaseKey, isLiveEnso) {
   return `<div class="live-signal-note">${lead}: ${label} set to <strong>${s.phase}</strong> (${val}, ${when}) — ${s.relevance}${effect}</div>`;
 }
 
-function renderSignalInfo(metadata) {
+const SIGNAL_ORDER = ['oni', 'nao', 'ao', 'pna', 'pdo', 'sam', 'iod'];
+
+/** One expandable card per oscillation: what it is, who it affects, both directions. */
+function signalCardHtml(key, s, live) {
+  const liveLine = live
+    ? `<span class="sig-live">now: <strong>${live.phase}</strong> (${live.latest_value > 0 ? '+' : ''}${live.latest_value.toFixed(2)}${live.latest_label ? `, ${live.latest_label}` : ''})</span>`
+    : '';
+  return `
+    <details class="sig-card" id="sig-card-${key}">
+      <summary class="sig-card-head">
+        <span class="sig-card-name">${s.name}</span>
+        <span class="sig-family ${s.family?.startsWith('Ocean') ? 'fam-ocean' : 'fam-atmos'}">${s.family}</span>
+        ${liveLine}
+        <span class="sig-card-horizon">${s.horizon_short}</span>
+      </summary>
+      <div class="sig-card-body">
+        <p class="sig-what"><span class="sig-field-label">What it is</span>${s.what_it_is}</p>
+        <p class="sig-what"><span class="sig-field-label">Who it affects</span>${s.regions_affected}</p>
+        <div class="sig-phases">
+          <div class="sig-phase sig-phase-pos">
+            <div class="sig-phase-label">${s.positive_label}</div>
+            <div class="sig-phase-text">${s.positive_effect}</div>
+          </div>
+          <div class="sig-phase sig-phase-neg">
+            <div class="sig-phase-label">${s.negative_label}</div>
+            <div class="sig-phase-text">${s.negative_effect}</div>
+          </div>
+        </div>
+        <div class="sig-meta-grid">
+          <div><span class="sig-field-label">Timescale</span>${s.timescale}</div>
+          <div><span class="sig-field-label">Updates</span>${s.update_frequency}</div>
+        </div>
+        <p class="sig-what"><span class="sig-field-label">How far ahead it's worth anything</span>${s.horizon_detail}</p>
+        <p class="bt-note">${s.latency}</p>
+      </div>
+    </details>
+  `;
+}
+
+function renderSignalInfo(metadata, signals) {
   const el = document.getElementById('signal-info-body');
   if (!metadata) {
     el.innerHTML = `<p class="bt-note">Signal reference info unavailable.</p>`;
     return;
   }
-  const rows = ['oni', 'nao', 'ao', 'pna', 'pdo', 'sam', 'iod'].filter(k => metadata[k]).map(key => {
-    const s = metadata[key];
-    return `
-      <tr>
-        <td class="sig-name">${s.name}</td>
-        <td>${s.update_frequency}<div class="bt-note">${s.latency}</div></td>
-        <td class="sig-horizon-tag">${s.horizon_short}</td>
-        <td>${s.horizon_detail}</td>
-      </tr>
-    `;
-  }).join('');
-  el.innerHTML = `
-    <table class="sig-table">
-      <thead><tr><th>Signal</th><th>Updates</th><th>Relevant horizon</th><th>What that actually means</th></tr></thead>
-      <tbody>${rows}</tbody>
-    </table>
-  `;
+  const p = metadata._primer;
+  const primerHtml = p ? `
+    <div class="primer">
+      <h3 class="primer-title">${p.title}</h3>
+      ${p.paragraphs.map(t => `<p class="primer-p">${t}</p>`).join('')}
+      <div class="primer-families">
+        ${p.families.map(f => `
+          <div class="primer-family ${f.label.startsWith('Ocean') ? 'fam-ocean-box' : 'fam-atmos-box'}">
+            <div class="primer-family-label">${f.label}</div>
+            <div class="primer-family-members">${f.members}</div>
+            <p class="primer-family-text">${f.text}</p>
+          </div>
+        `).join('')}
+      </div>
+      <p class="primer-p">${p.closing}</p>
+      <div class="ladder">
+        <div class="ladder-title">Timescale ladder — fastest to slowest</div>
+        ${p.timescale_ladder.map(t => `
+          <div class="ladder-row">
+            <span class="ladder-sig">${t.signal}</span>
+            <span class="ladder-span">${t.span}</span>
+            <span class="ladder-note">${t.note}</span>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+  ` : '';
+
+  const cards = SIGNAL_ORDER.filter(k => metadata[k])
+    .map(k => signalCardHtml(k, metadata[k], signals?.[k]))
+    .join('');
+
+  el.innerHTML = `${primerHtml}<div class="sig-cards">${cards}</div>`;
+}
+
+/**
+ * Opens the reference panel and expands one oscillation's card — used when
+ * a signal chip or a scenario-picker label is clicked, so "what is PNA?"
+ * is always one click away from wherever the signal is mentioned.
+ */
+function openSignalDetail(key) {
+  const box = document.getElementById('signal-info-box');
+  const card = document.getElementById(`sig-card-${key}`);
+  if (!box || !card) return;
+  box.open = true;
+  document.querySelectorAll('.sig-card[open]').forEach(c => { if (c !== card) c.open = false; });
+  card.open = true;
+  card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  card.classList.add('sig-card-flash');
+  setTimeout(() => card.classList.remove('sig-card-flash'), 1200);
 }
 
 function renderContextStrip(oni, phaseCopy, phaseKey) {
@@ -1128,6 +1210,17 @@ function wireScenarioControls() {
   document.getElementById('scenario-reset').addEventListener('click', resetScenario);
   document.getElementById('scenario-banner-reset').addEventListener('click', resetScenario);
 
+  // Every picker gets a "?" that opens that oscillation's explainer, so a
+  // user confronted with "SAM" has somewhere to go without hunting.
+  document.querySelectorAll('[data-explain]').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      openSignalDetail(btn.dataset.explain);
+    });
+    const m = state.signalMetadata?.[btn.dataset.explain];
+    if (m) btn.title = `${m.name} — ${m.what_it_is} Click for the full breakdown.`;
+  });
+
   // Initialize the readout on first load, before any Apply click.
   const live = {};
   for (const key of SCENARIO_SIGNAL_KEYS) live[key] = 'live';
@@ -1145,7 +1238,7 @@ async function main() {
   // the permanent "ground truth" readouts.
   renderOniBanner(oni);
   renderOtherSignalsLine(signals);
-  renderSignalInfo(signalMetadata);
+  renderSignalInfo(signalMetadata, signals);
   renderBacktest(backtest, resortsData);
 
   state.mapState = initMap(resortsData, currentPhaseKeyFor(oni), signals);

@@ -60,7 +60,7 @@
     <div class="other-signals-line" id="other-signals-line">Loading other climate signals…</div>
 
     <details class="signal-info-box" id="signal-info-box">
-      <summary class="signal-info-summary">How often is this updated, and how far ahead does it actually mean anything? →</summary>
+      <summary class="signal-info-summary">What are these climate oscillations, which regions does each one drive, and how far ahead is any of it worth anything? →</summary>
       <div class="signal-info-body" id="signal-info-body">Loading…</div>
     </details>
 
@@ -71,7 +71,7 @@
       </div>
       <p class="scenario-panel-sub">Override any live signal to see how the rankings and narratives below would change. This never edits the live readings above — it's a hypothetical, clearly marked, and one click from resetting. Each oscillation is set independently and shows its own status, so if something looks stuck, check the readout underneath. NAO drives the Northeast and the Alps; SAM drives Australia; PDO modulates the West Coast; PNA is a check on whether the atmosphere is delivering what ENSO implies.</p>
       <div class="scenario-controls">
-        <label>ENSO phase <span class="override-tag" id="phase-override-tag" hidden>overriding</span>
+        <label>ENSO phase <button type="button" class="explain-btn" data-explain="oni" aria-label="What is ENSO?">?</button> <span class="override-tag" id="phase-override-tag" hidden>overriding</span>
           <select id="scenario-phase">
             <option value="live">Use live phase</option>
             <option value="el_nino">El Niño</option>
@@ -87,7 +87,7 @@
             <option value="very_strong">Very strong</option>
           </select>
         </label>
-        <label>NAO <span class="override-tag" id="nao-override-tag" hidden>overriding</span>
+        <label>NAO <button type="button" class="explain-btn" data-explain="nao" aria-label="What is NAO?">?</button> <span class="override-tag" id="nao-override-tag" hidden>overriding</span>
           <select id="scenario-nao">
             <option value="live">Use live NAO</option>
             <option value="strong_negative">Strong negative</option>
@@ -97,7 +97,7 @@
             <option value="strong_positive">Strong positive</option>
           </select>
         </label>
-        <label>PDO <span class="override-tag" id="pdo-override-tag" hidden>overriding</span>
+        <label>PDO <button type="button" class="explain-btn" data-explain="pdo" aria-label="What is PDO?">?</button> <span class="override-tag" id="pdo-override-tag" hidden>overriding</span>
           <select id="scenario-pdo">
             <option value="live">Use live PDO</option>
             <option value="strong_negative">Strong cool</option>
@@ -107,7 +107,7 @@
             <option value="strong_positive">Strong warm</option>
           </select>
         </label>
-        <label>PNA <span class="override-tag" id="pna-override-tag" hidden>overriding</span>
+        <label>PNA <button type="button" class="explain-btn" data-explain="pna" aria-label="What is PNA?">?</button> <span class="override-tag" id="pna-override-tag" hidden>overriding</span>
           <select id="scenario-pna">
             <option value="live">Use live PNA</option>
             <option value="strong_negative">Strong negative</option>
@@ -117,7 +117,7 @@
             <option value="strong_positive">Strong positive</option>
           </select>
         </label>
-        <label>SAM <span class="override-tag" id="sam-override-tag" hidden>overriding</span>
+        <label>SAM <button type="button" class="explain-btn" data-explain="sam" aria-label="What is SAM?">?</button> <span class="override-tag" id="sam-override-tag" hidden>overriding</span>
           <select id="scenario-sam">
             <option value="live">Use live SAM</option>
             <option value="strong_negative">Strong negative</option>

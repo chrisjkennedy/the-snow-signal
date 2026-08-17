@@ -54,7 +54,17 @@ at the wrong resorts once conditions changed. Design choices that fix that:
    reading — full stop, no exceptions. The scenario explorer (see below)
    only ever changes the hero, region rankings, and map; those two strips
    are the permanent ground truth a user can check against.
-6. **Predictive horizon is stated, not implied.** `data/signal-metadata.json`
+6. **Every oscillation explains itself, in place.** `data/signal-metadata.json`
+   carries a plain-language primer plus, for each signal, what is physically
+   oscillating, which ski regions it drives, and what each phase direction
+   actually does. Every live signal chip and every scenario dropdown has a
+   click-through into that explainer, so an unfamiliar acronym is never a
+   dead end. The primer's organizing idea is the ocean/atmosphere split:
+   ocean-driven signals (ENSO, PDO, IOD) have thermal memory and are
+   forecastable at seasonal range, while atmosphere-driven ones (NAO, AO,
+   PNA, SAM) flip within weeks and describe the pattern you are in rather
+   than the one that is coming.
+7. **Predictive horizon is stated, not implied.** `data/signal-metadata.json`
    is honest that these signals aren't equally forward-looking: ENSO
    has real skill 3-9 months out once a phase locks in (with a big caveat
    for forecasts made in the spring predictability barrier); NAO, AO, PNA
@@ -62,7 +72,7 @@ at the wrong resorts once conditions changed. Design choices that fix that:
    multi-year backdrop, not a forecast of any specific period; IOD is
    seasonal but concentrated in late winter/spring. This shows as an
    expandable table under the "How often is this updated…" toggle.
-7. **Regions defer to whichever oscillation actually drives them.** Not
+8. **Regions defer to whichever oscillation actually drives them.** Not
    everything is ENSO. `primary_driver` on a region makes a different
    signal the headline call and demotes ENSO to a footnote: NAO for the
    Northeast/Eastern Canada and the European Alps, and SAM for Australia
@@ -70,7 +80,7 @@ at the wrong resorts once conditions changed. Design choices that fix that:
    driver of Australian snowfall, ahead of ENSO). PDO doesn't replace the
    ENSO call anywhere but does scale the West Coast meters up or down
    depending on whether it agrees with the current ENSO phase.
-8. **Resorts are ranked on their own history, not vibes.** See below.
+9. **Resorts are ranked on their own history, not vibes.** See below.
 
 ## How resorts get ranked within a region
 
