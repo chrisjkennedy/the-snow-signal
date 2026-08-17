@@ -444,6 +444,9 @@ function renderOtherSignalsLine(signals) {
   el.querySelectorAll('.sig-chip').forEach(btn => {
     btn.addEventListener('click', () => openSignalDetail(btn.dataset.signal));
   });
+  // Also offer the full write-up on the dedicated page.
+  el.insertAdjacentHTML('beforeend',
+    ` <a class="sig-line-more" href="oscillations.html">full guide →</a>`);
 }
 
 /** Describes what pdoModulatedMeterPct() actually did to the meter above, so the footnote never contradicts the bar. */

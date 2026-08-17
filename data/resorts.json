@@ -2327,6 +2327,756 @@
           "caveat": "A positive SAM can still be punctuated by individual strong fronts — Australia's season is made of a handful of big events, so one good week can rescue a bad month. But the odds are against you."
         }
       }
+    },
+    {
+      "id": "scandinavia",
+      "name": "Scandinavia",
+      "continent": "Europe",
+      "season": {
+        "display": "Nov–May",
+        "start_month": 11,
+        "end_month": 5
+      },
+      "enso_signals": {
+        "el_nino": {
+          "signal": "mixed",
+          "signal_label": "Mixed — weak signal",
+          "meter_pct": 45,
+          "meter_display": "Weak / noisy",
+          "narrative": "ENSO has little direct reach into Scandinavia. The NAO is what matters here, and it is tracked separately below.",
+          "caveat": "Ignore the ENSO number for this region and watch the NAO instead."
+        },
+        "la_nina": {
+          "signal": "mixed",
+          "signal_label": "Mixed — weak signal",
+          "meter_pct": 48,
+          "meter_display": "Weak / noisy",
+          "narrative": "As with El Niño, ENSO's influence this far north in the Atlantic sector is faint and inconsistent.",
+          "caveat": "The NAO reading is the one to act on."
+        },
+        "neutral": {
+          "signal": "mixed",
+          "signal_label": "Mixed",
+          "meter_pct": 50,
+          "meter_display": "Near average",
+          "narrative": "A neutral Pacific says almost nothing about a Scandinavian winter.",
+          "caveat": "Watch the NAO."
+        }
+      },
+      "primary_driver": "nao",
+      "nao_signals": {
+        "positive": {
+          "signal": "bull",
+          "signal_label": "Bullish — storm track aimed north",
+          "meter_pct": 76,
+          "meter_display": "+10–20%",
+          "narrative": "This is the inverse of the Alps. A positive NAO drives a strong Atlantic jet that pushes the storm track north into Scandinavia, raising winter precipitation across Norway and Sweden. Scandinavian glacier mass-balance records show above-normal accumulation in positive-NAO winters.",
+          "caveat": "Positive NAO also brings milder air. At these latitudes it usually still falls as snow, but the low-elevation southern resorts (Trysil, parts of Åre) carry more rain risk than the far north."
+        },
+        "neutral": {
+          "signal": "mixed",
+          "signal_label": "Mixed",
+          "meter_pct": 50,
+          "meter_display": "Near average",
+          "narrative": "Without a clear NAO signal the Atlantic storm track sits in roughly its average position and the season tracks the long-run baseline.",
+          "caveat": "Elevation and latitude matter more than the seasonal signal in a neutral year."
+        },
+        "negative": {
+          "signal": "bear",
+          "signal_label": "Bearish — colder but drier",
+          "meter_pct": 34,
+          "meter_display": "−10–20% precipitation",
+          "narrative": "A negative NAO buckles the jet and sends Atlantic moisture south toward central and southern Europe instead. Scandinavia turns colder but noticeably drier, so cover builds slowly even though it preserves well once down.",
+          "caveat": "Cold is rarely Scandinavia's problem; moisture is. A negative NAO is the pattern that leaves thin cover into January."
+        }
+      },
+      "resorts": [
+        {
+          "id": "are",
+          "name": "Åre",
+          "state": "Sweden",
+          "lat": 63.3989,
+          "lon": 13.0812,
+          "base_elev_ft": 1247,
+          "summit_elev_ft": 4180,
+          "passes": [
+            "Independent"
+          ],
+          "pass_confidence": "verify",
+          "snotel_triplet": null,
+          "resort_url": "https://www.skistar.com/en/are/",
+          "snow_report_url": "https://www.snow-forecast.com/resorts/Are-Duved/snow-report",
+          "snow_report_source": "Snow-Forecast",
+          "microclimate_note": "Scandinavia's largest ski area, on a lake-adjacent massif that catches Atlantic moisture crossing Norway. Low base elevation for its snowfall, so it depends on latitude rather than altitude for cold."
+        },
+        {
+          "id": "hemsedal",
+          "name": "Hemsedal",
+          "state": "Norway",
+          "lat": 60.8639,
+          "lon": 8.5561,
+          "base_elev_ft": 2034,
+          "summit_elev_ft": 4757,
+          "passes": [
+            "Independent"
+          ],
+          "pass_confidence": "verify",
+          "snotel_triplet": null,
+          "resort_url": "https://www.skistar.com/en/hemsedal/",
+          "snow_report_url": "https://www.snow-forecast.com/resorts/Hemsedal/snow-report",
+          "snow_report_source": "Snow-Forecast",
+          "microclimate_note": "Inland southern Norway, high enough to hold cold better than the coastal resorts while still catching Atlantic systems that clear the coastal range."
+        },
+        {
+          "id": "trysil",
+          "name": "Trysil",
+          "state": "Norway",
+          "lat": 61.2967,
+          "lon": 12.2647,
+          "base_elev_ft": 1362,
+          "summit_elev_ft": 3714,
+          "passes": [
+            "Independent"
+          ],
+          "pass_confidence": "verify",
+          "snotel_triplet": null,
+          "resort_url": "https://www.skistar.com/en/trysil/",
+          "snow_report_url": "https://www.onthesnow.com/norway/trysil/skireport",
+          "snow_report_source": "OnTheSnow",
+          "microclimate_note": "Norway's biggest resort by terrain, well inland and in a partial rain shadow — reliably cold, but drier than the western Norwegian mountains and heavily snowmaking-supported early."
+        },
+        {
+          "id": "riksgransen",
+          "name": "Riksgränsen",
+          "state": "Sweden",
+          "lat": 68.4256,
+          "lon": 18.1281,
+          "base_elev_ft": 1640,
+          "summit_elev_ft": 2982,
+          "passes": [
+            "Independent"
+          ],
+          "pass_confidence": "verify",
+          "snotel_triplet": null,
+          "resort_url": "https://www.riksgransen.se/en/",
+          "snow_report_url": "https://www.snow-forecast.com/resorts/Riksgransen/snow-report",
+          "snow_report_source": "Snow-Forecast",
+          "microclimate_note": "Inside the Arctic Circle on the Norwegian border, catching maritime moisture off the Norwegian Sea. Cold is never the constraint; daylight is, which is why the season runs late and includes midnight skiing in May."
+        },
+        {
+          "id": "levi",
+          "name": "Levi",
+          "state": "Finland",
+          "lat": 67.8047,
+          "lon": 24.8103,
+          "base_elev_ft": 656,
+          "summit_elev_ft": 1742,
+          "passes": [
+            "Independent"
+          ],
+          "pass_confidence": "verify",
+          "snotel_triplet": null,
+          "resort_url": "https://www.levi.fi/en",
+          "snow_report_url": "https://www.snow-forecast.com/resorts/Levi/snow-report",
+          "snow_report_source": "Snow-Forecast",
+          "microclimate_note": "Finnish Lapland: very low elevation but very high latitude, so the snow is dry and the season is long. Vertical is minimal — this is a cold-reliability destination, not a big-mountain one."
+        },
+        {
+          "id": "ruka",
+          "name": "Ruka",
+          "state": "Finland",
+          "lat": 66.1667,
+          "lon": 29.1333,
+          "base_elev_ft": 820,
+          "summit_elev_ft": 1614,
+          "passes": [
+            "Independent"
+          ],
+          "pass_confidence": "verify",
+          "snotel_triplet": null,
+          "resort_url": "https://www.ruka.fi/en",
+          "snow_report_url": "https://www.snow-forecast.com/resorts/Ruka/snow-report",
+          "snow_report_source": "Snow-Forecast",
+          "microclimate_note": "Northeastern Finland, close enough to the White Sea to pick up extra moisture. One of the longest seasons in Europe, typically October to May."
+        }
+      ]
+    },
+    {
+      "id": "balkans",
+      "name": "Balkans & Eastern Europe",
+      "continent": "Europe",
+      "season": {
+        "display": "Dec–Apr",
+        "start_month": 12,
+        "end_month": 4
+      },
+      "enso_signals": {
+        "el_nino": {
+          "signal": "mixed",
+          "signal_label": "Mixed — weak signal",
+          "meter_pct": 45,
+          "meter_display": "Weak / noisy",
+          "narrative": "ENSO's signal over southeastern Europe is weak and inconsistent. Mediterranean cyclone frequency, driven largely by the NAO, is the thing to watch.",
+          "caveat": "Use the NAO reading below rather than the ENSO one."
+        },
+        "la_nina": {
+          "signal": "mixed",
+          "signal_label": "Mixed — weak signal",
+          "meter_pct": 48,
+          "meter_display": "Weak / noisy",
+          "narrative": "Same as the El Niño case: little reliable ENSO influence this far east in Europe.",
+          "caveat": "The NAO reading is the useful one."
+        },
+        "neutral": {
+          "signal": "mixed",
+          "signal_label": "Mixed",
+          "meter_pct": 50,
+          "meter_display": "Near average",
+          "narrative": "No meaningful ENSO steer for the Balkans.",
+          "caveat": "Watch the NAO and the position of the Siberian high."
+        }
+      },
+      "primary_driver": "nao",
+      "nao_signals": {
+        "negative": {
+          "signal": "bull",
+          "signal_label": "Bullish — Mediterranean track active",
+          "meter_pct": 74,
+          "meter_display": "+10–20%",
+          "narrative": "A negative NAO pushes the Atlantic storm track south, feeding Mediterranean cyclogenesis. Those cyclones are what deliver moisture to Bulgaria, Serbia and Romania, and when that moisture meets cold air spilling off the Siberian high it falls as heavy mountain snow.",
+          "caveat": "The two ingredients have to arrive together. A Mediterranean cyclone without the cold air produces rain to the top of many Balkan resorts, which is the region's characteristic failure mode."
+        },
+        "neutral": {
+          "signal": "mixed",
+          "signal_label": "Mixed",
+          "meter_pct": 50,
+          "meter_display": "Near average",
+          "narrative": "An average number of Mediterranean systems, and an average season. The Balkans lean heavily on snowmaking to bridge the gaps regardless.",
+          "caveat": "Base elevation is the differentiator here — Borovets and Pamporovo start high, Bansko's village does not."
+        },
+        "positive": {
+          "signal": "bear",
+          "signal_label": "Bearish — storm track pulled north",
+          "meter_pct": 30,
+          "meter_display": "−10–20%",
+          "narrative": "A positive NAO drags the storm track north over Scandinavia and leaves southeastern Europe dry. This is the pattern that produces thin, snowmaking-dependent Balkan winters.",
+          "caveat": "Cold outbreaks from the east can still arrive independently, but without Mediterranean moisture there is little for them to work with."
+        }
+      },
+      "resorts": [
+        {
+          "id": "bansko",
+          "name": "Bansko",
+          "state": "Bulgaria",
+          "lat": 41.8386,
+          "lon": 23.4886,
+          "base_elev_ft": 3248,
+          "summit_elev_ft": 8530,
+          "passes": [
+            "Indy Pass"
+          ],
+          "pass_confidence": "verify",
+          "snotel_triplet": null,
+          "resort_url": "https://www.banskoski.com/en/",
+          "snow_report_url": "https://www.snow-forecast.com/resorts/Bansko/snow-report",
+          "snow_report_source": "Snow-Forecast",
+          "microclimate_note": "The Pirin massif gives Bansko the biggest vertical in Bulgaria, but the town sits at only 990m — the gondola does the work, and the lower runs are the first to go in a mild spell."
+        },
+        {
+          "id": "borovets",
+          "name": "Borovets",
+          "state": "Bulgaria",
+          "lat": 42.2667,
+          "lon": 23.6042,
+          "base_elev_ft": 4265,
+          "summit_elev_ft": 8399,
+          "passes": [
+            "Independent"
+          ],
+          "pass_confidence": "verify",
+          "snotel_triplet": null,
+          "resort_url": "https://www.borovets-bg.com/en/",
+          "snow_report_url": "https://www.snow-forecast.com/resorts/Borovets/snow-report",
+          "snow_report_source": "Snow-Forecast",
+          "microclimate_note": "Rila mountains, with a much higher base than Bansko (1,300m) and a correspondingly better cold margin. Tree-lined and sheltered, so it holds snow through wind events."
+        },
+        {
+          "id": "pamporovo",
+          "name": "Pamporovo",
+          "state": "Bulgaria",
+          "lat": 41.6597,
+          "lon": 24.7003,
+          "base_elev_ft": 4757,
+          "summit_elev_ft": 6355,
+          "passes": [
+            "Independent"
+          ],
+          "pass_confidence": "verify",
+          "snotel_triplet": null,
+          "resort_url": "https://pamporovo.me/en/winter/home",
+          "snow_report_url": "https://www.snow-forecast.com/resorts/Pamporovo/snow-report",
+          "snow_report_source": "Snow-Forecast",
+          "microclimate_note": "The Rhodopes, further south and closer to the Aegean, so it sees more Mediterranean moisture but also warmer airmasses. High base for the region, modest vertical."
+        },
+        {
+          "id": "kopaonik",
+          "name": "Kopaonik",
+          "state": "Serbia",
+          "lat": 43.2853,
+          "lon": 20.8175,
+          "base_elev_ft": 3468,
+          "summit_elev_ft": 6617,
+          "passes": [
+            "Independent"
+          ],
+          "pass_confidence": "verify",
+          "snotel_triplet": null,
+          "resort_url": "https://www.eng.infokop.net/",
+          "snow_report_url": "https://www.snow-forecast.com/resorts/Kopaonik/snow-report",
+          "snow_report_source": "Snow-Forecast",
+          "microclimate_note": "Serbia's main resort, sitting on an exposed plateau that gets sun and wind in equal measure. Extensive snowmaking compensates for an inconsistent natural supply."
+        },
+        {
+          "id": "poiana-brasov",
+          "name": "Poiana Brașov",
+          "state": "Romania",
+          "lat": 45.5947,
+          "lon": 25.5514,
+          "base_elev_ft": 3379,
+          "summit_elev_ft": 5823,
+          "passes": [
+            "Independent"
+          ],
+          "pass_confidence": "verify",
+          "snotel_triplet": null,
+          "resort_url": "https://www.poiana-brasov.com/",
+          "snow_report_url": "https://www.snow-forecast.com/resorts/Poiana-Brasov/snow-report",
+          "snow_report_source": "Snow-Forecast",
+          "microclimate_note": "Southern Carpathians. More continental than the Bulgarian resorts, so colder on average but reliant on fewer, larger snowfall events."
+        },
+        {
+          "id": "jahorina",
+          "name": "Jahorina",
+          "state": "Bosnia",
+          "lat": 43.7333,
+          "lon": 18.5667,
+          "base_elev_ft": 4265,
+          "summit_elev_ft": 6286,
+          "passes": [
+            "Independent"
+          ],
+          "pass_confidence": "verify",
+          "snotel_triplet": null,
+          "resort_url": "https://www.oc-jahorina.com/en/",
+          "snow_report_url": "https://www.snow-forecast.com/resorts/Jahorina/snow-report",
+          "snow_report_source": "Snow-Forecast",
+          "microclimate_note": "Close enough to the Adriatic to catch Mediterranean systems head-on, which makes it one of the snowier Balkan options when the southern track is active."
+        }
+      ]
+    },
+    {
+      "id": "caucasus-turkiye",
+      "name": "Caucasus & Türkiye",
+      "continent": "Asia",
+      "season": {
+        "display": "Dec–Apr",
+        "start_month": 12,
+        "end_month": 4
+      },
+      "enso_signals": {
+        "el_nino": {
+          "signal": "mixed",
+          "signal_label": "Mixed — elevation carries it",
+          "meter_pct": 52,
+          "meter_display": "Weak / noisy",
+          "narrative": "No reliable ENSO signal here. These ranges run on Black Sea and Mediterranean moisture meeting continental cold, and their defence is raw altitude — most of the region's resorts start above 2,000m.",
+          "caveat": "Very high base elevations mean cold is rarely the binding constraint. Moisture delivery is."
+        },
+        "la_nina": {
+          "signal": "mixed",
+          "signal_label": "Mixed — elevation carries it",
+          "meter_pct": 52,
+          "meter_display": "Weak / noisy",
+          "narrative": "As with El Niño, ENSO offers little steer for the Caucasus or Anatolia.",
+          "caveat": "Judge these on altitude and on how active the Black Sea and Mediterranean storm tracks are."
+        },
+        "neutral": {
+          "signal": "mixed",
+          "signal_label": "Mixed",
+          "meter_pct": 50,
+          "meter_display": "Near average",
+          "narrative": "A typical season, governed by local storm frequency rather than any hemispheric signal.",
+          "caveat": "The high base elevations make this region less temperature-fragile than the Alps or the Balkans."
+        }
+      },
+      "resorts": [
+        {
+          "id": "gudauri",
+          "name": "Gudauri",
+          "state": "Georgia",
+          "lat": 42.4772,
+          "lon": 44.4783,
+          "base_elev_ft": 6529,
+          "summit_elev_ft": 10758,
+          "passes": [
+            "Independent"
+          ],
+          "pass_confidence": "verify",
+          "snotel_triplet": null,
+          "resort_url": "https://gudauri.travel/",
+          "snow_report_url": "https://www.snow-forecast.com/resorts/Gudauri/snow-report",
+          "snow_report_source": "Snow-Forecast",
+          "microclimate_note": "On the Georgian Military Highway in the Greater Caucasus, base near 2,000m. Catches moisture pushed up from the Black Sea and holds it — one of the better snow records in the wider region."
+        },
+        {
+          "id": "rosa-khutor",
+          "name": "Rosa Khutor",
+          "state": "Russia",
+          "lat": 43.6725,
+          "lon": 40.3006,
+          "base_elev_ft": 3084,
+          "summit_elev_ft": 7612,
+          "passes": [
+            "Independent"
+          ],
+          "pass_confidence": "verify",
+          "snotel_triplet": null,
+          "resort_url": "https://rosakhutor.com/en/",
+          "snow_report_url": "https://www.onthesnow.com/russia/rosa-khutor/skireport",
+          "snow_report_source": "OnTheSnow",
+          "microclimate_note": "Western Caucasus, only 40km from the Black Sea, which makes it unusually maritime for the region: heavy snowfall up high, but a low base at 940m that sees rain in mild spells."
+        },
+        {
+          "id": "palandoken",
+          "name": "Palandöken",
+          "state": "Türkiye",
+          "lat": 39.8622,
+          "lon": 41.2611,
+          "base_elev_ft": 7218,
+          "summit_elev_ft": 10253,
+          "passes": [
+            "Independent"
+          ],
+          "pass_confidence": "verify",
+          "snotel_triplet": null,
+          "resort_url": "https://goturkiye.com/skiing/palandoken",
+          "snow_report_url": "https://www.skiresort.info/ski-resort/palandoeken-ejder-3200-world-ski-center/snow-report/",
+          "snow_report_source": "Skiresort.info",
+          "microclimate_note": "Eastern Anatolia at 2,200m base, high and continental. Very cold and dry — light snow, reliable cover, and long fall-line pistes straight above Erzurum."
+        },
+        {
+          "id": "erciyes",
+          "name": "Erciyes",
+          "state": "Türkiye",
+          "lat": 38.5333,
+          "lon": 35.4833,
+          "base_elev_ft": 7218,
+          "summit_elev_ft": 11155,
+          "passes": [
+            "Independent"
+          ],
+          "pass_confidence": "verify",
+          "snotel_triplet": null,
+          "resort_url": "https://www.erciyeskayakmerkezi.com/",
+          "snow_report_url": "https://www.skiresort.info/ski-resort/erciyes/snow-report/",
+          "snow_report_source": "Skiresort.info",
+          "microclimate_note": "An isolated volcano rising off the central Anatolian plateau, so it takes storms unfiltered from any direction, but sits in a dry continental climate that limits total accumulation."
+        }
+      ]
+    },
+    {
+      "id": "central-asia",
+      "name": "Central Asia",
+      "continent": "Asia",
+      "season": {
+        "display": "Dec–Apr",
+        "start_month": 12,
+        "end_month": 4
+      },
+      "enso_signals": {
+        "el_nino": {
+          "signal": "mixed",
+          "signal_label": "Mixed — cold, dry, high",
+          "meter_pct": 50,
+          "meter_display": "Weak / noisy",
+          "narrative": "The Tien Shan sits deep inside the Eurasian landmass with no reliable ENSO teleconnection. It is reliably cold and reliably high; what varies is how much moisture reaches it from the west.",
+          "caveat": "Snow quality here is excellent and snow quantity is modest. This is a continental snowpack in the fullest sense."
+        },
+        "la_nina": {
+          "signal": "mixed",
+          "signal_label": "Mixed — cold, dry, high",
+          "meter_pct": 50,
+          "meter_display": "Weak / noisy",
+          "narrative": "No usable ENSO steer. Westerly disturbances crossing the Caspian are the moisture source, and their frequency is not well predicted by the Pacific.",
+          "caveat": "Judge on elevation and on recent storm activity rather than on any seasonal index."
+        },
+        "neutral": {
+          "signal": "mixed",
+          "signal_label": "Mixed",
+          "meter_pct": 50,
+          "meter_display": "Near average",
+          "narrative": "A typical Tien Shan season: cold throughout, light dry snow, and totals well below any maritime range.",
+          "caveat": "Access and avalanche conditions are usually the limiting factors here rather than snow cover."
+        }
+      },
+      "resorts": [
+        {
+          "id": "shymbulak",
+          "name": "Shymbulak",
+          "state": "Kazakhstan",
+          "lat": 43.1281,
+          "lon": 77.0819,
+          "base_elev_ft": 7415,
+          "summit_elev_ft": 10499,
+          "passes": [
+            "Independent"
+          ],
+          "pass_confidence": "verify",
+          "snotel_triplet": null,
+          "resort_url": "https://shymbulak.com/en/",
+          "snow_report_url": "https://www.snow-forecast.com/resorts/Chimbulak/snow-report",
+          "snow_report_source": "Snow-Forecast",
+          "microclimate_note": "In the Zailiysky Alatau directly above Almaty, base at 2,260m. Deep continental cold with a dry, light snowpack, and a season that runs long because nothing melts."
+        },
+        {
+          "id": "karakol",
+          "name": "Karakol",
+          "state": "Kyrgyzstan",
+          "lat": 42.5,
+          "lon": 78.4667,
+          "base_elev_ft": 7546,
+          "summit_elev_ft": 9974,
+          "passes": [
+            "Independent"
+          ],
+          "pass_confidence": "verify",
+          "snotel_triplet": null,
+          "resort_url": "https://karakol-ski.kg/en/",
+          "snow_report_url": "https://www.skiresort.info/ski-resort/karakol/snow-report/",
+          "snow_report_source": "Skiresort.info",
+          "microclimate_note": "Above Lake Issyk-Kul in the Tien Shan. The lake adds a modest moisture source that the rest of Central Asia lacks, giving Karakol a better snow record than its longitude suggests."
+        }
+      ]
+    },
+    {
+      "id": "new-zealand",
+      "name": "New Zealand",
+      "continent": "Oceania",
+      "season": {
+        "display": "Jun–Oct",
+        "start_month": 6,
+        "end_month": 10
+      },
+      "enso_signals": {
+        "el_nino": {
+          "signal": "bull",
+          "signal_label": "Bullish — southwesterly flow",
+          "meter_pct": 68,
+          "meter_display": "Favourable, south and west",
+          "narrative": "New Zealand runs opposite to Australia under El Niño. Higher pressure over Australia drives a persistent southwesterly airstream onto the South Island, and that flow is what loads the western and southern Southern Alps. The Queenstown and Wanaka fields sit directly in it.",
+          "caveat": "The same pattern leaves the north and east of the country wanting, so Mt Hutt in Canterbury benefits far less than the Queenstown fields. ENSO also explains under a quarter of New Zealand's seasonal variance, so this is a lean, not a lock."
+        },
+        "la_nina": {
+          "signal": "mixed",
+          "signal_label": "Mixed — flow turns northeasterly",
+          "meter_pct": 44,
+          "meter_display": "Weaker for the southwest",
+          "narrative": "La Niña tends toward more northeasterly flow, which is warmer and aimed at the wrong side of the island for the main ski fields. The southwest loses its reliable feed.",
+          "caveat": "Not a washout — northeast flow can still deliver to Canterbury fields like Mt Hutt, roughly inverting the El Niño pattern."
+        },
+        "neutral": {
+          "signal": "mixed",
+          "signal_label": "Mixed",
+          "meter_pct": 50,
+          "meter_display": "Near average",
+          "narrative": "Without an ENSO steer, New Zealand's season comes down to how often southwest fronts arrive, which is largely a SAM question week to week.",
+          "caveat": "Watch SAM. It moves fast enough to make or break a fortnight regardless of the seasonal background."
+        }
+      },
+      "resorts": [
+        {
+          "id": "coronet-peak",
+          "name": "Coronet Peak",
+          "state": "New Zealand",
+          "lat": -44.92,
+          "lon": 168.735,
+          "base_elev_ft": 3852,
+          "summit_elev_ft": 5410,
+          "passes": [
+            "Ikon"
+          ],
+          "pass_confidence": "verify",
+          "snotel_triplet": null,
+          "resort_url": "https://www.coronetpeak.co.nz/",
+          "snow_report_url": "https://www.snow-forecast.com/resorts/Coronet-Peak/snow-report",
+          "snow_report_source": "Snow-Forecast",
+          "microclimate_note": "Closest field to Queenstown and the most exposed to southwest fronts, but also the lowest of the Queenstown group — the first to suffer when the freezing level lifts."
+        },
+        {
+          "id": "remarkables",
+          "name": "The Remarkables",
+          "state": "New Zealand",
+          "lat": -45.055,
+          "lon": 168.815,
+          "base_elev_ft": 5203,
+          "summit_elev_ft": 6375,
+          "passes": [
+            "Ikon"
+          ],
+          "pass_confidence": "verify",
+          "snotel_triplet": null,
+          "resort_url": "https://www.theremarkables.co.nz/",
+          "snow_report_url": "https://www.snow-forecast.com/resorts/Remarkables/snow-report",
+          "snow_report_source": "Snow-Forecast",
+          "microclimate_note": "A high basin above Queenstown with a 1,586m base, the best cold margin of the Queenstown fields and a natural bowl that holds wind-blown snow."
+        },
+        {
+          "id": "cardrona",
+          "name": "Cardrona",
+          "state": "New Zealand",
+          "lat": -44.8747,
+          "lon": 168.9486,
+          "base_elev_ft": 4134,
+          "summit_elev_ft": 6352,
+          "passes": [
+            "Independent"
+          ],
+          "pass_confidence": "verify",
+          "snotel_triplet": null,
+          "resort_url": "https://www.cardrona.com/",
+          "snow_report_url": "https://www.snow-forecast.com/resorts/Cardrona/snow-report",
+          "snow_report_source": "Snow-Forecast",
+          "microclimate_note": "On a sunny, sheltered basin between Wanaka and Queenstown. Drier and less storm-battered than Treble Cone, with snowmaking across the main trails."
+        },
+        {
+          "id": "treble-cone",
+          "name": "Treble Cone",
+          "state": "New Zealand",
+          "lat": -44.6333,
+          "lon": 168.8969,
+          "base_elev_ft": 4134,
+          "summit_elev_ft": 6430,
+          "passes": [
+            "Independent"
+          ],
+          "pass_confidence": "verify",
+          "snotel_triplet": null,
+          "resort_url": "https://www.treblecone.com/",
+          "snow_report_url": "https://www.snow-forecast.com/resorts/Treble-Cone/snow-report",
+          "snow_report_source": "Snow-Forecast",
+          "microclimate_note": "The most westerly major field, facing the Southern Alps divide, so it takes southwest storms first and hardest. Steepest terrain in the country and the biggest single vertical."
+        },
+        {
+          "id": "mt-hutt",
+          "name": "Mt Hutt",
+          "state": "New Zealand",
+          "lat": -43.4711,
+          "lon": 171.5306,
+          "base_elev_ft": 4685,
+          "summit_elev_ft": 6844,
+          "passes": [
+            "Ikon"
+          ],
+          "pass_confidence": "verify",
+          "snotel_triplet": null,
+          "resort_url": "https://www.mthutt.co.nz/",
+          "snow_report_url": "https://www.snow-forecast.com/resorts/Mount-Hutt/snow-report",
+          "snow_report_source": "Snow-Forecast",
+          "microclimate_note": "Canterbury, on the eastern side of the divide, so it works on a different flow to the Queenstown fields — better in northeasterly patterns, weaker in the southwesterlies El Niño favours."
+        }
+      ]
+    },
+    {
+      "id": "korea-china",
+      "name": "Korea & Northern China",
+      "continent": "Asia",
+      "season": {
+        "display": "Dec–Mar",
+        "start_month": 12,
+        "end_month": 3
+      },
+      "enso_signals": {
+        "el_nino": {
+          "signal": "bear",
+          "signal_label": "Bearish — weaker monsoon",
+          "meter_pct": 36,
+          "meter_display": "−10–20%",
+          "narrative": "These resorts run on the East Asian winter monsoon, the same cold-air engine that feeds Japan. El Niño tends to weaken the Siberian High and the monsoon flow, which means fewer and milder cold surges.",
+          "caveat": "Unlike Japan, Korea and northern China sit on the dry side of the Sea of Japan and get little lake-effect equivalent, so a weaker monsoon hits them harder. Snowmaking carries most resorts here regardless."
+        },
+        "la_nina": {
+          "signal": "bull",
+          "signal_label": "Bullish — stronger monsoon",
+          "meter_pct": 66,
+          "meter_display": "+10–15%",
+          "narrative": "La Niña strengthens the Siberian High and the East Asian winter monsoon, delivering more frequent and colder outbreaks across the Korean peninsula and northern China.",
+          "caveat": "More cold does not automatically mean more snow here — it mostly means snowmaking works better and for longer."
+        },
+        "neutral": {
+          "signal": "mixed",
+          "signal_label": "Mixed",
+          "meter_pct": 50,
+          "meter_display": "Near average",
+          "narrative": "A typical monsoon season. Cold is generally dependable; natural snowfall is modest and heavily supplemented.",
+          "caveat": "Treat published snowfall figures cautiously — most terrain here is machine-made."
+        }
+      },
+      "resorts": [
+        {
+          "id": "yongpyong",
+          "name": "Yongpyong",
+          "state": "South Korea",
+          "lat": 37.6444,
+          "lon": 128.6817,
+          "base_elev_ft": 2297,
+          "summit_elev_ft": 4783,
+          "passes": [
+            "Ikon"
+          ],
+          "pass_confidence": "verify",
+          "snotel_triplet": null,
+          "resort_url": "https://www.yongpyong.co.kr/eng/",
+          "snow_report_url": "https://www.skiresort.info/ski-resort/yongpyong-resort/snow-report/",
+          "snow_report_source": "Skiresort.info",
+          "microclimate_note": "Korea's largest resort, in the Taebaek range where cold monsoon air crossing the Yellow Sea picks up just enough moisture to produce genuine natural snowfall — more than the rest of the peninsula."
+        },
+        {
+          "id": "yabuli",
+          "name": "Yabuli",
+          "state": "China",
+          "lat": 44.7,
+          "lon": 128.6333,
+          "base_elev_ft": 1542,
+          "summit_elev_ft": 4508,
+          "passes": [
+            "Independent"
+          ],
+          "pass_confidence": "verify",
+          "snotel_triplet": null,
+          "resort_url": "https://www.skiresort.info/ski-resort/yabuli-sun-mountain/",
+          "snow_report_url": "https://www.skiresort.info/ski-resort/yabuli-sun-mountain/snow-report/",
+          "snow_report_source": "Skiresort.info",
+          "microclimate_note": "Heilongjiang, deep in northeastern China. Bitterly cold and very dry, with the longest vertical in the country but modest natural accumulation."
+        },
+        {
+          "id": "chongli-genting",
+          "name": "Chongli (Genting)",
+          "state": "China",
+          "lat": 40.9833,
+          "lon": 115.4167,
+          "base_elev_ft": 5249,
+          "summit_elev_ft": 6890,
+          "passes": [
+            "Ikon"
+          ],
+          "pass_confidence": "verify",
+          "snotel_triplet": null,
+          "resort_url": "https://www.secretgardenresorts.com/",
+          "snow_report_url": "https://www.skiresort.info/ski-resort/genting-resort-secret-garden-fulong/snow-report/",
+          "snow_report_source": "Skiresort.info",
+          "microclimate_note": "The 2022 Olympic freestyle venue northwest of Beijing, on the edge of the Mongolian plateau. Reliably cold and almost entirely machine-made — natural snowfall here is minimal."
+        }
+      ]
     }
   ]
 }
