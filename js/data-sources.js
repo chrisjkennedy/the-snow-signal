@@ -70,6 +70,15 @@ export async function loadSignalMetadata() {
   return fetchJson("./data/signal-metadata.json");
 }
 
+export async function loadContinents() {
+  try {
+    return await fetchJson("./data/continents.geojson");
+  } catch (e) {
+    console.warn("Continent outlines unavailable", e);
+    return null;
+  }
+}
+
 export async function loadClimatology() {
   try {
     return await fetchJson("./data/resort-climatology.json");

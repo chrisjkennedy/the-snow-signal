@@ -25,10 +25,30 @@ PNA_URL = "https://www.cpc.ncep.noaa.gov/products/precip/CWlink/pna/norm.pna.mon
 SAM_URL = "https://www.cpc.ncep.noaa.gov/products/precip/CWlink/daily_ao_index/aao/monthly.aao.index.b79.current.ascii"
 # Dipole Mode Index = the Indian Ocean Dipole, from NOAA PSL.
 IOD_URL = "https://psl.noaa.gov/gcos_wgsp/Timeseries/Data/dmi.had.long.data"
+# MJO. CPC's pentad file projects convection onto 10 longitude bands, of
+# which INDEX_1..INDEX_8 are exactly the standard 8 RMM phases (80E through
+# 10W). Whichever of those eight is largest is where enhanced convection
+# currently sits, which is what "MJO phase N" means. BoM's own RMM file
+# would be the canonical source but it blocks automated requests (403).
+MJO_URL = "https://www.cpc.ncep.noaa.gov/products/precip/CWlink/daily_mjo_index/proj_norm_order.ascii"
 # Deliberately NOT included: the EPO (East Pacific Oscillation). It's a real
 # and useful cold-outbreak signal, but CPC publishes no stable monthly ASCII
 # feed for it, and its main ski-relevant effect (Arctic air into the central
 # and eastern US) is already largely captured by the AO here.
+
+# What each MJO phase means for skiing. Phases 7-8-1 extend the Pacific jet
+# toward North America and open the storm door on the US West Coast; 4-6
+# favour ridging over the Pacific and cold outbreaks into the eastern US.
+MJO_PHASE_MEANING = {
+    1: ("Western Hemisphere / Africa", "Pacific jet extending — favourable for storms reaching the US West Coast."),
+    2: ("Indian Ocean", "Transitional. Little consistent North American signal."),
+    3: ("Indian Ocean", "Often precedes ridging over the western US — a drier lean."),
+    4: ("Maritime Continent", "Tends toward western US ridging and eastern US cold."),
+    5: ("Maritime Continent", "Ridge west, trough east — cold outbreaks favoured in the central and eastern US."),
+    6: ("Western Pacific", "Eastern US cold favoured; western US often dry."),
+    7: ("Western Pacific", "Pacific jet begins extending — the West Coast storm door starts to open."),
+    8: ("Western Pacific / Date Line", "Strongest signal for an amplified Pacific jet and West Coast storms."),
+}
 OUT_PATH = Path(__file__).resolve().parent.parent / "data" / "climate-signals.json"
 
 MONTH_NAMES = ["", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
@@ -72,6 +92,65 @@ def parse_pdo(text):
                 continue
             rows.append({"year": year, "month": i, "value": val})
     return rows
+
+
+def parse_mjo(text):
+    """CPC pentad projection file -> latest active MJO phase and amplitude.
+
+    Header row names the columns INDEX_9, INDEX_10, INDEX_1..INDEX_8; the
+    data rows are 'YYYYMMDD' plus those 10 values in that same order.
+    Missing/not-yet-computed pentads are '*****'.
+    """
+    lines = [l for l in text.splitlines() if l.strip()]
+    header = None
+    rows = []
+    for line in lines:
+        parts = line.split()
+        if header is None and parts and parts[0].startswith("INDEX"):
+            header = parts
+            continue
+        if header is None or len(parts) != len(header) + 1:
+            continue
+        date = parts[0]
+        if not (len(date) == 8 and date.isdigit()):
+            continue
+        vals = {}
+        ok = True
+        for name, raw in zip(header, parts[1:]):
+            try:
+                vals[name] = float(raw)
+            except ValueError:
+                ok = False
+                break
+        if ok:
+            rows.append((date, vals))
+    if not rows:
+        return None
+
+    date, vals = rows[-1]
+    # Only INDEX_1..INDEX_8 are the standard phases.
+    phases = {i: vals.get(f"INDEX_{i}") for i in range(1, 9)}
+    phases = {k: v for k, v in phases.items() if v is not None}
+    if not phases:
+        return None
+    phase = max(phases, key=phases.get)
+    amplitude = phases[phase]
+    region, effect = MJO_PHASE_MEANING[phase]
+    return {
+        "latest_label": f"{date[:4]}-{date[4:6]}-{date[6:]}",
+        "latest_value": round(amplitude, 2),
+        "phase": f"Phase {phase} ({region})",
+        "phase_number": phase,
+        "amplitude": round(amplitude, 2),
+        "is_active": amplitude >= 1.0,
+        "trend": "n/a",
+        "effect": effect,
+        "recent": [
+            {"date": d, "phase": max({i: v.get(f"INDEX_{i}") for i in range(1, 9) if v.get(f"INDEX_{i}") is not None},
+                                     key=lambda i: v[f"INDEX_{i}"])}
+            for d, v in rows[-8:]
+        ],
+    }
 
 
 def latest_with_trend(rows, negative_label, positive_label, neutral_band=0.3):
@@ -133,11 +212,18 @@ def main():
                 "source": IOD_URL,
                 "relevance": "Positive IOD cuts moisture feeding into southeastern Australia, drying out late winter and spring; negative IOD is associated with deeper Australian snowpack. Its effect concentrates later in the season than ENSO's."},
     }
+
+    mjo = parse_mjo(curl(MJO_URL))
+    if mjo:
+        out["mjo"] = {**mjo, "source": MJO_URL,
+                      "relevance": "The MJO is a pulse of tropical convection circling the globe every 30-60 days. Phases 7, 8 and 1 extend the Pacific jet and open the storm door on the US West Coast; phases 4-6 favour western ridging and cold outbreaks in the eastern US."}
     OUT_PATH.write_text(json.dumps(out, indent=2) + "\n")
     print(f"Wrote {OUT_PATH}")
-    for key in ("nao", "ao", "pdo", "pna", "sam", "iod"):
+    for key in ("nao", "ao", "pdo", "pna", "sam", "iod", "mjo"):
+        if key not in out:
+            continue
         s = out[key]
-        print(f"  {key.upper():4s} {s['latest_label']} = {s['latest_value']:+.2f} ({s['phase']}, {s['trend']})")
+        print(f"  {key.upper():4s} {s['latest_label']} = {s['latest_value']:+.2f} ({s['phase']})")
 
 
 if __name__ == "__main__":

@@ -197,6 +197,53 @@ body {
 }
 .explain-btn:hover { background: var(--blue-mid); color: #fff; border-color: var(--blue-mid); }
 
+/* CONTINENT BAR + MAP INTERACTION */
+.continent-bar { display: flex; align-items: center; gap: 7px; flex-wrap: wrap; margin-bottom: 14px; }
+.continent-bar-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+.continent-bar button {
+  font-family: 'DM Sans', sans-serif; font-size: 12px; font-weight: 500; color: var(--navy);
+  background: #fff; border: 1px solid var(--border); border-radius: 20px; padding: 5px 13px; cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+.continent-bar button:hover { border-color: var(--blue-mid); background: var(--ice); }
+.continent-bar button.active { background: var(--navy); color: #fff; border-color: var(--navy); }
+.continent-bar-hint { font-size: 10.5px; color: var(--muted); font-style: italic; margin-left: 4px; }
+.continent-tip {
+  font-family: 'DM Sans', sans-serif !important; font-size: 11.5px !important; font-weight: 500;
+  color: var(--navy) !important; background: rgba(255,255,255,0.95) !important;
+  border: 1px solid var(--border) !important; box-shadow: none !important;
+}
+
+/* SCENARIO — what you're changing FROM */
+.scenario-current {
+  display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+  background: #fff; border: 1px solid var(--border); border-radius: 8px;
+  padding: 9px 12px; margin-bottom: 14px;
+}
+.cur-label {
+  font-family: 'JetBrains Mono', monospace; font-size: 9.5px; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--muted); margin-right: 2px;
+}
+.cur-item { font-size: 11.5px; color: var(--navy); display: flex; align-items: baseline; gap: 4px; }
+.cur-item + .cur-item { border-left: 1px solid var(--border); padding-left: 8px; }
+.cur-key { font-family: 'JetBrains Mono', monospace; font-size: 9.5px; color: var(--muted); }
+
+/* BACKTEST — live test + scorecard */
+.bt-livetest {
+  background: var(--green-light); border: 1px solid var(--green); border-radius: 10px;
+  padding: 16px 18px; margin-bottom: 18px;
+}
+.bt-livetest-head { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; margin-bottom: 8px; }
+.bt-livetest-status {
+  font-family: 'JetBrains Mono', monospace; font-size: 9.5px; letter-spacing: 0.08em; text-transform: uppercase;
+  background: var(--green); color: #fff; border-radius: 4px; padding: 2px 8px;
+}
+.bt-livetest-title { font-size: 14px; font-weight: 500; color: var(--navy); }
+.bt-nuance { color: var(--muted) !important; }
+.bt-scorecard { margin-bottom: 18px; }
+.bt-score-chips { display: flex; gap: 7px; flex-wrap: wrap; margin-bottom: 9px; }
+.bt-score-chip { font-size: 11px; font-weight: 500; border-radius: 20px; padding: 3px 11px; }
+
 /* SCENARIO EXPLORER */
 .scenario-panel { background: var(--snow); border: 1px solid var(--border); border-radius: 12px; padding: 18px 20px; margin-bottom: 18px; }
 .scenario-panel-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 6px; }

@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-08-17T00:49:31+00:00",
+  "updated_utc": "2026-08-17T12:05:23+00:00",
   "nao": {
     "latest_year": 2026,
     "latest_month": 7,
@@ -311,5 +311,51 @@
     ],
     "source": "https://psl.noaa.gov/gcos_wgsp/Timeseries/Data/dmi.had.long.data",
     "relevance": "Positive IOD cuts moisture feeding into southeastern Australia, drying out late winter and spring; negative IOD is associated with deeper Australian snowpack. Its effect concentrates later in the season than ENSO's."
+  },
+  "mjo": {
+    "latest_label": "2026-07-27",
+    "latest_value": 1.92,
+    "phase": "Phase 2 (Indian Ocean)",
+    "phase_number": 2,
+    "amplitude": 1.92,
+    "is_active": true,
+    "trend": "n/a",
+    "effect": "Transitional. Little consistent North American signal.",
+    "recent": [
+      {
+        "date": "20260622",
+        "phase": 8
+      },
+      {
+        "date": "20260627",
+        "phase": 8
+      },
+      {
+        "date": "20260702",
+        "phase": 1
+      },
+      {
+        "date": "20260707",
+        "phase": 1
+      },
+      {
+        "date": "20260712",
+        "phase": 1
+      },
+      {
+        "date": "20260717",
+        "phase": 1
+      },
+      {
+        "date": "20260722",
+        "phase": 2
+      },
+      {
+        "date": "20260727",
+        "phase": 2
+      }
+    ],
+    "source": "https://www.cpc.ncep.noaa.gov/products/precip/CWlink/daily_mjo_index/proj_norm_order.ascii",
+    "relevance": "The MJO is a pulse of tropical convection circling the globe every 30-60 days. Phases 7, 8 and 1 extend the Pacific jet and open the storm door on the US West Coast; phases 4-6 favour western ridging and cold outbreaks in the eastern US."
   }
 }

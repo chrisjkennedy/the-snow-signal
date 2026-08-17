@@ -1,4 +1,4 @@
-import { loadOni, loadResorts, loadAffiliates, loadPhaseCopy, loadClimateSignals, loadSignalMetadata, loadBacktest, loadClimatology, fetchSnowpack, fetchForecast } from './data-sources.js';
+import { loadOni, loadResorts, loadAffiliates, loadPhaseCopy, loadClimateSignals, loadSignalMetadata, loadBacktest, loadClimatology, loadContinents, fetchSnowpack, fetchForecast } from './data-sources.js';
 
 // Module-level state: loaded once, then reused across live render and any
 // number of scenario re-renders (so switching scenarios never re-fetches
@@ -7,7 +7,7 @@ const state = {
   oni: null, resortsData: null, affiliates: null, phaseCopy: null,
   signals: null, signalMetadata: null, backtest: null, climatology: null,
   mapState: null, liveCache: new Map(), scenarioActive: false,
-  expandedRegion: null,
+  expandedRegion: null, activeContinent: null,
 };
 
 const INTENSITY_LABEL = { weak: 'Weak', moderate: 'Moderate', strong: 'Strong', very_strong: 'Very Strong' };
@@ -340,9 +340,9 @@ function renderHero(oni, phaseCopy, phaseKey) {
   const metaEl = document.getElementById('hero-meta');
 
   if (oni?.is_scenario) {
-    kickerEl.textContent = 'Scenario Preview — Not Live';
+    kickerEl.textContent = 'Scenario view — not live data';
     kickerEl.classList.add('scenario-active');
-    liveEl.innerHTML = `<span class="live-dot"></span>${phaseCopy[phaseKey].live_status} (shown for the scenario you selected below.)`;
+    liveEl.innerHTML = `<span class="live-dot"></span>${phaseCopy[phaseKey].live_status} Shown for the scenario selected below.`;
     metaEl.innerHTML = `
       <div class="meta-chip"><span class="dot dot-amber"></span>Scenario phase: <span class="meta-val">&nbsp;${oni.phase_label}</span></div>
       <div class="meta-chip"><span class="dot dot-amber"></span>Representative ONI: <span class="meta-val">&nbsp;${oni.latest_oni > 0 ? '+' : ''}${oni.latest_oni.toFixed(2)} (illustrative)</span></div>
@@ -351,7 +351,7 @@ function renderHero(oni, phaseCopy, phaseKey) {
     return;
   }
 
-  kickerEl.textContent = 'Live ENSO Ski Planner';
+  kickerEl.textContent = 'Ski Season Planner';
   kickerEl.classList.remove('scenario-active');
   liveEl.innerHTML = `<span class="live-dot"></span>${phaseCopy[phaseKey].live_status}`;
 
@@ -422,6 +422,14 @@ function renderOtherSignalsLine(signals) {
   // acronym appears, not buried further down the page.
   const chip = (key, label) => {
     if (!signals[key]) return `<span class="sig-chip-off">${label}: unavailable</span>`;
+    if (key === 'mjo') {
+      const m = meta.mjo;
+      const tipM = m ? `${m.name} — ${m.what_it_is} Click for the full breakdown.` : 'MJO — click for details';
+      const amp = signals.mjo.amplitude ?? signals.mjo.latest_value;
+      const weak = amp < 1.0 ? ', weak' : '';
+      return `<button type="button" class="sig-chip" data-signal="mjo" title="${tipM.replace(/"/g, '&quot;')}">` +
+        `MJO: <strong>${signals.mjo.phase}</strong> (amp ${amp.toFixed(2)}${weak})</button>`;
+    }
     const m = meta[key];
     const tip = m
       ? `${m.name} — ${m.what_it_is} Affects: ${m.regions_affected} Click for the full breakdown.`
@@ -430,7 +438,7 @@ function renderOtherSignalsLine(signals) {
       `${label}: <strong>${signals[key].phase}</strong> (${fmt(signals[key])})</button>`;
   };
   el.innerHTML = `<span class="sig-line-label">Other signals →</span>` +
-    ['nao', 'ao', 'pdo', 'pna', 'sam', 'iod'].map(k => chip(k, k.toUpperCase())).join('') +
+    ['nao', 'ao', 'pdo', 'pna', 'sam', 'iod', 'mjo'].map(k => chip(k, k.toUpperCase())).join('') +
     `<span class="sig-line-hint">click any signal to see what it means</span>`;
 
   el.querySelectorAll('.sig-chip').forEach(btn => {
@@ -465,7 +473,7 @@ function liveSignalNote(region, signals, phaseKey, isLiveEnso) {
   return `<div class="live-signal-note">${lead}: ${label} set to <strong>${s.phase}</strong> (${val}, ${when}) — ${s.relevance}${effect}</div>`;
 }
 
-const SIGNAL_ORDER = ['oni', 'nao', 'ao', 'pna', 'pdo', 'sam', 'iod'];
+const SIGNAL_ORDER = ['oni', 'mjo', 'nao', 'ao', 'pna', 'pdo', 'sam', 'iod'];
 
 /** One expandable card per oscillation: what it is, who it affects, both directions. */
 function signalCardHtml(key, s, live) {
@@ -851,9 +859,15 @@ function initMap(resortsData, phaseKey, signals) {
       '<p style="padding:16px;color:var(--muted);">Map library failed to load (offline?).</p>';
     return { regionMarkers: {}, map: null };
   }
-  const map = L.map('resort-map', { scrollWheelZoom: false }).setView([20, 0], 2);
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; OpenStreetMap contributors',
+  const map = L.map('resort-map', { scrollWheelZoom: false, worldCopyJump: true }).setView([20, 0], 2);
+  // CARTO's light basemap rather than standard OSM: OSM renders place names
+  // in each country's own language (Wien, Moskva, 日本), which is wrong for
+  // an English-language site. CARTO labels in English and already draws
+  // country boundaries lightly, which is what we want underneath the
+  // continent overlay.
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+    subdomains: 'abcd',
+    attribution: '&copy; OpenStreetMap contributors &copy; CARTO',
     maxZoom: 12,
   }).addTo(map);
 
@@ -895,7 +909,55 @@ function initMap(resortsData, phaseKey, signals) {
     if (allBounds.length) map.fitBounds(allBounds, { padding: [20, 20] });
   });
 
-  return { regionMarkers, map, allBounds };
+  const mapState = { regionMarkers, map, allBounds, continentLayers: {} };
+  addContinentLayer(mapState);
+  return mapState;
+}
+
+/**
+ * Country polygons grouped by continent, sitting under the resort markers.
+ * Hovering any country outlines its whole continent; clicking zooms to it
+ * and filters the region list to that continent.
+ */
+async function addContinentLayer(mapState) {
+  const { map } = mapState;
+  let geo;
+  try {
+    geo = await loadContinents();
+  } catch (e) {
+    console.warn('Continent outlines unavailable', e);
+    return;
+  }
+  if (!geo) return;
+
+  const base = { color: '#8CA3B8', weight: 0.6, opacity: 0.55, fillColor: '#0C2340', fillOpacity: 0.03 };
+  const hot = { color: '#1A4B7A', weight: 1.6, opacity: 0.95, fillColor: '#2E6CA8', fillOpacity: 0.12 };
+
+  const byContinent = {};
+  const layer = L.geoJSON(geo, {
+    style: () => base,
+    onEachFeature: (feature, lyr) => {
+      const cont = feature.properties.continent;
+      (byContinent[cont] ||= []).push(lyr);
+      lyr.on('mouseover', () => highlightContinent(mapState, cont, true));
+      lyr.on('mouseout', () => highlightContinent(mapState, cont, false));
+      lyr.on('click', () => selectContinent(cont));
+      lyr.bindTooltip(cont, { sticky: true, className: 'continent-tip' });
+    },
+  });
+  layer.addTo(map);
+  layer.bringToBack();
+
+  mapState.continentLayers = byContinent;
+  mapState.continentStyles = { base, hot };
+}
+
+function highlightContinent(mapState, continent, on) {
+  const styles = mapState.continentStyles;
+  if (!styles) return;
+  for (const lyr of mapState.continentLayers[continent] || []) {
+    lyr.setStyle(on ? styles.hot : styles.base);
+  }
 }
 
 /** Recolors existing markers/popups in place when the phase (live or scenario) changes. */
@@ -927,6 +989,33 @@ function updateMapSignals(mapState, resortsData, phaseKey, signals) {
  * off state.expandedRegion so the three controls can never disagree.
  * Passing null (or the already-open region) collapses back to the overview.
  */
+/**
+ * Narrows the whole page to one continent — the region list, the dropdown
+ * and the map all follow. Selecting the continent that's already active
+ * clears it. Regions carry a `continent` field in resorts.json.
+ */
+function selectContinent(continent) {
+  const next = (!continent || continent === state.activeContinent) ? null : continent;
+  state.activeContinent = next;
+  state.expandedRegion = null;
+  rerenderRegionGrid();
+
+  const heading = document.getElementById('regions-section-head');
+  if (heading) heading.textContent = next ? `${next} — regions ranked` : 'Ski Regions — Ranked Most to Least Bullish';
+
+  document.querySelectorAll('[data-continent-btn]').forEach(b => {
+    b.classList.toggle('active', b.dataset.continentBtn === next);
+  });
+
+  frameMap(null);
+}
+
+/** Regions currently in scope, after any continent filter. */
+function regionsInScope() {
+  const all = state.resortsData.regions;
+  return state.activeContinent ? all.filter(r => r.continent === state.activeContinent) : all;
+}
+
 function selectRegion(regionId, opts = {}) {
   const next = (!regionId || regionId === 'all' || regionId === state.expandedRegion) ? null : regionId;
   state.expandedRegion = next;
@@ -1012,8 +1101,39 @@ function renderBacktest(backtest, resortsData) {
     `;
   }).join('');
 
+  const lt = backtest.live_test;
+  const liveTestHtml = lt ? `
+    <div class="bt-livetest">
+      <div class="bt-livetest-head">
+        <span class="bt-livetest-status">${lt.status}</span>
+        <span class="bt-livetest-title">${lt.title}</span>
+      </div>
+      <p class="bt-callout-text">${lt.text}</p>
+      <p class="bt-callout-text bt-nuance">${lt.nuance}</p>
+      ${sourceLinksHtml(lt.sources)}
+    </div>
+  ` : '';
+
+  const sc = backtest.scorecard;
+  const scorecardHtml = sc ? `
+    <div class="bt-scorecard">
+      <div class="bt-score-chips">
+        <span class="bt-score-chip bv-hit">${sc.hit} hit</span>
+        <span class="bt-score-chip bv-partial">${sc.partial} partial</span>
+        <span class="bt-score-chip bv-miss">${sc.miss} miss</span>
+        <span class="bt-score-chip bv-other">${sc.correct_for_right_reason} no-call, correctly</span>
+        <span class="bt-score-chip bv-other">${sc.inconclusive} ungraded</span>
+      </div>
+      <p class="bt-callout-text">${sc.text}</p>
+    </div>
+  ` : '';
+
   el.innerHTML = `
+    ${liveTestHtml}
+
     <p class="bt-summary-line"><strong>${backtest.season_label}.</strong> ${backtest.enso_summary}</p>
+
+    ${scorecardHtml}
 
     <div class="bt-callout">
       <div class="bt-callout-title">${backtest.headline_wildcard.title}</div>
@@ -1080,22 +1200,33 @@ function rerenderRegionGrid() {
     if (isLiveEnso && s.driver === 'enso') pct = pdoModulatedMeterPct(region, phaseKey, pct, signals?.pdo);
     return pct;
   };
-  const sortedRegions = [...resortsData.regions].sort((a, b) => sortPct(b) - sortPct(a));
+  const sortedRegions = [...regionsInScope()].sort((a, b) => sortPct(b) - sortPct(a));
 
   const grid = document.getElementById('regions-grid');
-  grid.innerHTML = sortedRegions.map((region, i) =>
-    renderRegionCard(region, i + 1, phaseKey, affiliates, signals, scenarioIntensity, isLiveEnso,
-      region.id === state.expandedRegion)
-  ).join('');
+  grid.innerHTML = sortedRegions.length
+    ? sortedRegions.map((region, i) =>
+        renderRegionCard(region, i + 1, phaseKey, affiliates, signals, scenarioIntensity, isLiveEnso,
+          region.id === state.expandedRegion)
+      ).join('')
+    : `<p style="color:var(--muted);padding:16px 0;">No regions covered in ${state.activeContinent} yet.</p>`;
 
   grid.querySelectorAll('[data-toggle-region]').forEach(btn => {
     btn.addEventListener('click', () => selectRegion(btn.dataset.toggleRegion, { scroll: false }));
   });
 
+  // Dropdown carries both scopes: continents first, then the regions
+  // currently in scope.
   const select = document.getElementById('region-select');
-  select.innerHTML = `<option value="all">All regions — overview</option>` +
-    sortedRegions.map((r, i) => `<option value="${r.id}">#${i + 1} ${r.name} — ${getDisplaySignal(r, phaseKey, signals).signal_label}</option>`).join('');
-  select.value = state.expandedRegion || 'all';
+  const continents = [...new Set(state.resortsData.regions.map(r => r.continent))].sort();
+  select.innerHTML =
+    `<option value="all">All regions — overview</option>` +
+    `<optgroup label="Continent">` +
+    continents.map(c => `<option value="cont:${c}">${c}</option>`).join('') +
+    `</optgroup>` +
+    `<optgroup label="Region">` +
+    sortedRegions.map((r, i) => `<option value="${r.id}">#${i + 1} ${r.name} — ${getDisplaySignal(r, phaseKey, signals).signal_label}</option>`).join('') +
+    `</optgroup>`;
+  select.value = state.expandedRegion || (state.activeContinent ? `cont:${state.activeContinent}` : 'all');
 
   // Only the expanded region's rows exist in the DOM, so only those need
   // live data painted — ensureResortLiveData serves from cache after the
@@ -1143,6 +1274,20 @@ function setScenarioUiState(phaseChoice, overrides, oniForRender) {
   document.getElementById('phase-override-tag').hidden = phaseChoice === 'live';
   for (const key of SCENARIO_SIGNAL_KEYS) {
     document.getElementById(`${key}-override-tag`).hidden = overrides[key] === 'live';
+  }
+
+  // Baseline strip: what the live readings actually are, so it's clear
+  // what a scenario is being changed *from*.
+  const cur = document.getElementById('scenario-current');
+  if (cur) {
+    const liveBits = [
+      `<span class="cur-item"><span class="cur-key">ENSO</span>${state.oni ? state.oni.phase_label : 'n/a'}</span>`,
+      ...SCENARIO_SIGNAL_KEYS.map(k => {
+        const s = state.signals?.[k];
+        return `<span class="cur-item"><span class="cur-key">${k.toUpperCase()}</span>${s ? s.phase : 'n/a'}</span>`;
+      }),
+    ].join('');
+    cur.innerHTML = `<span class="cur-label">Live now</span>${liveBits}`;
   }
 
   const parts = [`ENSO: ${phaseChoice === 'live'
@@ -1242,7 +1387,14 @@ async function main() {
   renderBacktest(backtest, resortsData);
 
   state.mapState = initMap(resortsData, currentPhaseKeyFor(oni), signals);
-  document.getElementById('region-select').addEventListener('change', (e) => selectRegion(e.target.value));
+  document.getElementById('region-select').addEventListener('change', (e) => {
+    const v = e.target.value;
+    if (v.startsWith('cont:')) selectContinent(v.slice(5));
+    else { state.activeContinent = null; selectRegion(v); }
+  });
+  document.querySelectorAll('[data-continent-btn]').forEach(btn => {
+    btn.addEventListener('click', () => selectContinent(btn.dataset.continentBtn));
+  });
 
   wireScenarioControls();
   renderPhaseView(oni, signals, currentPhaseKeyFor(oni), null);

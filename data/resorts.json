@@ -207,7 +207,7 @@
           "snow_report_url": "https://www.snow-forecast.com/resorts/Taos/snow-report",
           "snow_report_source": "Snow-Forecast",
           "resort_url": "https://www.skitaos.com",
-          "microclimate_note": "Sits in a gap in the Sangre de Cristo range that still catches southern-jet moisture — a genuinely unusual microclimate for northern New Mexico, and the reason it's one of the few reliable El Niño winners."
+          "microclimate_note": "Sits in a gap in the Sangre de Cristo range that still catches southern-jet moisture — a unusual microclimate for northern New Mexico, and the reason it's one of the few reliable El Niño winners."
         },
         {
           "id": "wolf-creek",
@@ -302,7 +302,7 @@
           "resort_url": "https://www.snowbowl.ski",
           "snow_report_url": "https://www.onthesnow.com/arizona/arizona-snowbowl/skireport",
           "snow_report_source": "OnTheSnow",
-          "microclimate_note": "At 35°N, one of the southernmost lift-served resorts on the continent — only works because the San Francisco Peaks punch up to 12,600ft. A genuinely marginal, high-variance climate in any ENSO phase."
+          "microclimate_note": "At 35°N, one of the southernmost lift-served resorts on the continent — only works because the San Francisco Peaks punch up to 12,600ft. A marginal, high-variance climate in any ENSO phase."
         }
       ]
     },
@@ -511,7 +511,7 @@
           "snow_report_url": "https://www.onthesnow.com/colorado/winter-park-resort/skireport",
           "snow_report_source": "OnTheSnow",
           "resort_url": "https://www.winterparkresort.com",
-          "microclimate_note": "Sits directly on the Continental Divide via the Moffat Tunnel corridor — one of the closest resorts to Denver that still catches genuinely west-slope-style snow because the ridge itself sits on the divide."
+          "microclimate_note": "Sits directly on the Continental Divide via the Moffat Tunnel corridor — one of the closest resorts to Denver that still catches west-slope-style snow because the ridge itself sits on the divide."
         },
         {
           "id": "copper-mountain",
@@ -587,7 +587,7 @@
           "resort_url": "https://www.skicb.com",
           "snow_report_url": "https://www.onthesnow.com/colorado/crested-butte-mountain-resort/skireport",
           "snow_report_source": "OnTheSnow",
-          "microclimate_note": "A genuinely continental snow climate — cold, clear, infrequent but heavy storms, and a shallower, weaker-layered snowpack than the Wasatch's more variable climate. Average annual snowfall (~208in) trails Aspen's (~300in) despite comparable elevation."
+          "microclimate_note": "A continental snow climate — cold, clear, infrequent but heavy storms, and a shallower, weaker-layered snowpack than the Wasatch's more variable climate. Average annual snowfall (~208in) trails Aspen's (~300in) despite comparable elevation."
         },
         {
           "id": "solitude",
@@ -899,8 +899,8 @@
           "signal_label": "Bullish",
           "meter_pct": 78,
           "meter_display": "+15–25%",
-          "narrative": "Negative NAO is the single best predictor of a good Northeast ski season. It favors cold-air intrusions and raises the odds of Nor'easters tracking up the coast — the storm type that actually makes New England's season, far more reliably than any ENSO phase.",
-          "caveat": "Even a negative NAO doesn't guarantee it — Nor'easter tracks are still highly storm-by-storm. But the backdrop is genuinely favorable, more so than anything ENSO tells you about this region."
+          "narrative": "Negative NAO is the single best predictor of a good Northeast ski season. It favors cold-air intrusions and raises the odds of Nor'easters tracking up the coast — the storm type that makes New England's season, far more reliably than any ENSO phase.",
+          "caveat": "Even a negative NAO doesn't guarantee it — Nor'easter tracks are still highly storm-by-storm. But the backdrop is favorable, more so than anything ENSO tells you about this region."
         },
         "neutral": {
           "signal": "mixed",
@@ -1224,7 +1224,7 @@
           "resort_url": "https://www.tremblant.ca",
           "snow_report_url": "https://www.onthesnow.com/quebec/tremblant/skireport",
           "snow_report_source": "OnTheSnow",
-          "microclimate_note": "Quebec's Laurentians sit further from the immediate Atlantic coastal storm track than New England, catching more Great Lakes and continental Arctic influence instead — a genuinely distinct microclimate from the rest of this NAO-driven region, generally colder and more temperature-consistent."
+          "microclimate_note": "Quebec's Laurentians sit further from the immediate Atlantic coastal storm track than New England, catching more Great Lakes and continental Arctic influence instead — a distinct microclimate from the rest of this NAO-driven region, generally colder and more temperature-consistent."
         }
       ]
     },
@@ -1318,7 +1318,7 @@
           "snow_report_url": "https://www.onthesnow.com/alberta/lake-louise/skireport",
           "snow_report_source": "OnTheSnow",
           "resort_url": "https://www.skilouise.com",
-          "microclimate_note": "East of the Continental Divide in the true Canadian Rockies — drier and colder than the BC interior resorts, a genuinely different, more continental climate than Revelstoke or Whistler despite the shared region label."
+          "microclimate_note": "East of the Continental Divide in the true Canadian Rockies — drier and colder than the BC interior resorts, a different, more continental climate than Revelstoke or Whistler despite the shared region label."
         },
         {
           "id": "big-white",
@@ -1432,7 +1432,7 @@
           "resort_url": "https://www.skisilverstar.com",
           "snow_report_url": "https://www.onthesnow.com/british-columbia/silver-star/skireport",
           "snow_report_source": "OnTheSnow",
-          "microclimate_note": "Sits on a rain-shadow ridge above Vernon — genuinely famous for extremely light, dry snow despite its BC-interior geography."
+          "microclimate_note": "Sits on a rain-shadow ridge above Vernon — famous for extremely light, dry snow despite its BC-interior geography."
         },
         {
           "id": "red-mountain",
@@ -1505,8 +1505,8 @@
           "signal_label": "Mixed — elevation dependent",
           "meter_pct": 40,
           "meter_display": "Weak / noisy",
-          "narrative": "The Alps are an NAO-driven region in essentially every ENSO phase, so a neutral year looks much like any other year here.",
-          "caveat": "Watch the NAO/polar vortex state through the season — it's the signal that actually matters for the Alps."
+          "narrative": "The Alps are an NAO-driven region in every ENSO phase, so a neutral year looks much like any other year here.",
+          "caveat": "Watch the NAO/polar vortex state through the season — it's the signal that matters for the Alps."
         }
       },
       "primary_driver": "nao",
@@ -1589,7 +1589,7 @@
           "snow_report_url": "https://www.skiarlberg.at/en/st-anton/winter/ski-region",
           "snow_report_source": "Ski Arlberg",
           "resort_url": "https://www.skiarlberg.at/en/st-anton/winter/ski-region",
-          "microclimate_note": "The Arlberg region catches an outsized share of Atlantic moisture crossing directly into western Austria before it's wrung out further east — genuinely one of the snowiest low-to-mid elevation zones in the Alps."
+          "microclimate_note": "The Arlberg region catches an outsized share of Atlantic moisture crossing directly into western Austria before it's wrung out further east — one of the snowiest low-to-mid elevation zones in the Alps."
         },
         {
           "id": "chamonix",
@@ -1805,7 +1805,7 @@
           "resort_url": "https://www.grandvalira.com/en",
           "snow_report_url": "https://www.onthesnow.co.uk/andorra/grandvalira/skireport",
           "snow_report_source": "OnTheSnow",
-          "microclimate_note": "Andorra's Pyrenees location is a genuinely different mountain range from the Alps — more Atlantic/Mediterranean-influenced, generally less snow-reliable than the high Alps, but the largest ski area in the Pyrenees."
+          "microclimate_note": "Andorra's Pyrenees location is a different mountain range from the Alps — more Atlantic/Mediterranean-influenced, generally less snow-reliable than the high Alps, but the largest ski area in the Pyrenees."
         },
         {
           "id": "cortina",
@@ -1897,7 +1897,7 @@
           "snow_report_url": "https://www.onthesnow.com/hokkaido/niseko-united/skireport",
           "snow_report_source": "OnTheSnow",
           "resort_url": "https://www.niseko.ne.jp/en",
-          "microclimate_note": "Directly downwind of the Sea of Japan with essentially no upwind terrain to intercept Siberian moisture first — about as ENSO-independent a snow machine as exists anywhere, driven almost entirely by the Siberian High and East Asian winter monsoon."
+          "microclimate_note": "Directly downwind of the Sea of Japan with no upwind terrain to intercept Siberian moisture first — about as ENSO-independent a snow machine as exists anywhere, driven almost entirely by the Siberian High and East Asian winter monsoon."
         },
         {
           "id": "furano",
@@ -2043,7 +2043,7 @@
           "meter_pct": 90,
           "meter_display": "Strong positive",
           "narrative": "The clearest El Niño beneficiary globally. The high central Andes respond to El Niño more directly than almost any other ski region on earth. Portillo is the highest-conviction destination in a strong El Niño cycle. Season: June–September; peak window July–mid-August.",
-          "caveat": "A Super El Niño is essentially a structural long for Portillo. Book early — El Niño years generate unusual Northern Hemisphere interest in Andean destinations."
+          "caveat": "A Super El Niño is a structural long for Portillo. Book early — El Niño years generate unusual Northern Hemisphere interest in Andean destinations."
         },
         "la_nina": {
           "signal": "bear",
@@ -2115,7 +2115,7 @@
           "snow_report_url": "https://www.onthesnow.com/argentina/cerro-catedral-alta-patagonia/skireport",
           "snow_report_source": "OnTheSnow",
           "resort_url": "https://www.catedralaltapatagonia.com",
-          "microclimate_note": "Northern Argentine Patagonia — a genuinely different climate regime from the desert-adjacent central Andes, more consistently humid and less dependent on any single frontal system."
+          "microclimate_note": "Northern Argentine Patagonia — a different climate regime from the desert-adjacent central Andes, more consistently humid and less dependent on any single frontal system."
         },
         {
           "id": "las-lenas",
@@ -2307,7 +2307,7 @@
           "signal_label": "Bullish — fronts pushed north",
           "meter_pct": 80,
           "meter_display": "+15–25%",
-          "narrative": "Negative SAM drags the Southern Ocean westerly storm belt north onto the Australian Alps — per Australia's Bureau of Meteorology this is the single strongest snowfall driver the country has, outweighing ENSO. It means more frequent cold fronts actually reaching the ski fields instead of passing south of them.",
+          "narrative": "Negative SAM drags the Southern Ocean westerly storm belt north onto the Australian Alps — per Australia's Bureau of Meteorology this is the single strongest snowfall driver the country has, outweighing ENSO. It means more frequent cold fronts reaching the ski fields instead of passing south of them.",
           "caveat": "SAM is a fast-moving pattern with only 1–3 weeks of real predictive skill, so a negative reading is a great sign for the next few weeks, not a season-long guarantee. Australia's marginal base elevations still cap the upside."
         },
         "neutral": {
@@ -2316,7 +2316,7 @@
           "meter_pct": 48,
           "meter_display": "Near average",
           "narrative": "With SAM near neutral, the storm belt sits in roughly its average position and Australia's season tracks its (already marginal) long-run baseline. ENSO and IOD become the tiebreakers.",
-          "caveat": "Australia has the highest year-to-year snowfall variability of any region on this site — historically a coefficient of variation around 0.50–0.56, versus roughly 0.17–0.21 in Japan. Neutral means genuinely unpredictable here, not 'safe'."
+          "caveat": "Australia has the highest year-to-year snowfall variability of any region on this site — historically a coefficient of variation around 0.50–0.56, versus roughly 0.17–0.21 in Japan. Neutral means unpredictable here, not 'safe'."
         },
         "positive": {
           "signal": "bear",
@@ -2324,7 +2324,7 @@
           "meter_pct": 20,
           "meter_display": "−15–30%",
           "narrative": "Positive SAM pulls the westerly storm belt south toward Antarctica, so the cold fronts that make Australia's season track past the continent instead of over it. This is the classic setup for a thin, late-starting, early-finishing Australian winter.",
-          "caveat": "A positive SAM can still be punctuated by individual strong fronts — Australia's season is made of a handful of big events, so one good week can rescue a bad month. But the odds are genuinely against you."
+          "caveat": "A positive SAM can still be punctuated by individual strong fronts — Australia's season is made of a handful of big events, so one good week can rescue a bad month. But the odds are against you."
         }
       }
     }

@@ -1,17 +1,16 @@
 {
   "_readme": "Reference content (static, not fetched live) for every climate oscillation the site tracks: what each one physically is, which ski regions it actually affects and in which direction, how often it updates, and — critically — how far ahead it is genuinely predictive rather than just describing what already happened. The _primer block is the conceptual background: what climate oscillations are as a family, and why the ocean-driven ones are forecastable months ahead while the atmosphere-driven ones are not.",
-
   "_primer": {
     "title": "What climate oscillations are, and why some are forecastable",
     "paragraphs": [
       "ENSO — El Niño and La Niña — is the famous one, but it is a single member of a family. A climate oscillation is a large-scale pattern in the ocean or atmosphere that keeps flipping between a small number of preferred states, on timescales from a few weeks to several decades. Each one shifts where the jet stream sits, and therefore where storms go.",
       "The most useful thing to understand about them for trip planning: they mostly <strong>redistribute</strong> snow rather than create or destroy it. A phase that starves the Pacific Northwest is often the same phase feeding California and the southern Rockies. That is why this site ranks regions against each other instead of forecasting a single global 'good' or 'bad' winter — in almost every phase, somewhere is winning.",
       "The mechanism is indirect but well established. An unusually warm or cool patch of ocean changes where tropical thunderstorm activity clusters. That shift in convection launches large atmospheric waves (Rossby waves) that propagate out of the tropics and into the mid-latitudes, where they reposition the ridges and troughs that steer storms. That is how a sea-surface temperature anomaly on the equator ends up deciding whether it snows in Colorado.",
-      "Which brings up the single most important distinction on this page — <strong>what is actually oscillating</strong>, because it determines how far ahead the signal is worth anything:"
+      "Which brings up the single most important distinction on this page — <strong>what is oscillating</strong>, because it determines how far ahead the signal is worth anything:"
     ],
     "families": [
       {
-        "label": "Ocean-driven — slow, and genuinely forecastable",
+        "label": "Ocean-driven — slow, and forecastable",
         "members": "ENSO (ONI), PDO, IOD",
         "text": "Water has enormous heat capacity. Once a large patch of ocean is anomalously warm or cool, it stays that way for months or years — the ocean remembers. That thermal memory is what makes these signals predictable at seasonal range, and it is why ENSO can meaningfully inform a booking decision several months out."
       },
@@ -21,16 +20,35 @@
         "text": "Air has almost no thermal memory. These patterns are the atmosphere reorganizing itself, and they can flip from one extreme to the other within a few weeks. Deterministic skill runs out after roughly 1–2 weeks, and seasonal prediction of them remains an unsolved research problem. Read them as a description of the pattern you are currently in — excellent for explaining why a season is running hot or cold, close to useless for booking a year ahead."
       }
     ],
-    "closing": "These patterns also interfere with each other, constructively and destructively. A negative NAO can override what ENSO 'should' be doing in the Northeast for weeks at a time; a cool PDO can blunt an El Niño's effect on the West Coast. That is why this site assigns each region a single primary driver — whichever one the research says actually dominates there — rather than averaging every index into one mushy number.",
+    "closing": "These patterns also interfere with each other, constructively and destructively. A negative NAO can override what ENSO 'should' be doing in the Northeast for weeks at a time; a cool PDO can blunt an El Niño's effect on the West Coast. That is why this site assigns each region a single primary driver — whichever one the research says dominates there — rather than averaging every index into one mushy number.",
     "timescale_ladder": [
-      { "signal": "MJO", "span": "30–60 days", "note": "Not tracked here — too short-fused for trip planning, but it is what makes a given fortnight stormy." },
-      { "signal": "NAO / AO / PNA / SAM", "span": "Days to weeks", "note": "Atmospheric. Describes the pattern you are in now." },
-      { "signal": "IOD", "span": "A season", "note": "Ocean. Peaks in austral spring; matters most to Australia." },
-      { "signal": "ENSO", "span": "9–12+ months, recurring every 2–7 years", "note": "Ocean-atmosphere coupled. The workhorse seasonal signal." },
-      { "signal": "PDO", "span": "Years to decades", "note": "Ocean. A background state, not a forecast." }
+      {
+        "signal": "MJO",
+        "span": "30–60 days",
+        "note": "Tropical convection circling the globe. The shortest-fused signal here: it sets which fortnight is stormy, not which season."
+      },
+      {
+        "signal": "NAO / AO / PNA / SAM",
+        "span": "Days to weeks",
+        "note": "Atmospheric. Describes the pattern you are in now."
+      },
+      {
+        "signal": "IOD",
+        "span": "A season",
+        "note": "Ocean. Peaks in austral spring; matters most to Australia."
+      },
+      {
+        "signal": "ENSO",
+        "span": "9–12+ months, recurring every 2–7 years",
+        "note": "Ocean-atmosphere coupled. The workhorse seasonal signal."
+      },
+      {
+        "signal": "PDO",
+        "span": "Years to decades",
+        "note": "Ocean. A background state, not a forecast."
+      }
     ]
   },
-
   "oni": {
     "name": "ONI — Oceanic Niño Index (ENSO)",
     "short_name": "ENSO",
@@ -47,7 +65,6 @@
     "horizon_short": "3-9 months, once a phase is established",
     "horizon_detail": "ENSO is the most predictable ocean-atmosphere pattern at seasonal timescales, which is why it's the primary driver of this site's regional calls. Once a phase locks in — typically by early-to-mid summer for the following winter — forecasts carry real skill 3 to 9 months out. The exception is forecasts made in Northern Hemisphere spring (roughly February-May): ENSO predictions issued during this window are historically much less reliable, a well-documented effect called the \"spring predictability barrier.\" Read a spring ONI reading as a weaker signal than the same number would be in October."
   },
-
   "nao": {
     "name": "NAO — North Atlantic Oscillation",
     "short_name": "NAO",
@@ -64,12 +81,11 @@
     "horizon_short": "1-4 weeks — mostly describes what already happened",
     "horizon_detail": "NAO is a fast-moving, largely chaotic atmospheric pattern, not a slow ocean signal like ENSO. Deterministic skill runs out after roughly 1-2 weeks, and even the best seasonal forecast systems have only weak-to-moderate skill predicting it months in advance — seasonal NAO prediction is still an active, unsolved research problem. Treat the NAO value shown on this site as a description of the pattern that just occurred (useful for explaining why a region's season is running hot or cold), not a forecast of what's coming next."
   },
-
   "ao": {
     "name": "AO — Arctic Oscillation",
     "short_name": "AO",
     "family": "Atmosphere-driven",
-    "what_it_is": "A measure of how tightly the polar vortex is holding together — essentially the strength of the ring of winds circling the Arctic. Closely related to the NAO, and often moving with it.",
+    "what_it_is": "A measure of how tightly the polar vortex is holding together — the strength of the ring of winds circling the Arctic. Closely related to the NAO, and often moving with it.",
     "timescale": "Days to weeks; longer when a stratospheric warming event is in play",
     "positive_label": "Positive AO",
     "positive_effect": "A strong, tight polar vortex. Cold air stays bottled up near the pole, leaving the mid-latitudes milder — bad news for anywhere relying on Arctic air for cold, such as the Northeast US and lower-elevation Europe.",
@@ -81,7 +97,6 @@
     "horizon_short": "2-6 weeks, longer during a stratospheric warming event",
     "horizon_detail": "Closely related to NAO and similarly hard to predict for the same chaotic-atmosphere reasons. The one exception: AO gets a real predictability boost when a Sudden Stratospheric Warming (SSW) is detected in the polar vortex — those events can presage a negative AO / cold outbreak at the surface 2-6 weeks later. Absent an active SSW signal, treat AO the same way as NAO: it's telling you what's happening now, not what's coming this winter."
   },
-
   "pna": {
     "name": "PNA — Pacific/North American Pattern",
     "short_name": "PNA",
@@ -92,13 +107,12 @@
     "positive_effect": "Ridge over western North America, trough over the east. Warmer and drier for the West (Sierra, PNW, Rockies); colder and stormier for the Midwest and East.",
     "negative_label": "Negative PNA",
     "negative_effect": "Trough over the western US — colder and wetter for the Cascades, Sierra and Rockies, and milder, drier conditions for the East. The strongest negative PNA episode in over 50 years drove the record Christmas-week snowfall west of the Cascades in 2021.",
-    "regions_affected": "Western North America most directly, with the opposite sign for the East. Tends to run positive during El Niño and negative during La Niña, so it doubles as a check on whether the atmosphere is actually delivering what ENSO implies.",
+    "regions_affected": "Western North America most directly, with the opposite sign for the East. Tends to run positive during El Niño and negative during La Niña, so it doubles as a check on whether the atmosphere is delivering what ENSO implies.",
     "update_frequency": "Monthly (a daily index also exists; this site uses the monthly value)",
     "latency": "Finalizes shortly after each month ends.",
     "horizon_short": "1-2 weeks of real skill — a pattern description, not a season forecast",
-    "horizon_detail": "PNA describes where the ridge and trough sit over North America, and it flips the West and East against each other: negative PNA puts a trough over the western US (colder, wetter West; milder, drier East), positive PNA ridges over the West and drives cold into the East. It is strongly related to ENSO — El Niño tends toward positive PNA, La Niña toward negative — so on this site it mostly serves as a check on whether the atmosphere is actually delivering what the current ENSO phase implies. Like NAO and AO it is a fast atmospheric pattern, so read it as a nowcast rather than a seasonal outlook."
+    "horizon_detail": "PNA describes where the ridge and trough sit over North America, and it flips the West and East against each other: negative PNA puts a trough over the western US (colder, wetter West; milder, drier East), positive PNA ridges over the West and drives cold into the East. It is strongly related to ENSO — El Niño tends toward positive PNA, La Niña toward negative — so on this site it mostly serves as a check on whether the atmosphere is delivering what the current ENSO phase implies. Like NAO and AO it is a fast atmospheric pattern, so read it as a nowcast rather than a seasonal outlook."
   },
-
   "pdo": {
     "name": "PDO — Pacific Decadal Oscillation",
     "short_name": "PDO",
@@ -113,9 +127,8 @@
     "update_frequency": "Monthly",
     "latency": "Finalizes shortly after each month ends.",
     "horizon_short": "Persists for months to years — a backdrop, not a forecast",
-    "horizon_detail": "PDO is fundamentally different from the fast atmospheric patterns: it's a slow-moving ocean temperature pattern that typically holds its phase for months to years, sometimes over a decade. It doesn't predict any specific storm, week, or month by itself. What it does is modulate how strongly a given ENSO event actually shows up on the West Coast — a warm PDO tends to amplify El Niño's effects there, a cool PDO tends to amplify La Niña's. Read the current PDO phase as season-long context, not a forecast input on its own."
+    "horizon_detail": "PDO is fundamentally different from the fast atmospheric patterns: it's a slow-moving ocean temperature pattern that typically holds its phase for months to years, sometimes over a decade. It doesn't predict any specific storm, week, or month by itself. What it does is modulate how strongly a given ENSO event shows up on the West Coast — a warm PDO tends to amplify El Niño's effects there, a cool PDO tends to amplify La Niña's. Read the current PDO phase as season-long context, not a forecast input on its own."
   },
-
   "sam": {
     "name": "SAM / AAO — Southern Annular Mode",
     "short_name": "SAM",
@@ -132,7 +145,6 @@
     "horizon_short": "1-3 weeks — but it is the strongest driver Australia has",
     "horizon_detail": "SAM tracks how far north or south the Southern Ocean westerly storm belt sits. Negative SAM pushes those cold fronts north onto the Australian Alps and the southern Andes; positive SAM pulls them south toward Antarctica and away from the ski fields. Australia's Bureau of Meteorology identifies SAM as having the strongest relationship with Australian snowfall of any climate driver — stronger than ENSO — which is why this site treats the Australian region as SAM-primary rather than ENSO-primary. Its predictability is short, though, so it is far more useful for reading a season in progress than for booking a year ahead."
   },
-
   "iod": {
     "name": "IOD — Indian Ocean Dipole",
     "short_name": "IOD",
@@ -145,8 +157,24 @@
     "negative_effect": "Warmer water near Australia increases moisture availability, and is associated with deeper than average Australian snowpack.",
     "regions_affected": "Australia, primarily, and concentrated in late winter and spring rather than across the whole season — so a positive IOD threatens a September trip more than a July one.",
     "update_frequency": "Monthly (Dipole Mode Index, NOAA PSL)",
-    "latency": "Roughly 1-2 months behind, and the feed sometimes lags further; the site shows the latest month actually published.",
+    "latency": "Roughly 1-2 months behind, and the feed sometimes lags further; the site shows the latest month published.",
     "horizon_short": "Seasonal, but concentrated in late winter/spring",
     "horizon_detail": "IOD measures the sea-surface temperature gradient across the tropical Indian Ocean and mainly matters for Australia. A positive IOD cuts the moisture supply feeding into cold fronts crossing southeastern Australia, drying out the back half of the season; a negative IOD is associated with deeper Australian snowpack. Unlike ENSO, its effect on snow depth is concentrated in late winter and spring rather than across the whole season, so a positive IOD is more of a threat to a September trip than a July one."
+  },
+  "mjo": {
+    "name": "MJO — Madden-Julian Oscillation",
+    "short_name": "MJO",
+    "family": "Atmosphere-driven (tropical)",
+    "what_it_is": "A pulse of enhanced tropical thunderstorm activity that travels east around the globe every 30 to 60 days. Its position is described as one of eight phases, numbered by longitude: phase 1 sits over Africa and the western hemisphere, phases 2-3 over the Indian Ocean, 4-5 over the Maritime Continent, and 6-8 over the western Pacific. Unlike the other signals here it has no positive or negative direction, only a location and a strength.",
+    "timescale": "One full circuit every 30-60 days",
+    "positive_label": "Phases 7, 8 and 1 — Pacific jet extended",
+    "positive_effect": "Convection over the western Pacific and date line amplifies and extends the Pacific jet toward North America. This is the configuration that breaks down a stubborn West Coast ridge and opens the storm door for a week or two — the best short-range signal a Sierra or Cascades skier can watch.",
+    "negative_label": "Phases 4, 5 and 6 — ridge west, trough east",
+    "negative_effect": "Convection over the Maritime Continent and western Pacific favours ridging over the western US and drives cold outbreaks into the central and eastern US. Good for the Northeast's cold supply, generally dry for the West.",
+    "regions_affected": "Strongest on the US West Coast (Sierra, Cascades, Rockies) for storm timing, and on the eastern US for cold-air delivery. It also modulates the odds of a Sudden Stratospheric Warming, which is why it matters indirectly to Europe.",
+    "update_frequency": "Every 5 days (pentads)",
+    "latency": "CPC publishes each pentad within a few days of it closing. This is much fresher than the monthly indices, which is the point of it.",
+    "horizon_short": "1-4 weeks — the only signal here that fills the subseasonal gap",
+    "horizon_detail": "The MJO is the main reason the 2-4 week range is forecastable at all. It sits between weather forecasting, which runs out around a week, and seasonal signals like ENSO, which say nothing about any particular week. Because it propagates in a fairly predictable direction and speed, knowing the current phase gives a real read on where the storm track is headed over the next fortnight. What it will not do is tell you about a season: it circles the globe several times over a winter, so it is a tool for timing a trip you have already decided to take, not for choosing which hemisphere to fly to. Amplitude matters as much as phase — below about 1.0 the MJO is considered too weak to steer anything."
   }
 }
