@@ -55,7 +55,8 @@
           "snow_report_url": "https://www.onthesnow.com/california/mammoth-mountain-ski-area/skireport",
           "snow_report_source": "OnTheSnow",
           "resort_url": "https://www.mammothmountain.com",
-          "microclimate_note": "Sits where the Sierra crest juts furthest east, catching more direct Pacific moisture than resorts to the north; its very high base (7,953ft) keeps most storms snow rather than rain even when the freezing level runs warm."
+          "microclimate_note": "Sits where the Sierra crest juts furthest east, catching more direct Pacific moisture than resorts to the north; its very high base (7,953ft) keeps most storms snow rather than rain even when the freezing level runs warm.",
+          "snow_history_url": "https://www.onthesnow.com/california/mammoth-mountain-ski-area/historical-snowfall"
         },
         {
           "id": "palisades-tahoe",
@@ -74,7 +75,8 @@
           "snow_report_url": "https://www.onthesnow.com/california/palisades-tahoe/skireport",
           "snow_report_source": "OnTheSnow",
           "resort_url": "https://www.palisadestahoe.com",
-          "microclimate_note": "Lake Tahoe's own basin effect adds a lake-enhancement layer on top of standard Sierra orographic lift, and its north-facing bowls hold powder longer than Tahoe's south-shore resorts."
+          "microclimate_note": "Lake Tahoe's own basin effect adds a lake-enhancement layer on top of standard Sierra orographic lift, and its north-facing bowls hold powder longer than Tahoe's south-shore resorts.",
+          "snow_history_url": "https://www.onthesnow.com/california/palisades-tahoe/historical-snowfall"
         },
         {
           "id": "big-bear",
@@ -92,7 +94,8 @@
           "snow_report_url": "https://www.snow-forecast.com/resorts/Bear-Mountain/snow-report",
           "snow_report_source": "Snow-Forecast",
           "resort_url": "https://www.bigbearmountainresort.com",
-          "microclimate_note": "The southernmost, lowest-elevation (6,750ft base) major Sierra resort — depends on colder-than-typical storm tracks reaching Southern California, making it the most rain-line-vulnerable resort in the region."
+          "microclimate_note": "The southernmost, lowest-elevation (6,750ft base) major Sierra resort — depends on colder-than-typical storm tracks reaching Southern California, making it the most rain-line-vulnerable resort in the region.",
+          "snow_history_url": "https://www.snow-forecast.com/resorts/Bear-Mountain/history"
         },
         {
           "id": "northstar",
@@ -111,7 +114,8 @@
           "snow_report_url": "https://www.onthesnow.com/california/northstar-california/skireport",
           "snow_report_source": "OnTheSnow",
           "resort_url": "https://www.northstarcalifornia.com",
-          "microclimate_note": "Tucked on Tahoe's lee side, sheltered from the worst wind but also from some of the heaviest west-facing Sierra cement — smaller totals than Kirkwood, but better-preserved snow."
+          "microclimate_note": "Tucked on Tahoe's lee side, sheltered from the worst wind but also from some of the heaviest west-facing Sierra cement — smaller totals than Kirkwood, but better-preserved snow.",
+          "snow_history_url": "https://www.onthesnow.com/california/northstar-california/historical-snowfall"
         },
         {
           "id": "kirkwood",
@@ -130,7 +134,8 @@
           "snow_report_url": "https://www.onthesnow.com/california/kirkwood/skireport",
           "snow_report_source": "OnTheSnow",
           "resort_url": "https://www.kirkwood.com",
-          "microclimate_note": "The highest and most storm-exposed of the Tahoe-area resorts, sitting in its own bowl south of the lake that consistently outperforms Tahoe's north shore for snowfall totals."
+          "microclimate_note": "The highest and most storm-exposed of the Tahoe-area resorts, sitting in its own bowl south of the lake that consistently outperforms Tahoe's north shore for snowfall totals.",
+          "snow_history_url": "https://www.onthesnow.com/california/kirkwood/historical-snowfall"
         },
         {
           "id": "june-mountain",
@@ -150,7 +155,8 @@
           "resort_url": "https://www.junemountain.com",
           "snow_report_url": "https://www.onthesnow.com/california/june-mountain/skireport",
           "snow_report_source": "OnTheSnow",
-          "microclimate_note": "Mammoth's quieter neighbor a few miles north, sharing the same high-elevation southern-Sierra exposure with far less skier traffic."
+          "microclimate_note": "Mammoth's quieter neighbor a few miles north, sharing the same high-elevation southern-Sierra exposure with far less skier traffic.",
+          "snow_history_url": "https://www.onthesnow.com/california/june-mountain/historical-snowfall"
         }
       ]
     },
@@ -207,7 +213,8 @@
           "snow_report_url": "https://www.snow-forecast.com/resorts/Taos/snow-report",
           "snow_report_source": "Snow-Forecast",
           "resort_url": "https://www.skitaos.com",
-          "microclimate_note": "Sits in a gap in the Sangre de Cristo range that still catches southern-jet moisture — a unusual microclimate for northern New Mexico, and the reason it's one of the few reliable El Niño winners."
+          "microclimate_note": "Sits in a gap in the Sangre de Cristo range that still catches southern-jet moisture — a unusual microclimate for northern New Mexico, and the reason it's one of the few reliable El Niño winners.",
+          "snow_history_url": "https://www.snow-forecast.com/resorts/Taos/history"
         },
         {
           "id": "wolf-creek",
@@ -226,7 +233,8 @@
           "snow_report_url": "https://www.onthesnow.com/colorado/wolf-creek/skireport",
           "snow_report_source": "Snow-Forecast",
           "resort_url": "https://wolfcreekski.com",
-          "microclimate_note": "Colorado's snowiest resort on average, sitting directly in the path of southwest-flow moisture funneling up the San Juans before any other range intercepts it — first in line for whatever the southern jet delivers."
+          "microclimate_note": "Colorado's snowiest resort on average, sitting directly in the path of southwest-flow moisture funneling up the San Juans before any other range intercepts it — first in line for whatever the southern jet delivers.",
+          "snow_history_url": "https://www.onthesnow.com/colorado/wolf-creek/historical-snowfall"
         },
         {
           "id": "telluride",
@@ -245,7 +253,8 @@
           "snow_report_url": "https://www.onthesnow.com/colorado/telluride/skireport",
           "snow_report_source": "OnTheSnow",
           "resort_url": "https://www.tellurideskiresort.com",
-          "microclimate_note": "A deep box-canyon setting plus a very high summit (13,150ft) gives it some of the best snow preservation in Colorado, even though the historic town itself sits comparatively low."
+          "microclimate_note": "A deep box-canyon setting plus a very high summit (13,150ft) gives it some of the best snow preservation in Colorado, even though the historic town itself sits comparatively low.",
+          "snow_history_url": "https://www.onthesnow.com/colorado/telluride/historical-snowfall"
         },
         {
           "id": "purgatory",
@@ -264,7 +273,8 @@
           "snow_report_url": "https://www.onthesnow.com/colorado/durango-mountain-resort/skireport",
           "snow_report_source": "OnTheSnow",
           "resort_url": "https://www.purgatoryresort.com",
-          "microclimate_note": "Northern San Juans — gets a blend of southern-jet moisture and the same northern storm track that feeds Wolf Creek, without Wolf Creek's extreme single-point exposure."
+          "microclimate_note": "Northern San Juans — gets a blend of southern-jet moisture and the same northern storm track that feeds Wolf Creek, without Wolf Creek's extreme single-point exposure.",
+          "snow_history_url": "https://www.onthesnow.com/colorado/durango-mountain-resort/historical-snowfall"
         },
         {
           "id": "santa-fe",
@@ -283,7 +293,8 @@
           "snow_report_url": "https://www.onthesnow.com/new-mexico/ski-santa-fe/skireport",
           "snow_report_source": "OnTheSnow",
           "resort_url": "https://www.skisantafe.com",
-          "microclimate_note": "One of the southernmost lift-served resorts on the continent; only works at all because of its high base (10,350ft) — margin for error is thin regardless of ENSO phase."
+          "microclimate_note": "One of the southernmost lift-served resorts on the continent; only works at all because of its high base (10,350ft) — margin for error is thin regardless of ENSO phase.",
+          "snow_history_url": "https://www.onthesnow.com/new-mexico/ski-santa-fe/historical-snowfall"
         },
         {
           "id": "arizona-snowbowl",
@@ -302,7 +313,8 @@
           "resort_url": "https://www.snowbowl.ski",
           "snow_report_url": "https://www.onthesnow.com/arizona/arizona-snowbowl/skireport",
           "snow_report_source": "OnTheSnow",
-          "microclimate_note": "At 35°N, one of the southernmost lift-served resorts on the continent — only works because the San Francisco Peaks punch up to 12,600ft. A marginal, high-variance climate in any ENSO phase."
+          "microclimate_note": "At 35°N, one of the southernmost lift-served resorts on the continent — only works because the San Francisco Peaks punch up to 12,600ft. A marginal, high-variance climate in any ENSO phase.",
+          "snow_history_url": "https://www.onthesnow.com/arizona/arizona-snowbowl/historical-snowfall"
         }
       ]
     },
@@ -359,7 +371,8 @@
           "snow_report_url": "https://www.onthesnow.com/utah/alta-ski-area/skireport",
           "snow_report_source": "OnTheSnow",
           "resort_url": "https://www.alta.com",
-          "microclimate_note": "Little Cottonwood Canyon's uniquely funnel-shaped orientation is the textbook explanation for the Wasatch's famously light, frequent snow, with lake-effect enhancement off the Great Salt Lake layered on top."
+          "microclimate_note": "Little Cottonwood Canyon's uniquely funnel-shaped orientation is the textbook explanation for the Wasatch's famously light, frequent snow, with lake-effect enhancement off the Great Salt Lake layered on top.",
+          "snow_history_url": "https://www.onthesnow.com/utah/alta-ski-area/historical-snowfall"
         },
         {
           "id": "snowbird",
@@ -378,7 +391,8 @@
           "snow_report_url": "https://www.onthesnow.com/utah/snowbird/skireport",
           "snow_report_source": "OnTheSnow",
           "resort_url": "https://www.snowbird.com",
-          "microclimate_note": "Shares Little Cottonwood Canyon with Alta and the same lake-effect mechanism, but sits slightly lower and more wind-exposed on the canyon's south side."
+          "microclimate_note": "Shares Little Cottonwood Canyon with Alta and the same lake-effect mechanism, but sits slightly lower and more wind-exposed on the canyon's south side.",
+          "snow_history_url": "https://www.onthesnow.com/utah/snowbird/historical-snowfall"
         },
         {
           "id": "park-city",
@@ -397,7 +411,8 @@
           "snow_report_url": "https://www.snow-forecast.com/resorts/Park-City/snow-report",
           "snow_report_source": "Snow-Forecast",
           "resort_url": "https://www.parkcitymountain.com",
-          "microclimate_note": "Sits in a side canyon east of the main Wasatch crest, meaning it catches meaningfully less of the Cottonwood Canyons' lake-effect enhancement than Alta or Snowbird."
+          "microclimate_note": "Sits in a side canyon east of the main Wasatch crest, meaning it catches meaningfully less of the Cottonwood Canyons' lake-effect enhancement than Alta or Snowbird.",
+          "snow_history_url": "https://www.snow-forecast.com/resorts/Park-City/history"
         },
         {
           "id": "deer-valley",
@@ -416,7 +431,8 @@
           "snow_report_url": "https://www.onthesnow.com/utah/deer-valley-resort/skireport",
           "snow_report_source": "OnTheSnow",
           "resort_url": "https://www.deervalley.com",
-          "microclimate_note": "Adjacent to Park City with a similar exposure profile; historically built around grooming and consistency rather than the deepest powder days."
+          "microclimate_note": "Adjacent to Park City with a similar exposure profile; historically built around grooming and consistency rather than the deepest powder days.",
+          "snow_history_url": "https://www.onthesnow.com/utah/deer-valley-resort/historical-snowfall"
         },
         {
           "id": "breckenridge",
@@ -435,7 +451,8 @@
           "snow_report_url": "https://www.onthesnow.com/colorado/breckenridge/skireport",
           "snow_report_source": "OnTheSnow",
           "resort_url": "https://www.breckenridge.com",
-          "microclimate_note": "High base (9,600ft) on the Tenmile Range's east side — the leeward side of the Continental Divide for Pacific storms, so it leans more on upslope/continental systems than Colorado's wetter west-slope resorts."
+          "microclimate_note": "High base (9,600ft) on the Tenmile Range's east side — the leeward side of the Continental Divide for Pacific storms, so it leans more on upslope/continental systems than Colorado's wetter west-slope resorts.",
+          "snow_history_url": "https://www.onthesnow.com/colorado/breckenridge/historical-snowfall"
         },
         {
           "id": "vail",
@@ -454,7 +471,8 @@
           "snow_report_url": "https://www.onthesnow.com/colorado/vail/skireport",
           "snow_report_source": "OnTheSnow",
           "resort_url": "https://www.vail.com",
-          "microclimate_note": "A long east-west ridge with enormous sidecountry catchment, sitting close enough to the Divide to catch decent Pacific-influenced snow before Colorado's typical continental dry-out sets in further east."
+          "microclimate_note": "A long east-west ridge with enormous sidecountry catchment, sitting close enough to the Divide to catch decent Pacific-influenced snow before Colorado's typical continental dry-out sets in further east.",
+          "snow_history_url": "https://www.onthesnow.com/colorado/vail/historical-snowfall"
         },
         {
           "id": "steamboat",
@@ -473,7 +491,8 @@
           "snow_report_url": "https://www.onthesnow.com/colorado/steamboat/skireport",
           "snow_report_source": "OnTheSnow",
           "resort_url": "https://www.steamboat.com",
-          "microclimate_note": "The Park Range's orientation wrings moisture from Pacific storms unusually efficiently — the documented mechanism behind trademarked 'Champagne Powder,' with snow averaging roughly 6% water content versus ~15% typical elsewhere in Colorado."
+          "microclimate_note": "The Park Range's orientation wrings moisture from Pacific storms unusually efficiently — the documented mechanism behind trademarked 'Champagne Powder,' with snow averaging roughly 6% water content versus ~15% typical elsewhere in Colorado.",
+          "snow_history_url": "https://www.onthesnow.com/colorado/steamboat/historical-snowfall"
         },
         {
           "id": "aspen-snowmass",
@@ -492,7 +511,8 @@
           "snow_report_url": "https://www.onthesnow.com/colorado/aspen-snowmass/skireport",
           "snow_report_source": "OnTheSnow",
           "resort_url": "https://www.aspensnowmass.com",
-          "microclimate_note": "Central Elk Mountains with a high summit (12,510ft) but lower base; storm-track geometry here is more favorable than Crested Butte's despite similar latitude, and average snowfall (~300in) runs well above it."
+          "microclimate_note": "Central Elk Mountains with a high summit (12,510ft) but lower base; storm-track geometry here is more favorable than Crested Butte's despite similar latitude, and average snowfall (~300in) runs well above it.",
+          "snow_history_url": "https://www.onthesnow.com/colorado/aspen-snowmass/historical-snowfall"
         },
         {
           "id": "winter-park",
@@ -511,7 +531,8 @@
           "snow_report_url": "https://www.onthesnow.com/colorado/winter-park-resort/skireport",
           "snow_report_source": "OnTheSnow",
           "resort_url": "https://www.winterparkresort.com",
-          "microclimate_note": "Sits directly on the Continental Divide via the Moffat Tunnel corridor — one of the closest resorts to Denver that still catches west-slope-style snow because the ridge itself sits on the divide."
+          "microclimate_note": "Sits directly on the Continental Divide via the Moffat Tunnel corridor — one of the closest resorts to Denver that still catches west-slope-style snow because the ridge itself sits on the divide.",
+          "snow_history_url": "https://www.onthesnow.com/colorado/winter-park-resort/historical-snowfall"
         },
         {
           "id": "copper-mountain",
@@ -530,7 +551,8 @@
           "resort_url": "https://www.coppercolorado.com",
           "snow_report_url": "https://www.snow-forecast.com/resorts/Copper-Mountain/snow-report",
           "snow_report_source": "Snow-Forecast",
-          "microclimate_note": "Adjacent to Vail Pass on the west side of the Continental Divide, with similar storm exposure to Vail/Breckenridge and a naturally divided front/back-side layout that spreads snow preservation across aspects."
+          "microclimate_note": "Adjacent to Vail Pass on the west side of the Continental Divide, with similar storm exposure to Vail/Breckenridge and a naturally divided front/back-side layout that spreads snow preservation across aspects.",
+          "snow_history_url": "https://www.snow-forecast.com/resorts/Copper-Mountain/history"
         },
         {
           "id": "eldora",
@@ -549,7 +571,8 @@
           "resort_url": "https://www.eldora.com",
           "snow_report_url": "https://www.onthesnow.com/colorado/eldora-mountain-resort/skireport",
           "snow_report_source": "OnTheSnow",
-          "microclimate_note": "The closest major resort to Denver, on the Front Range side of the Divide — snow totals typically lag the West Slope resorts because Front Range terrain sits in a partial rain shadow."
+          "microclimate_note": "The closest major resort to Denver, on the Front Range side of the Divide — snow totals typically lag the West Slope resorts because Front Range terrain sits in a partial rain shadow.",
+          "snow_history_url": "https://www.onthesnow.com/colorado/eldora-mountain-resort/historical-snowfall"
         },
         {
           "id": "arapahoe-basin",
@@ -568,7 +591,8 @@
           "resort_url": "https://www.arapahoebasin.com",
           "snow_report_url": "https://www.snow-forecast.com/resorts/Arapahoe-Basin/snow-report",
           "snow_report_source": "Snow-Forecast",
-          "microclimate_note": "The highest base elevation of any US lift-served resort (10,520ft) — this alone makes it one of the most temperature-buffered resorts in the country, often extending the season into June."
+          "microclimate_note": "The highest base elevation of any US lift-served resort (10,520ft) — this alone makes it one of the most temperature-buffered resorts in the country, often extending the season into June.",
+          "snow_history_url": "https://www.snow-forecast.com/resorts/Arapahoe-Basin/history"
         },
         {
           "id": "crested-butte",
@@ -587,7 +611,8 @@
           "resort_url": "https://www.skicb.com",
           "snow_report_url": "https://www.onthesnow.com/colorado/crested-butte-mountain-resort/skireport",
           "snow_report_source": "OnTheSnow",
-          "microclimate_note": "A continental snow climate — cold, clear, infrequent but heavy storms, and a shallower, weaker-layered snowpack than the Wasatch's more variable climate. Average annual snowfall (~208in) trails Aspen's (~300in) despite comparable elevation."
+          "microclimate_note": "A continental snow climate — cold, clear, infrequent but heavy storms, and a shallower, weaker-layered snowpack than the Wasatch's more variable climate. Average annual snowfall (~208in) trails Aspen's (~300in) despite comparable elevation.",
+          "snow_history_url": "https://www.onthesnow.com/colorado/crested-butte-mountain-resort/historical-snowfall"
         },
         {
           "id": "solitude",
@@ -606,7 +631,8 @@
           "resort_url": "https://www.solitudemountain.com",
           "snow_report_url": "https://www.onthesnow.com/utah/solitude-mountain-resort/skireport",
           "snow_report_source": "OnTheSnow",
-          "microclimate_note": "Sits one canyon over from Alta/Snowbird (Big Cottonwood vs. Little Cottonwood) — the same Great Salt Lake-effect mechanism applies, with a slightly less extreme funnel orientation."
+          "microclimate_note": "Sits one canyon over from Alta/Snowbird (Big Cottonwood vs. Little Cottonwood) — the same Great Salt Lake-effect mechanism applies, with a slightly less extreme funnel orientation.",
+          "snow_history_url": "https://www.onthesnow.com/utah/solitude-mountain-resort/historical-snowfall"
         },
         {
           "id": "snowbasin",
@@ -625,7 +651,8 @@
           "resort_url": "https://www.snowbasin.com",
           "snow_report_url": "https://www.onthesnow.com/utah/snowbasin/skireport",
           "snow_report_source": "OnTheSnow",
-          "microclimate_note": "The northernmost Wasatch resort in this list, catching more direct Pacific storm tracks before they reach the more sheltered central Wasatch canyons."
+          "microclimate_note": "The northernmost Wasatch resort in this list, catching more direct Pacific storm tracks before they reach the more sheltered central Wasatch canyons.",
+          "snow_history_url": "https://www.onthesnow.com/utah/snowbasin/historical-snowfall"
         }
       ]
     },
@@ -682,7 +709,8 @@
           "snow_report_url": "https://www.onthesnow.com/wyoming/jackson-hole/skireport",
           "snow_report_source": "OnTheSnow",
           "resort_url": "https://www.jacksonhole.com",
-          "microclimate_note": "The Teton Range's sheer vertical relief creates its own orographic enhancement largely independent of the broader ENSO pattern — part of why it holds up better than the regional average in unfavorable ENSO years."
+          "microclimate_note": "The Teton Range's sheer vertical relief creates its own orographic enhancement largely independent of the broader ENSO pattern — part of why it holds up better than the regional average in unfavorable ENSO years.",
+          "snow_history_url": "https://www.onthesnow.com/wyoming/jackson-hole/historical-snowfall"
         },
         {
           "id": "big-sky",
@@ -701,7 +729,8 @@
           "snow_report_url": "https://www.onthesnow.com/montana/big-sky-resort/skireport",
           "snow_report_source": "OnTheSnow",
           "resort_url": "https://bigskyresort.com",
-          "microclimate_note": "Montana's more continental position means lighter, drier snow than the coastal Cascades resorts, with a very high, wind-exposed summit (11,166ft)."
+          "microclimate_note": "Montana's more continental position means lighter, drier snow than the coastal Cascades resorts, with a very high, wind-exposed summit (11,166ft).",
+          "snow_history_url": "https://www.onthesnow.com/montana/big-sky-resort/historical-snowfall"
         },
         {
           "id": "mt-bachelor",
@@ -720,7 +749,8 @@
           "snow_report_url": "https://www.onthesnow.com/oregon/mt-bachelor/skireport",
           "snow_report_source": "OnTheSnow",
           "resort_url": "https://www.mtbachelor.com",
-          "microclimate_note": "A near-perfectly conical, isolated volcano with no upwind terrain to steal moisture first — it takes the full, unfiltered brunt of any Pacific storm reaching central Oregon, for better or worse."
+          "microclimate_note": "A near-perfectly conical, isolated volcano with no upwind terrain to steal moisture first — it takes the full, unfiltered brunt of any Pacific storm reaching central Oregon, for better or worse.",
+          "snow_history_url": "https://www.onthesnow.com/oregon/mt-bachelor/historical-snowfall"
         },
         {
           "id": "stevens-pass",
@@ -739,7 +769,8 @@
           "snow_report_url": "https://www.snow-forecast.com/resorts/Stevens-Pass/snow-report",
           "snow_report_source": "Snow-Forecast",
           "resort_url": "https://www.stevenspass.com",
-          "microclimate_note": "Sits almost exactly on the Washington Cascades crest, making it one of the most directly storm-exposed resorts in the entire Pacific Northwest."
+          "microclimate_note": "Sits almost exactly on the Washington Cascades crest, making it one of the most directly storm-exposed resorts in the entire Pacific Northwest.",
+          "snow_history_url": "https://www.snow-forecast.com/resorts/Stevens-Pass/history"
         },
         {
           "id": "crystal-mountain",
@@ -758,7 +789,8 @@
           "snow_report_url": "https://www.onthesnow.com/washington/crystal-mountain-wa/skireport",
           "snow_report_source": "OnTheSnow",
           "resort_url": "https://www.crystalmountainresort.com",
-          "microclimate_note": "Just east of Mt. Rainier, which can shadow or enhance incoming storms depending on wind direction — a notably variable microclimate even by Cascades standards."
+          "microclimate_note": "Just east of Mt. Rainier, which can shadow or enhance incoming storms depending on wind direction — a notably variable microclimate even by Cascades standards.",
+          "snow_history_url": "https://www.onthesnow.com/washington/crystal-mountain-wa/historical-snowfall"
         },
         {
           "id": "sun-valley",
@@ -777,7 +809,8 @@
           "snow_report_url": "https://www.onthesnow.com/idaho/sun-valley/skireport",
           "snow_report_source": "OnTheSnow",
           "resort_url": "https://www.sunvalley.com",
-          "microclimate_note": "Idaho's more continental, drier climate than the coastal Cascades — known for consistent sunny-day powder rather than the heaviest raw totals."
+          "microclimate_note": "Idaho's more continental, drier climate than the coastal Cascades — known for consistent sunny-day powder rather than the heaviest raw totals.",
+          "snow_history_url": "https://www.onthesnow.com/idaho/sun-valley/historical-snowfall"
         },
         {
           "id": "schweitzer",
@@ -796,7 +829,8 @@
           "snow_report_url": "https://www.onthesnow.com/idaho/schweitzer/skireport",
           "snow_report_source": "OnTheSnow",
           "resort_url": "https://www.schweitzer.com",
-          "microclimate_note": "Far northern Idaho panhandle, close enough to the Pacific moisture corridor to catch meaningfully more snow than Sun Valley despite being in the same state."
+          "microclimate_note": "Far northern Idaho panhandle, close enough to the Pacific moisture corridor to catch meaningfully more snow than Sun Valley despite being in the same state.",
+          "snow_history_url": "https://www.onthesnow.com/idaho/schweitzer/historical-snowfall"
         },
         {
           "id": "alyeska",
@@ -815,7 +849,8 @@
           "resort_url": "https://www.alyeskaresort.com",
           "snow_report_url": "https://www.onthesnow.com/alaska/alyeska-resort/skireport",
           "snow_report_source": "OnTheSnow",
-          "microclimate_note": "A coastal Alaska maritime climate entirely its own — extremely heavy, wet, reliable snowfall driven by the Gulf of Alaska rather than the Pacific Northwest storm track that governs the rest of this region's ENSO signal."
+          "microclimate_note": "A coastal Alaska maritime climate entirely its own — extremely heavy, wet, reliable snowfall driven by the Gulf of Alaska rather than the Pacific Northwest storm track that governs the rest of this region's ENSO signal.",
+          "snow_history_url": "https://www.onthesnow.com/alaska/alyeska-resort/historical-snowfall"
         },
         {
           "id": "summit-snoqualmie",
@@ -834,7 +869,8 @@
           "resort_url": "https://www.summitatsnoqualmie.com",
           "snow_report_url": "https://www.snow-forecast.com/resorts/The-Summit-at-Snoqualmie/snow-report",
           "snow_report_source": "Snow-Forecast",
-          "microclimate_note": "Lower elevation and closer to Seattle than Stevens Pass, making it the most rain-line-vulnerable resort in the Washington Cascades."
+          "microclimate_note": "Lower elevation and closer to Seattle than Stevens Pass, making it the most rain-line-vulnerable resort in the Washington Cascades.",
+          "snow_history_url": "https://www.snow-forecast.com/resorts/The-Summit-at-Snoqualmie/history"
         },
         {
           "id": "grand-targhee",
@@ -853,7 +889,8 @@
           "resort_url": "https://www.grandtarghee.com",
           "snow_report_url": "https://www.onthesnow.com/wyoming/grand-targhee-resort/skireport",
           "snow_report_source": "OnTheSnow",
-          "microclimate_note": "Sits on the windward (west) side of the Tetons, opposite Jackson Hole — why it consistently catches more total snowfall than Jackson despite sitting right next door."
+          "microclimate_note": "Sits on the windward (west) side of the Tetons, opposite Jackson Hole — why it consistently catches more total snowfall than Jackson despite sitting right next door.",
+          "snow_history_url": "https://www.onthesnow.com/wyoming/grand-targhee-resort/historical-snowfall"
         }
       ]
     },
@@ -936,7 +973,8 @@
           "snow_report_url": "https://www.snow-forecast.com/resorts/Killington/snow-report",
           "snow_report_source": "Snow-Forecast",
           "resort_url": "https://www.killington.com",
-          "microclimate_note": "Vermont's highest lift-served terrain and the largest snowmaking system in the East — built specifically to buffer against the region's inherent NAO-driven storm-to-storm variability."
+          "microclimate_note": "Vermont's highest lift-served terrain and the largest snowmaking system in the East — built specifically to buffer against the region's inherent NAO-driven storm-to-storm variability.",
+          "snow_history_url": "https://www.snow-forecast.com/resorts/Killington/history"
         },
         {
           "id": "stowe",
@@ -954,7 +992,8 @@
           "snow_report_url": "https://www.onthesnow.com/vermont/stowe-mountain-resort/skireport",
           "snow_report_source": "OnTheSnow",
           "resort_url": "https://www.stowe.com",
-          "microclimate_note": "Northern Vermont, closer to the Canadian border, tends to run colder than southern Vermont resorts during the same storm system."
+          "microclimate_note": "Northern Vermont, closer to the Canadian border, tends to run colder than southern Vermont resorts during the same storm system.",
+          "snow_history_url": "https://www.onthesnow.com/vermont/stowe-mountain-resort/historical-snowfall"
         },
         {
           "id": "jay-peak",
@@ -972,7 +1011,8 @@
           "snow_report_url": "https://www.snow-forecast.com/resorts/Jay-Peak/snow-report",
           "snow_report_source": "Snow-Forecast",
           "resort_url": "https://jaypeakresort.com",
-          "microclimate_note": "The northernmost major Vermont resort, right on the Canadian border, catching genuine northwest-flow upslope snow that resorts further south miss — one of the snowiest resorts in the East on average."
+          "microclimate_note": "The northernmost major Vermont resort, right on the Canadian border, catching genuine northwest-flow upslope snow that resorts further south miss — one of the snowiest resorts in the East on average.",
+          "snow_history_url": "https://www.snow-forecast.com/resorts/Jay-Peak/history"
         },
         {
           "id": "cannon",
@@ -990,7 +1030,8 @@
           "snow_report_url": "https://www.snow-forecast.com/resorts/Cannon-Mountain/snow-report",
           "snow_report_source": "Snow-Forecast",
           "resort_url": "https://www.cannonmt.com",
-          "microclimate_note": "An exposed, high-elevation White Mountains site with less snowmaking reliance historically than most Northeast resorts — more weather-dependent than the regional norm."
+          "microclimate_note": "An exposed, high-elevation White Mountains site with less snowmaking reliance historically than most Northeast resorts — more weather-dependent than the regional norm.",
+          "snow_history_url": "https://www.snow-forecast.com/resorts/Cannon-Mountain/history"
         },
         {
           "id": "sugarbush",
@@ -1008,7 +1049,8 @@
           "snow_report_url": "https://www.onthesnow.com/vermont/sugarbush/skireport",
           "snow_report_source": "OnTheSnow",
           "resort_url": "https://www.sugarbush.com",
-          "microclimate_note": "Central Vermont, a similar exposure profile to Stowe and Killington, historically less snowmaking-dependent thanks to favorable natural terrain."
+          "microclimate_note": "Central Vermont, a similar exposure profile to Stowe and Killington, historically less snowmaking-dependent thanks to favorable natural terrain.",
+          "snow_history_url": "https://www.onthesnow.com/vermont/sugarbush/historical-snowfall"
         },
         {
           "id": "sunday-river",
@@ -1026,7 +1068,8 @@
           "snow_report_url": "https://www.snow-forecast.com/resorts/Sunday-River/snow-report",
           "snow_report_source": "Snow-Forecast",
           "resort_url": "https://www.sundayriver.com",
-          "microclimate_note": "Maine's eight interconnected peaks spread storm exposure across a wide east-west footprint, buffering against any single storm's track missing part of the resort."
+          "microclimate_note": "Maine's eight interconnected peaks spread storm exposure across a wide east-west footprint, buffering against any single storm's track missing part of the resort.",
+          "snow_history_url": "https://www.snow-forecast.com/resorts/Sunday-River/history"
         },
         {
           "id": "sugarloaf",
@@ -1044,7 +1087,8 @@
           "snow_report_url": "https://www.onthesnow.com/new-england/sugarloaf/skireport",
           "snow_report_source": "OnTheSnow",
           "resort_url": "https://www.sugarloaf.com",
-          "microclimate_note": "Maine's highest lift-served peak, exposed enough for above-treeline skiing — the most alpine, wind-affected terrain profile in the Northeast."
+          "microclimate_note": "Maine's highest lift-served peak, exposed enough for above-treeline skiing — the most alpine, wind-affected terrain profile in the Northeast.",
+          "snow_history_url": "https://www.onthesnow.com/new-england/sugarloaf/historical-snowfall"
         },
         {
           "id": "okemo",
@@ -1062,7 +1106,8 @@
           "resort_url": "https://www.okemo.com",
           "snow_report_url": "https://www.onthesnow.com/vermont/okemo-mountain-resort/skireport",
           "snow_report_source": "OnTheSnow",
-          "microclimate_note": "Southern Vermont — historically the most snowmaking-dependent of the state's major resorts given its lower elevation and more southerly exposure."
+          "microclimate_note": "Southern Vermont — historically the most snowmaking-dependent of the state's major resorts given its lower elevation and more southerly exposure.",
+          "snow_history_url": "https://www.onthesnow.com/vermont/okemo-mountain-resort/historical-snowfall"
         },
         {
           "id": "mount-snow",
@@ -1080,7 +1125,8 @@
           "resort_url": "https://www.mountsnow.com",
           "snow_report_url": "https://www.onthesnow.com/vermont/mount-snow/skireport",
           "snow_report_source": "OnTheSnow",
-          "microclimate_note": "The southernmost major Vermont resort — the most exposed of the state's resorts to the region's rain-line risk in marginal storms."
+          "microclimate_note": "The southernmost major Vermont resort — the most exposed of the state's resorts to the region's rain-line risk in marginal storms.",
+          "snow_history_url": "https://www.onthesnow.com/vermont/mount-snow/historical-snowfall"
         },
         {
           "id": "mount-sunapee",
@@ -1098,7 +1144,8 @@
           "resort_url": "https://www.mountsunapee.com",
           "snow_report_url": "https://www.onthesnow.com/new-hampshire/mount-sunapee/skireport",
           "snow_report_source": "OnTheSnow",
-          "microclimate_note": "South-central New Hampshire, lower elevation — generally the most temperature-marginal resort among this NH cluster."
+          "microclimate_note": "South-central New Hampshire, lower elevation — generally the most temperature-marginal resort among this NH cluster.",
+          "snow_history_url": "https://www.onthesnow.com/new-hampshire/mount-sunapee/historical-snowfall"
         },
         {
           "id": "attitash",
@@ -1116,7 +1163,8 @@
           "resort_url": "https://www.attitash.com",
           "snow_report_url": "https://www.onthesnow.com/new-hampshire/attitash/skireport",
           "snow_report_source": "OnTheSnow",
-          "microclimate_note": "White Mountains, moderate elevation, sitting in a valley that can trap cold air during Arctic outbreaks."
+          "microclimate_note": "White Mountains, moderate elevation, sitting in a valley that can trap cold air during Arctic outbreaks.",
+          "snow_history_url": "https://www.onthesnow.com/new-hampshire/attitash/historical-snowfall"
         },
         {
           "id": "wildcat",
@@ -1134,7 +1182,8 @@
           "resort_url": "https://www.skiwildcat.com",
           "snow_report_url": "https://www.onthesnow.com/new-hampshire/wildcat-mountain/skireport",
           "snow_report_source": "OnTheSnow",
-          "microclimate_note": "Sits directly across the valley from Mt. Washington — one of the most wind-exposed, coldest resorts in the East, benefiting from proximity to the most extreme weather station in the region."
+          "microclimate_note": "Sits directly across the valley from Mt. Washington — one of the most wind-exposed, coldest resorts in the East, benefiting from proximity to the most extreme weather station in the region.",
+          "snow_history_url": "https://www.onthesnow.com/new-hampshire/wildcat-mountain/historical-snowfall"
         },
         {
           "id": "hunter-mountain",
@@ -1152,7 +1201,8 @@
           "resort_url": "https://www.huntermtn.com",
           "snow_report_url": "https://www.onthesnow.com/new-york/hunter-mountain/skireport",
           "snow_report_source": "OnTheSnow",
-          "microclimate_note": "Catskills, New York — the southernmost, lowest-elevation major resort in this list, and correspondingly the most snowmaking-dependent."
+          "microclimate_note": "Catskills, New York — the southernmost, lowest-elevation major resort in this list, and correspondingly the most snowmaking-dependent.",
+          "snow_history_url": "https://www.onthesnow.com/new-york/hunter-mountain/historical-snowfall"
         },
         {
           "id": "stratton",
@@ -1170,7 +1220,8 @@
           "resort_url": "https://www.stratton.com",
           "snow_report_url": "https://opensnow.com/location/stratton/snow-report",
           "snow_report_source": "OpenSnow",
-          "microclimate_note": "Southern Vermont, a similar exposure profile to Okemo and Mount Snow — lower elevation makes it more rain-line-sensitive than northern Vermont resorts."
+          "microclimate_note": "Southern Vermont, a similar exposure profile to Okemo and Mount Snow — lower elevation makes it more rain-line-sensitive than northern Vermont resorts.",
+          "snow_history_url": "https://www.snow-forecast.com/resorts/Stratton-Mountain/history"
         },
         {
           "id": "loon-mountain",
@@ -1188,7 +1239,8 @@
           "resort_url": "https://www.loonmtn.com",
           "snow_report_url": "https://www.onthesnow.com/new-hampshire/loon-mountain/skireport",
           "snow_report_source": "OnTheSnow",
-          "microclimate_note": "White Mountains, New Hampshire — moderate elevation with heavy snowmaking investment to smooth out natural variability."
+          "microclimate_note": "White Mountains, New Hampshire — moderate elevation with heavy snowmaking investment to smooth out natural variability.",
+          "snow_history_url": "https://www.onthesnow.com/new-hampshire/loon-mountain/historical-snowfall"
         },
         {
           "id": "snowshoe",
@@ -1206,7 +1258,8 @@
           "resort_url": "https://www.snowshoemtn.com",
           "snow_report_url": "https://opensnow.com/location/snowshoe/snow-report",
           "snow_report_source": "OpenSnow",
-          "microclimate_note": "The southernmost resort in this region by a wide margin — its unusually high base for the Appalachians (3,370ft) is the only reason it functions as a ski area at all."
+          "microclimate_note": "The southernmost resort in this region by a wide margin — its unusually high base for the Appalachians (3,370ft) is the only reason it functions as a ski area at all.",
+          "snow_history_url": "https://www.onthesnow.com/west-virginia/snowshoe-mountain-resort/historical-snowfall"
         },
         {
           "id": "tremblant",
@@ -1224,7 +1277,8 @@
           "resort_url": "https://www.tremblant.ca",
           "snow_report_url": "https://www.onthesnow.com/quebec/tremblant/skireport",
           "snow_report_source": "OnTheSnow",
-          "microclimate_note": "Quebec's Laurentians sit further from the immediate Atlantic coastal storm track than New England, catching more Great Lakes and continental Arctic influence instead — a distinct microclimate from the rest of this NAO-driven region, generally colder and more temperature-consistent."
+          "microclimate_note": "Quebec's Laurentians sit further from the immediate Atlantic coastal storm track than New England, catching more Great Lakes and continental Arctic influence instead — a distinct microclimate from the rest of this NAO-driven region, generally colder and more temperature-consistent.",
+          "snow_history_url": "https://www.onthesnow.com/quebec/tremblant/historical-snowfall"
         }
       ]
     },
@@ -1280,7 +1334,8 @@
           "snow_report_url": "https://www.onthesnow.com/british-columbia/whistler-blackcomb/skireport",
           "snow_report_source": "OnTheSnow",
           "resort_url": "https://www.whistlerblackcomb.com",
-          "microclimate_note": "A coastal maritime climate with huge vertical (5,000+ft) spanning multiple microclimates in a single mountain, from rainforest base to alpine bowl — a famously wide temperature and precipitation range."
+          "microclimate_note": "A coastal maritime climate with huge vertical (5,000+ft) spanning multiple microclimates in a single mountain, from rainforest base to alpine bowl — a famously wide temperature and precipitation range.",
+          "snow_history_url": "https://www.onthesnow.com/british-columbia/whistler-blackcomb/historical-snowfall"
         },
         {
           "id": "revelstoke",
@@ -1298,7 +1353,8 @@
           "snow_report_url": "https://www.onthesnow.com/british-columbia/revelstoke-mountain/skireport",
           "snow_report_source": "OnTheSnow",
           "resort_url": "https://www.revelstokemountainresort.com",
-          "microclimate_note": "Deep interior BC with some of the highest average snowfall totals in North America, driven by moist Pacific flow funneled through the Columbia Mountains with no coastal range to intercept it first."
+          "microclimate_note": "Deep interior BC with some of the highest average snowfall totals in North America, driven by moist Pacific flow funneled through the Columbia Mountains with no coastal range to intercept it first.",
+          "snow_history_url": "https://www.onthesnow.com/british-columbia/revelstoke-mountain/historical-snowfall"
         },
         {
           "id": "banff-lake-louise",
@@ -1318,7 +1374,8 @@
           "snow_report_url": "https://www.onthesnow.com/alberta/lake-louise/skireport",
           "snow_report_source": "OnTheSnow",
           "resort_url": "https://www.skilouise.com",
-          "microclimate_note": "East of the Continental Divide in the true Canadian Rockies — drier and colder than the BC interior resorts, a different, more continental climate than Revelstoke or Whistler despite the shared region label."
+          "microclimate_note": "East of the Continental Divide in the true Canadian Rockies — drier and colder than the BC interior resorts, a different, more continental climate than Revelstoke or Whistler despite the shared region label.",
+          "snow_history_url": "https://www.onthesnow.com/alberta/lake-louise/historical-snowfall"
         },
         {
           "id": "big-white",
@@ -1338,7 +1395,8 @@
           "snow_report_url": "https://www.snow-forecast.com/resorts/Big-White/snow-report",
           "snow_report_source": "Snow-Forecast",
           "resort_url": "https://www.bigwhite.com",
-          "microclimate_note": "High base elevation for BC-interior standards, known for exceptionally light snow and thick rime 'snow ghost' formations built up by persistent cloud inversions."
+          "microclimate_note": "High base elevation for BC-interior standards, known for exceptionally light snow and thick rime 'snow ghost' formations built up by persistent cloud inversions.",
+          "snow_history_url": "https://www.snow-forecast.com/resorts/Big-White/history"
         },
         {
           "id": "sun-peaks",
@@ -1356,7 +1414,8 @@
           "snow_report_url": "https://www.onthesnow.com/british-columbia/sun-peaks/skireport",
           "snow_report_source": "OnTheSnow",
           "resort_url": "https://www.sunpeaksresort.com",
-          "microclimate_note": "Rain-shadowed by the Coast and Columbia Mountains, giving it a notably drier, sunnier climate than Whistler or Revelstoke despite similar latitude."
+          "microclimate_note": "Rain-shadowed by the Coast and Columbia Mountains, giving it a notably drier, sunnier climate than Whistler or Revelstoke despite similar latitude.",
+          "snow_history_url": "https://www.onthesnow.com/british-columbia/sun-peaks/historical-snowfall"
         },
         {
           "id": "kicking-horse",
@@ -1376,7 +1435,8 @@
           "snow_report_url": "https://www.onthesnow.com/british-columbia/kicking-horse/skireport",
           "snow_report_source": "OnTheSnow",
           "resort_url": "https://www.kickinghorseresort.com",
-          "microclimate_note": "Continental-Divide-adjacent in the Purcell Mountains, with very high vertical and alpine bowls that hold snow exceptionally well once it falls."
+          "microclimate_note": "Continental-Divide-adjacent in the Purcell Mountains, with very high vertical and alpine bowls that hold snow exceptionally well once it falls.",
+          "snow_history_url": "https://www.onthesnow.com/british-columbia/kicking-horse/historical-snowfall"
         },
         {
           "id": "fernie",
@@ -1394,7 +1454,8 @@
           "snow_report_url": "https://www.onthesnow.com/british-columbia/fernie-alpine/skireport",
           "snow_report_source": "OnTheSnow",
           "resort_url": "https://www.skifernie.com",
-          "microclimate_note": "Southeastern BC, sitting in its own snow-catching bowl (locally 'the Fernie Alps') known for localized storm enhancement distinct from the broader regional pattern."
+          "microclimate_note": "Southeastern BC, sitting in its own snow-catching bowl (locally 'the Fernie Alps') known for localized storm enhancement distinct from the broader regional pattern.",
+          "snow_history_url": "https://www.onthesnow.com/british-columbia/fernie-alpine/historical-snowfall"
         },
         {
           "id": "panorama",
@@ -1412,7 +1473,8 @@
           "resort_url": "https://www.panoramaresort.com",
           "snow_report_url": "https://www.snow-forecast.com/resorts/Panorama/snow-report",
           "snow_report_source": "Snow-Forecast",
-          "microclimate_note": "Purcell Mountains, further from the primary Pacific storm track than Revelstoke or Whistler — a drier interior climate known for excellent grooming reliability."
+          "microclimate_note": "Purcell Mountains, further from the primary Pacific storm track than Revelstoke or Whistler — a drier interior climate known for excellent grooming reliability.",
+          "snow_history_url": "https://www.snow-forecast.com/resorts/Panorama/history"
         },
         {
           "id": "silverstar",
@@ -1432,7 +1494,8 @@
           "resort_url": "https://www.skisilverstar.com",
           "snow_report_url": "https://www.onthesnow.com/british-columbia/silver-star/skireport",
           "snow_report_source": "OnTheSnow",
-          "microclimate_note": "Sits on a rain-shadow ridge above Vernon — famous for extremely light, dry snow despite its BC-interior geography."
+          "microclimate_note": "Sits on a rain-shadow ridge above Vernon — famous for extremely light, dry snow despite its BC-interior geography.",
+          "snow_history_url": "https://www.onthesnow.com/british-columbia/silver-star/historical-snowfall"
         },
         {
           "id": "red-mountain",
@@ -1452,7 +1515,8 @@
           "resort_url": "https://www.redresort.com",
           "snow_report_url": "https://www.snow-forecast.com/resorts/Red-Mountain/snow-report",
           "snow_report_source": "Snow-Forecast",
-          "microclimate_note": "Southern BC near the US border, in the same general moisture corridor as Schweitzer and Whitefish across the border — deep, consistent interior snowfall."
+          "microclimate_note": "Southern BC near the US border, in the same general moisture corridor as Schweitzer and Whitefish across the border — deep, consistent interior snowfall.",
+          "snow_history_url": "https://www.snow-forecast.com/resorts/Red-Mountain/history"
         },
         {
           "id": "cypress",
@@ -1470,7 +1534,8 @@
           "resort_url": "https://www.cypressmountain.com",
           "snow_report_url": "https://www.onthesnow.com/british-columbia/cypress-mountain/skireport",
           "snow_report_source": "OnTheSnow",
-          "microclimate_note": "The most coastal, lowest-elevation, most maritime of the BC resorts here — closest in character to Whistler's base but smaller and more rain-line-vulnerable given its 2,600ft base."
+          "microclimate_note": "The most coastal, lowest-elevation, most maritime of the BC resorts here — closest in character to Whistler's base but smaller and more rain-line-vulnerable given its 2,600ft base.",
+          "snow_history_url": "https://www.onthesnow.com/british-columbia/cypress-mountain/historical-snowfall"
         }
       ]
     },
@@ -1553,7 +1618,8 @@
           "snow_report_url": "https://www.onthesnow.co.uk/valais/zermatt/skireport",
           "snow_report_source": "OnTheSnow",
           "resort_url": "https://www.zermatt.ch",
-          "microclimate_note": "Extremely high, glaciated terrain (base 5,310ft, summit 12,740ft at Matterhorn Glacier Paradise) makes it one of the least NAO-sensitive resorts in the Alps at altitude — skiable year-round on the glacier regardless of the winter's overall pattern."
+          "microclimate_note": "Extremely high, glaciated terrain (base 5,310ft, summit 12,740ft at Matterhorn Glacier Paradise) makes it one of the least NAO-sensitive resorts in the Alps at altitude — skiable year-round on the glacier regardless of the winter's overall pattern.",
+          "snow_history_url": "https://www.onthesnow.co.uk/valais/zermatt/historical-snowfall"
         },
         {
           "id": "val-disere",
@@ -1571,7 +1637,8 @@
           "snow_report_url": "https://www.onthesnow.co.uk/northern-alps/val-disere/skireport",
           "snow_report_source": "OnTheSnow",
           "resort_url": "https://www.valdisere.com",
-          "microclimate_note": "Part of the Espace Killy with Tignes, high-altitude (6,070ft base) with a north-facing orientation that holds snow well; historically runs its own local pass rather than joining Epic or Ikon."
+          "microclimate_note": "Part of the Espace Killy with Tignes, high-altitude (6,070ft base) with a north-facing orientation that holds snow well; historically runs its own local pass rather than joining Epic or Ikon.",
+          "snow_history_url": "https://www.onthesnow.co.uk/northern-alps/val-disere/historical-snowfall"
         },
         {
           "id": "st-anton",
@@ -1589,7 +1656,8 @@
           "snow_report_url": "https://www.skiarlberg.at/en/st-anton/winter/ski-region",
           "snow_report_source": "Ski Arlberg",
           "resort_url": "https://www.skiarlberg.at/en/st-anton/winter/ski-region",
-          "microclimate_note": "The Arlberg region catches an outsized share of Atlantic moisture crossing directly into western Austria before it's wrung out further east — one of the snowiest low-to-mid elevation zones in the Alps."
+          "microclimate_note": "The Arlberg region catches an outsized share of Atlantic moisture crossing directly into western Austria before it's wrung out further east — one of the snowiest low-to-mid elevation zones in the Alps.",
+          "snow_history_url": "https://www.skiarlberg.at/en/st-anton/winter/ski-region"
         },
         {
           "id": "chamonix",
@@ -1607,7 +1675,8 @@
           "snow_report_url": "https://www.snow-forecast.com/resorts/Chamonix/snow-report",
           "snow_report_source": "Snow-Forecast",
           "resort_url": "https://www.chamonix.com",
-          "microclimate_note": "Sits directly beneath Mont Blanc's massive relief, creating intense localized orographic lift — famous for advanced/off-piste terrain rather than groomed-piste snow reliability."
+          "microclimate_note": "Sits directly beneath Mont Blanc's massive relief, creating intense localized orographic lift — famous for advanced/off-piste terrain rather than groomed-piste snow reliability.",
+          "snow_history_url": "https://www.snow-forecast.com/resorts/Chamonix/history"
         },
         {
           "id": "verbier",
@@ -1625,7 +1694,8 @@
           "snow_report_url": "https://www.onthesnow.co.uk/valais/verbier/skireport",
           "snow_report_source": "OnTheSnow",
           "resort_url": "https://www.verbier.ch",
-          "microclimate_note": "Part of the large interconnected 4 Vallées system, with highly varied aspect and elevation across its four valleys that buffers against any single slope's bad exposure in a given storm."
+          "microclimate_note": "Part of the large interconnected 4 Vallées system, with highly varied aspect and elevation across its four valleys that buffers against any single slope's bad exposure in a given storm.",
+          "snow_history_url": "https://www.onthesnow.co.uk/valais/verbier/historical-snowfall"
         },
         {
           "id": "courchevel",
@@ -1643,7 +1713,8 @@
           "snow_report_url": "https://www.onthesnow.co.uk/northern-alps/courchevel/skireport",
           "snow_report_source": "OnTheSnow",
           "resort_url": "https://www.les3vallees.com",
-          "microclimate_note": "The world's largest lift-connected ski area; Val Thorens alone sits above 3,200m, giving the system's upper reaches strong snow reliability even when Courchevel's lower village-level slopes run marginal."
+          "microclimate_note": "The world's largest lift-connected ski area; Val Thorens alone sits above 3,200m, giving the system's upper reaches strong snow reliability even when Courchevel's lower village-level slopes run marginal.",
+          "snow_history_url": "https://www.onthesnow.co.uk/northern-alps/courchevel/historical-snowfall"
         },
         {
           "id": "kitzbuhel",
@@ -1661,7 +1732,8 @@
           "snow_report_url": "https://www.onthesnow.co.uk/tyrol/kitzbuehel/skireport",
           "snow_report_source": "OnTheSnow",
           "resort_url": "https://www.kitzbuehel.com",
-          "microclimate_note": "Relatively low elevation for the Alps (2,500ft base) and known for snowmaking dependence on the lower Hahnenkamm slopes — one of the more temperature-vulnerable major Austrian resorts."
+          "microclimate_note": "Relatively low elevation for the Alps (2,500ft base) and known for snowmaking dependence on the lower Hahnenkamm slopes — one of the more temperature-vulnerable major Austrian resorts.",
+          "snow_history_url": "https://www.onthesnow.co.uk/tyrol/kitzbuehel/historical-snowfall"
         },
         {
           "id": "st-moritz",
@@ -1679,7 +1751,8 @@
           "snow_report_url": "https://www.snow-forecast.com/resorts/St-Moritz/snow-report",
           "snow_report_source": "Snow-Forecast",
           "resort_url": "https://www.stmoritz.com",
-          "microclimate_note": "High-altitude Engadin valley in eastern Switzerland — drier and sunnier than the western Alps due to its more continental position, reliably cold but historically lighter on total snowfall than Zermatt or Verbier."
+          "microclimate_note": "High-altitude Engadin valley in eastern Switzerland — drier and sunnier than the western Alps due to its more continental position, reliably cold but historically lighter on total snowfall than Zermatt or Verbier.",
+          "snow_history_url": "https://www.snow-forecast.com/resorts/St-Moritz/history"
         },
         {
           "id": "solden",
@@ -1697,7 +1770,8 @@
           "resort_url": "https://www.soelden.com/en",
           "snow_report_url": "https://www.onthesnow.co.uk/tyrol/soelden/skireport",
           "snow_report_source": "OnTheSnow",
-          "microclimate_note": "A glacier resort (Rettenbach/Tiefenbach) with reliable autumn and high-elevation snow independent of the main winter pattern, extending its effective season well beyond the NAO-driven core months."
+          "microclimate_note": "A glacier resort (Rettenbach/Tiefenbach) with reliable autumn and high-elevation snow independent of the main winter pattern, extending its effective season well beyond the NAO-driven core months.",
+          "snow_history_url": "https://www.onthesnow.co.uk/tyrol/soelden/historical-snowfall"
         },
         {
           "id": "saalbach",
@@ -1715,7 +1789,8 @@
           "resort_url": "https://www.saalbach.com/en",
           "snow_report_url": "https://www.snow-forecast.com/resorts/Saalbach/snow-report",
           "snow_report_source": "Snow-Forecast",
-          "microclimate_note": "Salzburg region, moderate elevation, heavily snowmaking-supported, sitting in a similar moisture path to Kitzbühel."
+          "microclimate_note": "Salzburg region, moderate elevation, heavily snowmaking-supported, sitting in a similar moisture path to Kitzbühel.",
+          "snow_history_url": "https://www.snow-forecast.com/resorts/Saalbach/history"
         },
         {
           "id": "zell-am-see",
@@ -1733,7 +1808,8 @@
           "resort_url": "https://www.zellamsee-kaprun.com/en",
           "snow_report_url": "https://www.snow-forecast.com/resorts/Zell-am-See/snow-report",
           "snow_report_source": "Snow-Forecast",
-          "microclimate_note": "Combines a lower valley resort with the high-altitude Kitzsteinhorn glacier (9,928ft) — the glacier portion is largely NAO-independent, similar to Sölden's setup."
+          "microclimate_note": "Combines a lower valley resort with the high-altitude Kitzsteinhorn glacier (9,928ft) — the glacier portion is largely NAO-independent, similar to Sölden's setup.",
+          "snow_history_url": "https://www.snow-forecast.com/resorts/Zell-am-See/history"
         },
         {
           "id": "mayrhofen",
@@ -1751,7 +1827,8 @@
           "resort_url": "https://www.mayrhofen.at/en",
           "snow_report_url": "https://www.onthesnow.co.uk/tyrol/mayrhofen/skireport",
           "snow_report_source": "OnTheSnow",
-          "microclimate_note": "Zillertal valley, Tyrol — moderate elevation with a high-altitude glacier extension nearby (Hintertux) providing a similar buffer to Zell am See's setup."
+          "microclimate_note": "Zillertal valley, Tyrol — moderate elevation with a high-altitude glacier extension nearby (Hintertux) providing a similar buffer to Zell am See's setup.",
+          "snow_history_url": "https://www.onthesnow.co.uk/tyrol/mayrhofen/historical-snowfall"
         },
         {
           "id": "andermatt",
@@ -1769,7 +1846,8 @@
           "resort_url": "https://www.andermatt.ch/en",
           "snow_report_url": "https://www.snow-forecast.com/resorts/Andermatt/snow-report",
           "snow_report_source": "Snow-Forecast",
-          "microclimate_note": "Central Swiss Alps, historically one of the snowiest towns in Switzerland due to its position where several Alpine passes converge and funnel moisture."
+          "microclimate_note": "Central Swiss Alps, historically one of the snowiest towns in Switzerland due to its position where several Alpine passes converge and funnel moisture.",
+          "snow_history_url": "https://www.snow-forecast.com/resorts/Andermatt/history"
         },
         {
           "id": "ischgl",
@@ -1787,7 +1865,8 @@
           "resort_url": "https://www.ischgl.com/en",
           "snow_report_url": "https://www.onthesnow.co.uk/tyrol/ischgl/skireport",
           "snow_report_source": "OnTheSnow",
-          "microclimate_note": "Paznaun valley, a high base for Austria (4,610ft) with strong snow reliability and famously extensive snowmaking as backup."
+          "microclimate_note": "Paznaun valley, a high base for Austria (4,610ft) with strong snow reliability and famously extensive snowmaking as backup.",
+          "snow_history_url": "https://www.onthesnow.co.uk/tyrol/ischgl/historical-snowfall"
         },
         {
           "id": "grandvalira",
@@ -1805,7 +1884,8 @@
           "resort_url": "https://www.grandvalira.com/en",
           "snow_report_url": "https://www.onthesnow.co.uk/andorra/grandvalira/skireport",
           "snow_report_source": "OnTheSnow",
-          "microclimate_note": "Andorra's Pyrenees location is a different mountain range from the Alps — more Atlantic/Mediterranean-influenced, generally less snow-reliable than the high Alps, but the largest ski area in the Pyrenees."
+          "microclimate_note": "Andorra's Pyrenees location is a different mountain range from the Alps — more Atlantic/Mediterranean-influenced, generally less snow-reliable than the high Alps, but the largest ski area in the Pyrenees.",
+          "snow_history_url": "https://www.onthesnow.co.uk/andorra/grandvalira/historical-snowfall"
         },
         {
           "id": "cortina",
@@ -1823,7 +1903,8 @@
           "resort_url": "https://www.dolomiti.org/en/cortina-d-ampezzo",
           "snow_report_url": "https://www.onthesnow.co.uk/veneto/cortina-dampezzo/skireport",
           "snow_report_source": "OnTheSnow",
-          "microclimate_note": "The Dolomites' more continental-Mediterranean position makes them drier and notably sunnier than the western Alps (sun roughly 8 days out of 10) — reliable high-altitude accumulation but historically thinner cover at lower village elevations, offset by heavy snowmaking."
+          "microclimate_note": "The Dolomites' more continental-Mediterranean position makes them drier and notably sunnier than the western Alps (sun roughly 8 days out of 10) — reliable high-altitude accumulation but historically thinner cover at lower village elevations, offset by heavy snowmaking.",
+          "snow_history_url": "https://www.onthesnow.co.uk/veneto/cortina-dampezzo/historical-snowfall"
         },
         {
           "id": "madonna-campiglio",
@@ -1841,7 +1922,8 @@
           "resort_url": "https://www.campigliodolomiti.it/en",
           "snow_report_url": "https://www.onthesnow.co.uk/trentino/madonna-di-campiglio/skireport",
           "snow_report_source": "OnTheSnow",
-          "microclimate_note": "Western Dolomites, sharing Cortina's continental-Mediterranean character but in a slightly more sheltered, lower-profile setting."
+          "microclimate_note": "Western Dolomites, sharing Cortina's continental-Mediterranean character but in a slightly more sheltered, lower-profile setting.",
+          "snow_history_url": "https://www.onthesnow.co.uk/trentino/madonna-di-campiglio/historical-snowfall"
         }
       ]
     },
@@ -1897,7 +1979,8 @@
           "snow_report_url": "https://www.onthesnow.com/hokkaido/niseko-united/skireport",
           "snow_report_source": "OnTheSnow",
           "resort_url": "https://www.niseko.ne.jp/en",
-          "microclimate_note": "Directly downwind of the Sea of Japan with no upwind terrain to intercept Siberian moisture first — about as ENSO-independent a snow machine as exists anywhere, driven almost entirely by the Siberian High and East Asian winter monsoon."
+          "microclimate_note": "Directly downwind of the Sea of Japan with no upwind terrain to intercept Siberian moisture first — about as ENSO-independent a snow machine as exists anywhere, driven almost entirely by the Siberian High and East Asian winter monsoon.",
+          "snow_history_url": "https://www.onthesnow.com/hokkaido/niseko-united/historical-snowfall"
         },
         {
           "id": "furano",
@@ -1915,7 +1998,8 @@
           "snow_report_url": "https://www.snow-forecast.com/resorts/Furano/snow-report",
           "snow_report_source": "Snow-Forecast",
           "resort_url": "https://www.furanotourism.com/en",
-          "microclimate_note": "Interior Hokkaido, slightly more continental and sheltered than coastal Niseko, producing a drier, lighter snow than its more famous neighbor."
+          "microclimate_note": "Interior Hokkaido, slightly more continental and sheltered than coastal Niseko, producing a drier, lighter snow than its more famous neighbor.",
+          "snow_history_url": "https://www.snow-forecast.com/resorts/Furano/history"
         },
         {
           "id": "myoko",
@@ -1933,7 +2017,8 @@
           "snow_report_url": "https://opensnow.com/location/jpmyokoski/snow-report",
           "snow_report_source": "OpenSnow",
           "resort_url": "https://www.princehotels.com/en/ski/myoko_kogen/",
-          "microclimate_note": "Niigata Prefecture — one of the snowiest inhabited regions on Earth by raw totals, sitting directly in the path of Sea-of-Japan moisture hitting the first major mountains it encounters."
+          "microclimate_note": "Niigata Prefecture — one of the snowiest inhabited regions on Earth by raw totals, sitting directly in the path of Sea-of-Japan moisture hitting the first major mountains it encounters.",
+          "snow_history_url": "https://www.skiresort.info/ski-resort/myoko-suginohara/snow-report/"
         },
         {
           "id": "nozawa-onsen",
@@ -1951,7 +2036,8 @@
           "snow_report_url": "https://www.snow-forecast.com/resorts/Nozawa-Onsen/snow-report",
           "snow_report_source": "Snow-Forecast",
           "resort_url": "https://www.nozawaski.com",
-          "microclimate_note": "Nagano, slightly further inland than the Niigata resorts — historically reliable but with somewhat lower totals than Myoko."
+          "microclimate_note": "Nagano, slightly further inland than the Niigata resorts — historically reliable but with somewhat lower totals than Myoko.",
+          "snow_history_url": "https://www.snow-forecast.com/resorts/Nozawa-Onsen/history"
         },
         {
           "id": "hakuba",
@@ -1969,7 +2055,8 @@
           "snow_report_url": "https://www.onthesnow.com/nagano/hakuba-valley/skireport",
           "snow_report_source": "OnTheSnow",
           "resort_url": "https://www.hakubavalley.com/en",
-          "microclimate_note": "Nagano's Northern Alps, where high relief creates strong orographic enhancement — though its position further from the coast than the Niigata resorts is part of why it's the documented exception to Japan's usual El Niño resilience."
+          "microclimate_note": "Nagano's Northern Alps, where high relief creates strong orographic enhancement — though its position further from the coast than the Niigata resorts is part of why it's the documented exception to Japan's usual El Niño resilience.",
+          "snow_history_url": "https://www.onthesnow.com/nagano/hakuba-valley/historical-snowfall"
         },
         {
           "id": "rusutsu",
@@ -1987,7 +2074,8 @@
           "snow_report_url": "https://www.onthesnow.com/hokkaido/rusutsu/skireport",
           "snow_report_source": "OnTheSnow",
           "resort_url": "https://rusutsu.com/en/",
-          "microclimate_note": "Near Niseko on Hokkaido, with similar Sea-of-Japan exposure but more sheltered, tree-lined terrain."
+          "microclimate_note": "Near Niseko on Hokkaido, with similar Sea-of-Japan exposure but more sheltered, tree-lined terrain.",
+          "snow_history_url": "https://www.onthesnow.com/hokkaido/rusutsu/historical-snowfall"
         },
         {
           "id": "appi-kogen",
@@ -2005,7 +2093,8 @@
           "snow_report_url": "https://www.snow-forecast.com/resorts/Appi-Kogen/snow-report",
           "snow_report_source": "Snow-Forecast",
           "resort_url": "https://www.appi.co.jp/en",
-          "microclimate_note": "Northern Honshu (Iwate), further from the Sea of Japan coast than the Niigata/Hokkaido resorts — a somewhat drier, more continental snow character as a result."
+          "microclimate_note": "Northern Honshu (Iwate), further from the Sea of Japan coast than the Niigata/Hokkaido resorts — a somewhat drier, more continental snow character as a result.",
+          "snow_history_url": "https://www.snow-forecast.com/resorts/Appi-Kogen/history"
         },
         {
           "id": "shiga-kogen",
@@ -2023,7 +2112,8 @@
           "resort_url": "https://www.shigakogen-ski.or.jp/en",
           "snow_report_url": "https://www.snow-forecast.com/resorts/Shiga-Kogen-Yakebitaiyama/snow-report",
           "snow_report_source": "Snow-Forecast",
-          "microclimate_note": "Nagano — one of Japan's largest ski areas by skiable terrain, with a high base elevation for Honshu standards that helps snow reliability."
+          "microclimate_note": "Nagano — one of Japan's largest ski areas by skiable terrain, with a high base elevation for Honshu standards that helps snow reliability.",
+          "snow_history_url": "https://www.snow-forecast.com/resorts/Shiga-Kogen-Yakebitaiyama/history"
         }
       ]
     },
@@ -2079,7 +2169,8 @@
           "snow_report_url": "https://www.onthesnow.com/chile/ski-portillo/skireport",
           "snow_report_source": "OnTheSnow",
           "resort_url": "https://www.skiportillo.com",
-          "microclimate_note": "Sits at a natural high-Andes pass near the Argentina border, directly in the path of the frontal systems that define El Niño's Southern Hemisphere signal — the highest-conviction ENSO-responsive resort on this entire site."
+          "microclimate_note": "Sits at a natural high-Andes pass near the Argentina border, directly in the path of the frontal systems that define El Niño's Southern Hemisphere signal — the highest-conviction ENSO-responsive resort on this entire site.",
+          "snow_history_url": "https://www.onthesnow.com/chile/ski-portillo/historical-snowfall"
         },
         {
           "id": "valle-nevado",
@@ -2097,7 +2188,8 @@
           "snow_report_url": "https://www.onthesnow.com/chile/valle-nevado/skireport",
           "snow_report_source": "OnTheSnow",
           "resort_url": "https://www.vallenevado.com",
-          "microclimate_note": "Slightly lower and closer to Santiago than Portillo, with similar frontal-system exposure but somewhat more affected by the urban/coastal transition zone."
+          "microclimate_note": "Slightly lower and closer to Santiago than Portillo, with similar frontal-system exposure but somewhat more affected by the urban/coastal transition zone.",
+          "snow_history_url": "https://www.onthesnow.com/chile/valle-nevado/historical-snowfall"
         },
         {
           "id": "bariloche",
@@ -2115,7 +2207,8 @@
           "snow_report_url": "https://www.onthesnow.com/argentina/cerro-catedral-alta-patagonia/skireport",
           "snow_report_source": "OnTheSnow",
           "resort_url": "https://www.catedralaltapatagonia.com",
-          "microclimate_note": "Northern Argentine Patagonia — a different climate regime from the desert-adjacent central Andes, more consistently humid and less dependent on any single frontal system."
+          "microclimate_note": "Northern Argentine Patagonia — a different climate regime from the desert-adjacent central Andes, more consistently humid and less dependent on any single frontal system.",
+          "snow_history_url": "https://www.onthesnow.com/argentina/cerro-catedral-alta-patagonia/historical-snowfall"
         },
         {
           "id": "las-lenas",
@@ -2133,7 +2226,8 @@
           "snow_report_url": "https://www.onthesnow.com/argentina/las-lenas/skireport",
           "snow_report_source": "OnTheSnow",
           "resort_url": "https://laslenas.com/",
-          "microclimate_note": "Mendoza province, extremely high and exposed — known for high-wind days that can close lifts even when snow conditions themselves are excellent."
+          "microclimate_note": "Mendoza province, extremely high and exposed — known for high-wind days that can close lifts even when snow conditions themselves are excellent.",
+          "snow_history_url": "https://www.onthesnow.com/argentina/las-lenas/historical-snowfall"
         },
         {
           "id": "nevados-de-chillan",
@@ -2151,7 +2245,8 @@
           "snow_report_url": "https://www.onthesnow.com/chile/nevados-de-chillan/skireport",
           "snow_report_source": "OnTheSnow",
           "resort_url": "https://www.nevadosdechillan.com",
-          "microclimate_note": "Southern-central Chile, volcanic terrain, generally sitting in a wetter baseline climate than the more desert-adjacent resorts further north."
+          "microclimate_note": "Southern-central Chile, volcanic terrain, generally sitting in a wetter baseline climate than the more desert-adjacent resorts further north.",
+          "snow_history_url": "https://www.onthesnow.com/chile/nevados-de-chillan/historical-snowfall"
         },
         {
           "id": "cerro-castor",
@@ -2169,7 +2264,8 @@
           "resort_url": "https://www.cerrocastor.com",
           "snow_report_url": "https://www.onthesnow.com/argentina/cerro-castor/skireport",
           "snow_report_source": "OnTheSnow",
-          "microclimate_note": "The world's southernmost ski resort, near Ushuaia at 54.6°S — a sub-Antarctic maritime climate with a very different mechanism (Southern Ocean storm tracks) than the desert-adjacent central Andes resorts further north."
+          "microclimate_note": "The world's southernmost ski resort, near Ushuaia at 54.6°S — a sub-Antarctic maritime climate with a very different mechanism (Southern Ocean storm tracks) than the desert-adjacent central Andes resorts further north.",
+          "snow_history_url": "https://www.onthesnow.com/argentina/cerro-castor/historical-snowfall"
         }
       ]
     },
@@ -2225,7 +2321,8 @@
           "snow_report_url": "https://www.onthesnow.com/australia/perisher/skireport",
           "snow_report_source": "OnTheSnow",
           "resort_url": "https://www.perisher.com.au",
-          "microclimate_note": "New South Wales' largest ski area by terrain, but still constrained by Australia's overall marginal base elevations for snow reliability."
+          "microclimate_note": "New South Wales' largest ski area by terrain, but still constrained by Australia's overall marginal base elevations for snow reliability.",
+          "snow_history_url": "https://www.onthesnow.com/australia/perisher/historical-snowfall"
         },
         {
           "id": "falls-creek",
@@ -2243,7 +2340,8 @@
           "snow_report_url": "https://www.onthesnow.com/australia/falls-creek-alpine-resort/skireport",
           "snow_report_source": "OnTheSnow",
           "resort_url": "https://www.fallscreek.com.au",
-          "microclimate_note": "Victoria — known for reliable grooming and one of the more consistent snow records among the Victorian resorts."
+          "microclimate_note": "Victoria — known for reliable grooming and one of the more consistent snow records among the Victorian resorts.",
+          "snow_history_url": "https://www.onthesnow.com/australia/falls-creek-alpine-resort/historical-snowfall"
         },
         {
           "id": "thredbo",
@@ -2261,7 +2359,8 @@
           "snow_report_url": "https://www.onthesnow.com/australia/thredbo-alpine-resort/skireport",
           "snow_report_source": "OnTheSnow",
           "resort_url": "https://www.thredbo.com.au",
-          "microclimate_note": "NSW's highest vertical drop gives it slightly better snow retention than the lower Victorian resorts in a marginal season."
+          "microclimate_note": "NSW's highest vertical drop gives it slightly better snow retention than the lower Victorian resorts in a marginal season.",
+          "snow_history_url": "https://www.onthesnow.com/australia/thredbo-alpine-resort/historical-snowfall"
         },
         {
           "id": "mt-buller",
@@ -2279,7 +2378,8 @@
           "snow_report_url": "https://www.onthesnow.com/australia/mt-buller/skireport",
           "snow_report_source": "OnTheSnow",
           "resort_url": "https://www.mtbuller.com.au",
-          "microclimate_note": "Victoria's resort closest to Melbourne, and historically more exposed to warm intrusions given its lower average elevation."
+          "microclimate_note": "Victoria's resort closest to Melbourne, and historically more exposed to warm intrusions given its lower average elevation.",
+          "snow_history_url": "https://www.onthesnow.com/australia/mt-buller/historical-snowfall"
         },
         {
           "id": "mt-hotham",
@@ -2297,7 +2397,8 @@
           "snow_report_url": "https://www.onthesnow.com/australia/mt-hotham/skireport",
           "snow_report_source": "OnTheSnow",
           "resort_url": "https://www.hotham.com.au",
-          "microclimate_note": "Victoria's highest resort village, generally the most snow-reliable of the Victorian options in a typical season."
+          "microclimate_note": "Victoria's highest resort village, generally the most snow-reliable of the Victorian options in a typical season.",
+          "snow_history_url": "https://www.onthesnow.com/australia/mt-hotham/historical-snowfall"
         }
       ],
       "primary_driver": "sam",
@@ -2407,7 +2508,8 @@
           "resort_url": "https://www.skistar.com/en/are/",
           "snow_report_url": "https://www.snow-forecast.com/resorts/Are-Duved/snow-report",
           "snow_report_source": "Snow-Forecast",
-          "microclimate_note": "Scandinavia's largest ski area, on a lake-adjacent massif that catches Atlantic moisture crossing Norway. Low base elevation for its snowfall, so it depends on latitude rather than altitude for cold."
+          "microclimate_note": "Scandinavia's largest ski area, on a lake-adjacent massif that catches Atlantic moisture crossing Norway. Low base elevation for its snowfall, so it depends on latitude rather than altitude for cold.",
+          "snow_history_url": "https://www.snow-forecast.com/resorts/Are-Duved/history"
         },
         {
           "id": "hemsedal",
@@ -2425,7 +2527,8 @@
           "resort_url": "https://www.skistar.com/en/hemsedal/",
           "snow_report_url": "https://www.snow-forecast.com/resorts/Hemsedal/snow-report",
           "snow_report_source": "Snow-Forecast",
-          "microclimate_note": "Inland southern Norway, high enough to hold cold better than the coastal resorts while still catching Atlantic systems that clear the coastal range."
+          "microclimate_note": "Inland southern Norway, high enough to hold cold better than the coastal resorts while still catching Atlantic systems that clear the coastal range.",
+          "snow_history_url": "https://www.snow-forecast.com/resorts/Hemsedal/history"
         },
         {
           "id": "trysil",
@@ -2443,7 +2546,8 @@
           "resort_url": "https://www.skistar.com/en/trysil/",
           "snow_report_url": "https://www.onthesnow.com/norway/trysil/skireport",
           "snow_report_source": "OnTheSnow",
-          "microclimate_note": "Norway's biggest resort by terrain, well inland and in a partial rain shadow — reliably cold, but drier than the western Norwegian mountains and heavily snowmaking-supported early."
+          "microclimate_note": "Norway's biggest resort by terrain, well inland and in a partial rain shadow — reliably cold, but drier than the western Norwegian mountains and heavily snowmaking-supported early.",
+          "snow_history_url": "https://www.onthesnow.com/norway/trysil/historical-snowfall"
         },
         {
           "id": "riksgransen",
@@ -2461,7 +2565,8 @@
           "resort_url": "https://www.riksgransen.se/en/",
           "snow_report_url": "https://www.snow-forecast.com/resorts/Riksgransen/snow-report",
           "snow_report_source": "Snow-Forecast",
-          "microclimate_note": "Inside the Arctic Circle on the Norwegian border, catching maritime moisture off the Norwegian Sea. Cold is never the constraint; daylight is, which is why the season runs late and includes midnight skiing in May."
+          "microclimate_note": "Inside the Arctic Circle on the Norwegian border, catching maritime moisture off the Norwegian Sea. Cold is never the constraint; daylight is, which is why the season runs late and includes midnight skiing in May.",
+          "snow_history_url": "https://www.snow-forecast.com/resorts/Riksgransen/history"
         },
         {
           "id": "levi",
@@ -2479,7 +2584,8 @@
           "resort_url": "https://www.levi.fi/en",
           "snow_report_url": "https://www.snow-forecast.com/resorts/Levi/snow-report",
           "snow_report_source": "Snow-Forecast",
-          "microclimate_note": "Finnish Lapland: very low elevation but very high latitude, so the snow is dry and the season is long. Vertical is minimal — this is a cold-reliability destination, not a big-mountain one."
+          "microclimate_note": "Finnish Lapland: very low elevation but very high latitude, so the snow is dry and the season is long. Vertical is minimal — this is a cold-reliability destination, not a big-mountain one.",
+          "snow_history_url": "https://www.snow-forecast.com/resorts/Levi/history"
         },
         {
           "id": "ruka",
@@ -2497,7 +2603,8 @@
           "resort_url": "https://www.ruka.fi/en",
           "snow_report_url": "https://www.snow-forecast.com/resorts/Ruka/snow-report",
           "snow_report_source": "Snow-Forecast",
-          "microclimate_note": "Northeastern Finland, close enough to the White Sea to pick up extra moisture. One of the longest seasons in Europe, typically October to May."
+          "microclimate_note": "Northeastern Finland, close enough to the White Sea to pick up extra moisture. One of the longest seasons in Europe, typically October to May.",
+          "snow_history_url": "https://www.snow-forecast.com/resorts/Ruka/history"
         }
       ]
     },
@@ -2580,7 +2687,8 @@
           "resort_url": "https://www.banskoski.com/en/",
           "snow_report_url": "https://www.snow-forecast.com/resorts/Bansko/snow-report",
           "snow_report_source": "Snow-Forecast",
-          "microclimate_note": "The Pirin massif gives Bansko the biggest vertical in Bulgaria, but the town sits at only 990m — the gondola does the work, and the lower runs are the first to go in a mild spell."
+          "microclimate_note": "The Pirin massif gives Bansko the biggest vertical in Bulgaria, but the town sits at only 990m — the gondola does the work, and the lower runs are the first to go in a mild spell.",
+          "snow_history_url": "https://www.snow-forecast.com/resorts/Bansko/history"
         },
         {
           "id": "borovets",
@@ -2598,7 +2706,8 @@
           "resort_url": "https://www.borovets-bg.com/en/",
           "snow_report_url": "https://www.snow-forecast.com/resorts/Borovets/snow-report",
           "snow_report_source": "Snow-Forecast",
-          "microclimate_note": "Rila mountains, with a much higher base than Bansko (1,300m) and a correspondingly better cold margin. Tree-lined and sheltered, so it holds snow through wind events."
+          "microclimate_note": "Rila mountains, with a much higher base than Bansko (1,300m) and a correspondingly better cold margin. Tree-lined and sheltered, so it holds snow through wind events.",
+          "snow_history_url": "https://www.snow-forecast.com/resorts/Borovets/history"
         },
         {
           "id": "pamporovo",
@@ -2616,7 +2725,8 @@
           "resort_url": "https://pamporovo.me/en/winter/home",
           "snow_report_url": "https://www.snow-forecast.com/resorts/Pamporovo/snow-report",
           "snow_report_source": "Snow-Forecast",
-          "microclimate_note": "The Rhodopes, further south and closer to the Aegean, so it sees more Mediterranean moisture but also warmer airmasses. High base for the region, modest vertical."
+          "microclimate_note": "The Rhodopes, further south and closer to the Aegean, so it sees more Mediterranean moisture but also warmer airmasses. High base for the region, modest vertical.",
+          "snow_history_url": "https://www.snow-forecast.com/resorts/Pamporovo/history"
         },
         {
           "id": "kopaonik",
@@ -2634,7 +2744,8 @@
           "resort_url": "https://www.eng.infokop.net/",
           "snow_report_url": "https://www.snow-forecast.com/resorts/Kopaonik/snow-report",
           "snow_report_source": "Snow-Forecast",
-          "microclimate_note": "Serbia's main resort, sitting on an exposed plateau that gets sun and wind in equal measure. Extensive snowmaking compensates for an inconsistent natural supply."
+          "microclimate_note": "Serbia's main resort, sitting on an exposed plateau that gets sun and wind in equal measure. Extensive snowmaking compensates for an inconsistent natural supply.",
+          "snow_history_url": "https://www.snow-forecast.com/resorts/Kopaonik/history"
         },
         {
           "id": "poiana-brasov",
@@ -2652,7 +2763,8 @@
           "resort_url": "https://www.poiana-brasov.com/",
           "snow_report_url": "https://www.snow-forecast.com/resorts/Poiana-Brasov/snow-report",
           "snow_report_source": "Snow-Forecast",
-          "microclimate_note": "Southern Carpathians. More continental than the Bulgarian resorts, so colder on average but reliant on fewer, larger snowfall events."
+          "microclimate_note": "Southern Carpathians. More continental than the Bulgarian resorts, so colder on average but reliant on fewer, larger snowfall events.",
+          "snow_history_url": "https://www.snow-forecast.com/resorts/Poiana-Brasov/history"
         },
         {
           "id": "jahorina",
@@ -2670,7 +2782,8 @@
           "resort_url": "https://www.oc-jahorina.com/en/",
           "snow_report_url": "https://www.snow-forecast.com/resorts/Jahorina/snow-report",
           "snow_report_source": "Snow-Forecast",
-          "microclimate_note": "Close enough to the Adriatic to catch Mediterranean systems head-on, which makes it one of the snowier Balkan options when the southern track is active."
+          "microclimate_note": "Close enough to the Adriatic to catch Mediterranean systems head-on, which makes it one of the snowier Balkan options when the southern track is active.",
+          "snow_history_url": "https://www.snow-forecast.com/resorts/Jahorina/history"
         }
       ]
     },
@@ -2726,7 +2839,8 @@
           "resort_url": "https://gudauri.travel/",
           "snow_report_url": "https://www.snow-forecast.com/resorts/Gudauri/snow-report",
           "snow_report_source": "Snow-Forecast",
-          "microclimate_note": "On the Georgian Military Highway in the Greater Caucasus, base near 2,000m. Catches moisture pushed up from the Black Sea and holds it — one of the better snow records in the wider region."
+          "microclimate_note": "On the Georgian Military Highway in the Greater Caucasus, base near 2,000m. Catches moisture pushed up from the Black Sea and holds it — one of the better snow records in the wider region.",
+          "snow_history_url": "https://www.snow-forecast.com/resorts/Gudauri/history"
         },
         {
           "id": "rosa-khutor",
@@ -2744,7 +2858,8 @@
           "resort_url": "https://rosakhutor.com/en/",
           "snow_report_url": "https://www.onthesnow.com/russia/rosa-khutor/skireport",
           "snow_report_source": "OnTheSnow",
-          "microclimate_note": "Western Caucasus, only 40km from the Black Sea, which makes it unusually maritime for the region: heavy snowfall up high, but a low base at 940m that sees rain in mild spells."
+          "microclimate_note": "Western Caucasus, only 40km from the Black Sea, which makes it unusually maritime for the region: heavy snowfall up high, but a low base at 940m that sees rain in mild spells.",
+          "snow_history_url": "https://www.onthesnow.com/russia/rosa-khutor/historical-snowfall"
         },
         {
           "id": "palandoken",
@@ -2762,7 +2877,8 @@
           "resort_url": "https://goturkiye.com/skiing/palandoken",
           "snow_report_url": "https://www.skiresort.info/ski-resort/palandoeken-ejder-3200-world-ski-center/snow-report/",
           "snow_report_source": "Skiresort.info",
-          "microclimate_note": "Eastern Anatolia at 2,200m base, high and continental. Very cold and dry — light snow, reliable cover, and long fall-line pistes straight above Erzurum."
+          "microclimate_note": "Eastern Anatolia at 2,200m base, high and continental. Very cold and dry — light snow, reliable cover, and long fall-line pistes straight above Erzurum.",
+          "snow_history_url": "https://www.skiresort.info/ski-resort/palandoeken-ejder-3200-world-ski-center/snow-report/"
         },
         {
           "id": "erciyes",
@@ -2780,7 +2896,8 @@
           "resort_url": "https://www.erciyeskayakmerkezi.com/",
           "snow_report_url": "https://www.skiresort.info/ski-resort/erciyes/snow-report/",
           "snow_report_source": "Skiresort.info",
-          "microclimate_note": "An isolated volcano rising off the central Anatolian plateau, so it takes storms unfiltered from any direction, but sits in a dry continental climate that limits total accumulation."
+          "microclimate_note": "An isolated volcano rising off the central Anatolian plateau, so it takes storms unfiltered from any direction, but sits in a dry continental climate that limits total accumulation.",
+          "snow_history_url": "https://www.skiresort.info/ski-resort/erciyes/snow-report/"
         }
       ]
     },
@@ -2836,7 +2953,8 @@
           "resort_url": "https://shymbulak.com/en/",
           "snow_report_url": "https://www.snow-forecast.com/resorts/Chimbulak/snow-report",
           "snow_report_source": "Snow-Forecast",
-          "microclimate_note": "In the Zailiysky Alatau directly above Almaty, base at 2,260m. Deep continental cold with a dry, light snowpack, and a season that runs long because nothing melts."
+          "microclimate_note": "In the Zailiysky Alatau directly above Almaty, base at 2,260m. Deep continental cold with a dry, light snowpack, and a season that runs long because nothing melts.",
+          "snow_history_url": "https://www.snow-forecast.com/resorts/Chimbulak/history"
         },
         {
           "id": "karakol",
@@ -2854,7 +2972,8 @@
           "resort_url": "https://karakol-ski.kg/en/",
           "snow_report_url": "https://www.skiresort.info/ski-resort/karakol/snow-report/",
           "snow_report_source": "Skiresort.info",
-          "microclimate_note": "Above Lake Issyk-Kul in the Tien Shan. The lake adds a modest moisture source that the rest of Central Asia lacks, giving Karakol a better snow record than its longitude suggests."
+          "microclimate_note": "Above Lake Issyk-Kul in the Tien Shan. The lake adds a modest moisture source that the rest of Central Asia lacks, giving Karakol a better snow record than its longitude suggests.",
+          "snow_history_url": "https://www.skiresort.info/ski-resort/karakol/snow-report/"
         }
       ]
     },
@@ -2910,7 +3029,8 @@
           "resort_url": "https://www.coronetpeak.co.nz/",
           "snow_report_url": "https://www.snow-forecast.com/resorts/Coronet-Peak/snow-report",
           "snow_report_source": "Snow-Forecast",
-          "microclimate_note": "Closest field to Queenstown and the most exposed to southwest fronts, but also the lowest of the Queenstown group — the first to suffer when the freezing level lifts."
+          "microclimate_note": "Closest field to Queenstown and the most exposed to southwest fronts, but also the lowest of the Queenstown group — the first to suffer when the freezing level lifts.",
+          "snow_history_url": "https://www.snow-forecast.com/resorts/Coronet-Peak/history"
         },
         {
           "id": "remarkables",
@@ -2928,7 +3048,8 @@
           "resort_url": "https://www.theremarkables.co.nz/",
           "snow_report_url": "https://www.snow-forecast.com/resorts/Remarkables/snow-report",
           "snow_report_source": "Snow-Forecast",
-          "microclimate_note": "A high basin above Queenstown with a 1,586m base, the best cold margin of the Queenstown fields and a natural bowl that holds wind-blown snow."
+          "microclimate_note": "A high basin above Queenstown with a 1,586m base, the best cold margin of the Queenstown fields and a natural bowl that holds wind-blown snow.",
+          "snow_history_url": "https://www.snow-forecast.com/resorts/Remarkables/history"
         },
         {
           "id": "cardrona",
@@ -2946,7 +3067,8 @@
           "resort_url": "https://www.cardrona.com/",
           "snow_report_url": "https://www.snow-forecast.com/resorts/Cardrona/snow-report",
           "snow_report_source": "Snow-Forecast",
-          "microclimate_note": "On a sunny, sheltered basin between Wanaka and Queenstown. Drier and less storm-battered than Treble Cone, with snowmaking across the main trails."
+          "microclimate_note": "On a sunny, sheltered basin between Wanaka and Queenstown. Drier and less storm-battered than Treble Cone, with snowmaking across the main trails.",
+          "snow_history_url": "https://www.snow-forecast.com/resorts/Cardrona/history"
         },
         {
           "id": "treble-cone",
@@ -2964,7 +3086,8 @@
           "resort_url": "https://www.treblecone.com/",
           "snow_report_url": "https://www.snow-forecast.com/resorts/Treble-Cone/snow-report",
           "snow_report_source": "Snow-Forecast",
-          "microclimate_note": "The most westerly major field, facing the Southern Alps divide, so it takes southwest storms first and hardest. Steepest terrain in the country and the biggest single vertical."
+          "microclimate_note": "The most westerly major field, facing the Southern Alps divide, so it takes southwest storms first and hardest. Steepest terrain in the country and the biggest single vertical.",
+          "snow_history_url": "https://www.snow-forecast.com/resorts/Treble-Cone/history"
         },
         {
           "id": "mt-hutt",
@@ -2982,7 +3105,8 @@
           "resort_url": "https://www.mthutt.co.nz/",
           "snow_report_url": "https://www.snow-forecast.com/resorts/Mount-Hutt/snow-report",
           "snow_report_source": "Snow-Forecast",
-          "microclimate_note": "Canterbury, on the eastern side of the divide, so it works on a different flow to the Queenstown fields — better in northeasterly patterns, weaker in the southwesterlies El Niño favours."
+          "microclimate_note": "Canterbury, on the eastern side of the divide, so it works on a different flow to the Queenstown fields — better in northeasterly patterns, weaker in the southwesterlies El Niño favours.",
+          "snow_history_url": "https://www.snow-forecast.com/resorts/Mount-Hutt/history"
         }
       ]
     },
@@ -3038,7 +3162,8 @@
           "resort_url": "https://www.yongpyong.co.kr/eng/",
           "snow_report_url": "https://www.skiresort.info/ski-resort/yongpyong-resort/snow-report/",
           "snow_report_source": "Skiresort.info",
-          "microclimate_note": "Korea's largest resort, in the Taebaek range where cold monsoon air crossing the Yellow Sea picks up just enough moisture to produce genuine natural snowfall — more than the rest of the peninsula."
+          "microclimate_note": "Korea's largest resort, in the Taebaek range where cold monsoon air crossing the Yellow Sea picks up just enough moisture to produce genuine natural snowfall — more than the rest of the peninsula.",
+          "snow_history_url": "https://www.skiresort.info/ski-resort/yongpyong-resort/snow-report/"
         },
         {
           "id": "yabuli",
@@ -3056,7 +3181,8 @@
           "resort_url": "https://www.skiresort.info/ski-resort/yabuli-sun-mountain/",
           "snow_report_url": "https://www.skiresort.info/ski-resort/yabuli-sun-mountain/snow-report/",
           "snow_report_source": "Skiresort.info",
-          "microclimate_note": "Heilongjiang, deep in northeastern China. Bitterly cold and very dry, with the longest vertical in the country but modest natural accumulation."
+          "microclimate_note": "Heilongjiang, deep in northeastern China. Bitterly cold and very dry, with the longest vertical in the country but modest natural accumulation.",
+          "snow_history_url": "https://www.skiresort.info/ski-resort/yabuli-sun-mountain/snow-report/"
         },
         {
           "id": "chongli-genting",
@@ -3074,7 +3200,8 @@
           "resort_url": "https://www.secretgardenresorts.com/",
           "snow_report_url": "https://www.skiresort.info/ski-resort/genting-resort-secret-garden-fulong/snow-report/",
           "snow_report_source": "Skiresort.info",
-          "microclimate_note": "The 2022 Olympic freestyle venue northwest of Beijing, on the edge of the Mongolian plateau. Reliably cold and almost entirely machine-made — natural snowfall here is minimal."
+          "microclimate_note": "The 2022 Olympic freestyle venue northwest of Beijing, on the edge of the Mongolian plateau. Reliably cold and almost entirely machine-made — natural snowfall here is minimal.",
+          "snow_history_url": "https://www.skiresort.info/ski-resort/genting-resort-secret-garden-fulong/snow-report/"
         }
       ]
     }

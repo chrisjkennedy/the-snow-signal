@@ -288,8 +288,16 @@ async function main() {
   const abilitySel = document.getElementById('pf-ability');
   abilitySel.innerHTML = Object.entries(tripCosts.difficulty)
     .filter(([k]) => !k.startsWith('_'))
-    .map(([k, v]) => `<option value="${k}">${v.label} — ${v.desc}</option>`).join('');
+    .map(([k, v]) => `<option value="${k}">${v.label}</option>`).join('');
   abilitySel.value = 'intermediate';
+  // Description lives under the select rather than inside the option text,
+  // which would otherwise overflow the control.
+  const abilityHint = document.getElementById('pf-ability-hint');
+  const setAbilityHint = () => {
+    abilityHint.textContent = tripCosts.difficulty[abilitySel.value]?.desc || '';
+  };
+  abilitySel.addEventListener('change', setAbilityHint);
+  setAbilityHint();
 
   document.getElementById('pf-regions').innerHTML = resortsData.regions
     .map(r => `<label class="pf-chip"><input type="checkbox" value="${r.id}"> ${r.name}</label>`).join('');
