@@ -296,24 +296,58 @@ function run(e) {
   `;
 }
 
-// Booking windows and airfare both punish last-minute planning, so the form
-// opens on the next full Saturday-to-Saturday week that is still at least 30
-// days away. It is computed from today's date on every load, so the default
-// rolls forward on its own rather than going stale.
+// Christmas week is the week of the northern season people actually plan
+// around, so it is the default target for as long as it is still bookable.
+// Once it falls inside the 30-day lead time the default rolls forward instead,
+// a Saturday-to-Saturday week at a time. Everything is computed from today's
+// date on each load, so the default keeps itself current.
 const MIN_LEAD_DAYS = 30;
+// Beyond roughly five months out nobody is booking Christmas yet, and this
+// cap is also what stops January from jumping to the following Christmas
+// instead of offering the rest of the season that is already underway.
+const XMAS_ANCHOR_MAX_DAYS = 150;
+const DAY_MS = 86400000;
 
 function isoDate(d) {
   const p = (n) => String(n).padStart(2, '0');
   return `${d.getFullYear()}-${p(d.getMonth() + 1)}-${p(d.getDate())}`;
 }
 
-export function defaultTripWeek(today = new Date()) {
-  // Build from local Y/M/D so the result can't slip a day across time zones.
-  const start = new Date(today.getFullYear(), today.getMonth(), today.getDate() + MIN_LEAD_DAYS);
-  start.setDate(start.getDate() + ((6 - start.getDay() + 7) % 7)); // 6 = Saturday
+function localToday(today) {
+  // Strip the time so day arithmetic can't slip across a time zone boundary.
+  return new Date(today.getFullYear(), today.getMonth(), today.getDate());
+}
+
+function weekFrom(start) {
   const end = new Date(start);
   end.setDate(end.getDate() + 7);
-  return { start: isoDate(start), end: isoDate(end) };
+  return { start, end };
+}
+
+// The Saturday-to-Saturday week holding 25 December. When Christmas falls on a
+// Saturday that week runs Christmas Day to New Year's Day, which is the one
+// people want anyway.
+function christmasWeek(year) {
+  const xmas = new Date(year, 11, 25);
+  const start = new Date(xmas);
+  start.setDate(start.getDate() - ((start.getDay() + 1) % 7)); // 6 = Saturday
+  return weekFrom(start);
+}
+
+export function defaultTripWeek(today = new Date()) {
+  const base = localToday(today);
+
+  const xmas = christmasWeek(base.getFullYear());
+  const lead = Math.round((xmas.start - base) / DAY_MS);
+  if (lead >= MIN_LEAD_DAYS && lead <= XMAS_ANCHOR_MAX_DAYS) {
+    return { start: isoDate(xmas.start), end: isoDate(xmas.end), anchor: 'christmas' };
+  }
+
+  const start = new Date(base);
+  start.setDate(start.getDate() + MIN_LEAD_DAYS);
+  start.setDate(start.getDate() + ((6 - start.getDay() + 7) % 7)); // 6 = Saturday
+  const week = weekFrom(start);
+  return { start: isoDate(week.start), end: isoDate(week.end), anchor: 'rolling' };
 }
 
 // Every control opens on a real, sensible value, so the page shows useful
@@ -342,8 +376,9 @@ function applyDefaults() {
   document.getElementById('pf-budget').value = DEFAULTS.budget;
   document.getElementById('pf-flexible-where').checked = DEFAULTS.anywhere;
   document.querySelectorAll('#pf-regions input:checked').forEach(i => { i.checked = false; });
-  document.getElementById('pf-dates-note').textContent =
-    `Defaults to the next Saturday-to-Saturday week at least ${MIN_LEAD_DAYS} days out.`;
+  document.getElementById('pf-dates-note').textContent = week.anchor === 'christmas'
+    ? `Defaults to Christmas week. Once that is inside ${MIN_LEAD_DAYS} days it moves on to the next Saturday-to-Saturday week.`
+    : `Defaults to the next Saturday-to-Saturday week at least ${MIN_LEAD_DAYS} days out.`;
 }
 
 function resetForm() {
