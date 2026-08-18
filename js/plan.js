@@ -2,6 +2,7 @@ import {
   loadOni, loadResorts, loadPhaseCopy, loadClimateSignals,
   loadClimatology, loadLiftPrices, loadTripCosts,
 } from './data-sources.js';
+import { flagHtml, apresHtml, apresFit, apresQualifies } from './resort-meta.js';
 
 // Same scoring weights as the season planner — recommendations here must
 // not disagree with the rankings shown there.
@@ -165,7 +166,9 @@ function resultCard(e, opts) {
         <div>
           <div class="trip-name">
             <span class="resort-score ${e.score >= 70 ? 'rs-high' : e.score >= 45 ? 'rs-mid' : 'rs-low'}">${e.score}</span>
+            ${flagHtml(e.resort)}
             <a href="${e.resort.resort_url}" target="_blank" rel="noopener">${e.resort.name}</a>
+            ${apresHtml(e.resort)}
           </div>
           <div class="trip-sub">
             ${e.region.name} · ${e.resort.base_elev_ft.toLocaleString()}–${e.resort.summit_elev_ft.toLocaleString()} ft
@@ -193,6 +196,8 @@ function resultCard(e, opts) {
           : lp ? `${money(b.lift[0])}–${money(b.lift[1])}` : 'n/a'}</span>
       </div>
 
+      ${e.resort.apres ? `<div class="trip-apres"><span class="trip-why-lab">Après</span>${e.resort.apres.note}</div>` : ''}
+
       <div class="trip-links">
         <a href="${e.resort.resort_url}" target="_blank" rel="noopener">Resort site ↗</a>
         <a href="${e.resort.snow_report_url}" target="_blank" rel="noopener">Snow report ↗</a>
@@ -213,6 +218,7 @@ function run(e) {
     origin: document.getElementById('pf-origin').value,
     ability: document.getElementById('pf-ability').value,
     pass: document.getElementById('pf-pass').value,
+    apres: document.getElementById('pf-apres').value,
     budget: document.getElementById('pf-budget').value,
     anywhere: document.getElementById('pf-flexible-where').checked,
     regions: Array.from(document.querySelectorAll('#pf-regions input:checked')).map(i => i.value),
@@ -242,7 +248,22 @@ function run(e) {
     droppedBudget = before - entries.length;
   }
 
-  entries.sort((a, b) => b.score - a.score || a.cost.low - b.cost.low);
+  // Asking for a particular kind of evening drops the resorts that don't
+  // genuinely offer it, then re-weights what's left. The outlook score still
+  // leads, because the point of the site is the snow.
+  let droppedApres = 0;
+  if (opts.apres !== 'any') {
+    const before = entries.length;
+    entries = entries.filter(x => apresQualifies(x.resort, opts.apres));
+    droppedApres = before - entries.length;
+  }
+  entries.forEach(x => {
+    x.rank_score = opts.apres === 'any'
+      ? x.score
+      : x.score * 0.75 + apresFit(x.resort, opts.apres) * 100 * 0.25;
+  });
+
+  entries.sort((a, b) => b.rank_score - a.rank_score || a.cost.low - b.cost.low);
   const top = entries.slice(0, 12);
 
   const el = document.getElementById('plan-results');
@@ -251,6 +272,7 @@ function run(e) {
       <strong>Nothing matches those constraints.</strong>
       ${droppedBudget ? ` ${droppedBudget} option${droppedBudget === 1 ? '' : 's'} were over budget.` : ''}
       ${droppedAbility ? ` ${droppedAbility} were below the vertical you'd want at this ability.` : ''}
+      ${droppedApres ? ` ${droppedApres} ${opts.apres === 'party' ? "don't have much of a scene" : "aren't upmarket"}.` : ''}
       Try widening the budget, the dates, or the regions.
     </div>`;
     return;
@@ -263,6 +285,7 @@ function run(e) {
       Cheapest here is <strong>${cheapest.resort.name}</strong> from ${money(cheapest.cost.low)}.
       ${droppedBudget ? `${droppedBudget} filtered out on budget. ` : ''}
       ${droppedAbility ? `${droppedAbility} filtered out as too small for ${state.tripCosts.difficulty[opts.ability].label.toLowerCase()} skiing. ` : ''}
+      ${droppedApres ? `${droppedApres} filtered out on ${opts.apres === 'party' ? 'nightlife' : 'lodging'}. ` : ''}
     </div>
     ${top.map(x => resultCard(x, opts)).join('')}
   `;

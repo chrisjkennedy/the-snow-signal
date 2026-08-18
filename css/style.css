@@ -1,5 +1,11 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+/* The user-agent's [hidden] rule loses to any author `display` declaration,
+   so elements the JS hides by setting .hidden (the scenario banner, the
+   per-axis "overriding" tags) stayed on screen anyway — which read as the
+   page being stuck in a scenario when it wasn't. Make hidden actually hide. */
+[hidden] { display: none !important; }
+
 :root {
   --navy: #0C2340;
   --blue: #1A4B7A;
@@ -616,3 +622,18 @@ body {
 .resort-name-wrap .pass-badge { cursor: help; }
 .pass-confidence { font-size: 9px; color: var(--muted); cursor: help; border-bottom: 1px dotted var(--muted); }
 .resort-top { align-items: flex-start; }
+
+/* Country flag sits with the resort name as an identity marker; the tooltip
+   carries the full place name (state or province included where it helps). */
+.resort-flag { font-size: 13px; line-height: 1; cursor: help; flex-shrink: 0; }
+.trip-name .resort-flag { font-size: 15px; }
+
+/* Après character. Party and upscale are independent, so a resort can carry
+   both labels — the tooltip explains the scene in full. */
+.apres-chip {
+  font-size: 9.5px; font-weight: 500; letter-spacing: 0.02em; white-space: nowrap;
+  padding: 2px 7px; border-radius: 4px; cursor: help;
+  background: #F4EDE4; color: #7A5326;
+}
+.trip-apres { font-size: 12px; color: #2D4255; line-height: 1.6; margin: 11px 0; padding-left: 9px; border-left: 2px solid var(--border); }
+.apres-chip.ac-quiet { background: var(--snow); color: var(--muted); border: 1px solid var(--border); }

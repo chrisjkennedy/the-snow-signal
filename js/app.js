@@ -1,4 +1,5 @@
 import { loadOni, loadResorts, loadAffiliates, loadPhaseCopy, loadClimateSignals, loadSignalMetadata, loadBacktest, loadClimatology, loadContinents, loadLiftPrices, fetchSnowpack, fetchForecast } from './data-sources.js';
+import { flagHtml, apresHtml } from './resort-meta.js';
 
 // Module-level state: loaded once, then reused across live render and any
 // number of scenario re-renders (so switching scenarios never re-fetches
@@ -681,8 +682,10 @@ function resortRowSkeleton(resort, affiliates, score, rank) {
         <div class="resort-name-wrap">
           <span class="resort-rank">${rank ? `${rank}.` : ''}</span>
           ${scoreChipHtml(score)}
+          ${flagHtml(resort)}
           <span class="resort-name">${resort.name}</span>
           ${passesHtml}
+          ${apresHtml(resort)}
           <span class="resort-elev" title="Base elevation to summit elevation. The gap between them is the vertical drop, which is what determines how much sustained descent the mountain offers.">${resort.base_elev_ft.toLocaleString()}–${resort.summit_elev_ft.toLocaleString()} ft</span>
           ${liftPriceChipHtml(resort.id)}
         </div>
