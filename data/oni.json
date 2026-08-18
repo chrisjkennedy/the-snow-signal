@@ -5,10 +5,10 @@
   "latest_year": 2026,
   "latest_oni": 1.39,
   "phase": "el_nino",
-  "phase_label": "Moderate El Ni\u00f1o",
+  "phase_label": "Very Strong El Niño",
   "trend": "rising",
   "streak_months": 2,
-  "declared_status": "Not yet declared \u2014 trending Moderate El Ni\u00f1o",
+  "declared_status": "El Niño Advisory in effect",
   "recent": [
     {
       "season": "OND",
@@ -50,5 +50,23 @@
       "year": 2026,
       "oni": 1.39
     }
-  ]
+  ],
+  "forecast": {
+    "alert_status": "El Niño Advisory",
+    "synopsis": "El Niño is strengthening, with a greater than 90% chance of a very strong event during the Northern Hemisphere fall and winter 2026-27.",
+    "issued": "13 August 2026",
+    "next_update": "10 September 2026",
+    "source": "https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso_advisory/ensodisc.shtml",
+    "strength": "very strong",
+    "intensity": "very_strong",
+    "probability_pct": 90,
+    "probability_qualifier": "greater than",
+    "window": "fall and winter 2026-27",
+    "historic_event": {
+      "season": "October-December 2026",
+      "probability_pct": 69,
+      "threshold": "+2.5C or more, 3-month RONI"
+    }
+  },
+  "basis": "forecast"
 }

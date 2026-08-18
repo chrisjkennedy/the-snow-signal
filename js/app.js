@@ -1,19 +1,38 @@
-import { loadOni, loadResorts, loadAffiliates, loadPhaseCopy, loadClimateSignals, loadSignalMetadata, loadBacktest, loadClimatology, loadContinents, loadLiftPrices, fetchSnowpack, fetchForecast } from './data-sources.js';
+import { loadOni, loadResorts, loadAffiliates, loadPhaseCopy, loadClimateSignals, loadSignalMetadata, loadBacktest, loadClimatology, loadContinents, loadLiftPrices, loadTripCosts, fetchSnowpack, fetchForecast } from './data-sources.js';
 import { flagHtml, apresHtml } from './resort-meta.js';
 import { initTooltips } from './tooltip.js';
 import { scoreTipText } from './score-tip.js';
 import { escapeAttr } from './html.js';
-import { SCORE_WEIGHTS } from './scoring.js';
+import { buildMetricContext, metricsFor, rankValue, METRIC_KEYS, METRIC_LABEL, METRIC_BLURB } from './metrics.js';
 
 // Module-level state: loaded once, then reused across live render and any
 // number of scenario re-renders (so switching scenarios never re-fetches
 // resort-level live data or rebuilds the map from scratch).
+// Snow is always shown and always counts; the rest are the reader's call.
+const DEFAULT_PREFS = ['cost'];
+
+function loadMetricPrefs() {
+  try {
+    const raw = JSON.parse(localStorage.getItem('ts-metrics') || 'null');
+    if (Array.isArray(raw)) return raw.filter(k => METRIC_KEYS.includes(k) && k !== 'snow');
+  } catch { /* fall through to the default */ }
+  return [...DEFAULT_PREFS];
+}
+function saveMetricPrefs() {
+  try { localStorage.setItem('ts-metrics', JSON.stringify(state.metricPrefs)); } catch { /* private mode */ }
+}
+function loadOrigin() {
+  try { return localStorage.getItem('ts-origin') || 'us-west'; } catch { return 'us-west'; }
+}
+
 const state = {
   oni: null, resortsData: null, affiliates: null, phaseCopy: null,
   signals: null, signalMetadata: null, backtest: null, climatology: null, liftPrices: null,
   mapState: null, liveCache: new Map(), scenarioActive: false,
   expandedRegion: null, activeContinent: null,
+  metricCtx: null, metricPrefs: loadMetricPrefs(), origin: loadOrigin(), tripCosts: null,
 };
+
 
 const INTENSITY_LABEL = { weak: 'Weak', moderate: 'Moderate', strong: 'Strong', very_strong: 'Very Strong' };
 // Illustrative representative ONI values per intensity tier, matching the
@@ -128,69 +147,21 @@ function climatologyFor(resortId) {
 }
 
 /**
- * Computes 0-100 outlook scores for every resort in a region.
- * Returns a Map of resortId -> {score, base, adj, parts, hasData}.
+ * Builds the independent metrics for every resort in a region.
+ * Returns a Map of resortId -> {metrics, rank, hasData}.
+ *
+ * Nothing is blended into a single number any more. Snow is the only metric
+ * that responds to the climate signal; the rest describe the place itself.
  */
 function scoreRegionResorts(region, displaySignal) {
-  const rows = region.resorts.map(r => {
-    const c = climatologyFor(r.id);
-    return {
-      resort: r,
-      snow: c?.era5?.mean_season_snow_cm ?? null,
-      cold: c?.era5?.cold_day_frac ?? null,
-      cv: c?.era5?.cv ?? null,
-      elev: r.base_elev_ft ?? null,
-    };
-  });
-
-  const range = (key) => {
-    const vals = rows.map(x => x[key]).filter(v => Number.isFinite(v));
-    return vals.length ? [Math.min(...vals), Math.max(...vals)] : [NaN, NaN];
-  };
-  const [snowMin, snowMax] = range('snow');
-  const [coldMin, coldMax] = range('cold');
-  const [cvMin, cvMax] = range('cv');
-  const [elevMin, elevMax] = range('elev');
-
-  // How far the region's current call sits from "average" (-1..+1), used
-  // to size the signal adjustment.
-  const meterPct = displaySignal?.meter_pct ?? 50;
-  const signalTilt = (meterPct - 50) / 50;
-
   const out = new Map();
-  for (const row of rows) {
-    const parts = {
-      snow: normalize(row.snow, snowMin, snowMax),
-      cold: normalize(row.cold, coldMin, coldMax),
-      // Invert CV: lower variability scores higher.
-      consistency: row.cv === null ? null : 1 - (normalize(row.cv, cvMin, cvMax) ?? 0.5),
-      elevation: normalize(row.elev, elevMin, elevMax),
-    };
-    const hasData = parts.snow !== null || parts.cold !== null;
-
-    let weighted = 0, weightUsed = 0;
-    for (const [key, w] of Object.entries(SCORE_WEIGHTS)) {
-      if (parts[key] === null) continue;
-      weighted += parts[key] * w;
-      weightUsed += w;
-    }
-    const base = weightUsed > 0 ? (weighted / weightUsed) * 100 : 50;
-
-    // Resilience = how much buffer this resort has (cold + elevation).
-    // Resorts with little buffer swing hardest with the signal.
-    const resilience = [parts.cold, parts.elevation].filter(v => v !== null);
-    const resilienceAvg = resilience.length
-      ? resilience.reduce((a, b) => a + b, 0) / resilience.length
-      : 0.5;
-    const exposure = 1 - resilienceAvg;          // 0 = bulletproof, 1 = marginal
-    const adj = signalTilt * (8 + 14 * exposure); // up to roughly +/-22 points
-
-    out.set(row.resort.id, {
-      score: Math.round(Math.min(100, Math.max(0, base + adj))),
-      base: Math.round(base),
-      adj: Math.round(adj),
-      parts,
-      hasData,
+  if (!state.metricCtx) return out;
+  for (const r of region.resorts) {
+    const metrics = metricsFor(r, region, displaySignal, state.metricCtx, { origin: state.origin });
+    out.set(r.id, {
+      metrics,
+      hasData: !!metrics.snow && metrics.snow.cls !== 'mb-none',
+      rank: rankValue(metrics, state.metricPrefs),
     });
   }
   return out;
@@ -377,12 +348,18 @@ function renderOniBanner(oni) {
     el.innerHTML = `<span class="oni-label">ENSO status →</span><span class="oni-value">Live ONI data unavailable — run <code>scripts/update_oni.py</code></span>`;
     return;
   }
+  const f = oni.forecast;
+  // The forecast leads. A trip booked in August is skied in January, so the
+  // last observed month is history — useful context, not the headline.
   el.innerHTML = `
-    <span class="oni-label">Live ENSO status →</span>
-    <span class="oni-value">${oni.phase_label}</span>
-    <span class="oni-value">Latest ONI (${oni.latest_season} ${oni.latest_year}): <span class="num">${oni.latest_oni > 0 ? '+' : ''}${oni.latest_oni.toFixed(2)}</span></span>
-    <span class="oni-value">Trend: <span class="num">${oni.trend}</span>, ${oni.streak_months}mo streak</span>
-    <span class="oni-updated">NOAA CPC · refreshed ${new Date(oni.updated_utc).toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' })}</span>
+    ${f ? `<span class="oni-label">CPC outlook →</span>
+      <span class="oni-value oni-strong">${oni.phase_label}</span>
+      <span class="oni-value">${f.alert_status} in effect</span>
+      <span class="oni-value" title="${escapeAttr(f.synopsis)}"><span class="num">${f.probability_qualifier} ${f.probability_pct}%</span> chance of a ${f.strength} event, ${f.window}</span>
+      ${f.historic_event ? `<span class="oni-value" title="A 3-month RONI at or above +2.5C would be the strongest event in the record since 1950."><span class="num">${f.historic_event.probability_pct}%</span> chance of a record event (${f.historic_event.threshold}) in ${f.historic_event.season}</span>` : ''}`
+      : `<span class="oni-label">Live ENSO status →</span><span class="oni-value">${oni.phase_label}</span>`}
+    <span class="oni-value oni-obs" title="The most recent observed 3-month ONI. This is what has already happened, not the outlook.">Observed ${oni.latest_season} ${oni.latest_year}: <span class="num">${oni.latest_oni > 0 ? '+' : ''}${oni.latest_oni.toFixed(2)}</span>, ${oni.trend}</span>
+    <span class="oni-updated">NOAA CPC${f ? ` · issued ${f.issued} · next ${f.next_update}` : ''}</span>
   `;
 }
 
@@ -684,15 +661,13 @@ function resortRowSkeleton(resort, affiliates, score, rank) {
       <div class="resort-top">
         <div class="resort-name-wrap">
           <span class="resort-rank">${rank ? `${rank}.` : ''}</span>
-          ${scoreChipHtml(score)}
           ${flagHtml(resort)}
           <span class="resort-name">${resort.name}</span>
           ${passesHtml}
-          ${apresHtml(resort)}
           <span class="resort-elev" title="Base elevation to summit elevation. The gap between them is the vertical drop, which is what determines how much sustained descent the mountain offers.">${resort.base_elev_ft.toLocaleString()}–${resort.summit_elev_ft.toLocaleString()} ft</span>
-          ${liftPriceChipHtml(resort.id)}
         </div>
       </div>
+      ${metricRowHtml(resort, score)}
       ${microclimateHtml}
       ${historyStripHtml(resort)}
       <div class="live-data-row" data-live="${resort.id}">
@@ -713,12 +688,69 @@ function resortRowSkeleton(resort, affiliates, score, rank) {
 const DRIVER_LABEL = { enso: 'ENSO', nao: 'NAO', sam: 'SAM' };
 
 /** The score chip + its plain-language explanation, shown on each resort row. */
-function scoreChipHtml(sc) {
-  if (!sc || !sc.hasData) {
-    return `<span class="resort-score rs-none" title="Historical climatology not yet available for this resort">—</span>`;
+function metricChipHtml(m) {
+  if (!m) return '';
+  return `<span class="metric ${m.cls}" title="${escapeAttr(m.tip)}">`
+    + `<span class="mk">${m.label}</span>`
+    + `<span class="mv">${m.display}</span>`
+    + (m.sub ? `<span class="ms">${m.sub}</span>` : '')
+    + `</span>`;
+}
+
+// The reader tells us what they are optimising for, and that drives both which
+// chips appear and the order resorts are listed in. Snow is locked on: this is
+// a snow site, and a list that could stop being about snow would be a different
+// product.
+function renderPrefBar() {
+  const bar = document.getElementById('pref-bar');
+  if (!bar) return;
+  const origins = state.tripCosts?.origins || {};
+  const chips = METRIC_KEYS.map(k => {
+    if (k === 'snow') {
+      return `<button type="button" class="pref-chip locked" disabled
+        title="Snow always counts, and always comes first. ${METRIC_BLURB.snow}">Snow</button>`;
+    }
+    const on = state.metricPrefs.includes(k);
+    return `<button type="button" class="pref-chip ${on ? 'on' : ''}" data-metric="${k}"
+      title="${METRIC_BLURB[k]}">${METRIC_LABEL[k]}</button>`;
+  }).join('');
+
+  bar.innerHTML = `<span class="pref-lab">What matters to you</span>${chips}`
+    + (state.metricPrefs.includes('distance')
+      ? `<select id="pref-origin" class="pref-chip" title="Travel is measured from here.">`
+        + Object.entries(origins).map(([k, v]) =>
+            `<option value="${k}"${k === state.origin ? ' selected' : ''}>from ${v}</option>`).join('')
+        + `</select>`
+      : '');
+
+  bar.querySelectorAll('[data-metric]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const k = btn.dataset.metric;
+      const i = state.metricPrefs.indexOf(k);
+      if (i === -1) state.metricPrefs.push(k); else state.metricPrefs.splice(i, 1);
+      saveMetricPrefs();
+      renderPrefBar();
+      rerenderRegionGrid();
+    });
+  });
+  const originSel = document.getElementById('pref-origin');
+  if (originSel) {
+    originSel.addEventListener('change', () => {
+      state.origin = originSel.value;
+      try { localStorage.setItem('ts-origin', state.origin); } catch { /* private mode */ }
+      rerenderRegionGrid();
+    });
   }
-  const tip = scoreTipText(sc);
-  return `<span class="resort-score ${scoreBadgeClass(sc.score)}" title="${escapeAttr(tip)}">${sc.score}</span>`;
+}
+
+// Snow always leads. Everything after it is whatever the reader asked to see.
+function metricRowHtml(resort, score) {
+  const ms = score?.metrics;
+  if (!ms) return '';
+  // Canonical order, not the order they were clicked in, so the row reads the
+  // same way on every resort.
+  const keys = METRIC_KEYS.filter(k => k === 'snow' || state.metricPrefs.includes(k));
+  return `<div class="metric-row">${keys.map(k => metricChipHtml(ms[k])).join('')}</div>`;
 }
 
 /**
@@ -728,7 +760,12 @@ function scoreChipHtml(sc) {
  */
 function renderRegionCard(region, rank, phaseKey, affiliates, signals, scenarioIntensity, isLiveEnso, expanded) {
   const s = getDisplaySignal(region, phaseKey, signals);
-  let meterPct = (scenarioIntensity && s.driver === 'enso') ? scaleMeterPct(s.meter_pct, scenarioIntensity) : s.meter_pct;
+  // Live runs at the intensity CPC is actually forecasting. Leaving it at a
+  // flat "moderate" was why a >90%-likely very strong El Nino showed up on the
+  // page as an ordinary one.
+  const liveIntensity = state.oni?.forecast?.intensity || null;
+  const effIntensity = scenarioIntensity || (isLiveEnso ? liveIntensity : null);
+  let meterPct = (effIntensity && s.driver === 'enso') ? scaleMeterPct(s.meter_pct, effIntensity) : s.meter_pct;
   if (isLiveEnso && s.driver === 'enso') meterPct = pdoModulatedMeterPct(region, phaseKey, meterPct, signals?.pdo);
   const intensityNote = (scenarioIntensity && scenarioIntensity !== 'moderate' && s.driver === 'enso')
     ? `<div class="live-signal-note">Scenario check: shown at <strong>${INTENSITY_LABEL[scenarioIntensity]}</strong> intensity — the bar above is scaled accordingly, but the written call below still describes the typical/moderate case.</div>`
@@ -745,7 +782,7 @@ function renderRegionCard(region, rank, phaseKey, affiliates, signals, scenarioI
     // Niseko sitting last would read as "worst," which is the opposite
     // of what a missing data point means.
     const scored = region.resorts.filter(r => scores.get(r.id)?.hasData)
-      .sort((a, b) => scores.get(b.id).score - scores.get(a.id).score);
+      .sort((a, b) => scores.get(b.id).rank - scores.get(a.id).rank);
     const unscored = region.resorts.filter(r => !scores.get(r.id)?.hasData);
 
     const rankedRows = scored
@@ -763,8 +800,8 @@ function renderRegionCard(region, rank, phaseKey, affiliates, signals, scenarioI
       ${driverNote}
       ${liveSignalNote(region, signals, phaseKey, isLiveEnso)}
       <div class="resort-list-head">
-        <span>Resorts, ranked by outlook</span>
-        <span class="resort-list-hint">Score blends this resort's own history — mean seasonal snowfall, share of season days below freezing, and year-to-year consistency, all from 10 seasons of ERA5 reanalysis — with its elevation buffer, then adjusts for the current ${DRIVER_LABEL[s.driver] || 'climate'} signal. Compared within this region only. Hover a score for the full breakdown. It measures snow <em>reliability</em>, not terrain quality or powder character.</span>
+        <span>Resorts, ranked by what you picked</span>
+        <span class="resort-list-hint">Each measure stands on its own — nothing is blended into a single number, because a resort can have the best snow here and still be the wrong trip. <strong>Snow</strong> is the typical season's snowfall at mid-mountain from 10 seasons of ERA5 reanalysis, tilted by the ${DRIVER_LABEL[s.driver] || 'climate'} signal now driving this region; its colour bands are fixed snowfall amounts, so they mean the same thing at every resort on the site rather than only against these neighbours. Après, cost and travel are facts about the place and don't move with the weather. Hover any of them for the detail.</span>
       </div>
       <div class="resort-list">${rankedRows}${unscoredRows}</div>
     `;
@@ -1240,7 +1277,9 @@ function rerenderRegionGrid() {
 
   const sortPct = (region) => {
     const s = getDisplaySignal(region, phaseKey, signals);
-    let pct = (scenarioIntensity && s.driver === 'enso') ? scaleMeterPct(s.meter_pct, scenarioIntensity) : s.meter_pct;
+    const liveInt = state.oni?.forecast?.intensity || null;
+    const effInt = scenarioIntensity || (isLiveEnso && s.driver === 'enso' ? liveInt : null);
+    let pct = (effInt && s.driver === 'enso') ? scaleMeterPct(s.meter_pct, effInt) : s.meter_pct;
     if (isLiveEnso && s.driver === 'enso') pct = pdoModulatedMeterPct(region, phaseKey, pct, signals?.pdo);
     return pct;
   };
@@ -1417,11 +1456,15 @@ function wireScenarioControls() {
 }
 
 async function main() {
-  const [oni, resortsData, affiliates, phaseCopy, signals, signalMetadata, backtest, climatology, liftPrices] = await Promise.all([
+  const [oni, resortsData, affiliates, phaseCopy, signals, signalMetadata, backtest, climatology, liftPrices, tripCosts] = await Promise.all([
     loadOni(), loadResorts(), loadAffiliates(), loadPhaseCopy(), loadClimateSignals(),
-    loadSignalMetadata(), loadBacktest(), loadClimatology(), loadLiftPrices(),
+    loadSignalMetadata(), loadBacktest(), loadClimatology(), loadLiftPrices(), loadTripCosts(),
   ]);
-  Object.assign(state, { oni, resortsData, affiliates, phaseCopy, signals, signalMetadata, backtest, climatology, liftPrices });
+  Object.assign(state, { oni, resortsData, affiliates, phaseCopy, signals, signalMetadata, backtest, climatology, liftPrices, tripCosts });
+
+  // Percentiles, neighbours and the cost spread all depend on the full list,
+  // so they are computed once here rather than per resort on every render.
+  state.metricCtx = buildMetricContext({ resortsData, climatology, liftPrices, tripCosts });
 
   // Rendered once and never touched again by scenario mode — these are
   // the permanent "ground truth" readouts.
@@ -1441,6 +1484,7 @@ async function main() {
   });
 
   wireScenarioControls();
+  renderPrefBar();
 
   initTooltips();
   renderPhaseView(oni, signals, currentPhaseKeyFor(oni), null);
