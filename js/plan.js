@@ -82,7 +82,7 @@ function liftPrice(resortId) {
   const lp = state.liftPrices;
   if (!lp) return null;
   const v = lp.verified?.[resortId];
-  if (v) return { low: v.low, high: v.high, verified: true };
+  if (v) return { low: v.low, high: v.high, verified: true, weekday: v.weekday };
   const t = lp.tiers?.[lp.resort_tier?.[resortId]];
   return t ? { low: t.low, high: t.high, verified: false } : null;
 }
@@ -196,6 +196,7 @@ function resultCard(e, opts) {
       <div class="trip-links">
         <a href="${e.resort.resort_url}" target="_blank" rel="noopener">Resort site ↗</a>
         <a href="${e.resort.snow_report_url}" target="_blank" rel="noopener">Snow report ↗</a>
+        <a href="${e.resort.snow_history_url}" target="_blank" rel="noopener">Snowfall history ↗</a>
         <span class="trip-pass">${e.resort.passes.join(', ')}</span>
       </div>
     </div>

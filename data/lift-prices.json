@@ -1,5 +1,5 @@
 {
-  "_readme": "Indicative adult single-day lift ticket prices in USD, for budgeting only. Two kinds of entry: 'verified' means a published 2025-26 rate was found for that resort (source noted); 'band' means no per-resort figure was found and the resort inherits a regional/tier band. Nearly every large resort now uses dynamic pricing, so the walk-up window rate on a holiday can be double the advance-purchase rate for the same day — that spread is what low/high represents. Treat these as a planning range, never a quote; the resort's own site (linked on every resort row) is the only authority. Currency conversions are approximate and were made when this file was written.",
+  "_readme": "Indicative adult single-day lift ticket prices in USD, for budgeting only. 'verified' entries carry a published 2025-26 rate with its source; most come from OnTheSnow's published adult weekday rates, used as one consistent source so resorts are comparable. Where only a weekday rate was available the high end is estimated at 1.5x to represent holiday/window pricing, which is roughly the observed spread. Everything else inherits a regional tier band and is marked estimated. Nearly every large resort now prices dynamically by date and lead time, so these are a planning range and never a quote; the resort's own site, linked on every resort row, is the only authority.",
   "updated": "2026-08",
   "currency": "USD",
   "tiers": {
@@ -100,30 +100,176 @@
     }
   },
   "verified": {
+    "arapahoe-basin": {
+      "weekday": 119,
+      "low": 119,
+      "high": 178,
+      "source": "OnTheSnow published adult weekday rate, 2025-26 ($119). High end estimated at 1.5x for holiday/window pricing."
+    },
+    "aspen-snowmass": {
+      "weekday": 279,
+      "low": 279,
+      "high": 279,
+      "source": "OnTheSnow published adult weekday rate, 2025-26 ($279). Peak/window rate reported separately at $279."
+    },
+    "breckenridge": {
+      "weekday": 234,
+      "low": 234,
+      "high": 351,
+      "source": "OnTheSnow published adult weekday rate, 2025-26 ($234). High end estimated at 1.5x for holiday/window pricing."
+    },
+    "copper-mountain": {
+      "weekday": 264,
+      "low": 264,
+      "high": 396,
+      "source": "OnTheSnow published adult weekday rate, 2025-26 ($264). High end estimated at 1.5x for holiday/window pricing."
+    },
+    "crested-butte": {
+      "weekday": 164,
+      "low": 164,
+      "high": 246,
+      "source": "OnTheSnow published adult weekday rate, 2025-26 ($164). High end estimated at 1.5x for holiday/window pricing."
+    },
+    "eldora": {
+      "weekday": 199,
+      "low": 199,
+      "high": 298,
+      "source": "OnTheSnow published adult weekday rate, 2025-26 ($199). High end estimated at 1.5x for holiday/window pricing."
+    },
+    "purgatory": {
+      "weekday": 65,
+      "low": 65,
+      "high": 98,
+      "source": "OnTheSnow published adult weekday rate, 2025-26 ($65). High end estimated at 1.5x for holiday/window pricing."
+    },
+    "steamboat": {
+      "weekday": 199,
+      "low": 199,
+      "high": 298,
+      "source": "OnTheSnow published adult weekday rate, 2025-26 ($199). High end estimated at 1.5x for holiday/window pricing."
+    },
+    "telluride": {
+      "weekday": 245,
+      "low": 245,
+      "high": 368,
+      "source": "OnTheSnow published adult weekday rate, 2025-26 ($245). High end estimated at 1.5x for holiday/window pricing."
+    },
+    "winter-park": {
+      "weekday": 272,
+      "low": 272,
+      "high": 408,
+      "source": "OnTheSnow published adult weekday rate, 2025-26 ($272). High end estimated at 1.5x for holiday/window pricing."
+    },
+    "wolf-creek": {
+      "weekday": 93,
+      "low": 93,
+      "high": 140,
+      "source": "OnTheSnow published adult weekday rate, 2025-26 ($93). High end estimated at 1.5x for holiday/window pricing."
+    },
+    "alta": {
+      "weekday": 199,
+      "low": 199,
+      "high": 298,
+      "source": "OnTheSnow published adult weekday rate, 2025-26 ($199). High end estimated at 1.5x for holiday/window pricing."
+    },
+    "park-city": {
+      "weekday": 288,
+      "low": 288,
+      "high": 432,
+      "source": "OnTheSnow published adult weekday rate, 2025-26 ($288). High end estimated at 1.5x for holiday/window pricing."
+    },
+    "deer-valley": {
+      "weekday": 219,
+      "low": 219,
+      "high": 328,
+      "source": "OnTheSnow published adult weekday rate, 2025-26 ($219). High end estimated at 1.5x for holiday/window pricing."
+    },
+    "solitude": {
+      "weekday": 195,
+      "low": 195,
+      "high": 292,
+      "source": "OnTheSnow published adult weekday rate, 2025-26 ($195). High end estimated at 1.5x for holiday/window pricing."
+    },
+    "snowbasin": {
+      "weekday": 169,
+      "low": 169,
+      "high": 254,
+      "source": "OnTheSnow published adult weekday rate, 2025-26 ($169). High end estimated at 1.5x for holiday/window pricing."
+    },
+    "jay-peak": {
+      "weekday": 119,
+      "low": 119,
+      "high": 178,
+      "source": "OnTheSnow published adult weekday rate, 2025-26 ($119). High end estimated at 1.5x for holiday/window pricing."
+    },
+    "killington": {
+      "weekday": 205,
+      "low": 205,
+      "high": 308,
+      "source": "OnTheSnow published adult weekday rate, 2025-26 ($205). High end estimated at 1.5x for holiday/window pricing."
+    },
+    "mount-snow": {
+      "weekday": 149,
+      "low": 149,
+      "high": 224,
+      "source": "OnTheSnow published adult weekday rate, 2025-26 ($149). High end estimated at 1.5x for holiday/window pricing."
+    },
+    "okemo": {
+      "weekday": 161,
+      "low": 161,
+      "high": 242,
+      "source": "OnTheSnow published adult weekday rate, 2025-26 ($161). High end estimated at 1.5x for holiday/window pricing."
+    },
+    "stowe": {
+      "weekday": 207,
+      "low": 207,
+      "high": 310,
+      "source": "OnTheSnow published adult weekday rate, 2025-26 ($207). High end estimated at 1.5x for holiday/window pricing."
+    },
+    "stratton": {
+      "weekday": 203,
+      "low": 203,
+      "high": 304,
+      "source": "OnTheSnow published adult weekday rate, 2025-26 ($203). High end estimated at 1.5x for holiday/window pricing."
+    },
+    "alyeska": {
+      "weekday": 90,
+      "low": 90,
+      "high": 135,
+      "source": "OnTheSnow published adult weekday rate, 2025-26 ($90). High end estimated at 1.5x for holiday/window pricing."
+    },
+    "attitash": {
+      "weekday": 154,
+      "low": 154,
+      "high": 231,
+      "source": "OnTheSnow published adult weekday rate, 2025-26 ($154). High end estimated at 1.5x for holiday/window pricing."
+    },
+    "big-sky": {
+      "weekday": 114,
+      "low": 114,
+      "high": 171,
+      "source": "OnTheSnow published adult weekday rate, 2025-26 ($114). High end estimated at 1.5x for holiday/window pricing."
+    },
+    "big-white": {
+      "weekday": 113,
+      "low": 113,
+      "high": 170,
+      "source": "OnTheSnow published adult weekday rate, 2025-26 ($113). High end estimated at 1.5x for holiday/window pricing."
+    },
     "vail": {
       "low": 130,
       "high": 356,
-      "source": "Published 2025-26 peak holiday window rate reported at $356; advance rates substantially lower."
-    },
-    "aspen-snowmass": {
-      "low": 98,
-      "high": 264,
-      "source": "Aspen Snowmass 2025-26: $98-120 early/advance, $189-264 mid-season."
+      "source": "Reported 2025-26 peak holiday window rate $356; advance rates substantially lower."
     },
     "jackson-hole": {
       "low": 175,
       "high": 255,
-      "source": "Jackson Hole 2025-26 published range, $175-225 by date; ~$255 online peak."
-    },
-    "big-sky": {
-      "low": 150,
-      "high": 242,
-      "source": "Big Sky 2025-26, $242 with online discount at peak."
+      "source": "Jackson Hole 2025-26 published range $175-225 by date; ~$255 online peak."
     },
     "palisades-tahoe": {
       "low": 145,
       "high": 289,
-      "source": "Palisades Tahoe 2025-26 peak $289, up to ~35% off for early online booking."
+      "source": "Palisades Tahoe 2025-26 peak $289, up to ~35% off early online."
     },
     "snowbird": {
       "low": 165,
@@ -138,36 +284,25 @@
     "zermatt": {
       "low": 85,
       "high": 115,
-      "source": "Zermatt/Matterhorn Ski Paradise 2025-26, roughly CHF 97 (~$113) peak day."
+      "source": "Zermatt 2025-26, ~CHF 97 (~$113) peak day."
     },
     "st-anton": {
       "low": 67,
       "high": 80,
-      "source": "St. Anton / Ski Arlberg 2025-26, €62-72 (~$67-78) by date."
+      "source": "St. Anton / Ski Arlberg 2025-26, EUR 62-72 (~$67-78) by date."
     },
     "mayrhofen": {
       "low": 78,
       "high": 95,
-      "source": "Zillertal area adult day ~€82 (~$89)."
+      "source": "Zillertal adult day ~EUR 82 (~$89)."
     },
     "niseko": {
       "low": 80,
       "high": 95,
-      "source": "Niseko United All Mountain 2025-26, ¥12,000-13,500 (~$80-90)."
+      "source": "Niseko United All Mountain 2025-26, JPY 12,000-13,500 (~$80-90)."
     }
   },
   "resort_tier": {
-    "park-city": "us_premium",
-    "deer-valley": "us_premium",
-    "steamboat": "us_premium",
-    "telluride": "us_premium",
-    "alta": "us_major",
-    "breckenridge": "us_major",
-    "winter-park": "us_major",
-    "copper-mountain": "us_major",
-    "crested-butte": "us_major",
-    "solitude": "us_major",
-    "snowbasin": "us_major",
     "mammoth": "us_major",
     "northstar": "us_major",
     "kirkwood": "us_major",
@@ -178,28 +313,16 @@
     "grand-targhee": "us_major",
     "summit-snoqualmie": "us_regional",
     "schweitzer": "us_regional",
-    "alyeska": "us_major",
-    "arapahoe-basin": "us_regional",
-    "eldora": "us_regional",
-    "purgatory": "us_regional",
     "santa-fe": "us_regional",
-    "wolf-creek": "us_regional",
     "taos": "us_major",
     "big-bear": "us_regional",
     "june-mountain": "us_regional",
     "arizona-snowbowl": "us_regional",
-    "killington": "northeast_major",
-    "stowe": "northeast_major",
     "sugarbush": "northeast_major",
     "sunday-river": "northeast_major",
-    "stratton": "northeast_major",
     "loon-mountain": "northeast_major",
-    "okemo": "northeast_major",
-    "mount-snow": "northeast_small",
-    "jay-peak": "northeast_small",
     "cannon": "northeast_small",
     "wildcat": "northeast_small",
-    "attitash": "northeast_small",
     "mount-sunapee": "northeast_small",
     "hunter-mountain": "northeast_small",
     "snowshoe": "northeast_major",
@@ -207,7 +330,6 @@
     "whistler": "canada_premium",
     "revelstoke": "canada_major",
     "banff-lake-louise": "canada_major",
-    "big-white": "canada_major",
     "sun-peaks": "canada_major",
     "kicking-horse": "canada_major",
     "fernie": "canada_major",
@@ -273,5 +395,10 @@
     "cardrona": "new_zealand",
     "treble-cone": "new_zealand",
     "mt-hutt": "new_zealand"
+  },
+  "methodology": {
+    "primary_source": "OnTheSnow published adult weekday single-day rates, 2025-26 season",
+    "peak_multiplier": 1.5,
+    "note": "Weekday advance rates and holiday window rates commonly differ by 50% or more at the same resort."
   }
 }

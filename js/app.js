@@ -600,7 +600,7 @@ function liftPriceFor(resortId) {
   const lp = state.liftPrices;
   if (!lp) return null;
   const v = lp.verified?.[resortId];
-  if (v) return { low: v.low, high: v.high, verified: true, basis: v.source };
+  if (v) return { low: v.low, high: v.high, verified: true, basis: v.source, weekday: v.weekday };
   const tierKey = lp.resort_tier?.[resortId];
   const t = tierKey && lp.tiers?.[tierKey];
   if (!t) return null;
@@ -612,8 +612,10 @@ function liftPriceChipHtml(resortId) {
   if (!p) return '';
   const tip = (p.verified ? 'Published 2025-26 rate. ' : 'Estimated from a regional band, not a published rate for this resort. ')
     + p.basis + ' Dynamic pricing means the actual rate depends on the date and how far ahead you buy — check the resort site.';
-  return `<span class="lift-price ${p.verified ? 'lp-verified' : 'lp-band'}" title="${tip.replace(/"/g, '&quot;')}">` +
-    `$${p.low}–${p.high}/day${p.verified ? '' : ' est'}</span>`;
+  const label = p.weekday
+    ? `$${p.weekday} weekday`
+    : `$${p.low}–${p.high}/day${p.verified ? '' : ' est'}`;
+  return `<span class="lift-price ${p.verified ? 'lp-verified' : 'lp-band'}" title="${tip.replace(/"/g, '&quot;')}">${label}</span>`;
 }
 
 /** Compact strip of the real historical numbers behind this resort's score. */
@@ -655,7 +657,10 @@ function resortRowSkeleton(resort, affiliates, score, rank) {
     </div>` : '';
 
   const snowReportLink = resort.snow_report_url
-    ? `<a class="snow-report-link" target="_blank" rel="noopener" href="${resort.snow_report_url}">Live snow report (${resort.snow_report_source}) ↗</a>`
+    ? `<a class="snow-report-link" target="_blank" rel="noopener" href="${resort.snow_report_url}">Live snow report ↗</a>`
+    : '';
+  const snowHistoryLink = resort.snow_history_url
+    ? `<a class="snow-report-link" target="_blank" rel="noopener" href="${resort.snow_history_url}" title="Measured multi-season snowfall record. Published averages vary a lot between sources, so this is the number to check rather than trust any single quoted figure.">Snowfall history ↗</a>`
     : '';
   const resortSiteLink = resort.resort_url
     ? `<a class="resort-site-link" target="_blank" rel="noopener" href="${resort.resort_url}">Resort site ↗</a>`
@@ -686,6 +691,7 @@ function resortRowSkeleton(resort, affiliates, score, rank) {
       <div class="resort-links-row">
         ${resortSiteLink}
         ${snowReportLink}
+        ${snowHistoryLink}
       </div>
       ${affiliateLinks}
     </div>
