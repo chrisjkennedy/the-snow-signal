@@ -188,6 +188,43 @@ The site should carry a permanent, honest scorecard:
 
 ---
 
+## 6b. Standing reality check against published forecasts
+
+A cheap outer layer that would have caught the cold-Alps error before it
+shipped, and which runs on every projection regardless of how it was derived.
+
+**Rule: no regional call goes live without being compared against what official
+agencies and reputable outlets are currently saying about that winter.**
+
+Sources to check per region, each seasonal-outlook cycle:
+
+| Region | Authorities to check |
+|---|---|
+| US / Canada | NOAA CPC seasonal outlooks, Environment and Climate Change Canada |
+| Europe / Alps | Copernicus C3S seasonal bulletin, Météo-France, MeteoSwiss, DWD, ZAMG/GeoSphere Austria, UK Met Office |
+| Japan | JMA seasonal forecast |
+| Andes | Chilean DMC, Argentine SMN |
+| Australia / NZ | Australian BoM climate outlook, NIWA seasonal climate outlook |
+| Global framing | WMO El Niño/La Niña Update |
+
+Mechanics:
+
+1. Record each external forecast verbatim with source and date — never
+   paraphrased into our own framing.
+2. Compare direction (wetter/drier, warmer/colder) against ours.
+3. **Any disagreement blocks publication of that regional call** until it is
+   either explained or our call is corrected. Agreement is logged too, so the
+   record shows how often we align.
+4. Divergence is displayed, not hidden: "we say X, Météo-France says Y" is more
+   useful to a reader than a false consensus, and it is the honest presentation
+   when the science genuinely disagrees.
+
+This is a sanity check, not a source of truth — official agencies are sometimes
+wrong, and a disagreement we can defend on mechanism is worth keeping. But it
+should never be *silent* disagreement, which is what happened with the Alps.
+
+---
+
 ## 7. Phased plan
 
 | Phase | Work | Output | Rough effort |
