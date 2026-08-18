@@ -171,3 +171,9 @@ export async function fetchForecast(lat, lon) {
     return null;
   }
 }
+
+export async function loadIndexForecasts() {
+  const r = await fetch('./data/index-forecasts.json', { cache: 'no-store' });
+  if (!r.ok) throw new Error(`index-forecasts.json: ${r.status}`);
+  return r.json();
+}

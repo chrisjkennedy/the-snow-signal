@@ -1,0 +1,1575 @@
+{
+  "_readme": "Forward-looking index data. ENSO carries real seasonal skill; the atmospheric indices carry about 15 days of it and are shown as ensemble bands over that window and as climatology beyond it. Nothing here is extrapolated further than the source data supports.",
+  "updated_utc": "2026-08-18T12:17:27+00:00",
+  "horizons": {
+    "enso": {
+      "skill": "seasonal",
+      "source": "CPC official ENSO outlook",
+      "note": "Ocean thermal memory makes ENSO predictable months ahead."
+    },
+    "atmospheric": {
+      "skill": "15 days",
+      "source": "NCEP GEFS ensemble via CPC",
+      "note": "NAO, AO, PNA and SAM are chaotic beyond about two weeks. Past 15 days the honest answer is the climatological distribution."
+    }
+  },
+  "gefs": {
+    "nao": {
+      "initialised": "2026-08-17",
+      "days": [
+        {
+          "date": "2026-08-17",
+          "median": -0.255,
+          "p10": -0.275,
+          "p90": -0.234,
+          "members": 31
+        },
+        {
+          "date": "2026-08-18",
+          "median": -0.216,
+          "p10": -0.288,
+          "p90": -0.175,
+          "members": 31
+        },
+        {
+          "date": "2026-08-19",
+          "median": -0.57,
+          "p10": -0.694,
+          "p90": -0.46,
+          "members": 31
+        },
+        {
+          "date": "2026-08-20",
+          "median": -0.754,
+          "p10": -0.921,
+          "p90": -0.607,
+          "members": 31
+        },
+        {
+          "date": "2026-08-21",
+          "median": -0.859,
+          "p10": -1.06,
+          "p90": -0.678,
+          "members": 31
+        },
+        {
+          "date": "2026-08-22",
+          "median": -0.647,
+          "p10": -0.996,
+          "p90": -0.478,
+          "members": 31
+        },
+        {
+          "date": "2026-08-23",
+          "median": -0.512,
+          "p10": -0.752,
+          "p90": -0.06,
+          "members": 31
+        },
+        {
+          "date": "2026-08-24",
+          "median": -0.414,
+          "p10": -0.881,
+          "p90": -0.071,
+          "members": 31
+        },
+        {
+          "date": "2026-08-25",
+          "median": -0.608,
+          "p10": -0.994,
+          "p90": -0.068,
+          "members": 31
+        },
+        {
+          "date": "2026-08-26",
+          "median": -0.765,
+          "p10": -1.208,
+          "p90": -0.312,
+          "members": 31
+        },
+        {
+          "date": "2026-08-27",
+          "median": -0.9,
+          "p10": -1.533,
+          "p90": -0.227,
+          "members": 31
+        },
+        {
+          "date": "2026-08-28",
+          "median": -0.992,
+          "p10": -1.536,
+          "p90": -0.165,
+          "members": 31
+        },
+        {
+          "date": "2026-08-29",
+          "median": -0.973,
+          "p10": -1.558,
+          "p90": -0.05,
+          "members": 31
+        },
+        {
+          "date": "2026-08-30",
+          "median": -0.846,
+          "p10": -1.7,
+          "p90": 0.054,
+          "members": 31
+        },
+        {
+          "date": "2026-08-31",
+          "median": -0.702,
+          "p10": -1.679,
+          "p90": 0.203,
+          "members": 31
+        },
+        {
+          "date": "2026-09-01",
+          "median": -0.604,
+          "p10": -1.421,
+          "p90": 0.52,
+          "members": 31
+        }
+      ]
+    },
+    "ao": {
+      "initialised": "2026-08-17",
+      "days": [
+        {
+          "date": "2026-08-17",
+          "median": -0.037,
+          "p10": -0.06,
+          "p90": 0.001,
+          "members": 31
+        },
+        {
+          "date": "2026-08-18",
+          "median": 0.339,
+          "p10": 0.238,
+          "p90": 0.479,
+          "members": 31
+        },
+        {
+          "date": "2026-08-19",
+          "median": 0.117,
+          "p10": -0.013,
+          "p90": 0.284,
+          "members": 31
+        },
+        {
+          "date": "2026-08-20",
+          "median": -0.112,
+          "p10": -0.317,
+          "p90": 0.082,
+          "members": 31
+        },
+        {
+          "date": "2026-08-21",
+          "median": -0.219,
+          "p10": -0.428,
+          "p90": -0.01,
+          "members": 31
+        },
+        {
+          "date": "2026-08-22",
+          "median": -0.296,
+          "p10": -0.682,
+          "p90": 0.024,
+          "members": 31
+        },
+        {
+          "date": "2026-08-23",
+          "median": -0.018,
+          "p10": -0.515,
+          "p90": 0.373,
+          "members": 31
+        },
+        {
+          "date": "2026-08-24",
+          "median": -0.043,
+          "p10": -0.816,
+          "p90": 0.341,
+          "members": 31
+        },
+        {
+          "date": "2026-08-25",
+          "median": -0.25,
+          "p10": -1.044,
+          "p90": 0.198,
+          "members": 31
+        },
+        {
+          "date": "2026-08-26",
+          "median": -0.544,
+          "p10": -1.121,
+          "p90": 0.371,
+          "members": 31
+        },
+        {
+          "date": "2026-08-27",
+          "median": -0.468,
+          "p10": -0.96,
+          "p90": 0.436,
+          "members": 31
+        },
+        {
+          "date": "2026-08-28",
+          "median": -0.314,
+          "p10": -1.036,
+          "p90": 0.454,
+          "members": 31
+        },
+        {
+          "date": "2026-08-29",
+          "median": -0.55,
+          "p10": -1.002,
+          "p90": 0.423,
+          "members": 31
+        },
+        {
+          "date": "2026-08-30",
+          "median": -0.357,
+          "p10": -1.054,
+          "p90": 0.667,
+          "members": 31
+        },
+        {
+          "date": "2026-08-31",
+          "median": -0.268,
+          "p10": -1.067,
+          "p90": 0.684,
+          "members": 31
+        },
+        {
+          "date": "2026-09-01",
+          "median": -0.213,
+          "p10": -0.997,
+          "p90": 0.884,
+          "members": 31
+        }
+      ]
+    },
+    "pna": {
+      "initialised": "2026-08-17",
+      "days": [
+        {
+          "date": "2026-08-17",
+          "median": 0.273,
+          "p10": 0.246,
+          "p90": 0.3,
+          "members": 31
+        },
+        {
+          "date": "2026-08-18",
+          "median": -0.209,
+          "p10": -0.305,
+          "p90": -0.172,
+          "members": 31
+        },
+        {
+          "date": "2026-08-19",
+          "median": -0.703,
+          "p10": -0.783,
+          "p90": -0.591,
+          "members": 31
+        },
+        {
+          "date": "2026-08-20",
+          "median": -0.664,
+          "p10": -0.831,
+          "p90": -0.503,
+          "members": 31
+        },
+        {
+          "date": "2026-08-21",
+          "median": -0.46,
+          "p10": -0.658,
+          "p90": -0.32,
+          "members": 31
+        },
+        {
+          "date": "2026-08-22",
+          "median": -0.272,
+          "p10": -0.534,
+          "p90": -0.019,
+          "members": 31
+        },
+        {
+          "date": "2026-08-23",
+          "median": -0.244,
+          "p10": -0.51,
+          "p90": 0.145,
+          "members": 31
+        },
+        {
+          "date": "2026-08-24",
+          "median": -0.166,
+          "p10": -0.589,
+          "p90": 0.332,
+          "members": 31
+        },
+        {
+          "date": "2026-08-25",
+          "median": -0.04,
+          "p10": -0.612,
+          "p90": 0.49,
+          "members": 31
+        },
+        {
+          "date": "2026-08-26",
+          "median": -0.005,
+          "p10": -0.63,
+          "p90": 0.437,
+          "members": 31
+        },
+        {
+          "date": "2026-08-27",
+          "median": -0.084,
+          "p10": -0.616,
+          "p90": 0.541,
+          "members": 31
+        },
+        {
+          "date": "2026-08-28",
+          "median": -0.136,
+          "p10": -0.964,
+          "p90": 0.552,
+          "members": 31
+        },
+        {
+          "date": "2026-08-29",
+          "median": -0.281,
+          "p10": -1.013,
+          "p90": 0.575,
+          "members": 31
+        },
+        {
+          "date": "2026-08-30",
+          "median": -0.225,
+          "p10": -0.999,
+          "p90": 0.495,
+          "members": 31
+        },
+        {
+          "date": "2026-08-31",
+          "median": -0.377,
+          "p10": -1.027,
+          "p90": 0.788,
+          "members": 31
+        },
+        {
+          "date": "2026-09-01",
+          "median": -0.159,
+          "p10": -1.04,
+          "p90": 0.879,
+          "members": 31
+        }
+      ]
+    },
+    "sam": {
+      "initialised": "2026-08-17",
+      "days": [
+        {
+          "date": "2026-08-17",
+          "median": -0.002,
+          "p10": -0.04,
+          "p90": 0.02,
+          "members": 31
+        },
+        {
+          "date": "2026-08-18",
+          "median": 0.281,
+          "p10": 0.19,
+          "p90": 0.4,
+          "members": 31
+        },
+        {
+          "date": "2026-08-19",
+          "median": -0.052,
+          "p10": -0.192,
+          "p90": 0.132,
+          "members": 31
+        },
+        {
+          "date": "2026-08-20",
+          "median": -0.286,
+          "p10": -0.489,
+          "p90": -0.001,
+          "members": 31
+        },
+        {
+          "date": "2026-08-21",
+          "median": -0.573,
+          "p10": -0.827,
+          "p90": -0.096,
+          "members": 31
+        },
+        {
+          "date": "2026-08-22",
+          "median": -0.817,
+          "p10": -1.394,
+          "p90": -0.299,
+          "members": 31
+        },
+        {
+          "date": "2026-08-23",
+          "median": -1.069,
+          "p10": -1.553,
+          "p90": -0.312,
+          "members": 31
+        },
+        {
+          "date": "2026-08-24",
+          "median": -0.837,
+          "p10": -1.522,
+          "p90": 0.075,
+          "members": 31
+        },
+        {
+          "date": "2026-08-25",
+          "median": -0.448,
+          "p10": -1.261,
+          "p90": 1.011,
+          "members": 31
+        },
+        {
+          "date": "2026-08-26",
+          "median": -0.025,
+          "p10": -1.525,
+          "p90": 1.476,
+          "members": 31
+        },
+        {
+          "date": "2026-08-27",
+          "median": 0.288,
+          "p10": -2.084,
+          "p90": 1.838,
+          "members": 31
+        },
+        {
+          "date": "2026-08-28",
+          "median": 0.709,
+          "p10": -2.316,
+          "p90": 2.216,
+          "members": 31
+        },
+        {
+          "date": "2026-08-29",
+          "median": 0.425,
+          "p10": -2.274,
+          "p90": 2.126,
+          "members": 31
+        },
+        {
+          "date": "2026-08-30",
+          "median": 0.161,
+          "p10": -2.152,
+          "p90": 1.938,
+          "members": 31
+        },
+        {
+          "date": "2026-08-31",
+          "median": 0.299,
+          "p10": -2.34,
+          "p90": 2.121,
+          "members": 31
+        },
+        {
+          "date": "2026-09-01",
+          "median": 0.013,
+          "p10": -2.527,
+          "p90": 1.907,
+          "members": 31
+        }
+      ]
+    }
+  },
+  "enso_nao_teleconnection": {
+    "climatology_jan_feb": {
+      "mean": 0.16,
+      "sd": 0.98,
+      "share_negative": 0.39,
+      "n_months": 150
+    },
+    "by_el_nino_intensity": {
+      "very_strong": {
+        "n_winters": 3,
+        "winters": [
+          "1982-83",
+          "1997-98",
+          "2015-16"
+        ],
+        "early_winter_nao": 0.92,
+        "late_winter_nao": 0.51,
+        "late_winter_sd": 0.81,
+        "share_negative": 0.33,
+        "shift": -0.41
+      },
+      "strong": {
+        "n_winters": 4,
+        "winters": [
+          "1957-58",
+          "1972-73",
+          "1991-92",
+          "2023-24"
+        ],
+        "early_winter_nao": 0.52,
+        "late_winter_nao": 0.19,
+        "late_winter_sd": 0.73,
+        "share_negative": 0.38,
+        "shift": -0.33
+      },
+      "moderate": {
+        "n_winters": 3,
+        "winters": [
+          "1965-66",
+          "1986-87",
+          "2009-10"
+        ],
+        "early_winter_nao": 0.17,
+        "late_winter_nao": -1.35,
+        "late_winter_sd": 0.41,
+        "share_negative": 1.0,
+        "shift": -1.52
+      },
+      "weak": {
+        "n_winters": 15,
+        "winters": [
+          "1951-52",
+          "1958-59",
+          "1963-64",
+          "1968-69",
+          "1976-77",
+          "1977-78",
+          "1979-80",
+          "1987-88",
+          "1994-95",
+          "2002-03",
+          "2004-05",
+          "2006-07",
+          "2014-15",
+          "2018-19",
+          "2019-20"
+        ],
+        "early_winter_nao": 0.19,
+        "late_winter_nao": 0.13,
+        "late_winter_sd": 1.02,
+        "share_negative": 0.4,
+        "shift": -0.06
+      }
+    },
+    "verdict": {
+      "enso_predicts_winter_nao": false,
+      "summary": "Very strong El Nino winters (n=3: 1982-83, 1997-98, 2015-16) averaged +0.51 NAO in Jan-Feb against a climatological +0.16, with 33% of months negative against 39% normally. The tilt is smaller than the year-to-year spread (sd 0.98), and three events is not a forecastable sample. ENSO intensity does not tell you what the NAO will do this winter.",
+      "what_does_hold": "The one robust feature is direction of change, not level: El Nino winters drift from a higher early-winter NAO toward a lower late-winter one, via a weakened stratospheric polar vortex, while neutral and La Nina winters drift the other way. That is a reason to prefer late-season trips in the southern Alps, not a reason to call the winter cold."
+    }
+  },
+  "oni_seasons": [
+    {
+      "season": "OND",
+      "year": 2009,
+      "value": 1.31
+    },
+    {
+      "season": "SON",
+      "year": 2009,
+      "value": 0.92
+    },
+    {
+      "season": "AMJ",
+      "year": 2010,
+      "value": -0.16
+    },
+    {
+      "season": "ASO",
+      "year": 2010,
+      "value": -1.43
+    },
+    {
+      "season": "DJF",
+      "year": 2010,
+      "value": 1.47
+    },
+    {
+      "season": "FMA",
+      "year": 2010,
+      "value": 0.88
+    },
+    {
+      "season": "JAS",
+      "year": 2010,
+      "value": -1.24
+    },
+    {
+      "season": "JFM",
+      "year": 2010,
+      "value": 1.21
+    },
+    {
+      "season": "JJA",
+      "year": 2010,
+      "value": -0.98
+    },
+    {
+      "season": "MAM",
+      "year": 2010,
+      "value": 0.38
+    },
+    {
+      "season": "MJJ",
+      "year": 2010,
+      "value": -0.66
+    },
+    {
+      "season": "NDJ",
+      "year": 2010,
+      "value": -1.48
+    },
+    {
+      "season": "OND",
+      "year": 2010,
+      "value": -1.57
+    },
+    {
+      "season": "SON",
+      "year": 2010,
+      "value": -1.54
+    },
+    {
+      "season": "AMJ",
+      "year": 2011,
+      "value": -0.5
+    },
+    {
+      "season": "ASO",
+      "year": 2011,
+      "value": -0.76
+    },
+    {
+      "season": "DJF",
+      "year": 2011,
+      "value": -1.29
+    },
+    {
+      "season": "FMA",
+      "year": 2011,
+      "value": -0.85
+    },
+    {
+      "season": "JAS",
+      "year": 2011,
+      "value": -0.5
+    },
+    {
+      "season": "JFM",
+      "year": 2011,
+      "value": -1.06
+    },
+    {
+      "season": "JJA",
+      "year": 2011,
+      "value": -0.37
+    },
+    {
+      "season": "MAM",
+      "year": 2011,
+      "value": -0.68
+    },
+    {
+      "season": "MJJ",
+      "year": 2011,
+      "value": -0.34
+    },
+    {
+      "season": "NDJ",
+      "year": 2011,
+      "value": -0.92
+    },
+    {
+      "season": "OND",
+      "year": 2011,
+      "value": -1.02
+    },
+    {
+      "season": "SON",
+      "year": 2011,
+      "value": -0.94
+    },
+    {
+      "season": "AMJ",
+      "year": 2012,
+      "value": -0.18
+    },
+    {
+      "season": "ASO",
+      "year": 2012,
+      "value": 0.37
+    },
+    {
+      "season": "DJF",
+      "year": 2012,
+      "value": -0.71
+    },
+    {
+      "season": "FMA",
+      "year": 2012,
+      "value": -0.44
+    },
+    {
+      "season": "JAS",
+      "year": 2012,
+      "value": 0.39
+    },
+    {
+      "season": "JFM",
+      "year": 2012,
+      "value": -0.56
+    },
+    {
+      "season": "JJA",
+      "year": 2012,
+      "value": 0.28
+    },
+    {
+      "season": "MAM",
+      "year": 2012,
+      "value": -0.35
+    },
+    {
+      "season": "MJJ",
+      "year": 2012,
+      "value": 0.03
+    },
+    {
+      "season": "NDJ",
+      "year": 2012,
+      "value": -0.03
+    },
+    {
+      "season": "OND",
+      "year": 2012,
+      "value": 0.13
+    },
+    {
+      "season": "SON",
+      "year": 2012,
+      "value": 0.28
+    },
+    {
+      "season": "AMJ",
+      "year": 2013,
+      "value": -0.3
+    },
+    {
+      "season": "ASO",
+      "year": 2013,
+      "value": -0.32
+    },
+    {
+      "season": "DJF",
+      "year": 2013,
+      "value": -0.24
+    },
+    {
+      "season": "FMA",
+      "year": 2013,
+      "value": -0.23
+    },
+    {
+      "season": "JAS",
+      "year": 2013,
+      "value": -0.34
+    },
+    {
+      "season": "JFM",
+      "year": 2013,
+      "value": -0.28
+    },
+    {
+      "season": "JJA",
+      "year": 2013,
+      "value": -0.45
+    },
+    {
+      "season": "MAM",
+      "year": 2013,
+      "value": -0.2
+    },
+    {
+      "season": "MJJ",
+      "year": 2013,
+      "value": -0.38
+    },
+    {
+      "season": "NDJ",
+      "year": 2013,
+      "value": -0.11
+    },
+    {
+      "season": "OND",
+      "year": 2013,
+      "value": -0.12
+    },
+    {
+      "season": "SON",
+      "year": 2013,
+      "value": -0.14
+    },
+    {
+      "season": "AMJ",
+      "year": 2014,
+      "value": 0.35
+    },
+    {
+      "season": "ASO",
+      "year": 2014,
+      "value": 0.24
+    },
+    {
+      "season": "DJF",
+      "year": 2014,
+      "value": -0.24
+    },
+    {
+      "season": "FMA",
+      "year": 2014,
+      "value": -0.02
+    },
+    {
+      "season": "JAS",
+      "year": 2014,
+      "value": 0.07
+    },
+    {
+      "season": "JFM",
+      "year": 2014,
+      "value": -0.21
+    },
+    {
+      "season": "JJA",
+      "year": 2014,
+      "value": 0.07
+    },
+    {
+      "season": "MAM",
+      "year": 2014,
+      "value": 0.25
+    },
+    {
+      "season": "MJJ",
+      "year": 2014,
+      "value": 0.22
+    },
+    {
+      "season": "NDJ",
+      "year": 2014,
+      "value": 0.8
+    },
+    {
+      "season": "OND",
+      "year": 2014,
+      "value": 0.7
+    },
+    {
+      "season": "SON",
+      "year": 2014,
+      "value": 0.51
+    },
+    {
+      "season": "AMJ",
+      "year": 2015,
+      "value": 1.04
+    },
+    {
+      "season": "ASO",
+      "year": 2015,
+      "value": 2.02
+    },
+    {
+      "season": "DJF",
+      "year": 2015,
+      "value": 0.73
+    },
+    {
+      "season": "FMA",
+      "year": 2015,
+      "value": 0.72
+    },
+    {
+      "season": "JAS",
+      "year": 2015,
+      "value": 1.73
+    },
+    {
+      "season": "JFM",
+      "year": 2015,
+      "value": 0.65
+    },
+    {
+      "season": "JJA",
+      "year": 2015,
+      "value": 1.44
+    },
+    {
+      "season": "MAM",
+      "year": 2015,
+      "value": 0.86
+    },
+    {
+      "season": "MJJ",
+      "year": 2015,
+      "value": 1.19
+    },
+    {
+      "season": "NDJ",
+      "year": 2015,
+      "value": 2.59
+    },
+    {
+      "season": "OND",
+      "year": 2015,
+      "value": 2.45
+    },
+    {
+      "season": "SON",
+      "year": 2015,
+      "value": 2.28
+    },
+    {
+      "season": "AMJ",
+      "year": 2016,
+      "value": 0.57
+    },
+    {
+      "season": "ASO",
+      "year": 2016,
+      "value": -0.42
+    },
+    {
+      "season": "DJF",
+      "year": 2016,
+      "value": 2.5
+    },
+    {
+      "season": "FMA",
+      "year": 2016,
+      "value": 1.69
+    },
+    {
+      "season": "JAS",
+      "year": 2016,
+      "value": -0.34
+    },
+    {
+      "season": "JFM",
+      "year": 2016,
+      "value": 2.21
+    },
+    {
+      "season": "JJA",
+      "year": 2016,
+      "value": -0.19
+    },
+    {
+      "season": "MAM",
+      "year": 2016,
+      "value": 1.11
+    },
+    {
+      "season": "MJJ",
+      "year": 2016,
+      "value": 0.09
+    },
+    {
+      "season": "NDJ",
+      "year": 2016,
+      "value": -0.37
+    },
+    {
+      "season": "OND",
+      "year": 2016,
+      "value": -0.49
+    },
+    {
+      "season": "SON",
+      "year": 2016,
+      "value": -0.51
+    },
+    {
+      "season": "AMJ",
+      "year": 2017,
+      "value": 0.35
+    },
+    {
+      "season": "ASO",
+      "year": 2017,
+      "value": -0.23
+    },
+    {
+      "season": "DJF",
+      "year": 2017,
+      "value": -0.08
+    },
+    {
+      "season": "FMA",
+      "year": 2017,
+      "value": 0.27
+    },
+    {
+      "season": "JAS",
+      "year": 2017,
+      "value": -0.07
+    },
+    {
+      "season": "JFM",
+      "year": 2017,
+      "value": 0.08
+    },
+    {
+      "season": "JJA",
+      "year": 2017,
+      "value": 0.14
+    },
+    {
+      "season": "MAM",
+      "year": 2017,
+      "value": 0.32
+    },
+    {
+      "season": "MJJ",
+      "year": 2017,
+      "value": 0.32
+    },
+    {
+      "season": "NDJ",
+      "year": 2017,
+      "value": -0.76
+    },
+    {
+      "season": "OND",
+      "year": 2017,
+      "value": -0.61
+    },
+    {
+      "season": "SON",
+      "year": 2017,
+      "value": -0.44
+    },
+    {
+      "season": "AMJ",
+      "year": 2018,
+      "value": -0.07
+    },
+    {
+      "season": "ASO",
+      "year": 2018,
+      "value": 0.52
+    },
+    {
+      "season": "DJF",
+      "year": 2018,
+      "value": -0.71
+    },
+    {
+      "season": "FMA",
+      "year": 2018,
+      "value": -0.55
+    },
+    {
+      "season": "JAS",
+      "year": 2018,
+      "value": 0.3
+    },
+    {
+      "season": "JFM",
+      "year": 2018,
+      "value": -0.67
+    },
+    {
+      "season": "JJA",
+      "year": 2018,
+      "value": 0.2
+    },
+    {
+      "season": "MAM",
+      "year": 2018,
+      "value": -0.35
+    },
+    {
+      "season": "MJJ",
+      "year": 2018,
+      "value": 0.13
+    },
+    {
+      "season": "NDJ",
+      "year": 2018,
+      "value": 1.05
+    },
+    {
+      "season": "OND",
+      "year": 2018,
+      "value": 1.04
+    },
+    {
+      "season": "SON",
+      "year": 2018,
+      "value": 0.82
+    },
+    {
+      "season": "AMJ",
+      "year": 2019,
+      "value": 0.71
+    },
+    {
+      "season": "ASO",
+      "year": 2019,
+      "value": 0.31
+    },
+    {
+      "season": "DJF",
+      "year": 2019,
+      "value": 0.99
+    },
+    {
+      "season": "FMA",
+      "year": 2019,
+      "value": 0.87
+    },
+    {
+      "season": "JAS",
+      "year": 2019,
+      "value": 0.2
+    },
+    {
+      "season": "JFM",
+      "year": 2019,
+      "value": 0.94
+    },
+    {
+      "season": "JJA",
+      "year": 2019,
+      "value": 0.38
+    },
+    {
+      "season": "MAM",
+      "year": 2019,
+      "value": 0.82
+    },
+    {
+      "season": "MJJ",
+      "year": 2019,
+      "value": 0.59
+    },
+    {
+      "season": "NDJ",
+      "year": 2019,
+      "value": 0.75
+    },
+    {
+      "season": "OND",
+      "year": 2019,
+      "value": 0.72
+    },
+    {
+      "season": "SON",
+      "year": 2019,
+      "value": 0.51
+    },
+    {
+      "season": "AMJ",
+      "year": 2020,
+      "value": 0.04
+    },
+    {
+      "season": "ASO",
+      "year": 2020,
+      "value": -0.77
+    },
+    {
+      "season": "DJF",
+      "year": 2020,
+      "value": 0.71
+    },
+    {
+      "season": "FMA",
+      "year": 2020,
+      "value": 0.57
+    },
+    {
+      "season": "JAS",
+      "year": 2020,
+      "value": -0.43
+    },
+    {
+      "season": "JFM",
+      "year": 2020,
+      "value": 0.66
+    },
+    {
+      "season": "JJA",
+      "year": 2020,
+      "value": -0.29
+    },
+    {
+      "season": "MAM",
+      "year": 2020,
+      "value": 0.33
+    },
+    {
+      "season": "MJJ",
+      "year": 2020,
+      "value": -0.18
+    },
+    {
+      "season": "NDJ",
+      "year": 2020,
+      "value": -1.06
+    },
+    {
+      "season": "OND",
+      "year": 2020,
+      "value": -1.11
+    },
+    {
+      "season": "SON",
+      "year": 2020,
+      "value": -1.0
+    },
+    {
+      "season": "AMJ",
+      "year": 2021,
+      "value": -0.4
+    },
+    {
+      "season": "ASO",
+      "year": 2021,
+      "value": -0.64
+    },
+    {
+      "season": "DJF",
+      "year": 2021,
+      "value": -0.99
+    },
+    {
+      "season": "FMA",
+      "year": 2021,
+      "value": -0.74
+    },
+    {
+      "season": "JAS",
+      "year": 2021,
+      "value": -0.46
+    },
+    {
+      "season": "JFM",
+      "year": 2021,
+      "value": -0.85
+    },
+    {
+      "season": "JJA",
+      "year": 2021,
+      "value": -0.35
+    },
+    {
+      "season": "MAM",
+      "year": 2021,
+      "value": -0.56
+    },
+    {
+      "season": "MJJ",
+      "year": 2021,
+      "value": -0.31
+    },
+    {
+      "season": "NDJ",
+      "year": 2021,
+      "value": -0.83
+    },
+    {
+      "season": "OND",
+      "year": 2021,
+      "value": -0.91
+    },
+    {
+      "season": "SON",
+      "year": 2021,
+      "value": -0.77
+    },
+    {
+      "season": "AMJ",
+      "year": 2022,
+      "value": -0.83
+    },
+    {
+      "season": "ASO",
+      "year": 2022,
+      "value": -0.87
+    },
+    {
+      "season": "DJF",
+      "year": 2022,
+      "value": -0.76
+    },
+    {
+      "season": "FMA",
+      "year": 2022,
+      "value": -0.77
+    },
+    {
+      "season": "JAS",
+      "year": 2022,
+      "value": -0.78
+    },
+    {
+      "season": "JFM",
+      "year": 2022,
+      "value": -0.68
+    },
+    {
+      "season": "JJA",
+      "year": 2022,
+      "value": -0.7
+    },
+    {
+      "season": "MAM",
+      "year": 2022,
+      "value": -0.86
+    },
+    {
+      "season": "MJJ",
+      "year": 2022,
+      "value": -0.73
+    },
+    {
+      "season": "NDJ",
+      "year": 2022,
+      "value": -0.7
+    },
+    {
+      "season": "OND",
+      "year": 2022,
+      "value": -0.82
+    },
+    {
+      "season": "SON",
+      "year": 2022,
+      "value": -0.89
+    },
+    {
+      "season": "AMJ",
+      "year": 2023,
+      "value": 0.46
+    },
+    {
+      "season": "ASO",
+      "year": 2023,
+      "value": 1.5
+    },
+    {
+      "season": "DJF",
+      "year": 2023,
+      "value": -0.55
+    },
+    {
+      "season": "FMA",
+      "year": 2023,
+      "value": -0.11
+    },
+    {
+      "season": "JAS",
+      "year": 2023,
+      "value": 1.25
+    },
+    {
+      "season": "JFM",
+      "year": 2023,
+      "value": -0.33
+    },
+    {
+      "season": "JJA",
+      "year": 2023,
+      "value": 1.0
+    },
+    {
+      "season": "MAM",
+      "year": 2023,
+      "value": 0.19
+    },
+    {
+      "season": "MJJ",
+      "year": 2023,
+      "value": 0.73
+    },
+    {
+      "season": "NDJ",
+      "year": 2023,
+      "value": 1.99
+    },
+    {
+      "season": "OND",
+      "year": 2023,
+      "value": 1.9
+    },
+    {
+      "season": "SON",
+      "year": 2023,
+      "value": 1.74
+    },
+    {
+      "season": "AMJ",
+      "year": 2024,
+      "value": 0.43
+    },
+    {
+      "season": "ASO",
+      "year": 2024,
+      "value": -0.12
+    },
+    {
+      "season": "DJF",
+      "year": 2024,
+      "value": 1.84
+    },
+    {
+      "season": "FMA",
+      "year": 2024,
+      "value": 1.18
+    },
+    {
+      "season": "JAS",
+      "year": 2024,
+      "value": -0.04
+    },
+    {
+      "season": "JFM",
+      "year": 2024,
+      "value": 1.53
+    },
+    {
+      "season": "JJA",
+      "year": 2024,
+      "value": 0.06
+    },
+    {
+      "season": "MAM",
+      "year": 2024,
+      "value": 0.77
+    },
+    {
+      "season": "MJJ",
+      "year": 2024,
+      "value": 0.18
+    },
+    {
+      "season": "NDJ",
+      "year": 2024,
+      "value": -0.43
+    },
+    {
+      "season": "OND",
+      "year": 2024,
+      "value": -0.29
+    },
+    {
+      "season": "SON",
+      "year": 2024,
+      "value": -0.19
+    },
+    {
+      "season": "AMJ",
+      "year": 2025,
+      "value": -0.04
+    },
+    {
+      "season": "ASO",
+      "year": 2025,
+      "value": -0.43
+    },
+    {
+      "season": "DJF",
+      "year": 2025,
+      "value": -0.46
+    },
+    {
+      "season": "FMA",
+      "year": 2025,
+      "value": -0.08
+    },
+    {
+      "season": "JAS",
+      "year": 2025,
+      "value": -0.26
+    },
+    {
+      "season": "JFM",
+      "year": 2025,
+      "value": -0.22
+    },
+    {
+      "season": "JJA",
+      "year": 2025,
+      "value": -0.11
+    },
+    {
+      "season": "MAM",
+      "year": 2025,
+      "value": 0.02
+    },
+    {
+      "season": "MJJ",
+      "year": 2025,
+      "value": -0.02
+    },
+    {
+      "season": "NDJ",
+      "year": 2025,
+      "value": -0.6
+    },
+    {
+      "season": "OND",
+      "year": 2025,
+      "value": -0.61
+    },
+    {
+      "season": "SON",
+      "year": 2025,
+      "value": -0.57
+    },
+    {
+      "season": "AMJ",
+      "year": 2026,
+      "value": 0.95
+    },
+    {
+      "season": "DJF",
+      "year": 2026,
+      "value": -0.39
+    },
+    {
+      "season": "FMA",
+      "year": 2026,
+      "value": 0.11
+    },
+    {
+      "season": "JFM",
+      "year": 2026,
+      "value": -0.21
+    },
+    {
+      "season": "MAM",
+      "year": 2026,
+      "value": 0.46
+    },
+    {
+      "season": "MJJ",
+      "year": 2026,
+      "value": 1.39
+    }
+  ],
+  "roni_seasons": [],
+  "sources": {
+    "gefs": "https://ftp.cpc.ncep.noaa.gov/cwlinks",
+    "oni": "https://www.cpc.ncep.noaa.gov/data/indices/oni.ascii.txt",
+    "roni": "https://www.cpc.ncep.noaa.gov/data/indices/RONI.ascii.txt",
+    "nao_monthly": "https://www.cpc.ncep.noaa.gov/products/precip/CWlink/pna/norm.nao.monthly.b5001.current.ascii.table"
+  }
+}

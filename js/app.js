@@ -4,6 +4,7 @@ import { initTooltips } from './tooltip.js';
 import { scoreTipText } from './score-tip.js';
 import { escapeAttr } from './html.js';
 import { buildMetricContext, metricsFor, rankValue, METRIC_KEYS, METRIC_LABEL, METRIC_BLURB } from './metrics.js';
+import { loadIndexForecasts } from './data-sources.js';
 
 // Module-level state: loaded once, then reused across live render and any
 // number of scenario re-renders (so switching scenarios never re-fetches
@@ -688,6 +689,26 @@ function resortRowSkeleton(resort, affiliates, score, rank) {
 const DRIVER_LABEL = { enso: 'ENSO', nao: 'NAO', sam: 'SAM' };
 
 /** The score chip + its plain-language explanation, shown on each resort row. */
+// Regions driven by an atmospheric index are NOT under a seasonal forecast,
+// and the page must not imply otherwise. NAO, AO, PNA and SAM have useful skill
+// for about two weeks; past that the honest statement is climatology. This is
+// also where the site refuses to launder a confident ENSO forecast into a
+// confident NAO one -- the composite below measures how weak that link is.
+function horizonCaveat(s) {
+  if (s.driver !== 'nao' && s.driver !== 'sam') return '';
+  const t = state.indexForecasts?.enso_nao_teleconnection;
+  const v = t?.verdict;
+  const name = s.driver.toUpperCase();
+  return `<div class="horizon-note">
+    <span class="horizon-tag">Two-week signal, not a seasonal one</span>
+    ${name} is atmospheric, so it is only forecastable about 15 days out. The call above describes the
+    pattern in place now, not the season as a whole — treat it as a reason to watch, not to book.
+    ${v ? `<span class="horizon-detail" title="${escapeAttr(v.summary + '\n\n' + v.what_does_hold)}">
+      A record El Niño does not change this: ${v.enso_predicts_winter_nao ? 'it shifts the odds materially.' :
+      'measured against the observed record, ENSO intensity does not predict winter NAO.'} Hover for the numbers.</span>` : ''}
+  </div>`;
+}
+
 function metricChipHtml(m) {
   if (!m) return '';
   return `<span class="metric ${m.cls}" title="${escapeAttr(m.tip)}">`
@@ -771,6 +792,7 @@ function renderRegionCard(region, rank, phaseKey, affiliates, signals, scenarioI
     ? `<div class="live-signal-note">Scenario check: shown at <strong>${INTENSITY_LABEL[scenarioIntensity]}</strong> intensity — the bar above is scaled accordingly, but the written call below still describes the typical/moderate case.</div>`
     : '';
   const driverNote = s.secondaryNote ? `<div class="live-signal-note">${s.secondaryNote}</div>` : '';
+  const horizonNote = horizonCaveat(s);
   const now = new Date();
   const inSeason = isInSeason(region.season.start_month, region.season.end_month, now.getMonth() + 1);
 
@@ -799,6 +821,7 @@ function renderRegionCard(region, rank, phaseKey, affiliates, signals, scenarioI
       ${intensityNote}
       ${driverNote}
       ${liveSignalNote(region, signals, phaseKey, isLiveEnso)}
+      ${horizonNote}
       <div class="resort-list-head">
         <span>Resorts, ranked by what you picked</span>
         <span class="resort-list-hint">Each measure stands on its own — nothing is blended into a single number, because a resort can have the best snow here and still be the wrong trip. <strong>Snow</strong> is the typical season's snowfall at mid-mountain from 10 seasons of ERA5 reanalysis, tilted by the ${DRIVER_LABEL[s.driver] || 'climate'} signal now driving this region; its colour bands are fixed snowfall amounts, so they mean the same thing at every resort on the site rather than only against these neighbours. Après, cost and travel are facts about the place and don't move with the weather. Hover any of them for the detail.</span>
@@ -1465,6 +1488,12 @@ async function main() {
   // Percentiles, neighbours and the cost spread all depend on the full list,
   // so they are computed once here rather than per resort on every render.
   state.metricCtx = buildMetricContext({ resortsData, climatology, liftPrices, tripCosts });
+  // Non-blocking: the page is still correct without it, it just loses the
+  // measured teleconnection evidence in the horizon caveat.
+  loadIndexForecasts().then(f => {
+    state.indexForecasts = f;
+    rerenderRegionGrid();
+  }).catch(() => { /* caveat falls back to its unquantified form */ });
 
   // Rendered once and never touched again by scenario mode — these are
   // the permanent "ground truth" readouts.

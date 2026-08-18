@@ -692,3 +692,11 @@ body {
 .pref-chip.locked { background: var(--ice); color: var(--blue); border-color: #BFD9F0; cursor: help; }
 .oni-strong { font-weight: 600; color: var(--gold); }
 .oni-obs { opacity: 0.72; }
+/* Marks a call that is a two-week atmospheric pattern rather than a seasonal
+   outlook, so the two are never read as the same kind of claim. */
+.horizon-note { font-size: 11.5px; line-height: 1.6; color: #5B4A2A; background: var(--gold-light);
+  border: 1px solid #F0DBA4; border-radius: 8px; padding: 9px 12px; margin: 10px 0; }
+.horizon-tag { display: inline-block; font-family: 'JetBrains Mono', monospace; font-size: 9px;
+  text-transform: uppercase; letter-spacing: 0.05em; background: var(--gold); color: #fff;
+  border-radius: 4px; padding: 2px 7px; margin-right: 7px; }
+.horizon-detail { display: block; margin-top: 5px; cursor: help; border-bottom: 1px dotted #B08A3A; }
