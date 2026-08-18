@@ -3,10 +3,11 @@ import {
   loadClimatology, loadLiftPrices, loadTripCosts,
 } from './data-sources.js';
 import { flagHtml, apresHtml, apresFit, apresQualifies } from './resort-meta.js';
+import { initTooltips } from './tooltip.js';
+import { scoreTipText } from './score-tip.js';
+import { escapeAttr } from './html.js';
+import { SCORE_WEIGHTS } from './scoring.js';
 
-// Same scoring weights as the season planner — recommendations here must
-// not disagree with the rankings shown there.
-const SCORE_WEIGHTS = { snow: 0.30, cold: 0.30, consistency: 0.15, elevation: 0.25 };
 const DRIVER_SIGNAL_KEY = { nao: 'nao_signals', sam: 'sam_signals' };
 
 const state = {};
@@ -75,7 +76,10 @@ function scoreRegion(region) {
     const resil = [parts.cold, parts.elevation].filter(v => v !== null);
     const exposure = 1 - (resil.length ? resil.reduce((a, b) => a + b, 0) / resil.length : 0.5);
     const score = Math.round(Math.min(100, Math.max(0, base + tilt * (8 + 14 * exposure))));
-    return { resort: row.r, region, signal: sig, score, hasData, parts };
+    return {
+      resort: row.r, region, signal: sig, score, hasData, parts,
+      base: Math.round(base), adj: score - Math.round(base),
+    };
   });
 }
 
@@ -165,7 +169,8 @@ function resultCard(e, opts) {
       <div class="trip-head">
         <div>
           <div class="trip-name">
-            <span class="resort-score ${e.score >= 70 ? 'rs-high' : e.score >= 45 ? 'rs-mid' : 'rs-low'}">${e.score}</span>
+            <span class="resort-score ${e.score >= 70 ? 'rs-high' : e.score >= 45 ? 'rs-mid' : 'rs-low'}"
+                  title="${escapeAttr(scoreTipText(e))}">${e.score}</span>
             ${flagHtml(e.resort)}
             <a href="${e.resort.resort_url}" target="_blank" rel="noopener">${e.resort.name}</a>
             ${apresHtml(e.resort)}
@@ -291,11 +296,61 @@ function run(e) {
   `;
 }
 
+// Booking windows and airfare both punish last-minute planning, so the form
+// opens on the next full Saturday-to-Saturday week that is still at least 30
+// days away. It is computed from today's date on every load, so the default
+// rolls forward on its own rather than going stale.
+const MIN_LEAD_DAYS = 30;
+
+function isoDate(d) {
+  const p = (n) => String(n).padStart(2, '0');
+  return `${d.getFullYear()}-${p(d.getMonth() + 1)}-${p(d.getDate())}`;
+}
+
+export function defaultTripWeek(today = new Date()) {
+  // Build from local Y/M/D so the result can't slip a day across time zones.
+  const start = new Date(today.getFullYear(), today.getMonth(), today.getDate() + MIN_LEAD_DAYS);
+  start.setDate(start.getDate() + ((6 - start.getDay() + 7) % 7)); // 6 = Saturday
+  const end = new Date(start);
+  end.setDate(end.getDate() + 7);
+  return { start: isoDate(start), end: isoDate(end) };
+}
+
+// Every control opens on a real, sensible value, so the page shows useful
+// results before anyone touches it. Reset returns to exactly these.
+const DEFAULTS = {
+  days: 5,
+  origin: 'us-west',
+  ability: 'intermediate',
+  pass: 'none',
+  apres: 'any',
+  budget: 'any',
+  flexDates: false,
+  anywhere: true,
+};
+
+function applyDefaults() {
+  const week = defaultTripWeek();
+  document.getElementById('pf-start').value = week.start;
+  document.getElementById('pf-end').value = week.end;
+  document.getElementById('pf-flexible-dates').checked = DEFAULTS.flexDates;
+  document.getElementById('pf-days').value = DEFAULTS.days;
+  document.getElementById('pf-origin').value = DEFAULTS.origin;
+  document.getElementById('pf-ability').value = DEFAULTS.ability;
+  document.getElementById('pf-pass').value = DEFAULTS.pass;
+  document.getElementById('pf-apres').value = DEFAULTS.apres;
+  document.getElementById('pf-budget').value = DEFAULTS.budget;
+  document.getElementById('pf-flexible-where').checked = DEFAULTS.anywhere;
+  document.querySelectorAll('#pf-regions input:checked').forEach(i => { i.checked = false; });
+  document.getElementById('pf-dates-note').textContent =
+    `Defaults to the next Saturday-to-Saturday week at least ${MIN_LEAD_DAYS} days out.`;
+}
+
 function resetForm() {
   document.getElementById('planner').reset();
-  document.getElementById('pf-flexible-where').checked = true;
-  document.getElementById('pf-days').value = 5;
-  document.getElementById('plan-results').innerHTML = '';
+  applyDefaults();
+  document.getElementById('pf-ability').dispatchEvent(new Event('change'));
+  run();
 }
 
 async function main() {
@@ -345,8 +400,11 @@ async function main() {
     ? `In season right now: ${inSeasonNow.join(', ')}.`
     : '';
 
+  applyDefaults();
+
   document.getElementById('planner').addEventListener('submit', run);
   document.getElementById('pf-reset').addEventListener('click', resetForm);
+  initTooltips();
   run();
 }
 

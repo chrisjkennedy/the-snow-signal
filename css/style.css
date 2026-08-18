@@ -637,3 +637,17 @@ body {
 }
 .trip-apres { font-size: 12px; color: #2D4255; line-height: 1.6; margin: 11px 0; padding-left: 9px; border-left: 2px solid var(--border); }
 .apres-chip.ac-quiet { background: var(--snow); color: var(--muted); border: 1px solid var(--border); }
+
+/* Our own tooltip, replacing the browser's `title` popup — see js/tooltip.js.
+   pre-line keeps the line breaks the longer explanations rely on. */
+.tip-pop {
+  position: fixed; z-index: 200; max-width: 340px;
+  background: var(--navy); color: #E9F1FA;
+  border: 1px solid rgba(255,255,255,0.10); border-radius: 9px;
+  padding: 10px 13px; font-size: 12px; line-height: 1.55;
+  white-space: pre-line; pointer-events: none;
+  box-shadow: 0 10px 30px rgba(6,20,40,0.34);
+  opacity: 0; transition: opacity 0.09s ease;
+}
+.tip-pop.on { opacity: 1; }
+@media (max-width: 480px) { .tip-pop { max-width: calc(100vw - 24px); } }

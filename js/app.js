@@ -1,5 +1,9 @@
 import { loadOni, loadResorts, loadAffiliates, loadPhaseCopy, loadClimateSignals, loadSignalMetadata, loadBacktest, loadClimatology, loadContinents, loadLiftPrices, fetchSnowpack, fetchForecast } from './data-sources.js';
 import { flagHtml, apresHtml } from './resort-meta.js';
+import { initTooltips } from './tooltip.js';
+import { scoreTipText } from './score-tip.js';
+import { escapeAttr } from './html.js';
+import { SCORE_WEIGHTS } from './scoring.js';
 
 // Module-level state: loaded once, then reused across live render and any
 // number of scenario re-renders (so switching scenarios never re-fetches
@@ -111,7 +115,6 @@ function naoBucket(phaseLabel) {
 // High, cold, reliable resorts stay steady in both directions, which is
 // exactly the real-world behavior this is meant to capture.
 // ---------------------------------------------------------------------------
-const SCORE_WEIGHTS = { snow: 0.30, cold: 0.30, consistency: 0.15, elevation: 0.25 };
 
 /** Min-max normalize to 0..1 within a peer group; returns 0.5 if the group is degenerate. */
 function normalize(value, min, max) {
@@ -714,14 +717,8 @@ function scoreChipHtml(sc) {
   if (!sc || !sc.hasData) {
     return `<span class="resort-score rs-none" title="Historical climatology not yet available for this resort">—</span>`;
   }
-  const pct = (v) => v === null ? '—' : `${Math.round(v * 100)}`;
-  const tip = [
-    `Outlook ${sc.score}/100`,
-    `base (typical year) ${sc.base}`,
-    `current-signal adjustment ${sc.adj >= 0 ? '+' : ''}${sc.adj}`,
-    `— components (0-100, vs. others in this region): snowfall ${pct(sc.parts.snow)}, cold-day reliability ${pct(sc.parts.cold)}, year-to-year consistency ${pct(sc.parts.consistency)}, elevation buffer ${pct(sc.parts.elevation)}`,
-  ].join(' · ');
-  return `<span class="resort-score ${scoreBadgeClass(sc.score)}" title="${tip}">${sc.score}</span>`;
+  const tip = scoreTipText(sc);
+  return `<span class="resort-score ${scoreBadgeClass(sc.score)}" title="${escapeAttr(tip)}">${sc.score}</span>`;
 }
 
 /**
@@ -1444,6 +1441,8 @@ async function main() {
   });
 
   wireScenarioControls();
+
+  initTooltips();
   renderPhaseView(oni, signals, currentPhaseKeyFor(oni), null);
 }
 
