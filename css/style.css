@@ -700,3 +700,38 @@ body {
   text-transform: uppercase; letter-spacing: 0.05em; background: var(--gold); color: #fff;
   border-radius: 4px; padding: 2px 7px; margin-right: 7px; }
 .horizon-detail { display: block; margin-top: 5px; cursor: help; border-bottom: 1px dotted #B08A3A; }
+
+/* Overseas cost comparison */
+.lede { font-size: 15px; line-height: 1.7; color: var(--text); margin: 0 0 22px; }
+.doc-block { background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 22px 24px; margin-bottom: 22px; }
+.doc-block h2 { font-family: 'DM Serif Display', serif; font-size: 21px; color: var(--navy); margin-bottom: 6px; font-weight: 400; }
+.doc-block h3 { font-size: 14px; color: var(--navy); margin-bottom: 3px; }
+.doc-block p { font-size: 13.5px; line-height: 1.7; color: var(--text); margin-bottom: 11px; }
+.doc-sub { color: var(--muted) !important; font-size: 12px !important; margin-bottom: 14px !important; }
+.doc-note { font-size: 12px !important; color: var(--muted) !important; line-height: 1.65 !important; }
+.doc-list { margin: 0; padding-left: 18px; }
+.doc-list li { font-size: 13.5px; line-height: 1.7; color: var(--text); margin-bottom: 8px; }
+
+.cmp-scroll { overflow-x: auto; margin: 0 -4px 12px; }
+table.cmp { width: 100%; border-collapse: collapse; font-size: 12.5px; min-width: 560px; }
+table.cmp th { text-align: right; font-family: 'JetBrains Mono', monospace; font-size: 9.5px;
+  text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); font-weight: 500;
+  padding: 0 10px 7px; border-bottom: 1px solid var(--border); }
+table.cmp th:first-child { text-align: left; }
+table.cmp td { text-align: right; padding: 9px 10px; border-bottom: 1px solid #EEF2F6;
+  font-family: 'JetBrains Mono', monospace; }
+table.cmp td.cmp-name { text-align: left; font-family: 'DM Sans', sans-serif; font-weight: 500; color: var(--navy); }
+.cmp-country { display: block; font-size: 10px; color: var(--muted); font-weight: 400; }
+.cmp-lift { color: #8C1A1A; }
+.cmp-eu .cmp-lift { color: var(--green); }
+.cmp-total { font-weight: 500; color: var(--navy); }
+.cmp-us { background: #FDF6F6; }
+.cmp-eu { background: #F4FAF6; }
+
+.board-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 14px; margin: 16px 0; }
+.board-card { background: var(--snow); border: 1px solid var(--border); border-radius: 10px; padding: 15px 16px; min-width: 0; }
+.board-tag { font-family: 'JetBrains Mono', monospace; font-size: 9.5px; text-transform: uppercase;
+  letter-spacing: 0.05em; color: var(--blue); background: var(--ice); border-radius: 4px;
+  padding: 2px 7px; display: inline-block; margin-bottom: 9px !important; }
+.board-cost { font-size: 12.5px !important; color: var(--navy) !important; font-weight: 500; }
+.board-why { font-size: 12.5px !important; color: #2D4255 !important; }
