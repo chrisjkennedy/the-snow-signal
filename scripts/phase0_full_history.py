@@ -129,7 +129,9 @@ def main():
         todo = todo[:args.limit]
 
     fails = 0
-    for region_id, r in todo:
+    pending = list(todo)
+    while pending:
+        region_id, r = pending[0]
         mid_m = ((r['base_elev_ft'] + r['summit_elev_ft']) / 2) * 0.3048
         cached = False
         try:
@@ -139,14 +141,30 @@ def main():
                               'sampled_elevation_m': data.get('elevation'),
                               'seasons': rows}
             fails = 0
+            pending.pop(0)
             print(f"  {r['name'][:26]:26s} {len(rows):3d} seasons "
                   f"{rows[0]['season']}-{rows[-1]['season']}{'  (cached)' if cached else ''}", flush=True)
         except Exception as exc:
+            msg = str(exc)
+            # An 86-year, 5-variable request is heavy, and Open-Meteo weights its
+            # quota by data volume rather than call count -- so the hourly cap
+            # trips after only a handful. Rather than dying and needing a nudge,
+            # wait the hour out and carry on; the cache means nothing is lost.
+            if 'Hourly API request limit' in msg:
+                print('  hourly cap reached -- sleeping until it clears', flush=True)
+                time.sleep(3660)
+                continue          # same resort, next loop
+            if 'Minutely API request limit' in msg:
+                print('  minutely cap -- backing off 90s', flush=True)
+                time.sleep(90)
+                continue          # same resort, next loop
             fails += 1
             print(f"  {r['name'][:26]:26s} FAILED {type(exc).__name__}: {exc}", flush=True)
+            pending.pop(0)
             if fails >= 3:
-                print('  three failures in a row -- stopping so the cap can clear', flush=True)
+                print('  three consecutive hard failures -- stopping', flush=True)
                 break
+        OUT.write_text(json.dumps({'resorts': store}, indent=2, ensure_ascii=False) + '\n')
         if not cached:
             time.sleep(args.sleep)
 
