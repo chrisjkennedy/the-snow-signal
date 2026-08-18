@@ -43,7 +43,11 @@ OUT = ROOT / 'data' / 'resort-climatology.json'
 ARCHIVE = "https://archive-api.open-meteo.com/v1/archive"
 AWDB = "https://wcc.sc.egov.usda.gov/awdbRestApi/services/v1/data"
 START, END = "2015-07-01", "2025-06-30"
-SOUTHERN = {'andes', 'australia'}
+# Every southern-hemisphere region, or its resorts get sampled in their own
+# summer. New Zealand was added to the site after this set was first written
+# and missing from it, which sampled all five NZ fields in December-March and
+# reported 5-35cm seasons with no freezing days at 1,400m+.
+SOUTHERN = {'andes', 'australia', 'new-zealand'}
 
 
 def curl(url, timeout=60):

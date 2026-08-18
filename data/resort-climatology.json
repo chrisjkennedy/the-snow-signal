@@ -1794,11 +1794,11 @@
       "era5": {
         "sampled_elevation_m": 1411.0,
         "seasons_used": 10,
-        "mean_season_snow_cm": 5.1,
-        "cv": 1.186,
-        "worst_season_cm": 0.2,
-        "best_season_cm": 18.0,
-        "cold_day_frac": 0.001
+        "mean_season_snow_cm": 104.0,
+        "cv": 0.277,
+        "worst_season_cm": 57.9,
+        "best_season_cm": 150.7,
+        "cold_day_frac": 0.475
       }
     },
     "remarkables": {
@@ -1807,11 +1807,11 @@
       "era5": {
         "sampled_elevation_m": 1764.0,
         "seasons_used": 10,
-        "mean_season_snow_cm": 10.4,
-        "cv": 0.841,
-        "worst_season_cm": 0.3,
-        "best_season_cm": 24.1,
-        "cold_day_frac": 0.005
+        "mean_season_snow_cm": 132.3,
+        "cv": 0.15,
+        "worst_season_cm": 97.9,
+        "best_season_cm": 161.2,
+        "cold_day_frac": 0.763
       }
     },
     "cardrona": {
@@ -1820,11 +1820,11 @@
       "era5": {
         "sampled_elevation_m": 1598.0,
         "seasons_used": 10,
-        "mean_season_snow_cm": 14.7,
-        "cv": 0.917,
-        "worst_season_cm": 0.1,
-        "best_season_cm": 46.3,
-        "cold_day_frac": 0.004
+        "mean_season_snow_cm": 142.7,
+        "cv": 0.322,
+        "worst_season_cm": 96.5,
+        "best_season_cm": 244.5,
+        "cold_day_frac": 0.639
       }
     },
     "treble-cone": {
@@ -1833,11 +1833,11 @@
       "era5": {
         "sampled_elevation_m": 1609.0,
         "seasons_used": 10,
-        "mean_season_snow_cm": 34.7,
-        "cv": 0.915,
-        "worst_season_cm": 0.1,
-        "best_season_cm": 89.3,
-        "cold_day_frac": 0.005
+        "mean_season_snow_cm": 341.5,
+        "cv": 0.408,
+        "worst_season_cm": 96.5,
+        "best_season_cm": 506.4,
+        "cold_day_frac": 0.739
       }
     },
     "mt-hutt": {
@@ -1846,11 +1846,11 @@
       "era5": {
         "sampled_elevation_m": 1757.0,
         "seasons_used": 10,
-        "mean_season_snow_cm": 9.6,
-        "cv": 0.532,
-        "worst_season_cm": 4.2,
-        "best_season_cm": 20.0,
-        "cold_day_frac": 0.006
+        "mean_season_snow_cm": 159.6,
+        "cv": 0.508,
+        "worst_season_cm": 58.7,
+        "best_season_cm": 309.8,
+        "cold_day_frac": 0.484
       }
     },
     "yongpyong": {
