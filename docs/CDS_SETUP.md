@@ -27,21 +27,30 @@ client — once the file exists, I can pull.
 
 ## 2. Accept the licences
 
-CDS blocks downloads until the licence is accepted **per dataset**, and it's a
-click-through I'm not permitted to do on your behalf. Open each link, scroll to
-"Terms of use", tick accept:
+**Log in first** — top right of the page. The licence boxes are invisible when
+logged out; they show "Login/register to accept licences" instead.
 
-| Dataset | Why we need it |
-|---|---|
-| [ERA5-Land monthly means](https://cds.climate.copernicus.eu/datasets/reanalysis-era5-land-monthly-means) | 9 km reanalysis — 3× finer than what we have, the mountain fix |
-| [ERA5 single levels (monthly)](https://cds.climate.copernicus.eu/datasets/reanalysis-era5-single-levels-monthly-means) | Circulation fields, snow variables |
-| [ERA5 pressure levels (monthly)](https://cds.climate.copernicus.eu/datasets/reanalysis-era5-pressure-levels-monthly-means) | 10 hPa zonal wind at 60°N — the stratospheric polar vortex |
-| [Seasonal forecast monthly, single levels](https://cds.climate.copernicus.eu/datasets/seasonal-monthly-single-levels) | **The dynamical forecasts + hindcasts** |
+Each page below opens on a big **Download** form: Variable, Year, Month,
+Geographical area and so on. **Ignore all of it.** You are not requesting data,
+I do that from the script. You only need the box at the very bottom.
 
-⚠️ **The seasonal dataset needs a licence accepted for each originating centre
-separately** — ECMWF, UK Met Office, Météo-France, DWD, CMCC, NCEP, JMA, ECCC,
-BOM. They appear as separate tick-boxes on that one page. Missing one means that
-model silently drops out of the multi-model ensemble, so tick all of them.
+On each page: scroll to the bottom of the Download tab. Just above the section
+headed *"Corresponding API request"* there is one headed **"Terms of use"**.
+Tick every licence listed there and accept. That is the entire job.
+
+| # | Page | Licences on it |
+|---|---|---|
+| 1 | [ERA5-Land monthly](https://cds.climate.copernicus.eu/datasets/reanalysis-era5-land-monthly-means?tab=download) | **1** — CC-BY licence |
+| 2 | [ERA5 single levels monthly](https://cds.climate.copernicus.eu/datasets/reanalysis-era5-single-levels-monthly-means?tab=download) | **1** — CC-BY licence |
+| 3 | [ERA5 pressure levels monthly](https://cds.climate.copernicus.eu/datasets/reanalysis-era5-pressure-levels-monthly-means?tab=download) | **1** — CC-BY licence |
+| 4 | [Seasonal forecast monthly](https://cds.climate.copernicus.eu/datasets/seasonal-monthly-single-levels?tab=download) | **2** — CC-BY licence, *and* "Additional licence to use non European contributions" |
+
+**Five tick-boxes across four pages.** Page 4 is the only one with two: the
+second covers the non-European models (NCEP, JMA, Environment Canada, Australian
+BoM) as a single licence rather than one per centre. Miss it and the ensemble
+quietly loses half its models.
+
+Verified against the live pages on 18 August 2026.
 
 ## 3. Tell me it's done
 

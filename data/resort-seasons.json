@@ -3429,6 +3429,3434 @@
           "days": 181
         }
       ]
+    },
+    "kirkwood": {
+      "name": "Kirkwood",
+      "region_id": "sierra-california",
+      "sampled_elevation_m": 2682.0,
+      "seasons": [
+        {
+          "season": 1940,
+          "snow_cm": 532.1,
+          "precip_mm": 787.3,
+          "cold_day_frac": 0.586,
+          "tmean_c": -6.0,
+          "wet_days": 75,
+          "rain_risk_days": 4,
+          "days": 181
+        },
+        {
+          "season": 1941,
+          "snow_cm": 508.4,
+          "precip_mm": 810.8,
+          "cold_day_frac": 0.564,
+          "tmean_c": -6.28,
+          "wet_days": 82,
+          "rain_risk_days": 10,
+          "days": 181
+        },
+        {
+          "season": 1942,
+          "snow_cm": 578.8,
+          "precip_mm": 915.4,
+          "cold_day_frac": 0.503,
+          "tmean_c": -5.0,
+          "wet_days": 66,
+          "rain_risk_days": 10,
+          "days": 181
+        },
+        {
+          "season": 1943,
+          "snow_cm": 333.8,
+          "precip_mm": 494.3,
+          "cold_day_frac": 0.473,
+          "tmean_c": -6.06,
+          "wet_days": 61,
+          "rain_risk_days": 4,
+          "days": 182
+        },
+        {
+          "season": 1944,
+          "snow_cm": 434.4,
+          "precip_mm": 659.6,
+          "cold_day_frac": 0.646,
+          "tmean_c": -7.02,
+          "wet_days": 62,
+          "rain_risk_days": 4,
+          "days": 181
+        },
+        {
+          "season": 1945,
+          "snow_cm": 452.5,
+          "precip_mm": 681.7,
+          "cold_day_frac": 0.663,
+          "tmean_c": -6.77,
+          "wet_days": 63,
+          "rain_risk_days": 3,
+          "days": 181
+        },
+        {
+          "season": 1946,
+          "snow_cm": 388.1,
+          "precip_mm": 582.5,
+          "cold_day_frac": 0.558,
+          "tmean_c": -6.16,
+          "wet_days": 56,
+          "rain_risk_days": 4,
+          "days": 181
+        },
+        {
+          "season": 1947,
+          "snow_cm": 489.4,
+          "precip_mm": 739.2,
+          "cold_day_frac": 0.549,
+          "tmean_c": -6.92,
+          "wet_days": 74,
+          "rain_risk_days": 11,
+          "days": 182
+        },
+        {
+          "season": 1948,
+          "snow_cm": 488.4,
+          "precip_mm": 751.1,
+          "cold_day_frac": 0.508,
+          "tmean_c": -6.58,
+          "wet_days": 79,
+          "rain_risk_days": 14,
+          "days": 181
+        },
+        {
+          "season": 1949,
+          "snow_cm": 598.9,
+          "precip_mm": 895.7,
+          "cold_day_frac": 0.409,
+          "tmean_c": -4.52,
+          "wet_days": 57,
+          "rain_risk_days": 6,
+          "days": 181
+        },
+        {
+          "season": 1950,
+          "snow_cm": 510.0,
+          "precip_mm": 1012.7,
+          "cold_day_frac": 0.309,
+          "tmean_c": -2.9,
+          "wet_days": 76,
+          "rain_risk_days": 18,
+          "days": 181
+        },
+        {
+          "season": 1951,
+          "snow_cm": 908.5,
+          "precip_mm": 1347.8,
+          "cold_day_frac": 0.533,
+          "tmean_c": -5.41,
+          "wet_days": 89,
+          "rain_risk_days": 8,
+          "days": 182
+        },
+        {
+          "season": 1952,
+          "snow_cm": 596.5,
+          "precip_mm": 939.9,
+          "cold_day_frac": 0.436,
+          "tmean_c": -4.21,
+          "wet_days": 64,
+          "rain_risk_days": 8,
+          "days": 181
+        },
+        {
+          "season": 1953,
+          "snow_cm": 502.8,
+          "precip_mm": 795.6,
+          "cold_day_frac": 0.37,
+          "tmean_c": -3.79,
+          "wet_days": 59,
+          "rain_risk_days": 11,
+          "days": 181
+        },
+        {
+          "season": 1954,
+          "snow_cm": 473.4,
+          "precip_mm": 710.1,
+          "cold_day_frac": 0.459,
+          "tmean_c": -5.21,
+          "wet_days": 56,
+          "rain_risk_days": 5,
+          "days": 181
+        },
+        {
+          "season": 1955,
+          "snow_cm": 664.5,
+          "precip_mm": 1099.2,
+          "cold_day_frac": 0.462,
+          "tmean_c": -4.41,
+          "wet_days": 80,
+          "rain_risk_days": 9,
+          "days": 182
+        },
+        {
+          "season": 1956,
+          "snow_cm": 412.9,
+          "precip_mm": 626.2,
+          "cold_day_frac": 0.365,
+          "tmean_c": -4.31,
+          "wet_days": 56,
+          "rain_risk_days": 13,
+          "days": 181
+        },
+        {
+          "season": 1957,
+          "snow_cm": 737.0,
+          "precip_mm": 1124.3,
+          "cold_day_frac": 0.47,
+          "tmean_c": -4.29,
+          "wet_days": 81,
+          "rain_risk_days": 9,
+          "days": 181
+        },
+        {
+          "season": 1958,
+          "snow_cm": 350.3,
+          "precip_mm": 583.1,
+          "cold_day_frac": 0.227,
+          "tmean_c": -2.29,
+          "wet_days": 40,
+          "rain_risk_days": 5,
+          "days": 181
+        },
+        {
+          "season": 1959,
+          "snow_cm": 427.8,
+          "precip_mm": 679.5,
+          "cold_day_frac": 0.341,
+          "tmean_c": -3.13,
+          "wet_days": 57,
+          "rain_risk_days": 8,
+          "days": 182
+        },
+        {
+          "season": 1960,
+          "snow_cm": 390.1,
+          "precip_mm": 587.1,
+          "cold_day_frac": 0.315,
+          "tmean_c": -3.87,
+          "wet_days": 63,
+          "rain_risk_days": 14,
+          "days": 181
+        },
+        {
+          "season": 1961,
+          "snow_cm": 578.4,
+          "precip_mm": 855.4,
+          "cold_day_frac": 0.414,
+          "tmean_c": -4.33,
+          "wet_days": 64,
+          "rain_risk_days": 7,
+          "days": 181
+        },
+        {
+          "season": 1962,
+          "snow_cm": 442.6,
+          "precip_mm": 832.7,
+          "cold_day_frac": 0.221,
+          "tmean_c": -3.15,
+          "wet_days": 60,
+          "rain_risk_days": 15,
+          "days": 181
+        },
+        {
+          "season": 1963,
+          "snow_cm": 383.5,
+          "precip_mm": 594.5,
+          "cold_day_frac": 0.374,
+          "tmean_c": -4.63,
+          "wet_days": 51,
+          "rain_risk_days": 6,
+          "days": 182
+        },
+        {
+          "season": 1964,
+          "snow_cm": 611.2,
+          "precip_mm": 1093.5,
+          "cold_day_frac": 0.442,
+          "tmean_c": -4.31,
+          "wet_days": 81,
+          "rain_risk_days": 14,
+          "days": 181
+        },
+        {
+          "season": 1965,
+          "snow_cm": 461.6,
+          "precip_mm": 711.4,
+          "cold_day_frac": 0.425,
+          "tmean_c": -4.37,
+          "wet_days": 54,
+          "rain_risk_days": 9,
+          "days": 181
+        },
+        {
+          "season": 1966,
+          "snow_cm": 794.0,
+          "precip_mm": 1250.6,
+          "cold_day_frac": 0.47,
+          "tmean_c": -4.58,
+          "wet_days": 79,
+          "rain_risk_days": 6,
+          "days": 181
+        },
+        {
+          "season": 1967,
+          "snow_cm": 377.2,
+          "precip_mm": 603.0,
+          "cold_day_frac": 0.335,
+          "tmean_c": -3.66,
+          "wet_days": 57,
+          "rain_risk_days": 13,
+          "days": 182
+        },
+        {
+          "season": 1968,
+          "snow_cm": 803.6,
+          "precip_mm": 1213.8,
+          "cold_day_frac": 0.492,
+          "tmean_c": -4.96,
+          "wet_days": 75,
+          "rain_risk_days": 9,
+          "days": 181
+        },
+        {
+          "season": 1969,
+          "snow_cm": 442.3,
+          "precip_mm": 729.6,
+          "cold_day_frac": 0.326,
+          "tmean_c": -3.62,
+          "wet_days": 63,
+          "rain_risk_days": 7,
+          "days": 181
+        },
+        {
+          "season": 1970,
+          "snow_cm": 640.9,
+          "precip_mm": 1014.7,
+          "cold_day_frac": 0.376,
+          "tmean_c": -4.33,
+          "wet_days": 72,
+          "rain_risk_days": 11,
+          "days": 181
+        },
+        {
+          "season": 1971,
+          "snow_cm": 419.0,
+          "precip_mm": 652.8,
+          "cold_day_frac": 0.412,
+          "tmean_c": -4.47,
+          "wet_days": 54,
+          "rain_risk_days": 10,
+          "days": 182
+        },
+        {
+          "season": 1972,
+          "snow_cm": 545.9,
+          "precip_mm": 833.9,
+          "cold_day_frac": 0.547,
+          "tmean_c": -5.44,
+          "wet_days": 81,
+          "rain_risk_days": 9,
+          "days": 181
+        },
+        {
+          "season": 1973,
+          "snow_cm": 630.8,
+          "precip_mm": 1076.0,
+          "cold_day_frac": 0.448,
+          "tmean_c": -4.25,
+          "wet_days": 81,
+          "rain_risk_days": 15,
+          "days": 181
+        },
+        {
+          "season": 1974,
+          "snow_cm": 686.8,
+          "precip_mm": 1007.6,
+          "cold_day_frac": 0.519,
+          "tmean_c": -5.42,
+          "wet_days": 76,
+          "rain_risk_days": 5,
+          "days": 181
+        },
+        {
+          "season": 1975,
+          "snow_cm": 228.5,
+          "precip_mm": 349.2,
+          "cold_day_frac": 0.214,
+          "tmean_c": -4.06,
+          "wet_days": 49,
+          "rain_risk_days": 14,
+          "days": 182
+        },
+        {
+          "season": 1976,
+          "snow_cm": 182.2,
+          "precip_mm": 272.2,
+          "cold_day_frac": 0.227,
+          "tmean_c": -2.75,
+          "wet_days": 36,
+          "rain_risk_days": 7,
+          "days": 181
+        },
+        {
+          "season": 1977,
+          "snow_cm": 739.0,
+          "precip_mm": 1141.9,
+          "cold_day_frac": 0.331,
+          "tmean_c": -2.89,
+          "wet_days": 74,
+          "rain_risk_days": 13,
+          "days": 181
+        },
+        {
+          "season": 1978,
+          "snow_cm": 449.7,
+          "precip_mm": 677.3,
+          "cold_day_frac": 0.492,
+          "tmean_c": -5.38,
+          "wet_days": 61,
+          "rain_risk_days": 9,
+          "days": 181
+        },
+        {
+          "season": 1979,
+          "snow_cm": 554.5,
+          "precip_mm": 936.2,
+          "cold_day_frac": 0.341,
+          "tmean_c": -3.36,
+          "wet_days": 60,
+          "rain_risk_days": 6,
+          "days": 182
+        },
+        {
+          "season": 1980,
+          "snow_cm": 376.9,
+          "precip_mm": 575.9,
+          "cold_day_frac": 0.182,
+          "tmean_c": -2.31,
+          "wet_days": 50,
+          "rain_risk_days": 13,
+          "days": 181
+        },
+        {
+          "season": 1981,
+          "snow_cm": 658.7,
+          "precip_mm": 1268.7,
+          "cold_day_frac": 0.376,
+          "tmean_c": -4.12,
+          "wet_days": 72,
+          "rain_risk_days": 14,
+          "days": 181
+        },
+        {
+          "season": 1982,
+          "snow_cm": 936.0,
+          "precip_mm": 1363.4,
+          "cold_day_frac": 0.508,
+          "tmean_c": -4.55,
+          "wet_days": 86,
+          "rain_risk_days": 10,
+          "days": 181
+        },
+        {
+          "season": 1983,
+          "snow_cm": 578.1,
+          "precip_mm": 940.0,
+          "cold_day_frac": 0.368,
+          "tmean_c": -3.51,
+          "wet_days": 72,
+          "rain_risk_days": 17,
+          "days": 182
+        },
+        {
+          "season": 1984,
+          "snow_cm": 448.3,
+          "precip_mm": 647.0,
+          "cold_day_frac": 0.464,
+          "tmean_c": -4.62,
+          "wet_days": 60,
+          "rain_risk_days": 8,
+          "days": 181
+        },
+        {
+          "season": 1985,
+          "snow_cm": 688.1,
+          "precip_mm": 1193.4,
+          "cold_day_frac": 0.309,
+          "tmean_c": -3.01,
+          "wet_days": 65,
+          "rain_risk_days": 9,
+          "days": 181
+        },
+        {
+          "season": 1986,
+          "snow_cm": 294.2,
+          "precip_mm": 449.9,
+          "cold_day_frac": 0.276,
+          "tmean_c": -3.16,
+          "wet_days": 53,
+          "rain_risk_days": 17,
+          "days": 181
+        },
+        {
+          "season": 1987,
+          "snow_cm": 316.6,
+          "precip_mm": 499.6,
+          "cold_day_frac": 0.324,
+          "tmean_c": -3.71,
+          "wet_days": 53,
+          "rain_risk_days": 10,
+          "days": 182
+        },
+        {
+          "season": 1988,
+          "snow_cm": 450.3,
+          "precip_mm": 753.9,
+          "cold_day_frac": 0.409,
+          "tmean_c": -4.35,
+          "wet_days": 71,
+          "rain_risk_days": 18,
+          "days": 181
+        },
+        {
+          "season": 1989,
+          "snow_cm": 281.1,
+          "precip_mm": 453.3,
+          "cold_day_frac": 0.227,
+          "tmean_c": -3.08,
+          "wet_days": 45,
+          "rain_risk_days": 16,
+          "days": 181
+        },
+        {
+          "season": 1990,
+          "snow_cm": 380.9,
+          "precip_mm": 601.2,
+          "cold_day_frac": 0.315,
+          "tmean_c": -4.17,
+          "wet_days": 50,
+          "rain_risk_days": 15,
+          "days": 181
+        },
+        {
+          "season": 1991,
+          "snow_cm": 285.5,
+          "precip_mm": 447.0,
+          "cold_day_frac": 0.22,
+          "tmean_c": -2.76,
+          "wet_days": 58,
+          "rain_risk_days": 13,
+          "days": 182
+        },
+        {
+          "season": 1992,
+          "snow_cm": 680.5,
+          "precip_mm": 1026.0,
+          "cold_day_frac": 0.42,
+          "tmean_c": -3.96,
+          "wet_days": 67,
+          "rain_risk_days": 11,
+          "days": 181
+        },
+        {
+          "season": 1993,
+          "snow_cm": 305.7,
+          "precip_mm": 448.9,
+          "cold_day_frac": 0.293,
+          "tmean_c": -3.43,
+          "wet_days": 50,
+          "rain_risk_days": 7,
+          "days": 181
+        },
+        {
+          "season": 1994,
+          "snow_cm": 798.3,
+          "precip_mm": 1268.0,
+          "cold_day_frac": 0.508,
+          "tmean_c": -4.23,
+          "wet_days": 89,
+          "rain_risk_days": 9,
+          "days": 181
+        },
+        {
+          "season": 1995,
+          "snow_cm": 606.6,
+          "precip_mm": 1010.1,
+          "cold_day_frac": 0.269,
+          "tmean_c": -1.91,
+          "wet_days": 61,
+          "rain_risk_days": 16,
+          "days": 182
+        },
+        {
+          "season": 1996,
+          "snow_cm": 556.6,
+          "precip_mm": 1065.7,
+          "cold_day_frac": 0.254,
+          "tmean_c": -2.87,
+          "wet_days": 59,
+          "rain_risk_days": 15,
+          "days": 181
+        },
+        {
+          "season": 1997,
+          "snow_cm": 676.9,
+          "precip_mm": 1017.1,
+          "cold_day_frac": 0.536,
+          "tmean_c": -4.24,
+          "wet_days": 93,
+          "rain_risk_days": 11,
+          "days": 181
+        },
+        {
+          "season": 1998,
+          "snow_cm": 643.2,
+          "precip_mm": 940.1,
+          "cold_day_frac": 0.42,
+          "tmean_c": -4.56,
+          "wet_days": 76,
+          "rain_risk_days": 9,
+          "days": 181
+        },
+        {
+          "season": 1999,
+          "snow_cm": 515.5,
+          "precip_mm": 797.9,
+          "cold_day_frac": 0.302,
+          "tmean_c": -2.8,
+          "wet_days": 62,
+          "rain_risk_days": 10,
+          "days": 182
+        },
+        {
+          "season": 2000,
+          "snow_cm": 328.2,
+          "precip_mm": 464.8,
+          "cold_day_frac": 0.42,
+          "tmean_c": -4.88,
+          "wet_days": 46,
+          "rain_risk_days": 4,
+          "days": 181
+        },
+        {
+          "season": 2001,
+          "snow_cm": 464.6,
+          "precip_mm": 710.4,
+          "cold_day_frac": 0.409,
+          "tmean_c": -4.03,
+          "wet_days": 66,
+          "rain_risk_days": 8,
+          "days": 181
+        },
+        {
+          "season": 2002,
+          "snow_cm": 518.5,
+          "precip_mm": 826.0,
+          "cold_day_frac": 0.32,
+          "tmean_c": -3.58,
+          "wet_days": 67,
+          "rain_risk_days": 12,
+          "days": 181
+        },
+        {
+          "season": 2003,
+          "snow_cm": 451.8,
+          "precip_mm": 664.2,
+          "cold_day_frac": 0.418,
+          "tmean_c": -3.88,
+          "wet_days": 59,
+          "rain_risk_days": 6,
+          "days": 182
+        },
+        {
+          "season": 2004,
+          "snow_cm": 594.6,
+          "precip_mm": 872.1,
+          "cold_day_frac": 0.403,
+          "tmean_c": -3.89,
+          "wet_days": 66,
+          "rain_risk_days": 6,
+          "days": 181
+        },
+        {
+          "season": 2005,
+          "snow_cm": 741.7,
+          "precip_mm": 1275.6,
+          "cold_day_frac": 0.42,
+          "tmean_c": -3.87,
+          "wet_days": 90,
+          "rain_risk_days": 18,
+          "days": 181
+        },
+        {
+          "season": 2006,
+          "snow_cm": 354.9,
+          "precip_mm": 566.4,
+          "cold_day_frac": 0.32,
+          "tmean_c": -3.65,
+          "wet_days": 52,
+          "rain_risk_days": 15,
+          "days": 181
+        },
+        {
+          "season": 2007,
+          "snow_cm": 437.2,
+          "precip_mm": 633.2,
+          "cold_day_frac": 0.368,
+          "tmean_c": -3.79,
+          "wet_days": 54,
+          "rain_risk_days": 7,
+          "days": 182
+        },
+        {
+          "season": 2008,
+          "snow_cm": 454.2,
+          "precip_mm": 732.2,
+          "cold_day_frac": 0.298,
+          "tmean_c": -3.55,
+          "wet_days": 63,
+          "rain_risk_days": 13,
+          "days": 181
+        },
+        {
+          "season": 2009,
+          "snow_cm": 575.9,
+          "precip_mm": 829.6,
+          "cold_day_frac": 0.414,
+          "tmean_c": -4.1,
+          "wet_days": 73,
+          "rain_risk_days": 7,
+          "days": 181
+        },
+        {
+          "season": 2010,
+          "snow_cm": 799.1,
+          "precip_mm": 1212.0,
+          "cold_day_frac": 0.414,
+          "tmean_c": -4.31,
+          "wet_days": 81,
+          "rain_risk_days": 12,
+          "days": 181
+        },
+        {
+          "season": 2011,
+          "snow_cm": 358.3,
+          "precip_mm": 564.5,
+          "cold_day_frac": 0.269,
+          "tmean_c": -3.45,
+          "wet_days": 48,
+          "rain_risk_days": 9,
+          "days": 182
+        },
+        {
+          "season": 2012,
+          "snow_cm": 339.4,
+          "precip_mm": 584.1,
+          "cold_day_frac": 0.32,
+          "tmean_c": -3.86,
+          "wet_days": 58,
+          "rain_risk_days": 16,
+          "days": 181
+        },
+        {
+          "season": 2013,
+          "snow_cm": 323.1,
+          "precip_mm": 528.2,
+          "cold_day_frac": 0.171,
+          "tmean_c": -2.53,
+          "wet_days": 42,
+          "rain_risk_days": 11,
+          "days": 181
+        },
+        {
+          "season": 2014,
+          "snow_cm": 240.3,
+          "precip_mm": 480.8,
+          "cold_day_frac": 0.155,
+          "tmean_c": -1.11,
+          "wet_days": 49,
+          "rain_risk_days": 22,
+          "days": 181
+        },
+        {
+          "season": 2015,
+          "snow_cm": 579.5,
+          "precip_mm": 930.6,
+          "cold_day_frac": 0.357,
+          "tmean_c": -3.9,
+          "wet_days": 70,
+          "rain_risk_days": 12,
+          "days": 182
+        },
+        {
+          "season": 2016,
+          "snow_cm": 1248.7,
+          "precip_mm": 1916.5,
+          "cold_day_frac": 0.431,
+          "tmean_c": -3.61,
+          "wet_days": 79,
+          "rain_risk_days": 13,
+          "days": 181
+        },
+        {
+          "season": 2017,
+          "snow_cm": 673.0,
+          "precip_mm": 1038.8,
+          "cold_day_frac": 0.326,
+          "tmean_c": -2.71,
+          "wet_days": 60,
+          "rain_risk_days": 8,
+          "days": 181
+        },
+        {
+          "season": 2018,
+          "snow_cm": 989.5,
+          "precip_mm": 1432.8,
+          "cold_day_frac": 0.47,
+          "tmean_c": -3.41,
+          "wet_days": 81,
+          "rain_risk_days": 11,
+          "days": 181
+        },
+        {
+          "season": 2019,
+          "snow_cm": 548.9,
+          "precip_mm": 790.8,
+          "cold_day_frac": 0.374,
+          "tmean_c": -2.7,
+          "wet_days": 62,
+          "rain_risk_days": 10,
+          "days": 182
+        },
+        {
+          "season": 2020,
+          "snow_cm": 448.8,
+          "precip_mm": 643.3,
+          "cold_day_frac": 0.359,
+          "tmean_c": -3.17,
+          "wet_days": 48,
+          "rain_risk_days": 4,
+          "days": 181
+        },
+        {
+          "season": 2021,
+          "snow_cm": 533.5,
+          "precip_mm": 766.7,
+          "cold_day_frac": 0.249,
+          "tmean_c": -2.48,
+          "wet_days": 43,
+          "rain_risk_days": 6,
+          "days": 181
+        },
+        {
+          "season": 2022,
+          "snow_cm": 1261.0,
+          "precip_mm": 1826.6,
+          "cold_day_frac": 0.624,
+          "tmean_c": -5.51,
+          "wet_days": 79,
+          "rain_risk_days": 4,
+          "days": 181
+        },
+        {
+          "season": 2023,
+          "snow_cm": 668.6,
+          "precip_mm": 1003.3,
+          "cold_day_frac": 0.412,
+          "tmean_c": -3.24,
+          "wet_days": 72,
+          "rain_risk_days": 9,
+          "days": 182
+        },
+        {
+          "season": 2024,
+          "snow_cm": 620.1,
+          "precip_mm": 934.0,
+          "cold_day_frac": 0.343,
+          "tmean_c": -3.27,
+          "wet_days": 60,
+          "rain_risk_days": 8,
+          "days": 181
+        }
+      ]
+    },
+    "june-mountain": {
+      "name": "June Mountain",
+      "region_id": "sierra-california",
+      "sampled_elevation_m": 2687.0,
+      "seasons": [
+        {
+          "season": 1940,
+          "snow_cm": 384.2,
+          "precip_mm": 552.5,
+          "cold_day_frac": 0.53,
+          "tmean_c": -6.0,
+          "wet_days": 62,
+          "rain_risk_days": 3,
+          "days": 181
+        },
+        {
+          "season": 1941,
+          "snow_cm": 252.8,
+          "precip_mm": 364.7,
+          "cold_day_frac": 0.53,
+          "tmean_c": -6.53,
+          "wet_days": 50,
+          "rain_risk_days": 8,
+          "days": 181
+        },
+        {
+          "season": 1942,
+          "snow_cm": 381.5,
+          "precip_mm": 552.9,
+          "cold_day_frac": 0.381,
+          "tmean_c": -4.96,
+          "wet_days": 44,
+          "rain_risk_days": 6,
+          "days": 181
+        },
+        {
+          "season": 1943,
+          "snow_cm": 195.9,
+          "precip_mm": 282.6,
+          "cold_day_frac": 0.407,
+          "tmean_c": -6.28,
+          "wet_days": 44,
+          "rain_risk_days": 3,
+          "days": 182
+        },
+        {
+          "season": 1944,
+          "snow_cm": 264.8,
+          "precip_mm": 382.7,
+          "cold_day_frac": 0.635,
+          "tmean_c": -7.72,
+          "wet_days": 44,
+          "rain_risk_days": 2,
+          "days": 181
+        },
+        {
+          "season": 1945,
+          "snow_cm": 241.2,
+          "precip_mm": 346.1,
+          "cold_day_frac": 0.564,
+          "tmean_c": -7.13,
+          "wet_days": 42,
+          "rain_risk_days": 2,
+          "days": 181
+        },
+        {
+          "season": 1946,
+          "snow_cm": 236.6,
+          "precip_mm": 343.0,
+          "cold_day_frac": 0.564,
+          "tmean_c": -6.98,
+          "wet_days": 41,
+          "rain_risk_days": 2,
+          "days": 181
+        },
+        {
+          "season": 1947,
+          "snow_cm": 222.8,
+          "precip_mm": 322.6,
+          "cold_day_frac": 0.434,
+          "tmean_c": -7.05,
+          "wet_days": 50,
+          "rain_risk_days": 12,
+          "days": 182
+        },
+        {
+          "season": 1948,
+          "snow_cm": 238.4,
+          "precip_mm": 344.7,
+          "cold_day_frac": 0.492,
+          "tmean_c": -6.59,
+          "wet_days": 48,
+          "rain_risk_days": 8,
+          "days": 181
+        },
+        {
+          "season": 1949,
+          "snow_cm": 321.3,
+          "precip_mm": 461.6,
+          "cold_day_frac": 0.354,
+          "tmean_c": -5.05,
+          "wet_days": 42,
+          "rain_risk_days": 6,
+          "days": 181
+        },
+        {
+          "season": 1950,
+          "snow_cm": 253.2,
+          "precip_mm": 434.5,
+          "cold_day_frac": 0.26,
+          "tmean_c": -3.05,
+          "wet_days": 53,
+          "rain_risk_days": 17,
+          "days": 181
+        },
+        {
+          "season": 1951,
+          "snow_cm": 535.3,
+          "precip_mm": 772.6,
+          "cold_day_frac": 0.566,
+          "tmean_c": -6.13,
+          "wet_days": 66,
+          "rain_risk_days": 6,
+          "days": 182
+        },
+        {
+          "season": 1952,
+          "snow_cm": 305.6,
+          "precip_mm": 449.8,
+          "cold_day_frac": 0.414,
+          "tmean_c": -4.87,
+          "wet_days": 46,
+          "rain_risk_days": 6,
+          "days": 181
+        },
+        {
+          "season": 1953,
+          "snow_cm": 286.5,
+          "precip_mm": 423.0,
+          "cold_day_frac": 0.298,
+          "tmean_c": -3.9,
+          "wet_days": 41,
+          "rain_risk_days": 8,
+          "days": 181
+        },
+        {
+          "season": 1954,
+          "snow_cm": 253.5,
+          "precip_mm": 369.0,
+          "cold_day_frac": 0.453,
+          "tmean_c": -6.04,
+          "wet_days": 44,
+          "rain_risk_days": 7,
+          "days": 181
+        },
+        {
+          "season": 1955,
+          "snow_cm": 405.0,
+          "precip_mm": 617.6,
+          "cold_day_frac": 0.423,
+          "tmean_c": -4.85,
+          "wet_days": 53,
+          "rain_risk_days": 6,
+          "days": 182
+        },
+        {
+          "season": 1956,
+          "snow_cm": 208.8,
+          "precip_mm": 304.8,
+          "cold_day_frac": 0.331,
+          "tmean_c": -4.12,
+          "wet_days": 38,
+          "rain_risk_days": 12,
+          "days": 181
+        },
+        {
+          "season": 1957,
+          "snow_cm": 500.5,
+          "precip_mm": 725.5,
+          "cold_day_frac": 0.47,
+          "tmean_c": -5.08,
+          "wet_days": 67,
+          "rain_risk_days": 10,
+          "days": 181
+        },
+        {
+          "season": 1958,
+          "snow_cm": 234.5,
+          "precip_mm": 347.9,
+          "cold_day_frac": 0.221,
+          "tmean_c": -2.42,
+          "wet_days": 34,
+          "rain_risk_days": 6,
+          "days": 181
+        },
+        {
+          "season": 1959,
+          "snow_cm": 182.8,
+          "precip_mm": 272.2,
+          "cold_day_frac": 0.291,
+          "tmean_c": -3.0,
+          "wet_days": 36,
+          "rain_risk_days": 7,
+          "days": 182
+        },
+        {
+          "season": 1960,
+          "snow_cm": 192.4,
+          "precip_mm": 279.2,
+          "cold_day_frac": 0.359,
+          "tmean_c": -4.74,
+          "wet_days": 38,
+          "rain_risk_days": 8,
+          "days": 181
+        },
+        {
+          "season": 1961,
+          "snow_cm": 371.9,
+          "precip_mm": 538.2,
+          "cold_day_frac": 0.436,
+          "tmean_c": -4.9,
+          "wet_days": 42,
+          "rain_risk_days": 4,
+          "days": 181
+        },
+        {
+          "season": 1962,
+          "snow_cm": 279.3,
+          "precip_mm": 451.4,
+          "cold_day_frac": 0.227,
+          "tmean_c": -2.85,
+          "wet_days": 38,
+          "rain_risk_days": 9,
+          "days": 181
+        },
+        {
+          "season": 1963,
+          "snow_cm": 172.2,
+          "precip_mm": 261.1,
+          "cold_day_frac": 0.346,
+          "tmean_c": -5.31,
+          "wet_days": 36,
+          "rain_risk_days": 7,
+          "days": 182
+        },
+        {
+          "season": 1964,
+          "snow_cm": 284.1,
+          "precip_mm": 460.7,
+          "cold_day_frac": 0.475,
+          "tmean_c": -5.13,
+          "wet_days": 54,
+          "rain_risk_days": 6,
+          "days": 181
+        },
+        {
+          "season": 1965,
+          "snow_cm": 301.6,
+          "precip_mm": 442.2,
+          "cold_day_frac": 0.442,
+          "tmean_c": -5.12,
+          "wet_days": 34,
+          "rain_risk_days": 4,
+          "days": 181
+        },
+        {
+          "season": 1966,
+          "snow_cm": 466.2,
+          "precip_mm": 706.4,
+          "cold_day_frac": 0.459,
+          "tmean_c": -5.1,
+          "wet_days": 57,
+          "rain_risk_days": 9,
+          "days": 181
+        },
+        {
+          "season": 1967,
+          "snow_cm": 202.3,
+          "precip_mm": 299.7,
+          "cold_day_frac": 0.396,
+          "tmean_c": -4.23,
+          "wet_days": 37,
+          "rain_risk_days": 9,
+          "days": 182
+        },
+        {
+          "season": 1968,
+          "snow_cm": 592.7,
+          "precip_mm": 863.2,
+          "cold_day_frac": 0.497,
+          "tmean_c": -5.45,
+          "wet_days": 61,
+          "rain_risk_days": 9,
+          "days": 181
+        },
+        {
+          "season": 1969,
+          "snow_cm": 232.7,
+          "precip_mm": 341.5,
+          "cold_day_frac": 0.326,
+          "tmean_c": -4.2,
+          "wet_days": 40,
+          "rain_risk_days": 8,
+          "days": 181
+        },
+        {
+          "season": 1970,
+          "snow_cm": 324.3,
+          "precip_mm": 480.3,
+          "cold_day_frac": 0.343,
+          "tmean_c": -4.62,
+          "wet_days": 48,
+          "rain_risk_days": 13,
+          "days": 181
+        },
+        {
+          "season": 1971,
+          "snow_cm": 229.7,
+          "precip_mm": 337.6,
+          "cold_day_frac": 0.352,
+          "tmean_c": -5.05,
+          "wet_days": 38,
+          "rain_risk_days": 7,
+          "days": 182
+        },
+        {
+          "season": 1972,
+          "snow_cm": 332.5,
+          "precip_mm": 482.0,
+          "cold_day_frac": 0.624,
+          "tmean_c": -6.56,
+          "wet_days": 58,
+          "rain_risk_days": 6,
+          "days": 181
+        },
+        {
+          "season": 1973,
+          "snow_cm": 365.1,
+          "precip_mm": 556.1,
+          "cold_day_frac": 0.403,
+          "tmean_c": -5.05,
+          "wet_days": 54,
+          "rain_risk_days": 12,
+          "days": 181
+        },
+        {
+          "season": 1974,
+          "snow_cm": 392.8,
+          "precip_mm": 563.1,
+          "cold_day_frac": 0.519,
+          "tmean_c": -5.99,
+          "wet_days": 53,
+          "rain_risk_days": 3,
+          "days": 181
+        },
+        {
+          "season": 1975,
+          "snow_cm": 116.7,
+          "precip_mm": 169.4,
+          "cold_day_frac": 0.181,
+          "tmean_c": -3.22,
+          "wet_days": 30,
+          "rain_risk_days": 8,
+          "days": 182
+        },
+        {
+          "season": 1976,
+          "snow_cm": 94.1,
+          "precip_mm": 140.1,
+          "cold_day_frac": 0.238,
+          "tmean_c": -2.33,
+          "wet_days": 25,
+          "rain_risk_days": 7,
+          "days": 181
+        },
+        {
+          "season": 1977,
+          "snow_cm": 526.0,
+          "precip_mm": 764.4,
+          "cold_day_frac": 0.326,
+          "tmean_c": -3.28,
+          "wet_days": 60,
+          "rain_risk_days": 9,
+          "days": 181
+        },
+        {
+          "season": 1978,
+          "snow_cm": 254.3,
+          "precip_mm": 364.2,
+          "cold_day_frac": 0.514,
+          "tmean_c": -6.31,
+          "wet_days": 44,
+          "rain_risk_days": 4,
+          "days": 181
+        },
+        {
+          "season": 1979,
+          "snow_cm": 379.8,
+          "precip_mm": 566.0,
+          "cold_day_frac": 0.341,
+          "tmean_c": -3.67,
+          "wet_days": 46,
+          "rain_risk_days": 5,
+          "days": 182
+        },
+        {
+          "season": 1980,
+          "snow_cm": 224.7,
+          "precip_mm": 316.8,
+          "cold_day_frac": 0.204,
+          "tmean_c": -2.62,
+          "wet_days": 34,
+          "rain_risk_days": 7,
+          "days": 181
+        },
+        {
+          "season": 1981,
+          "snow_cm": 410.8,
+          "precip_mm": 634.8,
+          "cold_day_frac": 0.359,
+          "tmean_c": -4.54,
+          "wet_days": 50,
+          "rain_risk_days": 13,
+          "days": 181
+        },
+        {
+          "season": 1982,
+          "snow_cm": 513.6,
+          "precip_mm": 719.1,
+          "cold_day_frac": 0.547,
+          "tmean_c": -5.7,
+          "wet_days": 60,
+          "rain_risk_days": 3,
+          "days": 181
+        },
+        {
+          "season": 1983,
+          "snow_cm": 308.5,
+          "precip_mm": 441.2,
+          "cold_day_frac": 0.346,
+          "tmean_c": -3.99,
+          "wet_days": 44,
+          "rain_risk_days": 8,
+          "days": 182
+        },
+        {
+          "season": 1984,
+          "snow_cm": 249.9,
+          "precip_mm": 340.6,
+          "cold_day_frac": 0.464,
+          "tmean_c": -5.46,
+          "wet_days": 38,
+          "rain_risk_days": 3,
+          "days": 181
+        },
+        {
+          "season": 1985,
+          "snow_cm": 521.8,
+          "precip_mm": 753.0,
+          "cold_day_frac": 0.293,
+          "tmean_c": -3.45,
+          "wet_days": 46,
+          "rain_risk_days": 4,
+          "days": 181
+        },
+        {
+          "season": 1986,
+          "snow_cm": 164.7,
+          "precip_mm": 229.0,
+          "cold_day_frac": 0.265,
+          "tmean_c": -3.47,
+          "wet_days": 26,
+          "rain_risk_days": 7,
+          "days": 181
+        },
+        {
+          "season": 1987,
+          "snow_cm": 173.0,
+          "precip_mm": 252.2,
+          "cold_day_frac": 0.297,
+          "tmean_c": -4.1,
+          "wet_days": 40,
+          "rain_risk_days": 12,
+          "days": 182
+        },
+        {
+          "season": 1988,
+          "snow_cm": 213.6,
+          "precip_mm": 309.6,
+          "cold_day_frac": 0.343,
+          "tmean_c": -4.28,
+          "wet_days": 37,
+          "rain_risk_days": 7,
+          "days": 181
+        },
+        {
+          "season": 1989,
+          "snow_cm": 149.7,
+          "precip_mm": 227.6,
+          "cold_day_frac": 0.215,
+          "tmean_c": -2.93,
+          "wet_days": 30,
+          "rain_risk_days": 12,
+          "days": 181
+        },
+        {
+          "season": 1990,
+          "snow_cm": 233.1,
+          "precip_mm": 333.6,
+          "cold_day_frac": 0.265,
+          "tmean_c": -3.78,
+          "wet_days": 34,
+          "rain_risk_days": 9,
+          "days": 181
+        },
+        {
+          "season": 1991,
+          "snow_cm": 148.3,
+          "precip_mm": 202.7,
+          "cold_day_frac": 0.253,
+          "tmean_c": -3.29,
+          "wet_days": 36,
+          "rain_risk_days": 9,
+          "days": 182
+        },
+        {
+          "season": 1992,
+          "snow_cm": 423.5,
+          "precip_mm": 592.5,
+          "cold_day_frac": 0.392,
+          "tmean_c": -4.27,
+          "wet_days": 53,
+          "rain_risk_days": 9,
+          "days": 181
+        },
+        {
+          "season": 1993,
+          "snow_cm": 184.9,
+          "precip_mm": 258.2,
+          "cold_day_frac": 0.287,
+          "tmean_c": -4.19,
+          "wet_days": 33,
+          "rain_risk_days": 6,
+          "days": 181
+        },
+        {
+          "season": 1994,
+          "snow_cm": 486.1,
+          "precip_mm": 700.6,
+          "cold_day_frac": 0.486,
+          "tmean_c": -4.81,
+          "wet_days": 62,
+          "rain_risk_days": 11,
+          "days": 181
+        },
+        {
+          "season": 1995,
+          "snow_cm": 324.9,
+          "precip_mm": 484.7,
+          "cold_day_frac": 0.291,
+          "tmean_c": -2.22,
+          "wet_days": 47,
+          "rain_risk_days": 9,
+          "days": 182
+        },
+        {
+          "season": 1996,
+          "snow_cm": 332.6,
+          "precip_mm": 568.9,
+          "cold_day_frac": 0.326,
+          "tmean_c": -3.69,
+          "wet_days": 42,
+          "rain_risk_days": 7,
+          "days": 181
+        },
+        {
+          "season": 1997,
+          "snow_cm": 396.8,
+          "precip_mm": 557.6,
+          "cold_day_frac": 0.53,
+          "tmean_c": -5.0,
+          "wet_days": 59,
+          "rain_risk_days": 7,
+          "days": 181
+        },
+        {
+          "season": 1998,
+          "snow_cm": 295.2,
+          "precip_mm": 404.9,
+          "cold_day_frac": 0.409,
+          "tmean_c": -5.01,
+          "wet_days": 54,
+          "rain_risk_days": 4,
+          "days": 181
+        },
+        {
+          "season": 1999,
+          "snow_cm": 307.9,
+          "precip_mm": 435.3,
+          "cold_day_frac": 0.231,
+          "tmean_c": -2.48,
+          "wet_days": 39,
+          "rain_risk_days": 4,
+          "days": 182
+        },
+        {
+          "season": 2000,
+          "snow_cm": 204.8,
+          "precip_mm": 274.2,
+          "cold_day_frac": 0.398,
+          "tmean_c": -4.57,
+          "wet_days": 43,
+          "rain_risk_days": 2,
+          "days": 181
+        },
+        {
+          "season": 2001,
+          "snow_cm": 234.7,
+          "precip_mm": 339.1,
+          "cold_day_frac": 0.42,
+          "tmean_c": -4.8,
+          "wet_days": 44,
+          "rain_risk_days": 7,
+          "days": 181
+        },
+        {
+          "season": 2002,
+          "snow_cm": 264.5,
+          "precip_mm": 402.4,
+          "cold_day_frac": 0.343,
+          "tmean_c": -4.33,
+          "wet_days": 33,
+          "rain_risk_days": 6,
+          "days": 181
+        },
+        {
+          "season": 2003,
+          "snow_cm": 239.5,
+          "precip_mm": 334.0,
+          "cold_day_frac": 0.412,
+          "tmean_c": -4.21,
+          "wet_days": 43,
+          "rain_risk_days": 6,
+          "days": 182
+        },
+        {
+          "season": 2004,
+          "snow_cm": 377.2,
+          "precip_mm": 528.6,
+          "cold_day_frac": 0.442,
+          "tmean_c": -4.65,
+          "wet_days": 45,
+          "rain_risk_days": 3,
+          "days": 181
+        },
+        {
+          "season": 2005,
+          "snow_cm": 466.0,
+          "precip_mm": 682.3,
+          "cold_day_frac": 0.387,
+          "tmean_c": -4.21,
+          "wet_days": 63,
+          "rain_risk_days": 11,
+          "days": 181
+        },
+        {
+          "season": 2006,
+          "snow_cm": 160.9,
+          "precip_mm": 232.1,
+          "cold_day_frac": 0.26,
+          "tmean_c": -3.46,
+          "wet_days": 35,
+          "rain_risk_days": 9,
+          "days": 181
+        },
+        {
+          "season": 2007,
+          "snow_cm": 289.4,
+          "precip_mm": 408.8,
+          "cold_day_frac": 0.335,
+          "tmean_c": -3.88,
+          "wet_days": 31,
+          "rain_risk_days": 3,
+          "days": 182
+        },
+        {
+          "season": 2008,
+          "snow_cm": 246.8,
+          "precip_mm": 364.6,
+          "cold_day_frac": 0.26,
+          "tmean_c": -3.71,
+          "wet_days": 37,
+          "rain_risk_days": 10,
+          "days": 181
+        },
+        {
+          "season": 2009,
+          "snow_cm": 302.5,
+          "precip_mm": 420.9,
+          "cold_day_frac": 0.453,
+          "tmean_c": -4.5,
+          "wet_days": 45,
+          "rain_risk_days": 5,
+          "days": 181
+        },
+        {
+          "season": 2010,
+          "snow_cm": 472.9,
+          "precip_mm": 674.4,
+          "cold_day_frac": 0.414,
+          "tmean_c": -4.58,
+          "wet_days": 51,
+          "rain_risk_days": 7,
+          "days": 181
+        },
+        {
+          "season": 2011,
+          "snow_cm": 167.2,
+          "precip_mm": 243.1,
+          "cold_day_frac": 0.22,
+          "tmean_c": -3.45,
+          "wet_days": 27,
+          "rain_risk_days": 8,
+          "days": 182
+        },
+        {
+          "season": 2012,
+          "snow_cm": 177.2,
+          "precip_mm": 252.4,
+          "cold_day_frac": 0.271,
+          "tmean_c": -3.74,
+          "wet_days": 31,
+          "rain_risk_days": 9,
+          "days": 181
+        },
+        {
+          "season": 2013,
+          "snow_cm": 165.5,
+          "precip_mm": 236.4,
+          "cold_day_frac": 0.166,
+          "tmean_c": -2.35,
+          "wet_days": 33,
+          "rain_risk_days": 12,
+          "days": 181
+        },
+        {
+          "season": 2014,
+          "snow_cm": 108.6,
+          "precip_mm": 168.2,
+          "cold_day_frac": 0.133,
+          "tmean_c": -0.74,
+          "wet_days": 24,
+          "rain_risk_days": 10,
+          "days": 181
+        },
+        {
+          "season": 2015,
+          "snow_cm": 285.3,
+          "precip_mm": 408.7,
+          "cold_day_frac": 0.352,
+          "tmean_c": -4.57,
+          "wet_days": 49,
+          "rain_risk_days": 12,
+          "days": 182
+        },
+        {
+          "season": 2016,
+          "snow_cm": 746.6,
+          "precip_mm": 1128.9,
+          "cold_day_frac": 0.343,
+          "tmean_c": -3.82,
+          "wet_days": 56,
+          "rain_risk_days": 11,
+          "days": 181
+        },
+        {
+          "season": 2017,
+          "snow_cm": 321.2,
+          "precip_mm": 545.0,
+          "cold_day_frac": 0.227,
+          "tmean_c": -3.22,
+          "wet_days": 38,
+          "rain_risk_days": 12,
+          "days": 181
+        },
+        {
+          "season": 2018,
+          "snow_cm": 556.1,
+          "precip_mm": 800.1,
+          "cold_day_frac": 0.403,
+          "tmean_c": -4.11,
+          "wet_days": 55,
+          "rain_risk_days": 6,
+          "days": 181
+        },
+        {
+          "season": 2019,
+          "snow_cm": 244.4,
+          "precip_mm": 352.8,
+          "cold_day_frac": 0.341,
+          "tmean_c": -3.79,
+          "wet_days": 47,
+          "rain_risk_days": 8,
+          "days": 182
+        },
+        {
+          "season": 2020,
+          "snow_cm": 248.4,
+          "precip_mm": 355.6,
+          "cold_day_frac": 0.243,
+          "tmean_c": -4.16,
+          "wet_days": 36,
+          "rain_risk_days": 7,
+          "days": 181
+        },
+        {
+          "season": 2021,
+          "snow_cm": 326.8,
+          "precip_mm": 470.2,
+          "cold_day_frac": 0.271,
+          "tmean_c": -3.35,
+          "wet_days": 28,
+          "rain_risk_days": 10,
+          "days": 181
+        },
+        {
+          "season": 2022,
+          "snow_cm": 960.5,
+          "precip_mm": 1383.8,
+          "cold_day_frac": 0.602,
+          "tmean_c": -6.37,
+          "wet_days": 68,
+          "rain_risk_days": 2,
+          "days": 181
+        },
+        {
+          "season": 2023,
+          "snow_cm": 353.5,
+          "precip_mm": 512.7,
+          "cold_day_frac": 0.275,
+          "tmean_c": -4.0,
+          "wet_days": 49,
+          "rain_risk_days": 9,
+          "days": 182
+        },
+        {
+          "season": 2024,
+          "snow_cm": 331.5,
+          "precip_mm": 505.5,
+          "cold_day_frac": 0.11,
+          "tmean_c": -2.53,
+          "wet_days": 44,
+          "rain_risk_days": 23,
+          "days": 181
+        }
+      ]
+    },
+    "taos": {
+      "name": "Taos Ski Valley",
+      "region_id": "southwest-rockies",
+      "sampled_elevation_m": 3304.0,
+      "seasons": [
+        {
+          "season": 1940,
+          "snow_cm": 151.9,
+          "precip_mm": 242.2,
+          "cold_day_frac": 0.79,
+          "tmean_c": -9.52,
+          "wet_days": 61,
+          "rain_risk_days": 6,
+          "days": 181
+        },
+        {
+          "season": 1941,
+          "snow_cm": 119.3,
+          "precip_mm": 207.1,
+          "cold_day_frac": 0.724,
+          "tmean_c": -10.42,
+          "wet_days": 47,
+          "rain_risk_days": 9,
+          "days": 181
+        },
+        {
+          "season": 1942,
+          "snow_cm": 87.1,
+          "precip_mm": 167.7,
+          "cold_day_frac": 0.58,
+          "tmean_c": -6.62,
+          "wet_days": 39,
+          "rain_risk_days": 9,
+          "days": 181
+        },
+        {
+          "season": 1943,
+          "snow_cm": 123.6,
+          "precip_mm": 196.2,
+          "cold_day_frac": 0.714,
+          "tmean_c": -9.68,
+          "wet_days": 52,
+          "rain_risk_days": 3,
+          "days": 182
+        },
+        {
+          "season": 1944,
+          "snow_cm": 129.9,
+          "precip_mm": 212.0,
+          "cold_day_frac": 0.768,
+          "tmean_c": -9.83,
+          "wet_days": 55,
+          "rain_risk_days": 5,
+          "days": 181
+        },
+        {
+          "season": 1945,
+          "snow_cm": 81.2,
+          "precip_mm": 156.5,
+          "cold_day_frac": 0.635,
+          "tmean_c": -8.69,
+          "wet_days": 37,
+          "rain_risk_days": 13,
+          "days": 181
+        },
+        {
+          "season": 1946,
+          "snow_cm": 125.3,
+          "precip_mm": 195.7,
+          "cold_day_frac": 0.757,
+          "tmean_c": -9.77,
+          "wet_days": 51,
+          "rain_risk_days": 6,
+          "days": 181
+        },
+        {
+          "season": 1947,
+          "snow_cm": 142.0,
+          "precip_mm": 217.1,
+          "cold_day_frac": 0.769,
+          "tmean_c": -10.22,
+          "wet_days": 48,
+          "rain_risk_days": 2,
+          "days": 182
+        },
+        {
+          "season": 1948,
+          "snow_cm": 134.2,
+          "precip_mm": 212.3,
+          "cold_day_frac": 0.613,
+          "tmean_c": -9.08,
+          "wet_days": 51,
+          "rain_risk_days": 3,
+          "days": 181
+        },
+        {
+          "season": 1949,
+          "snow_cm": 89.5,
+          "precip_mm": 141.1,
+          "cold_day_frac": 0.453,
+          "tmean_c": -6.41,
+          "wet_days": 30,
+          "rain_risk_days": 7,
+          "days": 181
+        },
+        {
+          "season": 1950,
+          "snow_cm": 107.3,
+          "precip_mm": 175.4,
+          "cold_day_frac": 0.381,
+          "tmean_c": -5.2,
+          "wet_days": 41,
+          "rain_risk_days": 8,
+          "days": 181
+        },
+        {
+          "season": 1951,
+          "snow_cm": 175.6,
+          "precip_mm": 299.1,
+          "cold_day_frac": 0.676,
+          "tmean_c": -8.22,
+          "wet_days": 60,
+          "rain_risk_days": 5,
+          "days": 182
+        },
+        {
+          "season": 1952,
+          "snow_cm": 113.1,
+          "precip_mm": 188.5,
+          "cold_day_frac": 0.569,
+          "tmean_c": -7.58,
+          "wet_days": 46,
+          "rain_risk_days": 9,
+          "days": 181
+        },
+        {
+          "season": 1953,
+          "snow_cm": 81.5,
+          "precip_mm": 148.1,
+          "cold_day_frac": 0.409,
+          "tmean_c": -5.71,
+          "wet_days": 33,
+          "rain_risk_days": 9,
+          "days": 181
+        },
+        {
+          "season": 1954,
+          "snow_cm": 82.0,
+          "precip_mm": 135.5,
+          "cold_day_frac": 0.475,
+          "tmean_c": -6.64,
+          "wet_days": 36,
+          "rain_risk_days": 5,
+          "days": 181
+        },
+        {
+          "season": 1955,
+          "snow_cm": 91.3,
+          "precip_mm": 144.7,
+          "cold_day_frac": 0.44,
+          "tmean_c": -5.94,
+          "wet_days": 32,
+          "rain_risk_days": 7,
+          "days": 182
+        },
+        {
+          "season": 1956,
+          "snow_cm": 126.1,
+          "precip_mm": 222.1,
+          "cold_day_frac": 0.497,
+          "tmean_c": -5.93,
+          "wet_days": 51,
+          "rain_risk_days": 7,
+          "days": 181
+        },
+        {
+          "season": 1957,
+          "snow_cm": 140.2,
+          "precip_mm": 222.8,
+          "cold_day_frac": 0.707,
+          "tmean_c": -7.75,
+          "wet_days": 56,
+          "rain_risk_days": 5,
+          "days": 181
+        },
+        {
+          "season": 1958,
+          "snow_cm": 97.2,
+          "precip_mm": 161.8,
+          "cold_day_frac": 0.464,
+          "tmean_c": -5.85,
+          "wet_days": 30,
+          "rain_risk_days": 5,
+          "days": 181
+        },
+        {
+          "season": 1959,
+          "snow_cm": 120.2,
+          "precip_mm": 195.6,
+          "cold_day_frac": 0.5,
+          "tmean_c": -6.85,
+          "wet_days": 47,
+          "rain_risk_days": 9,
+          "days": 182
+        },
+        {
+          "season": 1960,
+          "snow_cm": 141.3,
+          "precip_mm": 223.9,
+          "cold_day_frac": 0.519,
+          "tmean_c": -6.61,
+          "wet_days": 44,
+          "rain_risk_days": 3,
+          "days": 181
+        },
+        {
+          "season": 1961,
+          "snow_cm": 130.0,
+          "precip_mm": 210.6,
+          "cold_day_frac": 0.674,
+          "tmean_c": -7.61,
+          "wet_days": 50,
+          "rain_risk_days": 6,
+          "days": 181
+        },
+        {
+          "season": 1962,
+          "snow_cm": 98.8,
+          "precip_mm": 164.9,
+          "cold_day_frac": 0.453,
+          "tmean_c": -6.02,
+          "wet_days": 33,
+          "rain_risk_days": 5,
+          "days": 181
+        },
+        {
+          "season": 1963,
+          "snow_cm": 112.5,
+          "precip_mm": 170.2,
+          "cold_day_frac": 0.615,
+          "tmean_c": -8.27,
+          "wet_days": 46,
+          "rain_risk_days": 5,
+          "days": 182
+        },
+        {
+          "season": 1964,
+          "snow_cm": 157.7,
+          "precip_mm": 256.1,
+          "cold_day_frac": 0.669,
+          "tmean_c": -7.37,
+          "wet_days": 59,
+          "rain_risk_days": 5,
+          "days": 181
+        },
+        {
+          "season": 1965,
+          "snow_cm": 87.5,
+          "precip_mm": 183.4,
+          "cold_day_frac": 0.53,
+          "tmean_c": -6.63,
+          "wet_days": 39,
+          "rain_risk_days": 7,
+          "days": 181
+        },
+        {
+          "season": 1966,
+          "snow_cm": 69.2,
+          "precip_mm": 126.0,
+          "cold_day_frac": 0.343,
+          "tmean_c": -4.81,
+          "wet_days": 28,
+          "rain_risk_days": 6,
+          "days": 181
+        },
+        {
+          "season": 1967,
+          "snow_cm": 122.1,
+          "precip_mm": 194.5,
+          "cold_day_frac": 0.604,
+          "tmean_c": -6.86,
+          "wet_days": 48,
+          "rain_risk_days": 2,
+          "days": 182
+        },
+        {
+          "season": 1968,
+          "snow_cm": 116.1,
+          "precip_mm": 193.6,
+          "cold_day_frac": 0.58,
+          "tmean_c": -6.9,
+          "wet_days": 46,
+          "rain_risk_days": 6,
+          "days": 181
+        },
+        {
+          "season": 1969,
+          "snow_cm": 89.8,
+          "precip_mm": 142.8,
+          "cold_day_frac": 0.442,
+          "tmean_c": -6.55,
+          "wet_days": 36,
+          "rain_risk_days": 2,
+          "days": 181
+        },
+        {
+          "season": 1970,
+          "snow_cm": 75.2,
+          "precip_mm": 128.0,
+          "cold_day_frac": 0.409,
+          "tmean_c": -6.05,
+          "wet_days": 39,
+          "rain_risk_days": 7,
+          "days": 181
+        },
+        {
+          "season": 1971,
+          "snow_cm": 62.0,
+          "precip_mm": 106.5,
+          "cold_day_frac": 0.489,
+          "tmean_c": -5.66,
+          "wet_days": 29,
+          "rain_risk_days": 8,
+          "days": 182
+        },
+        {
+          "season": 1972,
+          "snow_cm": 162.2,
+          "precip_mm": 252.1,
+          "cold_day_frac": 0.818,
+          "tmean_c": -9.04,
+          "wet_days": 56,
+          "rain_risk_days": 2,
+          "days": 181
+        },
+        {
+          "season": 1973,
+          "snow_cm": 126.5,
+          "precip_mm": 196.5,
+          "cold_day_frac": 0.541,
+          "tmean_c": -6.47,
+          "wet_days": 40,
+          "rain_risk_days": 4,
+          "days": 181
+        },
+        {
+          "season": 1974,
+          "snow_cm": 147.5,
+          "precip_mm": 224.9,
+          "cold_day_frac": 0.685,
+          "tmean_c": -8.46,
+          "wet_days": 51,
+          "rain_risk_days": 2,
+          "days": 181
+        },
+        {
+          "season": 1975,
+          "snow_cm": 114.0,
+          "precip_mm": 206.1,
+          "cold_day_frac": 0.495,
+          "tmean_c": -6.62,
+          "wet_days": 50,
+          "rain_risk_days": 10,
+          "days": 182
+        },
+        {
+          "season": 1976,
+          "snow_cm": 110.8,
+          "precip_mm": 197.4,
+          "cold_day_frac": 0.541,
+          "tmean_c": -6.85,
+          "wet_days": 46,
+          "rain_risk_days": 14,
+          "days": 181
+        },
+        {
+          "season": 1977,
+          "snow_cm": 106.5,
+          "precip_mm": 186.2,
+          "cold_day_frac": 0.525,
+          "tmean_c": -5.46,
+          "wet_days": 46,
+          "rain_risk_days": 8,
+          "days": 181
+        },
+        {
+          "season": 1978,
+          "snow_cm": 149.6,
+          "precip_mm": 251.8,
+          "cold_day_frac": 0.68,
+          "tmean_c": -7.41,
+          "wet_days": 52,
+          "rain_risk_days": 7,
+          "days": 181
+        },
+        {
+          "season": 1979,
+          "snow_cm": 186.8,
+          "precip_mm": 289.0,
+          "cold_day_frac": 0.632,
+          "tmean_c": -6.43,
+          "wet_days": 51,
+          "rain_risk_days": 6,
+          "days": 182
+        },
+        {
+          "season": 1980,
+          "snow_cm": 72.5,
+          "precip_mm": 110.3,
+          "cold_day_frac": 0.293,
+          "tmean_c": -3.32,
+          "wet_days": 28,
+          "rain_risk_days": 8,
+          "days": 181
+        },
+        {
+          "season": 1981,
+          "snow_cm": 151.1,
+          "precip_mm": 234.5,
+          "cold_day_frac": 0.464,
+          "tmean_c": -5.61,
+          "wet_days": 52,
+          "rain_risk_days": 7,
+          "days": 181
+        },
+        {
+          "season": 1982,
+          "snow_cm": 177.5,
+          "precip_mm": 253.9,
+          "cold_day_frac": 0.702,
+          "tmean_c": -6.99,
+          "wet_days": 58,
+          "rain_risk_days": 4,
+          "days": 181
+        },
+        {
+          "season": 1983,
+          "snow_cm": 188.7,
+          "precip_mm": 269.3,
+          "cold_day_frac": 0.659,
+          "tmean_c": -7.25,
+          "wet_days": 58,
+          "rain_risk_days": 5,
+          "days": 182
+        },
+        {
+          "season": 1984,
+          "snow_cm": 155.2,
+          "precip_mm": 269.2,
+          "cold_day_frac": 0.602,
+          "tmean_c": -6.46,
+          "wet_days": 51,
+          "rain_risk_days": 7,
+          "days": 181
+        },
+        {
+          "season": 1985,
+          "snow_cm": 108.3,
+          "precip_mm": 188.0,
+          "cold_day_frac": 0.425,
+          "tmean_c": -4.7,
+          "wet_days": 42,
+          "rain_risk_days": 14,
+          "days": 181
+        },
+        {
+          "season": 1986,
+          "snow_cm": 171.4,
+          "precip_mm": 274.1,
+          "cold_day_frac": 0.591,
+          "tmean_c": -6.55,
+          "wet_days": 54,
+          "rain_risk_days": 7,
+          "days": 181
+        },
+        {
+          "season": 1987,
+          "snow_cm": 138.6,
+          "precip_mm": 217.1,
+          "cold_day_frac": 0.555,
+          "tmean_c": -6.82,
+          "wet_days": 49,
+          "rain_risk_days": 10,
+          "days": 182
+        },
+        {
+          "season": 1988,
+          "snow_cm": 119.1,
+          "precip_mm": 185.6,
+          "cold_day_frac": 0.475,
+          "tmean_c": -5.31,
+          "wet_days": 34,
+          "rain_risk_days": 10,
+          "days": 181
+        },
+        {
+          "season": 1989,
+          "snow_cm": 110.9,
+          "precip_mm": 194.2,
+          "cold_day_frac": 0.425,
+          "tmean_c": -5.32,
+          "wet_days": 48,
+          "rain_risk_days": 18,
+          "days": 181
+        },
+        {
+          "season": 1990,
+          "snow_cm": 133.1,
+          "precip_mm": 202.1,
+          "cold_day_frac": 0.497,
+          "tmean_c": -6.58,
+          "wet_days": 49,
+          "rain_risk_days": 4,
+          "days": 181
+        },
+        {
+          "season": 1991,
+          "snow_cm": 148.5,
+          "precip_mm": 230.4,
+          "cold_day_frac": 0.626,
+          "tmean_c": -6.34,
+          "wet_days": 47,
+          "rain_risk_days": 5,
+          "days": 182
+        },
+        {
+          "season": 1992,
+          "snow_cm": 198.2,
+          "precip_mm": 296.4,
+          "cold_day_frac": 0.669,
+          "tmean_c": -6.93,
+          "wet_days": 55,
+          "rain_risk_days": 1,
+          "days": 181
+        },
+        {
+          "season": 1993,
+          "snow_cm": 155.1,
+          "precip_mm": 236.6,
+          "cold_day_frac": 0.536,
+          "tmean_c": -6.62,
+          "wet_days": 45,
+          "rain_risk_days": 6,
+          "days": 181
+        },
+        {
+          "season": 1994,
+          "snow_cm": 144.0,
+          "precip_mm": 245.9,
+          "cold_day_frac": 0.497,
+          "tmean_c": -5.55,
+          "wet_days": 54,
+          "rain_risk_days": 11,
+          "days": 181
+        },
+        {
+          "season": 1995,
+          "snow_cm": 92.7,
+          "precip_mm": 144.6,
+          "cold_day_frac": 0.335,
+          "tmean_c": -4.38,
+          "wet_days": 34,
+          "rain_risk_days": 7,
+          "days": 182
+        },
+        {
+          "season": 1996,
+          "snow_cm": 147.8,
+          "precip_mm": 235.3,
+          "cold_day_frac": 0.53,
+          "tmean_c": -6.19,
+          "wet_days": 50,
+          "rain_risk_days": 11,
+          "days": 181
+        },
+        {
+          "season": 1997,
+          "snow_cm": 127.0,
+          "precip_mm": 184.9,
+          "cold_day_frac": 0.657,
+          "tmean_c": -7.52,
+          "wet_days": 47,
+          "rain_risk_days": 5,
+          "days": 181
+        },
+        {
+          "season": 1998,
+          "snow_cm": 118.7,
+          "precip_mm": 214.6,
+          "cold_day_frac": 0.293,
+          "tmean_c": -4.17,
+          "wet_days": 34,
+          "rain_risk_days": 10,
+          "days": 181
+        },
+        {
+          "season": 1999,
+          "snow_cm": 79.1,
+          "precip_mm": 126.8,
+          "cold_day_frac": 0.324,
+          "tmean_c": -3.75,
+          "wet_days": 26,
+          "rain_risk_days": 7,
+          "days": 182
+        },
+        {
+          "season": 2000,
+          "snow_cm": 94.4,
+          "precip_mm": 148.8,
+          "cold_day_frac": 0.575,
+          "tmean_c": -6.36,
+          "wet_days": 42,
+          "rain_risk_days": 8,
+          "days": 181
+        },
+        {
+          "season": 2001,
+          "snow_cm": 65.2,
+          "precip_mm": 100.7,
+          "cold_day_frac": 0.519,
+          "tmean_c": -5.74,
+          "wet_days": 26,
+          "rain_risk_days": 7,
+          "days": 181
+        },
+        {
+          "season": 2002,
+          "snow_cm": 106.3,
+          "precip_mm": 170.1,
+          "cold_day_frac": 0.464,
+          "tmean_c": -5.66,
+          "wet_days": 38,
+          "rain_risk_days": 9,
+          "days": 181
+        },
+        {
+          "season": 2003,
+          "snow_cm": 141.4,
+          "precip_mm": 227.1,
+          "cold_day_frac": 0.489,
+          "tmean_c": -5.96,
+          "wet_days": 38,
+          "rain_risk_days": 7,
+          "days": 182
+        },
+        {
+          "season": 2004,
+          "snow_cm": 140.5,
+          "precip_mm": 228.5,
+          "cold_day_frac": 0.569,
+          "tmean_c": -5.92,
+          "wet_days": 57,
+          "rain_risk_days": 9,
+          "days": 181
+        },
+        {
+          "season": 2005,
+          "snow_cm": 66.2,
+          "precip_mm": 105.7,
+          "cold_day_frac": 0.337,
+          "tmean_c": -4.22,
+          "wet_days": 35,
+          "rain_risk_days": 12,
+          "days": 181
+        },
+        {
+          "season": 2006,
+          "snow_cm": 118.2,
+          "precip_mm": 182.2,
+          "cold_day_frac": 0.503,
+          "tmean_c": -5.57,
+          "wet_days": 36,
+          "rain_risk_days": 9,
+          "days": 181
+        },
+        {
+          "season": 2007,
+          "snow_cm": 128.4,
+          "precip_mm": 201.1,
+          "cold_day_frac": 0.571,
+          "tmean_c": -6.64,
+          "wet_days": 35,
+          "rain_risk_days": 4,
+          "days": 182
+        },
+        {
+          "season": 2008,
+          "snow_cm": 134.0,
+          "precip_mm": 189.8,
+          "cold_day_frac": 0.497,
+          "tmean_c": -5.66,
+          "wet_days": 37,
+          "rain_risk_days": 2,
+          "days": 181
+        },
+        {
+          "season": 2009,
+          "snow_cm": 141.4,
+          "precip_mm": 210.0,
+          "cold_day_frac": 0.652,
+          "tmean_c": -7.21,
+          "wet_days": 46,
+          "rain_risk_days": 6,
+          "days": 181
+        },
+        {
+          "season": 2010,
+          "snow_cm": 81.4,
+          "precip_mm": 130.9,
+          "cold_day_frac": 0.392,
+          "tmean_c": -5.3,
+          "wet_days": 33,
+          "rain_risk_days": 11,
+          "days": 181
+        },
+        {
+          "season": 2011,
+          "snow_cm": 97.0,
+          "precip_mm": 151.1,
+          "cold_day_frac": 0.533,
+          "tmean_c": -5.54,
+          "wet_days": 36,
+          "rain_risk_days": 7,
+          "days": 182
+        },
+        {
+          "season": 2012,
+          "snow_cm": 66.7,
+          "precip_mm": 102.7,
+          "cold_day_frac": 0.425,
+          "tmean_c": -5.73,
+          "wet_days": 28,
+          "rain_risk_days": 7,
+          "days": 181
+        },
+        {
+          "season": 2013,
+          "snow_cm": 91.8,
+          "precip_mm": 154.0,
+          "cold_day_frac": 0.431,
+          "tmean_c": -5.59,
+          "wet_days": 34,
+          "rain_risk_days": 10,
+          "days": 181
+        },
+        {
+          "season": 2014,
+          "snow_cm": 129.4,
+          "precip_mm": 220.1,
+          "cold_day_frac": 0.354,
+          "tmean_c": -4.61,
+          "wet_days": 40,
+          "rain_risk_days": 12,
+          "days": 181
+        },
+        {
+          "season": 2015,
+          "snow_cm": 128.0,
+          "precip_mm": 202.8,
+          "cold_day_frac": 0.423,
+          "tmean_c": -5.75,
+          "wet_days": 40,
+          "rain_risk_days": 10,
+          "days": 182
+        },
+        {
+          "season": 2016,
+          "snow_cm": 282.7,
+          "precip_mm": 433.8,
+          "cold_day_frac": 0.47,
+          "tmean_c": -4.36,
+          "wet_days": 57,
+          "rain_risk_days": 10,
+          "days": 181
+        },
+        {
+          "season": 2017,
+          "snow_cm": 126.6,
+          "precip_mm": 200.4,
+          "cold_day_frac": 0.359,
+          "tmean_c": -4.64,
+          "wet_days": 31,
+          "rain_risk_days": 7,
+          "days": 181
+        },
+        {
+          "season": 2018,
+          "snow_cm": 254.0,
+          "precip_mm": 370.3,
+          "cold_day_frac": 0.735,
+          "tmean_c": -6.62,
+          "wet_days": 63,
+          "rain_risk_days": 11,
+          "days": 181
+        },
+        {
+          "season": 2019,
+          "snow_cm": 187.2,
+          "precip_mm": 269.1,
+          "cold_day_frac": 0.571,
+          "tmean_c": -5.44,
+          "wet_days": 54,
+          "rain_risk_days": 6,
+          "days": 182
+        },
+        {
+          "season": 2020,
+          "snow_cm": 198.6,
+          "precip_mm": 286.0,
+          "cold_day_frac": 0.608,
+          "tmean_c": -5.98,
+          "wet_days": 54,
+          "rain_risk_days": 7,
+          "days": 181
+        },
+        {
+          "season": 2021,
+          "snow_cm": 202.0,
+          "precip_mm": 291.6,
+          "cold_day_frac": 0.497,
+          "tmean_c": -4.75,
+          "wet_days": 45,
+          "rain_risk_days": 9,
+          "days": 181
+        },
+        {
+          "season": 2022,
+          "snow_cm": 227.4,
+          "precip_mm": 325.3,
+          "cold_day_frac": 0.729,
+          "tmean_c": -7.55,
+          "wet_days": 55,
+          "rain_risk_days": 7,
+          "days": 181
+        },
+        {
+          "season": 2023,
+          "snow_cm": 214.5,
+          "precip_mm": 308.5,
+          "cold_day_frac": 0.566,
+          "tmean_c": -5.86,
+          "wet_days": 50,
+          "rain_risk_days": 4,
+          "days": 182
+        },
+        {
+          "season": 2024,
+          "snow_cm": 143.6,
+          "precip_mm": 209.6,
+          "cold_day_frac": 0.403,
+          "tmean_c": -5.68,
+          "wet_days": 41,
+          "rain_risk_days": 10,
+          "days": 181
+        }
+      ]
+    },
+    "wolf-creek": {
+      "name": "Wolf Creek",
+      "region_id": "southwest-rockies",
+      "sampled_elevation_m": 3383.0,
+      "seasons": [
+        {
+          "season": 1940,
+          "snow_cm": 279.0,
+          "precip_mm": 405.7,
+          "cold_day_frac": 0.851,
+          "tmean_c": -9.95,
+          "wet_days": 71,
+          "rain_risk_days": 2,
+          "days": 181
+        },
+        {
+          "season": 1941,
+          "snow_cm": 213.4,
+          "precip_mm": 318.8,
+          "cold_day_frac": 0.796,
+          "tmean_c": -10.78,
+          "wet_days": 56,
+          "rain_risk_days": 9,
+          "days": 181
+        },
+        {
+          "season": 1942,
+          "snow_cm": 173.5,
+          "precip_mm": 260.0,
+          "cold_day_frac": 0.646,
+          "tmean_c": -8.77,
+          "wet_days": 49,
+          "rain_risk_days": 6,
+          "days": 181
+        },
+        {
+          "season": 1943,
+          "snow_cm": 264.9,
+          "precip_mm": 381.9,
+          "cold_day_frac": 0.797,
+          "tmean_c": -10.34,
+          "wet_days": 65,
+          "rain_risk_days": 0,
+          "days": 182
+        },
+        {
+          "season": 1944,
+          "snow_cm": 249.9,
+          "precip_mm": 364.8,
+          "cold_day_frac": 0.845,
+          "tmean_c": -10.45,
+          "wet_days": 69,
+          "rain_risk_days": 3,
+          "days": 181
+        },
+        {
+          "season": 1945,
+          "snow_cm": 136.0,
+          "precip_mm": 214.9,
+          "cold_day_frac": 0.691,
+          "tmean_c": -10.43,
+          "wet_days": 44,
+          "rain_risk_days": 7,
+          "days": 181
+        },
+        {
+          "season": 1946,
+          "snow_cm": 218.9,
+          "precip_mm": 319.6,
+          "cold_day_frac": 0.84,
+          "tmean_c": -9.82,
+          "wet_days": 62,
+          "rain_risk_days": 5,
+          "days": 181
+        },
+        {
+          "season": 1947,
+          "snow_cm": 276.3,
+          "precip_mm": 402.2,
+          "cold_day_frac": 0.72,
+          "tmean_c": -9.98,
+          "wet_days": 67,
+          "rain_risk_days": 5,
+          "days": 182
+        },
+        {
+          "season": 1948,
+          "snow_cm": 320.6,
+          "precip_mm": 467.6,
+          "cold_day_frac": 0.641,
+          "tmean_c": -9.3,
+          "wet_days": 77,
+          "rain_risk_days": 7,
+          "days": 181
+        },
+        {
+          "season": 1949,
+          "snow_cm": 233.7,
+          "precip_mm": 339.9,
+          "cold_day_frac": 0.552,
+          "tmean_c": -7.77,
+          "wet_days": 51,
+          "rain_risk_days": 2,
+          "days": 181
+        },
+        {
+          "season": 1950,
+          "snow_cm": 219.6,
+          "precip_mm": 324.7,
+          "cold_day_frac": 0.519,
+          "tmean_c": -7.87,
+          "wet_days": 58,
+          "rain_risk_days": 7,
+          "days": 181
+        },
+        {
+          "season": 1951,
+          "snow_cm": 396.3,
+          "precip_mm": 584.1,
+          "cold_day_frac": 0.753,
+          "tmean_c": -9.82,
+          "wet_days": 74,
+          "rain_risk_days": 10,
+          "days": 182
+        },
+        {
+          "season": 1952,
+          "snow_cm": 203.3,
+          "precip_mm": 298.3,
+          "cold_day_frac": 0.635,
+          "tmean_c": -9.11,
+          "wet_days": 60,
+          "rain_risk_days": 10,
+          "days": 181
+        },
+        {
+          "season": 1953,
+          "snow_cm": 168.0,
+          "precip_mm": 250.8,
+          "cold_day_frac": 0.591,
+          "tmean_c": -7.68,
+          "wet_days": 43,
+          "rain_risk_days": 5,
+          "days": 181
+        },
+        {
+          "season": 1954,
+          "snow_cm": 168.8,
+          "precip_mm": 246.6,
+          "cold_day_frac": 0.624,
+          "tmean_c": -9.38,
+          "wet_days": 44,
+          "rain_risk_days": 3,
+          "days": 181
+        },
+        {
+          "season": 1955,
+          "snow_cm": 228.1,
+          "precip_mm": 331.3,
+          "cold_day_frac": 0.632,
+          "tmean_c": -8.12,
+          "wet_days": 60,
+          "rain_risk_days": 2,
+          "days": 182
+        },
+        {
+          "season": 1956,
+          "snow_cm": 314.1,
+          "precip_mm": 457.2,
+          "cold_day_frac": 0.691,
+          "tmean_c": -8.57,
+          "wet_days": 69,
+          "rain_risk_days": 2,
+          "days": 181
+        },
+        {
+          "season": 1957,
+          "snow_cm": 251.2,
+          "precip_mm": 365.2,
+          "cold_day_frac": 0.796,
+          "tmean_c": -9.0,
+          "wet_days": 60,
+          "rain_risk_days": 1,
+          "days": 181
+        },
+        {
+          "season": 1958,
+          "snow_cm": 188.5,
+          "precip_mm": 277.5,
+          "cold_day_frac": 0.541,
+          "tmean_c": -8.16,
+          "wet_days": 49,
+          "rain_risk_days": 2,
+          "days": 181
+        },
+        {
+          "season": 1959,
+          "snow_cm": 229.9,
+          "precip_mm": 337.4,
+          "cold_day_frac": 0.637,
+          "tmean_c": -8.66,
+          "wet_days": 51,
+          "rain_risk_days": 7,
+          "days": 182
+        },
+        {
+          "season": 1960,
+          "snow_cm": 253.3,
+          "precip_mm": 366.2,
+          "cold_day_frac": 0.674,
+          "tmean_c": -8.45,
+          "wet_days": 54,
+          "rain_risk_days": 1,
+          "days": 181
+        },
+        {
+          "season": 1961,
+          "snow_cm": 261.8,
+          "precip_mm": 384.3,
+          "cold_day_frac": 0.718,
+          "tmean_c": -8.78,
+          "wet_days": 68,
+          "rain_risk_days": 8,
+          "days": 181
+        },
+        {
+          "season": 1962,
+          "snow_cm": 207.1,
+          "precip_mm": 306.6,
+          "cold_day_frac": 0.519,
+          "tmean_c": -7.78,
+          "wet_days": 59,
+          "rain_risk_days": 13,
+          "days": 181
+        },
+        {
+          "season": 1963,
+          "snow_cm": 203.3,
+          "precip_mm": 295.8,
+          "cold_day_frac": 0.665,
+          "tmean_c": -10.18,
+          "wet_days": 57,
+          "rain_risk_days": 5,
+          "days": 182
+        },
+        {
+          "season": 1964,
+          "snow_cm": 381.6,
+          "precip_mm": 550.9,
+          "cold_day_frac": 0.796,
+          "tmean_c": -8.69,
+          "wet_days": 70,
+          "rain_risk_days": 2,
+          "days": 181
+        },
+        {
+          "season": 1965,
+          "snow_cm": 220.7,
+          "precip_mm": 329.5,
+          "cold_day_frac": 0.591,
+          "tmean_c": -8.02,
+          "wet_days": 42,
+          "rain_risk_days": 6,
+          "days": 181
+        },
+        {
+          "season": 1966,
+          "snow_cm": 220.4,
+          "precip_mm": 320.2,
+          "cold_day_frac": 0.602,
+          "tmean_c": -7.86,
+          "wet_days": 42,
+          "rain_risk_days": 7,
+          "days": 181
+        },
+        {
+          "season": 1967,
+          "snow_cm": 292.5,
+          "precip_mm": 425.3,
+          "cold_day_frac": 0.67,
+          "tmean_c": -7.91,
+          "wet_days": 68,
+          "rain_risk_days": 3,
+          "days": 182
+        },
+        {
+          "season": 1968,
+          "snow_cm": 230.9,
+          "precip_mm": 337.4,
+          "cold_day_frac": 0.68,
+          "tmean_c": -8.77,
+          "wet_days": 65,
+          "rain_risk_days": 8,
+          "days": 181
+        },
+        {
+          "season": 1969,
+          "snow_cm": 161.9,
+          "precip_mm": 235.0,
+          "cold_day_frac": 0.68,
+          "tmean_c": -9.02,
+          "wet_days": 52,
+          "rain_risk_days": 1,
+          "days": 181
+        },
+        {
+          "season": 1970,
+          "snow_cm": 177.4,
+          "precip_mm": 258.6,
+          "cold_day_frac": 0.608,
+          "tmean_c": -8.96,
+          "wet_days": 51,
+          "rain_risk_days": 3,
+          "days": 181
+        },
+        {
+          "season": 1971,
+          "snow_cm": 147.8,
+          "precip_mm": 215.8,
+          "cold_day_frac": 0.615,
+          "tmean_c": -7.99,
+          "wet_days": 40,
+          "rain_risk_days": 3,
+          "days": 182
+        },
+        {
+          "season": 1972,
+          "snow_cm": 301.2,
+          "precip_mm": 436.0,
+          "cold_day_frac": 0.856,
+          "tmean_c": -9.76,
+          "wet_days": 71,
+          "rain_risk_days": 4,
+          "days": 181
+        },
+        {
+          "season": 1973,
+          "snow_cm": 212.7,
+          "precip_mm": 314.7,
+          "cold_day_frac": 0.63,
+          "tmean_c": -8.37,
+          "wet_days": 61,
+          "rain_risk_days": 7,
+          "days": 181
+        },
+        {
+          "season": 1974,
+          "snow_cm": 299.2,
+          "precip_mm": 429.7,
+          "cold_day_frac": 0.818,
+          "tmean_c": -10.02,
+          "wet_days": 68,
+          "rain_risk_days": 3,
+          "days": 181
+        },
+        {
+          "season": 1975,
+          "snow_cm": 272.7,
+          "precip_mm": 399.3,
+          "cold_day_frac": 0.626,
+          "tmean_c": -8.16,
+          "wet_days": 50,
+          "rain_risk_days": 5,
+          "days": 182
+        },
+        {
+          "season": 1976,
+          "snow_cm": 130.0,
+          "precip_mm": 208.2,
+          "cold_day_frac": 0.541,
+          "tmean_c": -8.54,
+          "wet_days": 54,
+          "rain_risk_days": 14,
+          "days": 181
+        },
+        {
+          "season": 1977,
+          "snow_cm": 203.0,
+          "precip_mm": 312.1,
+          "cold_day_frac": 0.619,
+          "tmean_c": -7.57,
+          "wet_days": 66,
+          "rain_risk_days": 12,
+          "days": 181
+        },
+        {
+          "season": 1978,
+          "snow_cm": 396.8,
+          "precip_mm": 560.7,
+          "cold_day_frac": 0.751,
+          "tmean_c": -8.9,
+          "wet_days": 63,
+          "rain_risk_days": 4,
+          "days": 181
+        },
+        {
+          "season": 1979,
+          "snow_cm": 341.9,
+          "precip_mm": 473.6,
+          "cold_day_frac": 0.72,
+          "tmean_c": -8.2,
+          "wet_days": 71,
+          "rain_risk_days": 4,
+          "days": 182
+        },
+        {
+          "season": 1980,
+          "snow_cm": 154.5,
+          "precip_mm": 218.9,
+          "cold_day_frac": 0.436,
+          "tmean_c": -6.36,
+          "wet_days": 43,
+          "rain_risk_days": 5,
+          "days": 181
+        },
+        {
+          "season": 1981,
+          "snow_cm": 296.9,
+          "precip_mm": 416.8,
+          "cold_day_frac": 0.58,
+          "tmean_c": -7.69,
+          "wet_days": 64,
+          "rain_risk_days": 7,
+          "days": 181
+        },
+        {
+          "season": 1982,
+          "snow_cm": 269.5,
+          "precip_mm": 362.4,
+          "cold_day_frac": 0.785,
+          "tmean_c": -8.33,
+          "wet_days": 67,
+          "rain_risk_days": 1,
+          "days": 181
+        },
+        {
+          "season": 1983,
+          "snow_cm": 326.5,
+          "precip_mm": 449.2,
+          "cold_day_frac": 0.709,
+          "tmean_c": -8.45,
+          "wet_days": 68,
+          "rain_risk_days": 7,
+          "days": 182
+        },
+        {
+          "season": 1984,
+          "snow_cm": 376.3,
+          "precip_mm": 521.6,
+          "cold_day_frac": 0.696,
+          "tmean_c": -8.06,
+          "wet_days": 67,
+          "rain_risk_days": 6,
+          "days": 181
+        },
+        {
+          "season": 1985,
+          "snow_cm": 341.2,
+          "precip_mm": 477.9,
+          "cold_day_frac": 0.58,
+          "tmean_c": -6.6,
+          "wet_days": 58,
+          "rain_risk_days": 4,
+          "days": 181
+        },
+        {
+          "season": 1986,
+          "snow_cm": 292.3,
+          "precip_mm": 410.4,
+          "cold_day_frac": 0.68,
+          "tmean_c": -7.77,
+          "wet_days": 62,
+          "rain_risk_days": 6,
+          "days": 181
+        },
+        {
+          "season": 1987,
+          "snow_cm": 223.6,
+          "precip_mm": 315.4,
+          "cold_day_frac": 0.643,
+          "tmean_c": -8.37,
+          "wet_days": 48,
+          "rain_risk_days": 7,
+          "days": 182
+        },
+        {
+          "season": 1988,
+          "snow_cm": 257.5,
+          "precip_mm": 358.3,
+          "cold_day_frac": 0.558,
+          "tmean_c": -7.18,
+          "wet_days": 51,
+          "rain_risk_days": 7,
+          "days": 181
+        },
+        {
+          "season": 1989,
+          "snow_cm": 214.4,
+          "precip_mm": 315.1,
+          "cold_day_frac": 0.464,
+          "tmean_c": -6.97,
+          "wet_days": 58,
+          "rain_risk_days": 12,
+          "days": 181
+        },
+        {
+          "season": 1990,
+          "snow_cm": 287.9,
+          "precip_mm": 397.7,
+          "cold_day_frac": 0.663,
+          "tmean_c": -8.69,
+          "wet_days": 54,
+          "rain_risk_days": 3,
+          "days": 181
+        },
+        {
+          "season": 1991,
+          "snow_cm": 220.3,
+          "precip_mm": 309.7,
+          "cold_day_frac": 0.637,
+          "tmean_c": -7.01,
+          "wet_days": 55,
+          "rain_risk_days": 8,
+          "days": 182
+        },
+        {
+          "season": 1992,
+          "snow_cm": 318.8,
+          "precip_mm": 435.6,
+          "cold_day_frac": 0.724,
+          "tmean_c": -8.25,
+          "wet_days": 58,
+          "rain_risk_days": 3,
+          "days": 181
+        },
+        {
+          "season": 1993,
+          "snow_cm": 249.6,
+          "precip_mm": 346.8,
+          "cold_day_frac": 0.674,
+          "tmean_c": -8.34,
+          "wet_days": 53,
+          "rain_risk_days": 8,
+          "days": 181
+        },
+        {
+          "season": 1994,
+          "snow_cm": 325.0,
+          "precip_mm": 454.4,
+          "cold_day_frac": 0.669,
+          "tmean_c": -7.51,
+          "wet_days": 60,
+          "rain_risk_days": 5,
+          "days": 181
+        },
+        {
+          "season": 1995,
+          "snow_cm": 155.1,
+          "precip_mm": 225.7,
+          "cold_day_frac": 0.434,
+          "tmean_c": -6.63,
+          "wet_days": 43,
+          "rain_risk_days": 3,
+          "days": 182
+        },
+        {
+          "season": 1996,
+          "snow_cm": 261.0,
+          "precip_mm": 372.5,
+          "cold_day_frac": 0.641,
+          "tmean_c": -7.8,
+          "wet_days": 59,
+          "rain_risk_days": 7,
+          "days": 181
+        },
+        {
+          "season": 1997,
+          "snow_cm": 202.7,
+          "precip_mm": 266.9,
+          "cold_day_frac": 0.746,
+          "tmean_c": -8.83,
+          "wet_days": 59,
+          "rain_risk_days": 3,
+          "days": 181
+        },
+        {
+          "season": 1998,
+          "snow_cm": 229.1,
+          "precip_mm": 329.6,
+          "cold_day_frac": 0.63,
+          "tmean_c": -7.23,
+          "wet_days": 43,
+          "rain_risk_days": 9,
+          "days": 181
+        },
+        {
+          "season": 1999,
+          "snow_cm": 160.4,
+          "precip_mm": 221.0,
+          "cold_day_frac": 0.456,
+          "tmean_c": -6.26,
+          "wet_days": 47,
+          "rain_risk_days": 10,
+          "days": 182
+        },
+        {
+          "season": 2000,
+          "snow_cm": 249.4,
+          "precip_mm": 350.1,
+          "cold_day_frac": 0.746,
+          "tmean_c": -8.52,
+          "wet_days": 53,
+          "rain_risk_days": 7,
+          "days": 181
+        },
+        {
+          "season": 2001,
+          "snow_cm": 104.6,
+          "precip_mm": 142.6,
+          "cold_day_frac": 0.586,
+          "tmean_c": -7.91,
+          "wet_days": 36,
+          "rain_risk_days": 9,
+          "days": 181
+        },
+        {
+          "season": 2002,
+          "snow_cm": 156.0,
+          "precip_mm": 212.8,
+          "cold_day_frac": 0.635,
+          "tmean_c": -7.76,
+          "wet_days": 39,
+          "rain_risk_days": 4,
+          "days": 181
+        },
+        {
+          "season": 2003,
+          "snow_cm": 270.6,
+          "precip_mm": 390.4,
+          "cold_day_frac": 0.632,
+          "tmean_c": -7.6,
+          "wet_days": 64,
+          "rain_risk_days": 10,
+          "days": 182
+        },
+        {
+          "season": 2004,
+          "snow_cm": 305.8,
+          "precip_mm": 420.4,
+          "cold_day_frac": 0.657,
+          "tmean_c": -7.32,
+          "wet_days": 68,
+          "rain_risk_days": 4,
+          "days": 181
+        },
+        {
+          "season": 2005,
+          "snow_cm": 183.8,
+          "precip_mm": 257.4,
+          "cold_day_frac": 0.492,
+          "tmean_c": -7.45,
+          "wet_days": 38,
+          "rain_risk_days": 6,
+          "days": 181
+        },
+        {
+          "season": 2006,
+          "snow_cm": 181.0,
+          "precip_mm": 260.6,
+          "cold_day_frac": 0.514,
+          "tmean_c": -7.03,
+          "wet_days": 49,
+          "rain_risk_days": 9,
+          "days": 181
+        },
+        {
+          "season": 2007,
+          "snow_cm": 302.7,
+          "precip_mm": 415.7,
+          "cold_day_frac": 0.643,
+          "tmean_c": -8.02,
+          "wet_days": 52,
+          "rain_risk_days": 2,
+          "days": 182
+        },
+        {
+          "season": 2008,
+          "snow_cm": 280.4,
+          "precip_mm": 388.3,
+          "cold_day_frac": 0.541,
+          "tmean_c": -7.09,
+          "wet_days": 51,
+          "rain_risk_days": 3,
+          "days": 181
+        },
+        {
+          "season": 2009,
+          "snow_cm": 254.7,
+          "precip_mm": 359.2,
+          "cold_day_frac": 0.68,
+          "tmean_c": -8.19,
+          "wet_days": 49,
+          "rain_risk_days": 6,
+          "days": 181
+        },
+        {
+          "season": 2010,
+          "snow_cm": 215.0,
+          "precip_mm": 294.4,
+          "cold_day_frac": 0.552,
+          "tmean_c": -7.78,
+          "wet_days": 47,
+          "rain_risk_days": 5,
+          "days": 181
+        },
+        {
+          "season": 2011,
+          "snow_cm": 161.8,
+          "precip_mm": 220.6,
+          "cold_day_frac": 0.593,
+          "tmean_c": -7.55,
+          "wet_days": 42,
+          "rain_risk_days": 6,
+          "days": 182
+        },
+        {
+          "season": 2012,
+          "snow_cm": 174.6,
+          "precip_mm": 245.2,
+          "cold_day_frac": 0.536,
+          "tmean_c": -8.15,
+          "wet_days": 44,
+          "rain_risk_days": 10,
+          "days": 181
+        },
+        {
+          "season": 2013,
+          "snow_cm": 188.5,
+          "precip_mm": 257.7,
+          "cold_day_frac": 0.646,
+          "tmean_c": -7.7,
+          "wet_days": 40,
+          "rain_risk_days": 3,
+          "days": 181
+        },
+        {
+          "season": 2014,
+          "snow_cm": 202.2,
+          "precip_mm": 287.1,
+          "cold_day_frac": 0.425,
+          "tmean_c": -6.22,
+          "wet_days": 44,
+          "rain_risk_days": 9,
+          "days": 181
+        },
+        {
+          "season": 2015,
+          "snow_cm": 260.9,
+          "precip_mm": 366.5,
+          "cold_day_frac": 0.571,
+          "tmean_c": -7.56,
+          "wet_days": 55,
+          "rain_risk_days": 9,
+          "days": 182
+        },
+        {
+          "season": 2016,
+          "snow_cm": 417.9,
+          "precip_mm": 605.7,
+          "cold_day_frac": 0.552,
+          "tmean_c": -6.08,
+          "wet_days": 71,
+          "rain_risk_days": 8,
+          "days": 181
+        },
+        {
+          "season": 2017,
+          "snow_cm": 246.6,
+          "precip_mm": 359.8,
+          "cold_day_frac": 0.448,
+          "tmean_c": -6.13,
+          "wet_days": 41,
+          "rain_risk_days": 8,
+          "days": 181
+        },
+        {
+          "season": 2018,
+          "snow_cm": 438.3,
+          "precip_mm": 629.4,
+          "cold_day_frac": 0.757,
+          "tmean_c": -7.92,
+          "wet_days": 75,
+          "rain_risk_days": 6,
+          "days": 181
+        },
+        {
+          "season": 2019,
+          "snow_cm": 291.8,
+          "precip_mm": 416.9,
+          "cold_day_frac": 0.659,
+          "tmean_c": -7.03,
+          "wet_days": 62,
+          "rain_risk_days": 4,
+          "days": 182
+        },
+        {
+          "season": 2020,
+          "snow_cm": 303.9,
+          "precip_mm": 434.5,
+          "cold_day_frac": 0.652,
+          "tmean_c": -7.32,
+          "wet_days": 54,
+          "rain_risk_days": 5,
+          "days": 181
+        },
+        {
+          "season": 2021,
+          "snow_cm": 351.0,
+          "precip_mm": 501.8,
+          "cold_day_frac": 0.53,
+          "tmean_c": -6.36,
+          "wet_days": 49,
+          "rain_risk_days": 2,
+          "days": 181
+        },
+        {
+          "season": 2022,
+          "snow_cm": 472.0,
+          "precip_mm": 674.8,
+          "cold_day_frac": 0.807,
+          "tmean_c": -8.94,
+          "wet_days": 77,
+          "rain_risk_days": 4,
+          "days": 181
+        },
+        {
+          "season": 2023,
+          "snow_cm": 276.8,
+          "precip_mm": 399.3,
+          "cold_day_frac": 0.599,
+          "tmean_c": -7.47,
+          "wet_days": 59,
+          "rain_risk_days": 3,
+          "days": 182
+        },
+        {
+          "season": 2024,
+          "snow_cm": 196.2,
+          "precip_mm": 282.2,
+          "cold_day_frac": 0.475,
+          "tmean_c": -7.65,
+          "wet_days": 43,
+          "rain_risk_days": 6,
+          "days": 181
+        }
+      ]
     }
   }
 }
