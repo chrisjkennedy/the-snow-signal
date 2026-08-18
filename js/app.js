@@ -626,16 +626,19 @@ function historyStripHtml(resort) {
   if (c.era5) {
     const e = c.era5;
     if (e.cold_day_frac !== null && e.cold_day_frac !== undefined) {
-      bits.push(`<span class="hist-item"><span class="hist-label">below freezing</span>${Math.round(e.cold_day_frac * 100)}% of season days</span>`);
+      bits.push(`<span class="hist-item" title="Share of core-season days when the temperature at mid-mountain stayed at or below freezing, averaged over 10 seasons of ERA5 reanalysis. This is the rain-line risk measure: a low number means the resort often sees days warm enough to rain rather than snow, which is what ruins cover.">` +
+        `<span class="hist-label">below freezing</span>${Math.round(e.cold_day_frac * 100)}% of season days</span>`);
     }
     if (e.cv !== null && e.cv !== undefined) {
       const consistency = e.cv < 0.25 ? 'very consistent' : e.cv < 0.4 ? 'moderate swing' : 'boom-or-bust';
-      bits.push(`<span class="hist-item"><span class="hist-label">year-to-year</span>${consistency} (cv ${e.cv.toFixed(2)})</span>`);
+      bits.push(`<span class="hist-item" title="Coefficient of variation in seasonal snowfall across 10 seasons: the standard deviation divided by the mean. Below 0.25 the resort is a metronome and you can book ahead with confidence; above 0.4 it is boom-or-bust and a given season is a genuine gamble. Australia sits near 0.5, Japan near 0.2.">` +
+        `<span class="hist-label">year-to-year</span>${consistency} (cv ${e.cv.toFixed(2)})</span>`);
     }
   }
   if (c.station?.median_peak_swe_in) {
     const st = c.station;
-    bits.push(`<span class="hist-item"><span class="hist-label">typical peak snowpack</span>${st.median_peak_swe_in}" SWE around ${st.median_peak_date}${st.record_begins ? `, since ${st.record_begins}` : ''}</span>`);
+    bits.push(`<span class="hist-item" title="NRCS median peak snow water equivalent at the nearest SNOTEL or snow-course station, and the date it typically peaks. SWE is the depth of water the snowpack holds, not snow depth — roughly a tenth to a fifth of it. This is measured ground truth from decades of record, unlike the reanalysis figures above.">` +
+      `<span class="hist-label">typical peak snowpack</span>${st.median_peak_swe_in}" SWE around ${st.median_peak_date}${st.record_begins ? `, since ${st.record_begins}` : ''}</span>`);
   }
   if (!bits.length) return '';
   return `<div class="history-strip">${bits.join('')}</div>`;
@@ -643,10 +646,13 @@ function historyStripHtml(resort) {
 
 function resortRowSkeleton(resort, affiliates, score, rank) {
   const passesHtml = resort.passes.map(p => {
-    const confBadge = resort.pass_confidence === 'verify'
-      ? `<a class="pass-confidence" href="https://www.epicpass.com" target="_blank" rel="noopener" title="Pass rosters change season to season — verify before booking">verify</a>`
-      : '';
-    return `<span class="pass-badge ${passBadgeClass(p)}">${p}</span>${confBadge}`;
+    const known = resort.pass_confidence !== 'verify';
+    const tip = known
+      ? `Covered by ${p}. Verified against the 2025-26 roster. Multi-resort passes usually work out cheaper than day tickets from about four or five days of skiing.`
+      : `Listed as ${p}, but not confirmed against the current roster. Pass line-ups change every season — check the official pass site before buying anything on the strength of this.`;
+    const confBadge = known ? ''
+      : `<span class="pass-confidence" title="${tip.replace(/"/g, '&quot;')}">unverified</span>`;
+    return `<span class="pass-badge ${passBadgeClass(p)}" title="${tip.replace(/"/g, '&quot;')}">${p}</span>${confBadge}`;
   }).join(' ');
 
   const affiliateLinks = affiliates ? `
@@ -676,10 +682,10 @@ function resortRowSkeleton(resort, affiliates, score, rank) {
           <span class="resort-rank">${rank ? `${rank}.` : ''}</span>
           ${scoreChipHtml(score)}
           <span class="resort-name">${resort.name}</span>
-          <span class="resort-elev">${resort.base_elev_ft.toLocaleString()}–${resort.summit_elev_ft.toLocaleString()} ft</span>
+          ${passesHtml}
+          <span class="resort-elev" title="Base elevation to summit elevation. The gap between them is the vertical drop, which is what determines how much sustained descent the mountain offers.">${resort.base_elev_ft.toLocaleString()}–${resort.summit_elev_ft.toLocaleString()} ft</span>
           ${liftPriceChipHtml(resort.id)}
         </div>
-        <div>${passesHtml}</div>
       </div>
       ${microclimateHtml}
       ${historyStripHtml(resort)}
@@ -777,8 +783,8 @@ function renderRegionCard(region, rank, phaseKey, affiliates, signals, scenarioI
           </div>
         </div>
         <div class="r-head-right">
-          <span class="signal-badge ${SIGNAL_CLASS[s.signal]}">${s.signal_label}</span>
-          <div class="r-meter-row">
+          <span class="signal-badge ${SIGNAL_CLASS[s.signal]}" title="This region's outlook under the climate signal currently driving it (${DRIVER_LABEL[s.driver] || 'ENSO'}). Bullish means the historical pattern favours above-average snow in this phase, bearish below-average. It is a tilt on the odds across many seasons, not a prediction about this one.">${s.signal_label}</span>
+          <div class="r-meter-row" title="Expected snowfall relative to this region's own long-run average, given the current signal. The midpoint is an average season; further right is better. Year-to-year variability within a single phase is large, so treat this as shifting the odds rather than setting an outcome.">
             <div class="r-meter"><div class="r-meter-fill ${METER_CLASS[s.signal]}" style="width:${meterPct}%"></div></div>
             <span class="r-meter-pct">${s.meter_display}</span>
           </div>
@@ -792,8 +798,9 @@ function renderRegionCard(region, rank, phaseKey, affiliates, signals, scenarioI
   `;
 }
 
-function statSpan(label, value, cls) {
-  return `<span class="live-stat"><span class="stat-label">${label}</span><span class="stat-val ${cls || ''}">${value}</span></span>`;
+function statSpan(label, value, cls, tip) {
+  const t = tip ? ` title="${tip.replace(/"/g, '&quot;')}"` : '';
+  return `<span class="live-stat"${t}><span class="stat-label">${label}</span><span class="stat-val ${cls || ''}">${value}</span></span>`;
 }
 
 /** Season-to-date SWE vs. the historical median, as a small inline sparkline. */
@@ -847,12 +854,13 @@ async function hydrateResortLiveData(resort) {
   let snowpackHtml;
   let chartCls = 'neutral';
   if (!triplet) {
-    snowpackHtml = `<span class="live-stat"><span class="stat-label">snowpack</span><span class="no-data">no nearby station</span></span>`;
+    snowpackHtml = `<span class="live-stat" title="No NRCS SNOTEL or snow-course station within a representative distance. That network covers the western US and parts of Canada only, so resorts elsewhere rely on the forecast panel and the resort's own snow report instead."><span class="stat-label">snowpack</span><span class="no-data">no nearby station</span></span>`;
   } else if (!snowpack || snowpack.pctOfMedian === null) {
-    snowpackHtml = `<span class="live-stat"><span class="stat-label">snowpack</span><span class="no-data">preseason / no data</span></span>`;
+    snowpackHtml = `<span class="live-stat" title="The station reports no meaningful snowpack right now, which is normal outside the season, or has not reported recently. Manual snow courses are only read periodically rather than daily."><span class="stat-label">snowpack</span><span class="no-data">preseason / no data</span></span>`;
   } else {
     chartCls = snowpack.pctOfMedian >= 100 ? 'pos' : snowpack.pctOfMedian >= 80 ? 'neutral' : 'neg';
-    snowpackHtml = statSpan('snowpack', `${snowpack.pctOfMedian}% of median (${snowpack.sweIn}" SWE, ${snowpack.date})`, chartCls);
+    snowpackHtml = statSpan('snowpack', `${snowpack.pctOfMedian}% of median (${snowpack.sweIn}" SWE, ${snowpack.date})`, chartCls,
+      'Live snowpack at the nearest NRCS station, as a percentage of the long-term median for this same date. 100% is a normal year to date. SWE is snow water equivalent, the water the pack holds, not snow depth. Updated daily.');
   }
 
   let forecastHtml;
@@ -860,7 +868,8 @@ async function hydrateResortLiveData(resort) {
     forecastHtml = `<span class="live-stat"><span class="stat-label">7-day forecast</span><span class="no-data">unavailable</span></span>`;
   } else {
     const cls = forecast.totalSnowIn >= 12 ? 'pos' : forecast.totalSnowIn >= 3 ? 'neutral' : 'neg';
-    forecastHtml = statSpan('7-day forecast', `${forecast.totalSnowIn}" snow · high ${Math.round(forecast.todayHighF)}°F`, cls);
+    forecastHtml = statSpan('7-day forecast', `${forecast.totalSnowIn}" snow · high ${Math.round(forecast.todayHighF)}°F`, cls,
+      'Total forecast snowfall over the next seven days at the resort coordinates, plus today\'s high temperature, from Open-Meteo. This is a live weather forecast, not a climate signal — it says nothing about the rest of the season.');
   }
 
   const data = {

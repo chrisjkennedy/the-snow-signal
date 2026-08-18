@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026-27 Ski Season Outlook — El Niño Climate Analysis</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #0C2340;
+    --blue: #1A4B7A;
+    --blue-mid: #2E6CA8;
+    --ice: #E8F3FC;
+    --snow: #F7FAFD;
+    --gold: #C4880A;
+    --gold-light: #FFF3D4;
+    --green: #1A6B3C;
+    --green-light: #D8F0E4;
+    --red: #8C1A1A;
+    --red-light: #FDE8E8;
+    --amber: #7A4800;
+    --amber-light: #FFF0CC;
+    --text: #0F1F30;
+    --muted: #5A6E82;
+    --border: rgba(12, 35, 64, 0.12);
+  }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--navy);
+    color: var(--text);
+    min-height: 100vh;
+  }
+
+  .page-wrap {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 24px 60px;
+  }
+
+  /* HERO */
+  .hero {
+    background: var(--navy);
+    padding: 56px 24px 44px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 520px; height: 100%;
+    background: radial-gradient(ellipse at top right, rgba(46,108,168,0.22) 0%, transparent 68%);
+    pointer-events: none;
+  }
+  .hero-inner { max-width: 1140px; margin: 0 auto; position: relative; }
+  .hero-kicker {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #6DAEDD;
+    margin-bottom: 16px;
+  }
+  .hero-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(36px, 5vw, 60px);
+    line-height: 1.08;
+    color: #fff;
+    margin-bottom: 10px;
+    max-width: 680px;
+  }
+  .hero-title em { font-style: italic; color: #6DAEDD; }
+  .hero-sub {
+    font-size: 16px;
+    color: rgba(255,255,255,0.52);
+    font-weight: 300;
+    max-width: 560px;
+    line-height: 1.65;
+    margin-bottom: 36px;
+  }
+  .hero-meta { display: flex; gap: 24px; flex-wrap: wrap; }
+  .meta-chip { display: flex; align-items: center; gap: 8px; font-size: 13px; color: rgba(255,255,255,0.65); }
+  .meta-chip .dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+  .dot-green { background: #4ADE80; }
+  .dot-amber { background: #FCD34D; }
+  .dot-red   { background: #F87171; }
+  .meta-val  { font-weight: 500; color: #fff; }
+
+  /* SIGNAL BAR */
+  .signal-bar { background: var(--blue); padding: 14px 24px; }
+  .signal-bar-inner {
+    max-width: 1140px; margin: 0 auto;
+    display: flex; gap: 10px; align-items: center; flex-wrap: wrap;
+  }
+  .signal-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px; letter-spacing: 0.1em; color: rgba(255,255,255,0.45);
+    text-transform: uppercase; flex-shrink: 0; margin-right: 4px;
+  }
+  .signal-pill {
+    font-size: 11.5px; font-weight: 500; padding: 3px 11px;
+    border-radius: 20px; white-space: nowrap;
+  }
+  .sp-blue   { background: rgba(109,174,221,0.18); color: #6DAEDD; border: 1px solid rgba(109,174,221,0.28); }
+  .sp-amber  { background: rgba(196,136,10,0.22);  color: #FCD34D; border: 1px solid rgba(196,136,10,0.28); }
+  .sp-red    { background: rgba(248,113,113,0.14); color: #F87171; border: 1px solid rgba(248,113,113,0.18); }
+
+  /* MAIN */
+  .content { padding-top: 30px; }
+
+  .section-head {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px; font-weight: 500; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--blue-mid);
+    margin-bottom: 14px; padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* CONTEXT STRIP */
+  .context-strip {
+    background: var(--snow); border: 1px solid var(--border);
+    border-radius: 10px; padding: 20px 24px; margin-bottom: 30px;
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;
+  }
+  .ctx-label { font-size: 11px; font-weight: 500; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 4px; }
+  .ctx-val   { font-size: 13.5px; color: var(--text); line-height: 1.5; }
+  .ctx-val strong { font-weight: 500; color: var(--navy); }
+
+  /* CARDS */
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+    gap: 13px; margin-bottom: 36px;
+  }
+  .r-card {
+    background: #fff; border: 1px solid var(--border);
+    border-radius: 12px; overflow: hidden;
+    transition: box-shadow 0.18s, transform 0.18s;
+  }
+  .r-card:hover { box-shadow: 0 4px 22px rgba(12,35,64,0.1); transform: translateY(-1px); }
+
+  .r-card-head {
+    padding: 13px 15px 11px; border-bottom: 1px solid var(--border);
+    display: flex; justify-content: space-between; align-items: flex-start; gap: 8px;
+  }
+  .r-region  { font-size: 14.5px; font-weight: 500; color: var(--navy); line-height: 1.3; }
+  .r-examples{ font-size: 11px; color: var(--muted); margin-top: 2px; }
+
+  .signal-badge {
+    font-size: 10px; font-weight: 500; padding: 3px 9px;
+    border-radius: 20px; white-space: nowrap; flex-shrink: 0; letter-spacing: 0.03em;
+  }
+  .sb-bull  { background: var(--green-light); color: var(--green); }
+  .sb-bear  { background: var(--red-light);   color: var(--red); }
+  .sb-mixed { background: var(--amber-light); color: var(--amber); }
+
+  .r-card-body { padding: 13px 15px; }
+
+  .r-meter-row { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+  .r-meter-label { font-size: 10px; color: var(--muted); font-family: 'JetBrains Mono', monospace; width: 52px; flex-shrink: 0; line-height: 1.3; }
+  .r-meter { flex: 1; height: 5px; background: #EDF2F7; border-radius: 3px; overflow: hidden; }
+  .r-meter-fill { height: 100%; border-radius: 3px; }
+  .mf-bull  { background: #22C55E; }
+  .mf-bear  { background: #EF4444; }
+  .mf-mixed { background: #F59E0B; }
+  .r-meter-pct { font-size: 10px; color: var(--muted); font-family: 'JetBrains Mono', monospace; width: 84px; text-align: right; flex-shrink: 0; }
+
+  .r-detail { font-size: 12.5px; color: #2D4255; line-height: 1.65; margin-bottom: 10px; }
+
+  .r-caveat {
+    display: flex; gap: 7px; align-items: flex-start;
+    background: var(--snow); border-radius: 6px;
+    padding: 7px 10px; font-size: 11.5px; color: var(--muted); line-height: 1.5;
+  }
+  .r-caveat-icon { color: var(--gold); flex-shrink: 0; margin-top: 1px; font-size: 13px; }
+
+  /* WILDCARD BOX */
+  .wildcard-box {
+    background: linear-gradient(135deg, #0C2340 0%, #1A4B7A 100%);
+    border-radius: 12px; padding: 24px 28px; margin-bottom: 36px; color: #fff;
+  }
+  .wc-head  { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: #6DAEDD; margin-bottom: 10px; }
+  .wc-title { font-family: 'DM Serif Display', serif; font-size: 22px; color: #fff; margin-bottom: 14px; }
+  .wc-grid  { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 16px; margin-top: 16px; }
+  .wc-item  { border-left: 2px solid rgba(109,174,221,0.38); padding-left: 12px; }
+  .wc-item-label { font-size: 11px; font-weight: 500; color: #6DAEDD; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.06em; }
+  .wc-item-text  { font-size: 12.5px; color: rgba(255,255,255,0.68); line-height: 1.55; }
+
+  /* FOOTER */
+  .doc-footer {
+    margin-top: 20px; padding-top: 18px;
+    border-top: 1px solid var(--border);
+    font-size: 11px; color: var(--muted); line-height: 1.6;
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-inner">
+    <p class="hero-kicker">2026–27 Ski Season Outlook // El Niño Transition Analysis</p>
+    <h1 class="hero-title">The Jet Stream Is<br><em>Moving South</em></h1>
+    <p class="hero-sub">A developing El Niño will rotate the global distribution of snowfall. A probabilistic framework for where to ski — and where to avoid — next winter.</p>
+    <div class="hero-meta">
+      <div class="meta-chip"><span class="dot dot-green"></span>Base case: <span class="meta-val">&nbsp;Moderate El Niño</span></div>
+      <div class="meta-chip"><span class="dot dot-amber"></span>Probability: <span class="meta-val">&nbsp;88–94% El Niño through end of 2026</span></div>
+      <div class="meta-chip"><span class="dot dot-red"></span>Tail risk: <span class="meta-val">&nbsp;Super El Niño (~25%)</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="signal-bar">
+  <div class="signal-bar-inner">
+    <span class="signal-label">Current signals →</span>
+    <span class="signal-pill sp-blue">ENSO-Neutral → El Niño Transition</span>
+    <span class="signal-pill sp-amber">Spring Predictability Barrier Active</span>
+    <span class="signal-pill sp-blue">CPC El Niño Watch Issued</span>
+    <span class="signal-pill sp-red">Arctic Sea Ice Near Record Lows</span>
+    <span class="signal-pill sp-amber">ECMWF: Strong Event Possible</span>
+  </div>
+</div>
+
+<div class="page-wrap">
+  <div class="content">
+
+    <div class="context-strip" style="margin-top:30px;">
+      <div>
+        <div class="ctx-label">ENSO Status</div>
+        <div class="ctx-val"><strong>Neutral → El Niño</strong> transition underway. La Niña officially ended April 2026.</div>
+      </div>
+      <div>
+        <div class="ctx-label">Key Mechanism</div>
+        <div class="ctx-val">Southward jet stream shift routes Pacific storms toward <strong>CA, SW Rockies</strong> and away from <strong>PNW, Canadian Rockies</strong>.</div>
+      </div>
+      <div>
+        <div class="ctx-label">Confidence Window</div>
+        <div class="ctx-val">Directional thesis now. Intensity readable <strong>July–August 2026</strong> once spring predictability barrier clears.</div>
+      </div>
+      <div>
+        <div class="ctx-label">Season Context</div>
+        <div class="ctx-val">2025-26 La Niña left Utah at record-low snowpack. Year-over-year improvement likely regardless of ENSO strength.</div>
+      </div>
+    </div>
+
+    <!-- NORTH AMERICA -->
+    <p class="section-head">North America</p>
+    <div class="cards-grid">
+
+      <div class="r-card">
+        <div class="r-card-head">
+          <div><div class="r-region">Sierra Nevada / California</div><div class="r-examples">Mammoth, Palisades Tahoe, Big Bear</div></div>
+          <span class="signal-badge sb-bull">Bullish</span>
+        </div>
+        <div class="r-card-body">
+          <div class="r-meter-row">
+            <span class="r-meter-label">Snow vs avg</span>
+            <div class="r-meter"><div class="r-meter-fill mf-bull" style="width:80%"></div></div>
+            <span class="r-meter-pct">+15–25%</span>
+          </div>
+          <p class="r-detail">El Niño's subtropical jet targets California's coast with unusual persistence. High-elevation Mammoth (11,053 ft summit) consistently outperforms — it sits above the rain-snow phase-change zone, a critical distinction when the airmass is warmer than normal.</p>
+          <div class="r-caveat"><span class="r-caveat-icon">⚠</span>Snow level is the key variable. A storm delivering 2 ft of water may produce rain at 7,000 ft and powder above 9,000 ft. Always check the forecast freezing level.</div>
+        </div>
+      </div>
+
+      <div class="r-card">
+        <div class="r-card-head">
+          <div><div class="r-region">Southwest / Southern Rockies</div><div class="r-examples">Taos, Wolf Creek, Telluride, San Juans</div></div>
+          <span class="signal-badge sb-bull">Bullish</span>
+        </div>
+        <div class="r-card-body">
+          <div class="r-meter-row">
+            <span class="r-meter-label">Snow vs avg</span>
+            <div class="r-meter"><div class="r-meter-fill mf-bull" style="width:72%"></div></div>
+            <span class="r-meter-pct">+10–20%</span>
+          </div>
+          <p class="r-detail">The southern jet corridor rewards this region most consistently in El Niño years. High base elevations mean the warmer airmass still falls as snow. Taos is one of the very few major destinations where El Niño is a documented, reliable positive signal.</p>
+          <div class="r-caveat"><span class="r-caveat-icon">⚠</span>A Super El Niño (~25% probability) amplifies this signal materially — Wolf Creek and the San Juans could see exceptional seasons.</div>
+        </div>
+      </div>
+
+      <div class="r-card">
+        <div class="r-card-head">
+          <div><div class="r-region">Utah / Central Colorado</div><div class="r-examples">Alta, Snowbird, Park City, Breckenridge, Vail</div></div>
+          <span class="signal-badge sb-mixed">Mixed</span>
+        </div>
+        <div class="r-card-body">
+          <div class="r-meter-row">
+            <span class="r-meter-label">Snow vs avg</span>
+            <div class="r-meter"><div class="r-meter-fill mf-mixed" style="width:50%"></div></div>
+            <span class="r-meter-pct">Near average</span>
+          </div>
+          <p class="r-detail">ENSO has minimal predictive power here — the correlation is statistically negligible across 50+ seasons. Utah hit record-low snowpack in 2025-26; year-over-year improvement is likely regardless. Do not credit El Niño for it.</p>
+          <div class="r-caveat"><span class="r-caveat-icon">⚠</span>The popular narrative that El Niño reliably helps the Rockies is largely the 1982-83 halo effect. The data does not support it for Alta or the I-70 corridor.</div>
+        </div>
+      </div>
+
+      <div class="r-card">
+        <div class="r-card-head">
+          <div><div class="r-region">Pacific Northwest / Northern Rockies</div><div class="r-examples">Jackson Hole, Big Sky, Mt. Bachelor, Stevens Pass</div></div>
+          <span class="signal-badge sb-bear">Bearish</span>
+        </div>
+        <div class="r-card-body">
+          <div class="r-meter-row">
+            <span class="r-meter-label">Snow vs avg</span>
+            <div class="r-meter"><div class="r-meter-fill mf-bear" style="width:28%"></div></div>
+            <span class="r-meter-pct">~85% of avg</span>
+          </div>
+          <p class="r-detail">The most consistently disfavored North American region. El Niño deflects Pacific systems south, cutting off the storm parade that defines these mountains in La Niña years. Jackson Hole averaged ~85% of normal snowfall across the six strongest El Niño winters on record.</p>
+          <div class="r-caveat"><span class="r-caveat-icon">⚠</span>Grand Targhee and Big Sky show less ENSO sensitivity due to microclimatic factors. High-elevation terrain can still deliver good individual cycles.</div>
+        </div>
+      </div>
+
+      <div class="r-card">
+        <div class="r-card-head">
+          <div><div class="r-region">Northeast United States</div><div class="r-examples">Killington, Stowe, Jay Peak, Cannon</div></div>
+          <span class="signal-badge sb-bear">Bearish</span>
+        </div>
+        <div class="r-card-body">
+          <div class="r-meter-row">
+            <span class="r-meter-label">Snow vs avg</span>
+            <div class="r-meter"><div class="r-meter-fill mf-bear" style="width:30%"></div></div>
+            <span class="r-meter-pct">~70–75% of avg</span>
+          </div>
+          <p class="r-detail">El Niño suppresses Arctic cold intrusions, compressing both the front and back of the snow window. The 2015-16 Super El Niño drove snowfall 30–40% below average at major New England resorts. The structural setup is consistently unfavorable.</p>
+          <div class="r-caveat"><span class="r-caveat-icon">⚠</span>Negative NAO events can still produce intense Nor'easters. Book deposits, not airfare. Watch the CPC NAO index in December–January.</div>
+        </div>
+      </div>
+
+      <div class="r-card">
+        <div class="r-card-head">
+          <div><div class="r-region">Canadian Rockies / BC</div><div class="r-examples">Whistler, Revelstoke, Banff, Big White</div></div>
+          <span class="signal-badge sb-bear">Bearish</span>
+        </div>
+        <div class="r-card-body">
+          <div class="r-meter-row">
+            <span class="r-meter-label">Snow vs avg</span>
+            <div class="r-meter"><div class="r-meter-fill mf-bear" style="width:25%"></div></div>
+            <span class="r-meter-pct">~80–85% of avg</span>
+          </div>
+          <p class="r-detail">La Niña's top beneficiary becomes El Niño's clearest loser in North America. BC interior — Revelstoke, Big White — is almost entirely Pacific storm-track dependent. Coastal Whistler has some insulation from sheer elevation and orographic lift, but the directional signal is unambiguous.</p>
+          <div class="r-caveat"><span class="r-caveat-icon">⚠</span>A Super El Niño amplifies this signal materially. If the tail scenario confirms by August, avoid non-refundable BC interior bookings.</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- GLOBAL -->
+    <p class="section-head">Global Destinations</p>
+    <div class="cards-grid">
+
+      <div class="r-card">
+        <div class="r-card-head">
+          <div><div class="r-region">European Alps</div><div class="r-examples">Zermatt, Val d'Isère, St. Anton, Chamonix, Verbier</div></div>
+          <span class="signal-badge sb-mixed">Mixed — elevation dependent</span>
+        </div>
+        <div class="r-card-body">
+          <div class="r-meter-row">
+            <span class="r-meter-label">ENSO signal</span>
+            <div class="r-meter"><div class="r-meter-fill mf-mixed" style="width:35%"></div></div>
+            <span class="r-meter-pct">Weak / noisy</span>
+          </div>
+          <p class="r-detail">Historical data shows little consistent ENSO-snowfall correlation in the Alps — the NAO is the dominant driver. El Niño's main risk is indirect: warmer background conditions raising the rain-snow line at lower resorts. Above 2,500m the signal is negligible. The 2015-16 Super El Niño produced poor lower-resort conditions and excellent glacier skiing.</p>
+          <div class="r-caveat"><span class="r-caveat-icon">⚠</span>Book high. A Sudden Stratospheric Warming event mid-winter can override El Niño for 4–6 weeks — SSW probability rises with low Arctic sea ice extent.</div>
+        </div>
+      </div>
+
+      <div class="r-card">
+        <div class="r-card-head">
+          <div><div class="r-region">Japan — Hokkaido / Tohoku</div><div class="r-examples">Niseko, Furano, Myoko, Nozawa Onsen</div></div>
+          <span class="signal-badge sb-mixed">Mixed — counterintuitive</span>
+        </div>
+        <div class="r-card-body">
+          <div class="r-meter-row">
+            <span class="r-meter-label">ENSO signal</span>
+            <div class="r-meter"><div class="r-meter-fill mf-mixed" style="width:50%"></div></div>
+            <span class="r-meter-pct">Nuanced</span>
+          </div>
+          <p class="r-detail">Japan defies the North American intuition. Niseko showed above-average snowfall in 7 of 12 El Niño cycles since 1954. Japan's powder is driven by Siberian cold air crossing the Sea of Japan — a mechanism only weakly coupled to ENSO. Hakuba (Nagano) is the notable exception: below average in ~83% of El Niño years.</p>
+          <div class="r-caveat"><span class="r-caveat-icon">⚠</span>For Japan-focused skiers: Niseko holds up historically. Hakuba is a meaningful risk in this ENSO regime.</div>
+        </div>
+      </div>
+
+      <div class="r-card">
+        <div class="r-card-head">
+          <div><div class="r-region">Andes — Chile / Argentina</div><div class="r-examples">Portillo, Valle Nevado, Bariloche, Las Leñas</div></div>
+          <span class="signal-badge sb-bull">Strongly Bullish</span>
+        </div>
+        <div class="r-card-body">
+          <div class="r-meter-row">
+            <span class="r-meter-label">Snow signal</span>
+            <div class="r-meter"><div class="r-meter-fill mf-bull" style="width:90%"></div></div>
+            <span class="r-meter-pct">Strong positive</span>
+          </div>
+          <p class="r-detail">The clearest El Niño beneficiary globally. The high central Andes respond to El Niño more directly than almost any other ski region on earth. In strong events, multi-day storm sequences have deposited extraordinary totals. Portillo (2,880m base) is the highest-conviction destination of this ENSO cycle. Season: June–September; peak window July–mid-August.</p>
+          <div class="r-caveat"><span class="r-caveat-icon">⚠</span>A Super El Niño is essentially a structural long for Portillo. Book early — El Niño years generate unusual Northern Hemisphere interest in Andean destinations.</div>
+        </div>
+      </div>
+
+      <div class="r-card">
+        <div class="r-card-head">
+          <div><div class="r-region">Australia</div><div class="r-examples">Perisher, Falls Creek, Thredbo</div></div>
+          <span class="signal-badge sb-bear">Bearish</span>
+        </div>
+        <div class="r-card-body">
+          <div class="r-meter-row">
+            <span class="r-meter-label">Snow signal</span>
+            <div class="r-meter"><div class="r-meter-fill mf-bear" style="width:18%"></div></div>
+            <span class="r-meter-pct">Historically poor</span>
+          </div>
+          <p class="r-detail">El Niño's clearest victim globally. Warmer temperatures, reduced precipitation, early closures, and compressed seasons characterize strong El Niño winters in Australia. The 2023-24 El Niño produced record warm winter temperatures. Marginal base elevations (Perisher peaks ~2,034m) offer no buffer against warm-air intrusions.</p>
+          <div class="r-caveat"><span class="r-caveat-icon">⚠</span>Highest-conviction avoid of this cycle if the event achieves moderate-to-strong intensity. Season runs June–September — full overlap with the strongest Southern Hemisphere El Niño signal.</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- WILDCARDS -->
+    <div class="wildcard-box">
+      <div class="wc-head">Key Wildcards — Apply to All Regions</div>
+      <p class="wc-title">What can override the seasonal signal</p>
+      <div class="wc-grid">
+        <div class="wc-item">
+          <div class="wc-item-label">El Niño Intensity</div>
+          <div class="wc-item-text">Moderate (+1.0°C) vs. Super (+2.0°C) is a dramatically different scenario. All signals amplify materially in the tail. Wait for July–August data before high-confidence booking commitments.</div>
+        </div>
+        <div class="wc-item">
+          <div class="wc-item-label">Sudden Stratospheric Warming</div>
+          <div class="wc-item-text">SSW events disrupt the polar vortex and send cold air south for 4–6 week windows, overriding El Niño's suppression of Arctic intrusions. Near-record-low Arctic sea ice extent raises SSW probability.</div>
+        </div>
+        <div class="wc-item">
+          <div class="wc-item-label">Snow Level vs. Snowfall</div>
+          <div class="wc-item-text">El Niño brings moisture but also warmer airmasses. A storm delivering 3 feet of water at a warm snow level produces rain at 7,000 ft and powder above 9,000 ft. Elevation of the freezing level matters as much as total precipitation.</div>
+        </div>
+        <div class="wc-item">
+          <div class="wc-item-label">Background Warming Trend</div>
+          <div class="wc-item-text">Climate change compresses the effective snow window at lower elevations in all ENSO phases. High-altitude resorts are increasingly the only reliable option — a structural shift that operates independently of any ENSO cycle.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="doc-footer">
+      <strong>Sources:</strong> NOAA CPC ENSO Diagnostic Discussion (April 2026); IRI/CCSR ENSO probability plume; ECMWF C3S Seasonal Forecast; WMO El Niño/La Niña Update; NOAA historical ENSO-snowfall composites; JMA historical snowfall data (1954–2014); Severe Weather Europe ENSO analysis. Signal classifications based on historical correlations across 20+ seasons where data quality permits. For informational purposes only.
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>

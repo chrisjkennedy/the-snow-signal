@@ -610,3 +610,9 @@ body {
   .trip-cost { text-align: left; }
   .trip-pass { margin-left: 0; }
 }
+
+/* Pass badges sit inline with the resort name */
+.resort-name-wrap { display: flex; align-items: baseline; gap: 7px; flex-wrap: wrap; min-width: 0; }
+.resort-name-wrap .pass-badge { cursor: help; }
+.pass-confidence { font-size: 9px; color: var(--muted); cursor: help; border-bottom: 1px dotted var(--muted); }
+.resort-top { align-items: flex-start; }
