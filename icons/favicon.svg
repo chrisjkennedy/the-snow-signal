@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="The Snow Signal">
+  <rect width="64" height="64" rx="14" fill="#0C2340"/>
+  <!-- Signal arcs radiating off the summit. Only two, and thick, so they still
+       read once the browser scales this into a 16px tab. -->
+  <g fill="none" stroke="#C4880A" stroke-width="3.6" stroke-linecap="round">
+    <path d="M33.8 13.6 A15.5 15.5 0 0 1 41.3 24.8"/>
+    <path d="M36.8 8.4 A21.5 21.5 0 0 1 47.3 24.0"/>
+  </g>
+  <!-- One dominant peak plus a shoulder; the snowcap is picked out in pure
+       white so the silhouette survives when the fine detail is lost. -->
+  <path d="M6 49 L23 23 L33 37 L39.5 28 L58 49 Z" fill="#E8F3FC"/>
+  <path d="M23 23 L17 32 L20.2 33.4 L23.6 31 L27 34 L29.4 31.6 Z" fill="#ffffff"/>
+  <rect x="6" y="49" width="52" height="4" fill="#2E6CA8"/>
+</svg>
